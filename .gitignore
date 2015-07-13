@@ -1,0 +1,11 @@
+# Sencha Development #
+######################
+
+.architect
+.project
+.sencha/
+.sass-cache/
+ext/
+touch/
+temp/
+build/

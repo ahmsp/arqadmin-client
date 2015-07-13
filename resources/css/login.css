@@ -1,0 +1,159 @@
+body {
+    background-color: rgb(255, 255, 255);
+    font: 400 1.75em/1.38 Helvetica;
+    color: rgb(102, 102, 102);
+}
+
+.author {
+    display: inline-block;
+    float: right;
+    margin: 12px 2.3333333333% 0 0;
+    font-size: 0.429em;
+    font-weight: 400;
+    line-height: 1.38;
+    color: rgb(102, 102, 102);
+}
+
+.box-title {
+    width: 100%;
+    height: 100px;
+    margin: 131px auto 0;
+}
+
+.bt-submit {
+    display: block;
+    width: 89.8823529411%;
+    height: 34px;
+    margin: 26px auto 0;
+    border-radius: 5px;
+    background-color: rgb(50, 118, 177);
+    font-size: 0.571em;
+    line-height: 1.38;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.control-group {
+    width: 89.6470588235%;
+    height: 40px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.copyright {
+    display: inline-block;
+    float: left;
+    margin: 12px 0 0 2.3333333333%;
+    font-size: 0.429em;
+    font-weight: 400;
+    line-height: 1.38;
+    color: rgb(102, 102, 102);
+}
+
+.form-label {
+    display: block;
+    float: left;
+    width: 20.2099737532%;
+    margin-top: 9px;
+    font-size: 0.571em;
+    font-weight: 400;
+    line-height: 1.38;
+    color: rgb(0,0,0);
+}
+
+.form-login {
+    width: 427px;
+    height: 329px;
+    margin: 58px auto 0;
+    border: 1px solid rgb(203, 203, 203);
+    border-radius: 10px;
+}
+
+.image-acervo {
+    display: block;
+    float: left;
+    width: 362px;
+    height: auto;
+    margin: 16px 0 0 15px;
+    overflow: hidden;
+}
+
+.image-pmsp {
+    display: block;
+    float: right;
+    width: 110px;
+    height: auto;
+    margin: 12px 1.1666666666% 0 0;
+    overflow: hidden;
+}
+
+.input-xlarge {
+    display: block;
+    float: left;
+    width: 79.7900262467%;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid rgb(152, 152, 152);
+    border-radius: 5px;
+    font-size: 0.643em;
+    line-height: 1.38;
+    color: rgb(0, 0, 0);
+}
+
+.legend {
+    width: 382px;
+    margin: 22px auto 0;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    font-size: 0.75em;
+    font-weight: 400;
+    line-height: 1.38;
+    color: rgb(102, 102, 102);
+}
+
+.main-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    width: 100%;
+    height: 38px;
+    margin: 0 auto;
+    background-color: rgb(0, 0, 0);
+}
+
+.main-header {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(0, 0, 0);
+}
+
+.title-1 {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1em;
+    line-height: 1.38;
+    text-align: center;
+    color: rgb(128, 128, 128);
+}
+
+.title-2 {
+    width: 100%;
+    margin: 5px auto 0;
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 1.38;
+    text-align: center;
+    color: rgb(77, 77, 77);
+}
+
+.control-group-1 {
+    margin-top: 29px;
+}
+
+.control-group-2,
+.control-group-3 {
+    margin-top: 22px;
+}
