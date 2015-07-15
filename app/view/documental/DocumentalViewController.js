@@ -30,8 +30,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
     onGridpanelSelect: function(rowmodel, record, index, eOpts) {
         // selects record in both grids
         var refs = this.getReferences();
-        refs.table.setSelection(record);
-        refs.list.setSelection(record);
+        refs.documentalTable.setSelection(record);
+        refs.documentalList.setSelection(record);
 
         //scroll grid to selected record
         // list.getView().focusRow(index);
@@ -88,13 +88,13 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
     },
 
     showView: function(view) {
-        var layout = this.getReferences().display.getLayout();
-        layout.setActiveItem(this.lookupReference(view));
+        var layout = this.getReferences().displayPanel.getLayout();
+        layout.setActiveItem(this.lookupReference('documentalDetails'));
     },
 
     /*
-        * Change the disabled state of cascading combos,
-        * based on defined values
+    * Change the disabled state of cascading combos,
+    * based on defined values
     */
     changeDisableCascadingCombos: function() {
         var combos = this.lookupReference('classificFieldset').getReferences();
@@ -125,7 +125,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
     formLoadRecord: function(record) {
         var me = this,
-            formPanel = me.getReferences().form,
+            formPanel = me.getReferences().documentalForm,
             form = formPanel.getForm();
 
         // Clear form
@@ -151,13 +151,13 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         var recordIndex = acervoCombo.getStore().findBy(
             function(record, id){
 
-                if(refs.fundoCombo.value === record.get('fundoId') &&
-                   refs.subfundoCombo.value === record.get('subfundoId') &&
-                   refs.grupoCombo.value === record.get('grupoId') &&
-                   refs.subgrupoCombo.value === record.get('subgrupoId') &&
-                   refs.serieCombo.value === record.get('serieId') &&
-                   refs.subserieCombo.value === record.get('subserieId') &&
-                   refs.dossieCombo.value === record.get('dossieId')) {
+                if(refs.fundoCombo.value === record.get('fundo_id') &&
+                   refs.subfundoCombo.value === record.get('subfundo_id') &&
+                   refs.grupoCombo.value === record.get('grupo_id') &&
+                   refs.subgrupoCombo.value === record.get('subgrupo_id') &&
+                   refs.serieCombo.value === record.get('serie_id') &&
+                   refs.subserieCombo.value === record.get('subserie_id') &&
+                   refs.dossieCombo.value === record.get('dossie_id')) {
                     return true;
                 }
                 return false;
@@ -171,7 +171,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
     },
 
     add: function(button, e, eOpts) {
-        var formPanel = this.getReferences().form,
+        var formPanel = this.getReferences().documentalForm,
             form = formPanel.getForm(),
             newRecord = Ext.create('model.documento');
         newRecord.set('id', null);
@@ -183,7 +183,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         formPanel.setTitle('Adicionar Documento');
 
         // Show form
-        this.showView('form');
+        this.showView('documentalForm');
 
     },
 
@@ -193,7 +193,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
         me.formLoadRecord(record);
 
-        me.getReferences().display.setTitle('Editar Documento');
+        me.getReferences().displayPanel.setTitle('Editar Documento');
 
         me.showView('form');
     },
@@ -222,7 +222,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
     },
 
     save: function(button, e, eOpts) {
-        var form = this.getReferences().form.getForm(),
+        var form = this.getReferences().documentalForm.getForm(),
             record = form.getRecord(),
             store = Ext.StoreManager.lookup('Documentos');
 
@@ -273,7 +273,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
     onAcervoComboSelect: function(combo, records, eOpts) {
         var me = this,
-            formPanel = me.getReferences().form,
+            formPanel = me.getReferences().documentalForm,
             form = formPanel.getForm(),
             combosRefs = this.lookupReference('classificFieldset').getReferences(),
             values = records[0].getData();

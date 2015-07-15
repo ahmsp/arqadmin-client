@@ -1,76 +1,5 @@
-$base-color: rgba(88,127,134,1);
-$panel-light-header-font-size: 14px;
-$panel-header-font-size: 14px;
-$panel-frame-border-radius: 0;
-$grid-row-cell-focus-border-width: 0;
-$button-small-font-size: 13px;
-$button-small-border-radius: 2px;
-$button-small-line-height: 17px;
-$button-medium-border-radius: $button-small-border-radius;
-$button-large-border-radius: $button-small-border-radius;
-$button-default-background-gradient: none;
-$button-default-background-gradient-over: none;
-$button-default-background-gradient-pressed: none;
-$button-default-background-gradient-disabled: none;
-$button-default-glyph-opacity: 0.9;
-$button-toolbar-glyph-opacity: 0.9;
-
-
-// COLOR PALETTE
-
-$exec-dark-background: #3e4752;
-$exec-light-background: #ececec;
-$exec-tile-background: #ffffff;
-
-$exec-blue-color: #2e6eaf;
-$exec-red-color: #f1495b;
-$exec-green-color: #11c897;
-$exec-light-blue-color: saturate(lighten($exec-blue-color, 53%), 70%);
-
-$exec-font-light-color: #a0a7b8;
-$exec-font-color: #878ea2;
-$exec-font-dark-color: $exec-dark-background;
-
-//Proxima Nova is preferred font, but it is not a free font.
-$exec-font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-$exec-font-size-small-content: 11px;
-$exec-font-size-content: 12px;
-$exec-font-size-small-title: 14px;
-$exec-font-size-medium-title: 18px;
-$exec-font-size-large-title: 20px;
-$exec-font-size-xlarge-title: 28px;
-
-$exec-font-regular: 400;
-$exec-font-semibold: 500;
-$exec-font-bold: 800;
-
-// GENERAL APP STYLE
-
-$color: $exec-font-dark-color;
-$font-family: $exec-font-family;
-$body-background-color: $exec-light-background;
-
-// PANEL
-
-$panel-body-color: $exec-font-dark-color;
-$panel-body-background-color: $exec-light-background;
-
-.exec-quarterly-icon {
-  background-image: url(icons/quarterly.png);
-
-  .x-ie8 & {
-    background-image: url(icons/quarterly-small.png);
-  }
-}
-
-
 .dashboard-main {
   background-color: $exec-light-background;
-
-  .dashboard-body {
-    background-color: $exec-light-background;
-  }
 
   .dashboard-chart {
     border-radius: 3px;
@@ -194,7 +123,6 @@ $panel-body-background-color: $exec-light-background;
   .thumb-title {
     color: $exec-font-dark-color;
     font-weight: $exec-font-bold;
-    font-size: 15px !important;
   }
 
   .thumb-title-small {
@@ -204,12 +132,13 @@ $panel-body-background-color: $exec-light-background;
   }
 
   .thumb-icon {
-    height: 57px;
-    width: 57px;
+    background-image: url(icons/pdf.png);
+    height: 40px;
+    width: 40px;
     background-size: contain;
     background-repeat: no-repeat;
     float: left;
-    margin-right: 10px;
+    margin-right: 5px;
 
     .x-ie8 & {
       background-image: url(icons/pdf-small.png);
@@ -220,8 +149,8 @@ $panel-body-background-color: $exec-light-background;
     height: 40px;
     width: 40px;
 
-    background-image: url(../resources/ico/folder_go.png);
-    background-position: right top;
+    background-image: url(icons/download-small.png);
+    background-position: right center;
     background-repeat: no-repeat;
     background-size: 50%;
 
@@ -250,12 +179,12 @@ $panel-body-background-color: $exec-light-background;
   .thumb-wrap{
     display: table;
     float: left;
-    width: 33%;
+    width: 50%;
     padding: 5px;
   }
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 980px) and (orientation: landscape), screen and (max-width: 760px) and (orientation: portrait) {
   .dashboard-main .thumb-wrap {
     float: none;
     width: 100%;

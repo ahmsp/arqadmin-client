@@ -6,7 +6,7 @@ Ext.define('ArqAdmin.view.main.Main', {
     requires: [
         'ArqAdmin.view.main.MainController',
         'ArqAdmin.view.main.MainModel',
-        'ArqAdmin.view.dashboard.Container',
+        'ArqAdmin.view.dashboard.DashboardMain',
         'ArqAdmin.view.documental.Documental',
         'ArqAdmin.view.fotografico.Container',
         'ArqAdmin.view.sepultamento.Container',
@@ -225,7 +225,7 @@ Ext.define('ArqAdmin.view.main.Main', {
             layout: 'card',
             items: [
                 {
-                    xtype: 'dashboardcontainer'
+                    xtype: 'dashboard-main'
                 },
                 {
                     xtype: 'documental'

@@ -1,0 +1,16 @@
+/** @class Ext.toolbar.Toolbar */
+//
+@include extjs-toolbar-ui(
+  $ui: "toolbar-dark",
+  $background-color: $base-color
+);
+
+@include extjs-toolbar-ui(
+  $ui: "toolbar-light",
+  $background-color: mix($base-color, $neutral-light-color, 60%)
+);
+
+@include extjs-toolbar-ui(
+  $ui:"toolbar-plain",
+  $background-color: $base-highlight-color
+);

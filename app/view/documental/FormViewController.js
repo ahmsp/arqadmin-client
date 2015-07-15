@@ -19,7 +19,7 @@ Ext.define('ArqAdmin.view.documental.FormViewController', {
 
     onAcervoComboSelect: function(combo, records, eOpts) {
         var me = this,
-            formPanel = me.getReferences().form,
+            formPanel = me.getReferences().documentalForm,
             form = formPanel.getForm(),
             combosRefs = this.lookupReference('classificFieldset').getReferences(),
             values = records[0].getData();

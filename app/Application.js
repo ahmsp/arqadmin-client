@@ -70,7 +70,7 @@ Ext.define('ArqAdmin.Application', {
                 remove: true,
                 listeners: {
                     afteranimate: function (el, startTime, eOpts) {
-                        //Ext.create('widget.login-dialog');
+                        //Ext.widget('login-dialog');
                         Ext.widget('app-main');
                     }
                 }

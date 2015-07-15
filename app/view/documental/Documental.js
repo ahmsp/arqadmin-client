@@ -21,24 +21,15 @@ Ext.define('ArqAdmin.view.documental.Documental', {
         'ArqAdmin.view.documental.DocumentalViewModel',
         'ArqAdmin.view.documental.DocumentalViewController',
         'ArqAdmin.view.documental.Grid',
+        'ArqAdmin.view.documental.List',
+        'ArqAdmin.view.documental.Details',
+        'ArqAdmin.view.documental.Form',
+        'Ext.toolbar.Toolbar',
         'Ext.form.Label',
         'Ext.toolbar.Fill',
         'Ext.button.Button',
         'Ext.grid.Panel',
-        //'Ext.grid.filters.filter.List',
-        //'Ext.grid.filters.filter.String',
-        'Ext.toolbar.Paging',
-        'Ext.grid.filters.Filters',
-        'Ext.grid.column.Template',
-        //'Ext.XTemplate',
-        'Ext.form.field.Display',
-        'Ext.form.Panel',
-        'Ext.form.FieldSet',
-        'Ext.form.field.ComboBox',
-        'Ext.toolbar.Spacer',
-        //'Ext.form.trigger.Trigger',
-        'Ext.form.field.TextArea',
-        'Ext.grid.column.Column'
+        'Ext.form.Panel'
     ],
 
     controller: 'documental',
@@ -107,8 +98,9 @@ Ext.define('ArqAdmin.view.documental.Documental', {
             items: [
                 {
                     xtype: 'documental-grid'
-                },{
-                    xtype: 'panel'
+                },
+                {
+                    xtype: 'documental-list'
                 }
             ]
         },
@@ -116,7 +108,7 @@ Ext.define('ArqAdmin.view.documental.Documental', {
             xtype: 'panel',
             region: 'east',
             split: true,
-            reference: 'display',
+            reference: 'displayPanel',
             width: 450,
             layout: 'card',
             bodyBorder: true,
@@ -206,9 +198,9 @@ Ext.define('ArqAdmin.view.documental.Documental', {
                         }
                     ]
                 },{
-                    xtype: 'panel'
+                    xtype: 'documental-details'
                 },{
-                    xtype: 'panel'
+                    xtype: 'documental-form'
                 }
             ]
         }

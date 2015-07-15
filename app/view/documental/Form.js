@@ -15,10 +15,9 @@
 
 Ext.define('ArqAdmin.view.documental.Form', {
     extend: 'Ext.form.Panel',
-    alias: 'widget.documentalform',
+    xtype: 'documental-form',
 
     requires: [
-        'ArqAdmin.view.documental.FormViewModel',
         'ArqAdmin.view.documental.FormViewController',
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
@@ -30,10 +29,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
     ],
 
     controller: 'documentalform',
-    viewModel: {
-        type: 'documentalform'
-    },
-    reference: 'form',
+    reference: 'documentalForm',
     autoScroll: true,
     cls: 'custom-form-panel',
     defaults: {
@@ -74,7 +70,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             flex: 1,
                             reference: 'acervoCombo',
                             fieldLabel: 'Classificação (Atalho)',
-                            name: 'acervoId',
+                            name: 'acervo_id',
                             emptyText: 'Selecione uma classificação...',
                             displayField: 'acervo_nome',
                             queryMode: 'local',
@@ -120,14 +116,14 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             xtype: 'combobox',
                             reference: 'fundoCombo',
                             fieldLabel: 'Fundo',
-                            name: 'fundoId'
+                            name: 'fundo_id'
                         },
                         {
                             xtype: 'combobox',
                             reference: 'subfundoCombo',
                             disabled: true,
                             fieldLabel: 'Subfundo',
-                            name: 'subfundoId',
+                            name: 'subfundo_id',
                             displayField: 'subfundo_nome',
                             store: 'classificacao.Subfundos',
                             valueField: 'id'
@@ -137,7 +133,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             reference: 'grupoCombo',
                             disabled: true,
                             fieldLabel: 'Grupo',
-                            name: 'grupoId',
+                            name: 'grupo_id',
                             displayField: 'grupo_nome',
                             store: 'classificacao.Grupos',
                             valueField: 'id'
@@ -147,7 +143,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             reference: 'subgrupoCombo',
                             disabled: true,
                             fieldLabel: 'Subgrupo',
-                            name: 'subgrupoId',
+                            name: 'subgrupo_id',
                             displayField: 'subgrupo_nome',
                             store: 'classificacao.Subgrupos',
                             valueField: 'id'
@@ -157,7 +153,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             reference: 'serieCombo',
                             disabled: true,
                             fieldLabel: 'Série',
-                            name: 'serieId',
+                            name: 'serie_id',
                             displayField: 'serie_nome',
                             store: 'classificacao.Series',
                             valueField: 'id'
@@ -167,7 +163,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             reference: 'subserieCombo',
                             disabled: true,
                             fieldLabel: 'Subsérie',
-                            name: 'subserieId',
+                            name: 'subserie_id',
                             displayField: 'subserie_nome',
                             store: 'classificacao.Subseries',
                             valueField: 'id'
@@ -177,7 +173,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             reference: 'dossieCombo',
                             disabled: true,
                             fieldLabel: 'Dossiê',
-                            name: 'dossieId',
+                            name: 'dossie_id',
                             displayField: 'dossie_nome',
                             store: 'classificacao.Dossies',
                             valueField: 'id'
@@ -202,7 +198,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                     xtype: 'combobox',
                     reference: 'especiedocumentalCombo',
                     fieldLabel: 'Espécie Documental',
-                    name: 'especiedocumentalId',
+                    name: 'especiedocumental_id',
                     allowBlank: false,
                     allowOnlyWhitespace: false,
                     displayField: 'especiedocumental_nome',
@@ -213,7 +209,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Notação Pré-existente',
-                    name: 'notacaoPreexistente'
+                    name: 'notacao_preexistente'
                 },
                 {
                     xtype: 'textfield',
@@ -232,7 +228,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Data',
-                    name: 'dataDoc'
+                    name: 'data_doc'
                 },
                 {
                     xtype: 'container',
@@ -246,7 +242,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             xtype: 'combobox',
                             flex: 1,
                             fieldLabel: 'Estado de Conservação',
-                            name: 'conservacaoId',
+                            name: 'conservacao_id',
                             displayField: 'conservacao_estado',
                             store: 'documental.Conservacoes',
                             valueField: 'id',
@@ -276,12 +272,12 @@ Ext.define('ArqAdmin.view.documental.Form', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Processo nº',
-                    name: 'processoNum'
+                    name: 'processo_num'
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Qtde. de  Documentos',
-                    name: 'quantidadeDoc'
+                    name: 'quantidade_doc'
                 },
                 {
                     xtype: 'textfield',
@@ -299,7 +295,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Uso',
-                    name: 'dtUsoId'
+                    name: 'dt_uso_id'
                 },
                 {
                     xtype: 'textareafield',
@@ -315,22 +311,22 @@ Ext.define('ArqAdmin.view.documental.Form', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Endereço',
-                    name: 'dtEndereco'
+                    name: 'dt_endereco'
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Complemento',
-                    name: 'dtEndComplemento'
+                    name: 'dt_end_complemento'
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Endereço Atual',
-                    name: 'dtEnderecoAtual'
+                    name: 'dt_endereco_atual'
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Complemento',
-                    name: 'dtEndatualComplemento'
+                    name: 'dt_endatual_complemento'
                 }
             ]
         },
@@ -341,22 +337,22 @@ Ext.define('ArqAdmin.view.documental.Form', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Autor',
-                    name: 'dtAutor'
+                    name: 'dt_autor'
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Construtor',
-                    name: 'dtConstrutor'
+                    name: 'dt_construtor'
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Proprietário',
-                    name: 'dtProprietario'
+                    name: 'dt_proprietario'
                 },
                 {
                     xtype: 'textareafield',
                     fieldLabel: 'Notas',
-                    name: 'dtNotas'
+                    name: 'dt_notas'
                 }
             ]
         },
@@ -379,7 +375,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             xtype: 'combobox',
                             flex: 1,
                             fieldLabel: 'Sala',
-                            name: 'lcSalaId',
+                            name: 'lc_sala_id',
                             displayField: 'sala',
                             store: 'localizacao.LcSalas',
                             valueField: 'id',
@@ -418,7 +414,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             xtype: 'combobox',
                             flex: 1,
                             fieldLabel: 'Móvel',
-                            name: 'lcMovelId',
+                            name: 'lc_movel_id',
                             displayField: 'movel',
                             store: 'localizacao.LcMoveis',
                             valueField: 'id',
@@ -448,7 +444,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Movel nº',
-                    name: 'lcMovelNum'
+                    name: 'lc_movel_num'
                 },
                 {
                     xtype: 'container',
@@ -462,7 +458,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             xtype: 'combobox',
                             flex: 1,
                             fieldLabel: 'Compartimento',
-                            name: 'lcCompartimentoId',
+                            name: 'lc_compartimento_id',
                             displayField: 'compartimento',
                             store: 'localizacao.LcCompartimentos',
                             valueField: 'id',
@@ -492,7 +488,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Compartimento nº',
-                    name: 'lcCompartimentoNum'
+                    name: 'lc_compartimento_num'
                 },
                 {
                     xtype: 'container',
@@ -506,7 +502,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             xtype: 'combobox',
                             flex: 1,
                             fieldLabel: 'Acondicionamento',
-                            name: 'lcAcondicionamentoId',
+                            name: 'lc_acondicionamento_id',
                             displayField: 'acondicionamento',
                             store: 'localizacao.LcAcondicionamentos',
                             valueField: 'id',
@@ -536,12 +532,12 @@ Ext.define('ArqAdmin.view.documental.Form', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Acondicionamento nº',
-                    name: 'lcAcondicionamentoNum'
+                    name: 'lc_acondicionamento_num'
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Página',
-                    name: 'lcPagina'
+                    name: 'lc_pagina'
                 }
             ]
         }
