@@ -45,7 +45,8 @@
      *      ]
      */
     "requires": [
-        "ext-locale"
+        "ext-locale",
+        "sencha-charts"
     ],
 
     "locale": "pt-BR",

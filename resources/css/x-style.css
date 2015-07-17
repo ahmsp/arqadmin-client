@@ -235,3 +235,8 @@
     color: #555;
     text-decoration: underline;
 }
+
+/**, */
+.x-view-item-focused {
+    outline: 0 !important;
+}

@@ -15,7 +15,6 @@ $button-default-background-gradient-disabled: none;
 $button-default-glyph-opacity: 0.9;
 $button-toolbar-glyph-opacity: 0.9;
 
-
 // COLOR PALETTE
 
 $exec-dark-background: #3e4752;
@@ -56,134 +55,207 @@ $body-background-color: $exec-light-background;
 $panel-body-color: $exec-font-dark-color;
 $panel-body-background-color: $exec-light-background;
 
-.exec-quarterly-icon {
-  background-image: url(icons/quarterly.png);
+// TOOLBAR
 
-  .x-ie8 & {
-    background-image: url(icons/quarterly-small.png);
-  }
-}
+//$toolbar-background-color: $exec-light-background;
 
 
-.dashboard-main {
-  background-color: $exec-light-background;
+//.ext-strict .ext-ie .x-tree .x-panel-bwrap{
+//  position:relative;
+//  overflow:hidden;
+//}
 
-  .dashboard-body {
+
+$active: #12C897;
+$paused: #C8C8C8;
+$ended: #F1485B;
+
+.kpi-main {
+
+  .kpi-toolbar {
+    padding: 0 0 10px 0 !important;
     background-color: $exec-light-background;
   }
 
-  .dashboard-chart {
-    border-radius: 3px;
-    -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow:    0px 1px 1px 0px rgba(0, 0, 0, 0.25);
-    box-shadow:         0px 1px 1px 0px rgba(0, 0, 0, 0.25);
-    margin: 20px 20px 0;
-
-    z-index: 1000;
-
-    .ql-percentage {
-      font-size: $exec-font-size-content;
-      margin-left: 5px;
-    }
-
-    .x-toolbar {
-      background-color: $exec-tile-background;
-      padding-top: 15px !important;
-      padding-bottom: 0px !important;
-      padding: 0;
-
-      .x-btn-arrow-right:after {
-        background-image: url(images/button/default-toolbar-small-arrow.png) !important;
-      }
-
-      .x-btn-default-toolbar-small {
-        background-color: $exec-tile-background;
-        border-color: $exec-tile-background;
-
-        .small-sub-text {
-          font-size: $exec-font-size-small-content;
-        }
-      }
-
-      .x-form-item-label-inner {
-        color: $exec-font-light-color;
-        font-size: $exec-font-size-small-content;
-        font-weight: $exec-font-bold;
-        padding: 0;
-        margin: 0;
-      }
-
-      .x-form-display-field {
-        font-size: $exec-font-size-medium-title;
-        margin: 0;
-        padding: 0;
-      }
-    }
-  }
-
-  .stock-picker-small {
-    text-align: right;
-    padding-right: 7px;
-
-    .x-form-display-field {
-      color: $exec-font-light-color !important;
-      font-size: $exec-font-size-content !important;
-      font-weight: $exec-font-bold !important;
-    }
-  }
-
-  .x-btn.dashboard-cycle {
-
-    background: none;
-    border: none;
-
-    span {
-      color: $exec-font-dark-color !important;
-      font-size: $exec-font-size-xlarge-title !important;
-      line-height: $exec-font-size-xlarge-title;
-      font-weight: $exec-font-semibold;
-    }
-
-    &.x-btn-focus {
-      @include inner-border(1px, mix($exec-blue-color, #fff, 40%));
-    }
-
-    .x-btn-split-right:after {
-      background-image: url(icons/switch-icon.png) !important;
-      background-position: center !important;
-      width: 24px !important;
-      padding-right: 0 !important;
-      padding-top: 5px !important;
-
-      .x-ie8 & {
-        background-image: url(icons/switch-icon-small.png) !important;
-      }
-    }
-
-    .x-btn-tl,
-    .x-btn-tc,
-    .x-btn-tr,
-    .x-btn-ml,
-    .x-btn-mc,
-    .x-btn-mr,
-    .x-btn-bl,
-    .x-btn-bc,
-    .x-btn-br {
-      background: none
-    }
-  }
-
-  .dashboard-dataview {
-    padding: 10px 15px 15px;
-  }
-
-  .statement-type {
-    width: 100%;
-    float: left;
+  .kpi-chart-title {
+    margin-top: 3px !important;
     color: $exec-font-color;
-    font-weight: bold;
     font-size: $exec-font-size-small-title;
-    margin: 20px 5px 0;
+    font-weight: $exec-font-bold;
+  }
+
+  .kpi-meta-charts-body {
+    overflow: visible;
+    padding-bottom: 20px;
+
+    .x-box-inner {
+      overflow: visible;
+    }
+
+    .x-panel {
+      overflow: visible;
+    }
+  }
+
+  .kpi-main-chart {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+
+    overflow: visible;
+
+    .x-panel-body {
+      border-radius: 3px;
+
+      -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+      -moz-box-shadow:    0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+      box-shadow:         0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+
+      z-index: 1000;
+    }
+  }
+
+  .kpi-meta-charts {
+    margin-bottom: 20px;
+    overflow: visible;
+
+    .x-panel-body, .x-panel, .x-box-inner {
+      overflow: visible;
+
+    }
+    .kpi-in-store, .kpi-online {
+      padding-left: 30px;
+      font-size: $exec-font-size-content;
+      font-weight: $exec-font-bold;
+      color: $exec-font-light-color;
+
+      span {
+        margin-right: 15px;
+      }
+      span:first-child {
+        float: left;
+      }
+      span:nth-child(2) {
+        float: right;
+      }
+    }
+
+    .kpi-online {
+      padding-bottom: 10px;
+    }
+    .kpi-in-store:before, .kpi-online:before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 6px;
+      display: block;
+      position: absolute;
+      left: 10px;
+      margin-top: 2px;
+    }
+    .kpi-in-store:before {
+      background-color: #2ac8ef;
+    }
+    .kpi-online:before {
+      background-color: #11c897;
+    }
+    .x-panel-header {
+      background-color: $exec-light-background;
+      margin: 15px 0 10px 0;
+      padding: 0 !important;
+
+      .x-title {
+        line-height: $exec-font-size-small-title;
+      }
+
+      .x-title-text {
+        color: $exec-font-color;
+        font-size: $exec-font-size-small-title;
+        font-weight: $exec-font-bold;
+      }
+    }
+
+    .redemption-body, .statistics-body {
+      border-radius: 3px;
+
+      -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+      -moz-box-shadow:    0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+      box-shadow:         0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+
+      background-color: $exec-tile-background;
+    }
+
+    .redemption-body {
+      margin-right: 10px;
+    }
+
+    .statistics-body {
+      margin-right: 20px;
+      padding: 15px;
+    }
+
+    .statistic-header {
+      font-size: $exec-font-size-content;
+      font-weight: $exec-font-semibold;
+      text-transform: uppercase;
+      color: $exec-font-light-color;
+      margin-bottom: 10px;
+    }
+
+    .sparkline {
+      height: 7px;
+      margin-left: 135px;
+      background-color: #e6e7eb;
+      clear: both;
+      border-radius: 4px;
+      margin-bottom: 10px;
+
+      .sparkline-inner {
+        height: 100%;
+        border-radius: 4px;
+      }
+      .sparkline-inner-active {
+        background-color: $active;
+      }
+      .sparkline-inner-paused {
+        background-color: $paused;
+      }
+      .sparkline-inner-ended {
+        background-color: $ended;
+      }
+    }
+    .statistic-tag {
+      width: 120px;
+      padding: 5px 0 5px 0;
+      font-size: $exec-font-size-small-content;
+      font-weight: $exec-font-semibold;
+      color: white;
+      border-radius: 3px;
+      text-transform: uppercase;
+      text-align: center;
+      float: left;
+      &.active {
+        background-color: $active;
+      }
+      &.paused {
+        background-color: $paused;
+      }
+      &.ended {
+        background-color: $ended;
+      }
+    }
+    .statistic-description {
+      line-height: 27px;
+      font-size: $exec-font-size-small-content;
+      font-weight: $exec-font-bold;
+      float:left;
+      margin-left: 15px;
+      color: $exec-font-light-color;
+      text-transform: uppercase;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   .thumb-title-container {
@@ -216,12 +288,18 @@ $panel-body-background-color: $exec-light-background;
     }
   }
 
+
+
+  .dashboard-dataview {
+    padding: 10px 0px 8px 15px;
+  }
+
   .thumb-download {
-    height: 40px;
+    height: 57px;
     width: 40px;
 
-    background-image: url(../resources/ico/folder_go.png);
-    background-position: right top;
+    background-image: url(../resources/ico/go-into.png);
+    background-position: right center;
     background-repeat: no-repeat;
     background-size: 50%;
 
@@ -251,35 +329,27 @@ $panel-body-background-color: $exec-light-background;
     display: table;
     float: left;
     width: 33%;
+    //margin-left: 5px;
     padding: 5px;
   }
+
 }
+
+hr.hr-dashboard {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 
 @media screen and (max-width: 1250px) {
-  .dashboard-main .thumb-wrap {
+  .kpi-main .dashboard-dataview {
+    padding: 10px 15px 8px;
+  }
+  .kpi-main .thumb-wrap {
     float: none;
     width: 100%;
-    padding: 5px 0;
   }
 }
 
-
-#dashboard-menu {
-  .x-menu-body {
-    background-color: white;
-    span {
-      color: black;
-    }
-  }
-  .x-menu-item-active {
-    background-color: darken(white, 10%) !important;
-  }
-  .x-menu-item-checked .x-menu-item-checkbox {
-    background-image: url("icons/group-checked-black-small.png") !important;
-  }
-}
-
-.ext-strict .ext-ie .x-tree .x-panel-bwrap{
-  position:relative;
-  overflow:hidden;
-}
