@@ -42,7 +42,7 @@ Ext.define('ArqAdmin.view.documental.Details', {
                     xtype: 'displayfield',
                     fieldLabel: 'Espécie Documental',
                     bind: {
-                        hidden: '{!record.especiedocumental_nome}',
+                        //hidden: '{!record.especiedocumental_nome}',
                         value: '{record.especiedocumental_nome}'
                     }
                 },

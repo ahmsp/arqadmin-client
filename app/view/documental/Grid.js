@@ -32,10 +32,7 @@ Ext.define('ArqAdmin.view.documental.Grid', {
             dataIndex: 'especiedocumental_id',
             text: 'Espécie Documental',
             renderer: function(value, metaData, record) {
-                var obj = record.get('especie_documental');
-                if (obj) {
-                    return obj.especiedocumental_nome;
-                }
+                return (record.get('especie_documental')) ? record.get('especie_documental').especiedocumental_nome: '';
             },
             filter: {
                 type: 'list',
@@ -224,8 +221,18 @@ Ext.define('ArqAdmin.view.documental.Grid', {
             columns: [
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'fundo_nome',
-                    text: 'Fundo'
+                    dataIndex: 'fundo_id',
+                    text: 'Fundo',
+                    renderer: function(value, metaData, record) {
+                        return (record.get('fundo')) ? record.get('fundo').fundo_nome : '';
+                    },
+                    filter: {
+                        type: 'list',
+                        idField: 'id',
+                        labelField: 'fundo_nome',
+                        updateBuffer: 2000,
+                        store: 'classificacao.Fundos'
+                    }
                 },
                 {
                     xtype: 'gridcolumn',

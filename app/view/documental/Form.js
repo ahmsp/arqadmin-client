@@ -18,7 +18,6 @@ Ext.define('ArqAdmin.view.documental.Form', {
     xtype: 'documental-form',
 
     requires: [
-        'ArqAdmin.view.documental.FormViewController',
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
         'Ext.toolbar.Spacer',
@@ -28,7 +27,6 @@ Ext.define('ArqAdmin.view.documental.Form', {
         'Ext.form.field.TextArea'
     ],
 
-    controller: 'documentalform',
     reference: 'documentalForm',
     autoScroll: true,
     cls: 'custom-form-panel',
@@ -116,7 +114,10 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             xtype: 'combobox',
                             reference: 'fundoCombo',
                             fieldLabel: 'Fundo',
-                            name: 'fundo_id'
+                            name: 'fundo_id',
+                            displayField: 'fundo_nome',
+                            store: 'classificacao.Fundos',
+                            valueField: 'id'
                         },
                         {
                             xtype: 'combobox',

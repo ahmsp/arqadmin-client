@@ -282,7 +282,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
                     margin: '0 20px 0 0',
                     //flex: 1,
                     width: 280,
-                    title: 'USUÁRIOS',
+                    title: 'TERMOS PESQUISADOS',
                 }
 
 

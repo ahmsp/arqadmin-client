@@ -77,7 +77,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'especiedocumental_id'
         },
         {
-            mapping: 'especiedocumental.especiedocumental_nome',
+            mapping: 'especie_documental.especiedocumental_nome',
             name: 'especiedocumental_nome'
         },
         {

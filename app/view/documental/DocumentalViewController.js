@@ -37,11 +37,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         // list.getView().focusRow(index);
         // list.getView().scrollRowIntoView(index);
 
-        // Set selected record
         this.getViewModel().set('record', record);
-
-        // Show details
-        this.showView('details');
+        this.showView('documentalDetails');
     },
 
     onCascadingComboSelect: function(combo, records, eOpts) {
@@ -89,7 +86,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
     showView: function(view) {
         var layout = this.getReferences().displayPanel.getLayout();
-        layout.setActiveItem(this.lookupReference('documentalDetails'));
+        layout.setActiveItem(this.lookupReference(view));
     },
 
     /*
@@ -117,7 +114,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
     /* Clean the filters of cascading combos */
     clearFilterCascadingCombos: function() {
         var combos = this.lookupReference('classificFieldset').getReferences();
-
         Ext.Object.each(combos, function(key, combo, obj) {
             combo.getStore().clearFilter();
         });
@@ -173,7 +169,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
     add: function(button, e, eOpts) {
         var formPanel = this.getReferences().documentalForm,
             form = formPanel.getForm(),
-            newRecord = Ext.create('model.documento');
+            newRecord = Ext.create('ArqAdmin.model.documental.Documento');
         newRecord.set('id', null);
 
         // Set record
@@ -192,10 +188,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
             record = me.getViewModel().get('record');
 
         me.formLoadRecord(record);
-
         me.getReferences().displayPanel.setTitle('Editar Documento');
-
-        me.showView('form');
+        me.showView('documentalForm');
     },
 
     remove: function(button, e, eOpts) {
@@ -268,7 +262,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
     cancelEdit: function(button, e, eOpts) {
         // Show details
-        this.showView('details');
+        this.showView('documentalDetails');
     },
 
     onAcervoComboSelect: function(combo, records, eOpts) {
@@ -276,7 +270,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
             formPanel = me.getReferences().documentalForm,
             form = formPanel.getForm(),
             combosRefs = this.lookupReference('classificFieldset').getReferences(),
-            values = records[0].getData();
+            values = records.getData();
 
         delete values.id;
 
