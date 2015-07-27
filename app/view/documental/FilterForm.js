@@ -39,7 +39,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     xtype: 'button',
                     action: 'clear',
                     flex: 1,
-                    text: 'Limpar tudo',
+                    text: 'Limpar filtros',
                     handler: function(button) {
                         button.up('form').reset();
                     }

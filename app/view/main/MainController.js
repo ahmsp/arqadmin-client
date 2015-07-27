@@ -18,7 +18,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
             click: 'maximizeModuleContainer'
         },
         "#toolbarHeader button": {
-            click: 'toggleListType'
+            click: 'onResultToolbarButtonsClick'
         }
     },
 
@@ -68,9 +68,13 @@ Ext.define('ArqAdmin.view.main.MainController', {
 
     },
 
-    toggleListType: function(button, e, eOpts) {
-        var setActive = (button.itemId == 'btnShowTable') ? 0 : 1;
-        button.up('panel').getLayout().setActiveItem(setActive);
+    onToolbarGridButtonsClick: function(button, e, eOpts) {
+        if ((button.itemId == 'btnClearFilters')) {
+            button.up('panel').down('grid').filters.clearFilters();
+        } else {
+            var setActive = (button.itemId == 'btnShowTable') ? 0 : 1;
+            button.up('panel').getLayout().setActiveItem(setActive);
+        }
     },
 
     showView: function(view) {

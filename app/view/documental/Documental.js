@@ -17,6 +17,7 @@ Ext.define('ArqAdmin.view.documental.Documental', {
         'Ext.layout.container.Card',
         'Ext.panel.Panel',
         'Ext.toolbar.Fill',
+        'Ext.toolbar.Separator',
         'Ext.toolbar.Toolbar'
     ],
 
@@ -64,17 +65,24 @@ Ext.define('ArqAdmin.view.documental.Documental', {
                         },
                         {
                             xtype: 'button',
+                            itemId: 'btnClearFilters',
+                            glyph: 61616,
+                            tooltip: 'Limpar filtros'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
                             itemId: 'btnShowTable',
                             glyph: 58882,
-                            tooltip: 'Visualizar resultado em tabela',
-                            tooltipType: 'title'
+                            tooltip: 'Visualizar resultado em tabela'
                         },
                         {
                             xtype: 'button',
                             itemId: 'btnShowList',
                             glyph: 58881,
-                            tooltip: 'Visualizar resultado em lista',
-                            tooltipType: 'title'
+                            tooltip: 'Visualizar resultado em lista'
                         }
                     ]
                 }
