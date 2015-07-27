@@ -32,7 +32,7 @@ Ext.define('ArqAdmin.store.sfm.SfmCemiterios', {
             model: 'ArqAdmin.model.sfm.SfmCemiterio',
             proxy: {
                 type: 'rest',
-                url: '/api/v1/documentos/tbaux/SfmCemiterio',
+                url: '/api/documento/auxtable/SfmCemiterio',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

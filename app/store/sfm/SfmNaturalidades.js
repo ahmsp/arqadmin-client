@@ -32,7 +32,7 @@ Ext.define('ArqAdmin.store.sfm.SfmNaturalidades', {
             model: 'ArqAdmin.model.sfm.SfmNaturalidade',
             proxy: {
                 type: 'rest',
-                url: '/api/v1/documentos/tbaux/SfmNaturalidade',
+                url: '/api/documento/auxtable/SfmNaturalidade',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

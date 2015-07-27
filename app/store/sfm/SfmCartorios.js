@@ -32,7 +32,7 @@ Ext.define('ArqAdmin.store.sfm.SfmCartorios', {
             model: 'ArqAdmin.model.sfm.SfmCartorio',
             proxy: {
                 type: 'rest',
-                url: '/api/v1/documentos/tbaux/SfmCartorio',
+                url: '/api/documento/auxtable/SfmCartorio',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

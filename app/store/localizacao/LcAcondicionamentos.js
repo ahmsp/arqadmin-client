@@ -28,11 +28,11 @@ Ext.define('ArqAdmin.store.localizacao.LcAcondicionamentos', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'localizacao.LcAcondicionamentos',
-            autoLoad: false,
+            autoLoad: true,
             model: 'ArqAdmin.model.localizacao.LcAcondicionamento',
             proxy: {
                 type: 'rest',
-                url: '/api/documento/auxtable/lc_acondicionamento',
+                url: '/api/documento/auxtable/LcAcondicionamento',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

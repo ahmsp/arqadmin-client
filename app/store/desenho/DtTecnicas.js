@@ -32,7 +32,7 @@ Ext.define('ArqAdmin.store.desenho.DtTecnicas', {
             model: 'ArqAdmin.model.desenho.DtTecnica',
             proxy: {
                 type: 'rest',
-                url: '/api/v1/documentos/tbaux/DtTecnica',
+                url: '/api/documento/auxtable/DtTecnica',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

@@ -32,7 +32,7 @@ Ext.define('ArqAdmin.store.desenho.DtSuportes', {
             model: 'ArqAdmin.model.desenho.DtSuporte',
             proxy: {
                 type: 'rest',
-                url: '/api/v1/documentos/tbaux/DtSuporte',
+                url: '/api/documento/auxtable/DtSuporte',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

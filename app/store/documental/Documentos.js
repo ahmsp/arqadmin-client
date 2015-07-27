@@ -30,7 +30,7 @@ Ext.define('ArqAdmin.store.documental.Documentos', {
             remoteFilter: true,
             remoteSort: true,
             storeId: 'documental.Documentos',
-            autoLoad: false,
+            autoLoad: true,
             model: 'ArqAdmin.model.documental.Documento',
             proxy: {
                 type: 'rest',

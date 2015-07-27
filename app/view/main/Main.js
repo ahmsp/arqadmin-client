@@ -17,7 +17,9 @@ Ext.define('ArqAdmin.view.main.Main', {
         'Ext.menu.Item',
         'Ext.toolbar.Fill',
         'Ext.toolbar.Separator',
-        'Ext.form.Label'
+        'Ext.form.Label',
+        'Ext.layout.container.Border',
+        'Ext.layout.container.Card'
     ],
 
     controller: 'main',

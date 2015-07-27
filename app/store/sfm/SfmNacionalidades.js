@@ -32,7 +32,7 @@ Ext.define('ArqAdmin.store.sfm.SfmNacionalidades', {
             model: 'ArqAdmin.model.sfm.SfmNacionalidade',
             proxy: {
                 type: 'rest',
-                url: '/api/v1/documentos/tbaux/SfmNacionalidade',
+                url: '/api/documento/auxtable/SfmNacionalidade',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

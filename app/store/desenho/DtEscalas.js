@@ -32,7 +32,7 @@ Ext.define('ArqAdmin.store.desenho.DtEscalas', {
             model: 'ArqAdmin.model.desenho.DtEscala',
             proxy: {
                 type: 'rest',
-                url: '/api/v1/documentos/tbaux/DtEscala',
+                url: '/api/documento/auxtable/DtEscala',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

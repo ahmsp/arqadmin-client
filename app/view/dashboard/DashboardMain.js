@@ -263,14 +263,14 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
                                     bodyCls: 'statistics-body',
                                     margin: '0 20px 0 0',
                                     flex: 1,
-                                    title: 'QTD POR FUNDOS',
+                                    title: 'QTD POR FUNDOS'
                                 },
                                 {
                                     xtype: 'panel',
                                     bodyCls: 'statistics-body',
                                     margin: '0 20px 0 0',
                                     flex: 1,
-                                    title: 'QTD POR FUNDOS',
+                                    title: 'QTD POR FUNDOS'
                                 }
                             ]
                         }
@@ -282,7 +282,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
                     margin: '0 20px 0 0',
                     //flex: 1,
                     width: 280,
-                    title: 'TERMOS PESQUISADOS',
+                    title: 'TERMOS PESQUISADOS'
                 }
 
 

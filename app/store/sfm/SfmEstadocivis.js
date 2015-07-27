@@ -32,7 +32,7 @@ Ext.define('ArqAdmin.store.sfm.SfmEstadocivis', {
             model: 'ArqAdmin.model.sfm.SfmEstadocivil',
             proxy: {
                 type: 'rest',
-                url: '/api/v1/documentos/tbaux/SfmEstadocivil',
+                url: '/api/documento/auxtable/SfmEstadocivil',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

@@ -7,6 +7,8 @@
 Ext.require('ArqAdmin.view.login.Login');
 Ext.require('ArqAdmin.view.main.Main');
 
+Ext.require('ArqAdmin.ux.form.trigger.Clear');
+
 Ext.define('ArqAdmin.Application', {
     extend: 'Ext.app.Application',
 

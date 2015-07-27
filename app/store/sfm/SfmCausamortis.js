@@ -32,7 +32,7 @@ Ext.define('ArqAdmin.store.sfm.SfmCausamortis', {
             model: 'ArqAdmin.model.sfm.SfmCausamortis',
             proxy: {
                 type: 'rest',
-                url: '/api/v1/documentos/tbaux/SfmCausamortis',
+                url: '/api/documento/auxtable/SfmCausamortis',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'
