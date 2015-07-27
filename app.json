@@ -49,7 +49,7 @@
         "sencha-charts"
     ],
 
-    "locale": "pt-BR",
+    "locale": "pt_BR",
 
     /**
      * Sass configuration properties.

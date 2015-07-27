@@ -68,7 +68,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
 
     },
 
-    onToolbarGridButtonsClick: function(button, e, eOpts) {
+    onResultToolbarButtonsClick: function(button, e, eOpts) {
         if ((button.itemId == 'btnClearFilters')) {
             button.up('panel').down('grid').filters.clearFilters();
         } else {

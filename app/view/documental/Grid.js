@@ -46,12 +46,18 @@ Ext.define('ArqAdmin.view.documental.Grid', {
             xtype: 'gridcolumn',
             width: 110,
             dataIndex: 'notacao_preexistente',
-            text: 'Notação <nobr>Pré-existente</nobr>'
+            text: 'Notação <nobr>Pré-existente</nobr>',
+            filter: {
+                type: 'string'
+            }
         },
         {
             xtype: 'gridcolumn',
             dataIndex: 'notacao',
-            text: 'Notação AHSP'
+            text: 'Notação AHSP',
+            filter: {
+                type: 'string'
+            }
         },
         {
             xtype: 'gridcolumn',
@@ -66,7 +72,10 @@ Ext.define('ArqAdmin.view.documental.Grid', {
             xtype: 'gridcolumn',
             align: 'center',
             dataIndex: 'data_doc',
-            text: 'Data'
+            text: 'Data',
+            filter: {
+                type: 'string'
+            }
         },
         {
             xtype: 'gridcolumn',
