@@ -13,7 +13,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         }
     },
 
-    onGridpanelSelect: function(rowmodel, record, index, eOpts) {
+    onGridpanelSelect: function (rowmodel, record, index, eOpts) {
         // selects record in both grids
         var refs = this.getReferences();
         refs.documentalTable.setSelection(record);
@@ -33,7 +33,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
         // clear all next combos
         var start = false;
-        Ext.Object.each(combosRefs, function(key, cb, obj) {
+        Ext.Object.each(combosRefs, function (key, cb, obj) {
 
             // check if this is next combo
             if (cb === combo.next()) {
@@ -50,7 +50,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
     },
 
-    onCascadingComboFocus: function(component, event, eOpts) {
+    onCascadingComboFocus: function (component, event, eOpts) {
         var combo = component;
 
         if (combo.reference == 'fundoCombo') {
@@ -64,48 +64,48 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         comboStore.clearFilter();
 
         // filter the combo based in parent cobo value (id)
-        comboStore.filterBy(function(record){
+        comboStore.filterBy(function (record) {
             return record.get(filterProperty) === prevCombo.value;
         });
 
     },
 
-    showView: function(view) {
+    showView: function (view) {
         var layout = this.getReferences().displayPanel.getLayout();
         layout.setActiveItem(this.lookupReference(view));
     },
 
     /*
-    * Change the disabled state of cascading combos,
-    * based on defined values
-    */
-    changeDisableCascadingCombos: function() {
+     * Change the disabled state of cascading combos,
+     * based on defined values
+     */
+    changeDisableCascadingCombos: function () {
         var combos = this.lookupReference('classificFieldset').getReferences();
 
         var lastSelectedCombo = null;
-        Ext.Object.each(combos, function(key, combo, obj) {
+        Ext.Object.each(combos, function (key, combo, obj) {
 
-            if (!Ext.isEmpty(combo.value)){
+            if (!Ext.isEmpty(combo.value)) {
                 combo.enable();
                 lastSelectedCombo = combo;
-            } else if (combo !== combos.fundoCombo){
+            } else if (combo !== combos.fundoCombo) {
                 combo.disable();
             }
         });
-        if (lastSelectedCombo){
+        if (lastSelectedCombo) {
             lastSelectedCombo.next().enable();
         }
     },
 
     /* Clean the filters of cascading combos */
-    clearFilterCascadingCombos: function() {
+    clearFilterCascadingCombos: function () {
         var combos = this.lookupReference('classificFieldset').getReferences();
-        Ext.Object.each(combos, function(key, combo, obj) {
+        Ext.Object.each(combos, function (key, combo, obj) {
             combo.getStore().clearFilter();
         });
     },
 
-    formLoadRecord: function(record) {
+    formLoadRecord: function (record) {
         var me = this,
             formPanel = me.getReferences().documentalForm,
             form = formPanel.getForm();
@@ -119,10 +119,10 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
     },
 
     /*
-        * Checks if the combination of "classificação" corresponds to an existing "acervo"
-        * and sets the corresponding value for the combo
-    */
-    setAcervoComboValue: function() {
+     * Checks if the combination of "classificação" corresponds to an existing "acervo"
+     * and sets the corresponding value for the combo
+     */
+    setAcervoComboValue: function () {
         var me = this,
             acervoCombo = me.lookupReference('acervoCombo'),
             refs = me.lookupReference('classificFieldset').getReferences();
@@ -131,28 +131,28 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
         // check if the combination exists in acervoCombo
         var recordIndex = acervoCombo.getStore().findBy(
-            function(record, id){
+            function (record, id) {
 
-                if(refs.fundoCombo.value === record.get('fundo_id') &&
-                   refs.subfundoCombo.value === record.get('subfundo_id') &&
-                   refs.grupoCombo.value === record.get('grupo_id') &&
-                   refs.subgrupoCombo.value === record.get('subgrupo_id') &&
-                   refs.serieCombo.value === record.get('serie_id') &&
-                   refs.subserieCombo.value === record.get('subserie_id') &&
-                   refs.dossieCombo.value === record.get('dossie_id')) {
+                if (refs.fundoCombo.value === record.get('fundo_id') &&
+                    refs.subfundoCombo.value === record.get('subfundo_id') &&
+                    refs.grupoCombo.value === record.get('grupo_id') &&
+                    refs.subgrupoCombo.value === record.get('subgrupo_id') &&
+                    refs.serieCombo.value === record.get('serie_id') &&
+                    refs.subserieCombo.value === record.get('subserie_id') &&
+                    refs.dossieCombo.value === record.get('dossie_id')) {
                     return true;
                 }
                 return false;
             }
         );
 
-        if(recordIndex != -1){
+        if (recordIndex != -1) {
             // set combo value by index
             acervoCombo.setValue(acervoCombo.getStore().getAt(recordIndex).get(acervoCombo.valueField));
         }
     },
 
-    add: function(button, e, eOpts) {
+    add: function (button, e, eOpts) {
         var formPanel = this.getReferences().documentalForm,
             form = formPanel.getForm(),
             newRecord = Ext.create('ArqAdmin.model.documental.Documento');
@@ -169,7 +169,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
     },
 
-    edit: function(button, e, eOpts) {
+    edit: function (button, e, eOpts) {
         var me = this,
             record = me.getViewModel().get('record');
 
@@ -178,11 +178,11 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         me.showView('documentalForm');
     },
 
-    remove: function(button, e, eOpts) {
+    remove: function (button, e, eOpts) {
         var me = this;
 
         // Ask user to confirm this action
-        Ext.Msg.confirm('Confirm Delete', 'Você tem certeza que deseja excluir este registro?', function(result) {
+        Ext.Msg.confirm('Confirm Delete', 'Você tem certeza que deseja excluir este registro?', function (result) {
 
             // User confirmed yes
             if (result == 'yes') {
@@ -201,7 +201,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         });
     },
 
-    save: function(button, e, eOpts) {
+    save: function (button, e, eOpts) {
         var form = this.getReferences().documentalForm.getForm(),
             record = form.getRecord(),
             store = Ext.StoreManager.lookup('Documentos');
@@ -218,7 +218,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
             }
 
             store.sync({
-                success: function(){
+                success: function () {
                     //             message = 'Registro adicionado com sucesso!';
                     //             form.down('textfield#fieldNome').focus(true, 180);
                     store.load();
@@ -226,10 +226,10 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
                     //console.log("success!!");
                 },
-                failure: function(){
+                failure: function () {
                     //console.log("failed...");
                 },
-                callback: function(){
+                callback: function () {
                     //console.log("calling callback");
                 },
                 scope: this
@@ -246,12 +246,12 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         }
     },
 
-    cancelEdit: function(button, e, eOpts) {
+    cancelEdit: function (button, e, eOpts) {
         // Show details
         this.showView('documentalDetails');
     },
 
-    onAcervoComboSelect: function(combo, records, eOpts) {
+    onAcervoComboSelect: function (combo, records, eOpts) {
         var me = this,
             formPanel = me.getReferences().documentalForm,
             form = formPanel.getForm(),

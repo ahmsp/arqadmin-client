@@ -34,7 +34,8 @@ Ext.define('ArqAdmin.view.documental.Documental', {
             region: 'west',
             split: true,
             width: 320,
-            collapsible: true
+            collapsible: true,
+            collapsed: true
         },
         {
             xtype: 'panel',

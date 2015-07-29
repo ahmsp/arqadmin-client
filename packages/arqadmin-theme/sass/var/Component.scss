@@ -70,6 +70,13 @@ $panel-body-background-color: $exec-light-background;
 //}
 
 
+// GRID
+.x-grid-filters-filtered-column span {
+  text-decoration: underline;
+  //color: #b37532;
+}
+
+
 $active: #12C897;
 $paused: #C8C8C8;
 $ended: #F1485B;

@@ -29,6 +29,118 @@ Ext.define('ArqAdmin.view.documental.Grid', {
         },
         {
             xtype: 'gridcolumn',
+            defaultWidth: 250,
+            text: 'Classificação',
+            columns: [
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'fundo_id',
+                    text: 'Fundo',
+                    renderer: function(value, metaData, record) {
+                        return (record.get('fundo')) ? record.get('fundo').fundo_nome : '';
+                    },
+                    filter: {
+                        type: 'list',
+                        idField: 'id',
+                        labelField: 'fundo_nome',
+                        updateBuffer: 1500,
+                        store: 'classificacao.Fundos'
+                    }
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'subfundo_id',
+                    text: 'Subfundo',
+                    renderer: function(value, metaData, record) {
+                        return (record.get('subfundo')) ? record.get('subfundo').subfundo_nome : '';
+                    },
+                    filter: {
+                        type: 'list',
+                        idField: 'id',
+                        labelField: 'subfundo_nome',
+                        updateBuffer: 1500,
+                        store: 'classificacao.Subfundos'
+                    }
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'grupo_id',
+                    text: 'Grupo',
+                    renderer: function(value, metaData, record) {
+                        return (record.get('grupo')) ? record.get('grupo').grupo_nome : '';
+                    },
+                    filter: {
+                        type: 'list',
+                        idField: 'id',
+                        labelField: 'grupo_nome',
+                        updateBuffer: 1500,
+                        store: 'classificacao.Grupos'
+                    }
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'subgrupo_id',
+                    text: 'Subgrupo',
+                    renderer: function(value, metaData, record) {
+                        return (record.get('subgrupo')) ? record.get('subgrupo').subgrupo_nome : '';
+                    },
+                    filter: {
+                        type: 'list',
+                        idField: 'id',
+                        labelField: 'subgrupo_nome',
+                        updateBuffer: 1500,
+                        store: 'classificacao.Subgrupos'
+                    }
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'serie_id',
+                    text: 'Série',
+                    renderer: function(value, metaData, record) {
+                        return (record.get('serie')) ? record.get('serie').serie_nome : '';
+                    },
+                    filter: {
+                        type: 'list',
+                        idField: 'id',
+                        labelField: 'serie_nome',
+                        updateBuffer: 1500,
+                        store: 'classificacao.Series'
+                    }
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'subserie_id',
+                    text: 'Subsérie',
+                    renderer: function(value, metaData, record) {
+                        return (record.get('subserie')) ? record.get('subserie').subserie_nome : '';
+                    },
+                    filter: {
+                        type: 'list',
+                        idField: 'id',
+                        labelField: 'subserie_nome',
+                        updateBuffer: 1500,
+                        store: 'classificacao.Subseries'
+                    }
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'dossie_id',
+                    text: 'Dossiê',
+                    renderer: function(value, metaData, record) {
+                        return (record.get('dossie')) ? record.get('dossie').dossie_nome : '';
+                    },
+                    filter: {
+                        type: 'list',
+                        idField: 'id',
+                        labelField: 'dossie_nome',
+                        updateBuffer: 1500,
+                        store: 'classificacao.Dossies'
+                    }
+                }
+            ]
+        },
+        {
+            xtype: 'gridcolumn',
             dataIndex: 'especiedocumental_id',
             text: 'Espécie Documental',
             renderer: function(value, metaData, record) {
@@ -38,7 +150,7 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 type: 'list',
                 idField: 'id',
                 labelField: 'especiedocumental_nome',
-                updateBuffer: 2000,
+                updateBuffer: 1500,
                 store: 'classificacao.Especiedocumentais'
             }
         },
@@ -80,41 +192,76 @@ Ext.define('ArqAdmin.view.documental.Grid', {
         {
             xtype: 'gridcolumn',
             width: 110,
-            dataIndex: 'conservacao_estado',
-            text: 'Estado de Conservação'
+            dataIndex: 'conservacao_id',
+            text: 'Estado de Conservação',
+            renderer: function(value, metaData, record) {
+                return (record.get('conservacao')) ? record.get('conservacao').conservacao_estado: '';
+            },
+            filter: {
+                type: 'list',
+                idField: 'id',
+                labelField: 'conservacao_estado',
+                updateBuffer: 1500,
+                store: 'documental.Conservacoes'
+            }
         },
         {
             xtype: 'gridcolumn',
             dataIndex: 'processo_num',
-            text: 'Processo nº'
+            text: 'Processo nº',
+            filter: {
+                type: 'string'
+            }
         },
         {
             xtype: 'gridcolumn',
             dataIndex: 'quantidade_doc',
-            text: 'Qtde. de  Documentos'
+            text: 'Qtde. de  Documentos',
+            filter: {
+                type: 'number'
+            }
         },
         {
             xtype: 'gridcolumn',
             width: 250,
             dataIndex: 'interessado',
-            text: 'Interessado'
+            text: 'Interessado',
+            filter: {
+                type: 'string'
+            }
         },
         {
             xtype: 'gridcolumn',
             width: 300,
             dataIndex: 'assunto',
-            text: 'Assunto'
+            text: 'Assunto',
+            filter: {
+                type: 'string'
+            }
         },
         {
             xtype: 'gridcolumn',
             width: 150,
             dataIndex: 'notas',
-            text: 'Notas'
+            text: 'Notas',
+            filter: {
+                type: 'string'
+            }
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'dt_uso_uso',
-            text: 'Uso'
+            dataIndex: 'dt_uso_id',
+            text: 'Uso',
+            renderer: function(value, metaData, record) {
+                return (record.get('dt_uso')) ? record.get('dt_uso').uso: '';
+            },
+            filter: {
+                type: 'list',
+                idField: 'id',
+                labelField: 'uso',
+                updateBuffer: 1500,
+                store: 'documental.DtUsos'
+            }
         },
         {
             xtype: 'gridcolumn',
@@ -124,25 +271,37 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                     xtype: 'gridcolumn',
                     width: 250,
                     dataIndex: 'dt_endereco',
-                    text: 'Endereço'
+                    text: 'Endereço',
+                    filter: {
+                        type: 'string'
+                    }
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 120,
                     dataIndex: 'dt_end_complemento',
-                    text: 'Complemento'
+                    text: 'Complemento',
+                    filter: {
+                        type: 'string'
+                    }
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 250,
                     dataIndex: 'dt_endereco_atual',
-                    text: 'Endereço Atual'
+                    text: 'Endereço Atual',
+                    filter: {
+                        type: 'string'
+                    }
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 120,
                     dataIndex: 'dt_endatual_complemento',
-                    text: 'Complemento'
+                    text: 'Complemento',
+                    filter: {
+                        type: 'string'
+                    }
                 }
             ]
         },
@@ -154,22 +313,34 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'dt_autor',
-                    text: 'Autor'
+                    text: 'Autor',
+                    filter: {
+                        type: 'string'
+                    }
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'dt_construtor',
-                    text: 'Construtor'
+                    text: 'Construtor',
+                    filter: {
+                        type: 'string'
+                    }
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'dt_proprietario',
-                    text: 'Proprietário'
+                    text: 'Proprietário',
+                    filter: {
+                        type: 'string'
+                    }
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'dt_notas',
-                    text: 'Notas'
+                    text: 'Notas',
+                    filter: {
+                        type: 'string'
+                    }
                 }
             ]
         },
@@ -180,98 +351,98 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 {
                     xtype: 'gridcolumn',
                     width: 150,
-                    dataIndex: 'lc_sala_sala',
-                    text: 'Sala'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    width: 150,
-                    dataIndex: 'lc_movel_movel',
-                    text: 'Móvel'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'lc_movel_num',
-                    text: 'Movel nº'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    width: 150,
-                    dataIndex: 'lc_compartimento_compartimento',
-                    text: 'Compartimento'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'lc_compartimento_num',
-                    text: 'Compart. nº'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    width: 150,
-                    dataIndex: 'lc_acondicionamento_acondicionamento',
-                    text: 'Acondicionamento'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'lc_acondicionamento_num',
-                    text: 'Acond. nº'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'lc_pagina',
-                    text: 'Página'
-                }
-            ]
-        },
-        {
-            xtype: 'gridcolumn',
-            defaultWidth: 250,
-            text: 'Classificação',
-            columns: [
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'fundo_id',
-                    text: 'Fundo',
+                    dataIndex: 'lc_sala_id',
+                    text: 'Sala',
                     renderer: function(value, metaData, record) {
-                        return (record.get('fundo')) ? record.get('fundo').fundo_nome : '';
+                        return (record.get('lc_sala')) ? record.get('lc_sala').sala: '';
                     },
                     filter: {
                         type: 'list',
                         idField: 'id',
-                        labelField: 'fundo_nome',
-                        updateBuffer: 2000,
-                        store: 'classificacao.Fundos'
+                        labelField: 'sala',
+                        updateBuffer: 1500,
+                        store: 'localizacao.LcSalas'
                     }
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'subfundo_nome',
-                    text: 'Subfundo'
+                    width: 150,
+                    dataIndex: 'lc_movel_id',
+                    text: 'Móvel',
+                    renderer: function(value, metaData, record) {
+                        return (record.get('lc_movel')) ? record.get('lc_movel').movel: '';
+                    },
+                    filter: {
+                        type: 'list',
+                        idField: 'id',
+                        labelField: 'movel',
+                        updateBuffer: 1500,
+                        store: 'localizacao.LcMoveis'
+                    }
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'grupo_nome',
-                    text: 'Grupo'
+                    dataIndex: 'lc_movel_num',
+                    text: 'Movel nº',
+                    filter: {
+                        type: 'string'
+                    }
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'subgrupo_nome',
-                    text: 'Subgrupo'
+                    width: 150,
+                    dataIndex: 'lc_compartimento_id',
+                    text: 'Compartimento',
+                    renderer: function(value, metaData, record) {
+                        return (record.get('lc_compartimento')) ? record.get('lc_compartimento').compartimento: '';
+                    },
+                    filter: {
+                        type: 'list',
+                        idField: 'id',
+                        labelField: 'compartimento',
+                        updateBuffer: 1500,
+                        store: 'localizacao.LcCompartimentos'
+                    }
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'serie_nome',
-                    text: 'Série'
+                    dataIndex: 'lc_compartimento_num',
+                    text: 'Compart. nº',
+                    filter: {
+                        type: 'string'
+                    }
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'subserie_nome',
-                    text: 'Subsérie'
+                    width: 150,
+                    dataIndex: 'lc_acondicionamento_id',
+                    text: 'Acondicionamento',
+                    renderer: function(value, metaData, record) {
+                        return (record.get('lc_acondicionamento')) ? record.get('lc_acondicionamento').acondicionamento: '';
+                    },
+                    filter: {
+                        type: 'list',
+                        idField: 'id',
+                        labelField: 'acondicionamento',
+                        updateBuffer: 1500,
+                        store: 'localizacao.LcAcondicionamentos'
+                    }
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'dossie_nome',
-                    text: 'Dossiê'
+                    dataIndex: 'lc_acondicionamento_num',
+                    text: 'Acond. nº',
+                    filter: {
+                        type: 'string'
+                    }
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'lc_pagina',
+                    text: 'Página',
+                    filter: {
+                        type: 'string'
+                    }
                 }
             ]
         }
@@ -291,5 +462,4 @@ Ext.define('ArqAdmin.view.documental.Grid', {
             menuFilterText: 'Filtros'
         }
     ]
-
 });

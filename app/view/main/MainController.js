@@ -70,7 +70,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
 
     onResultToolbarButtonsClick: function(button, e, eOpts) {
         if ((button.itemId == 'btnClearFilters')) {
-            button.up('panel').down('grid').filters.clearFilters();
+            button.up('panel').down('grid').filters.clearFilters(true);
         } else {
             var setActive = (button.itemId == 'btnShowTable') ? 0 : 1;
             button.up('panel').getLayout().setActiveItem(setActive);
