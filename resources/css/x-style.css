@@ -237,7 +237,7 @@
 }
 
 /**, */
-.x-view-item-focused {
+.thumb-wrap .x-item-selected .x-view-item-focused {
     outline: 0 !important;
 }
 

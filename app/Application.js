@@ -4,13 +4,16 @@
  * details.
  */
 
-Ext.require('ArqAdmin.view.login.Login');
-Ext.require('ArqAdmin.view.main.Main');
-
 Ext.require('ArqAdmin.ux.form.trigger.Clear');
+Ext.require('ArqAdmin.overrides.grid.filters.filter.List');
 
 Ext.define('ArqAdmin.Application', {
     extend: 'Ext.app.Application',
+
+    requires: [
+        'ArqAdmin.view.login.Login',
+        'ArqAdmin.view.main.Main'
+    ],
 
     name: 'ArqAdmin',
 

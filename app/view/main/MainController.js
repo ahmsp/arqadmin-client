@@ -85,6 +85,16 @@ Ext.define('ArqAdmin.view.main.MainController', {
         layout.setActiveItem(me.lookupReference(view));
     },
 
+    onLogout: function(button, e, eOpts) {
+        var me = this;
+        Ext.Ajax.request({
+            url: '/auth/logout',
+            scope: me,
+            success: 'onLogoutSuccess',
+            failure: 'onLogoutFailure'
+        });
+    },
+
     onLogoutSuccess: function(conn, response, options, eOpts) {
         var result = ArqAdmin.util.Util.decodeJSON(conn.responseText);
 
@@ -98,16 +108,6 @@ Ext.define('ArqAdmin.view.main.MainController', {
 
     onLogoutFailure: function(conn, response, options, eOpts) {
         ArqAdmin.util.Util.showErrorMsg(conn.responseText);
-    },
-
-    onLogout: function(button, e, eOpts) {
-        var me = this;
-        Ext.Ajax.request({
-            url: '/auth/logout',
-            scope: me,
-            success: 'onLogoutSuccess',
-            failure: 'onLogoutFailure'
-        });
     },
 
     onContainerAfterLayout: function(container, layout, eOpts) {
