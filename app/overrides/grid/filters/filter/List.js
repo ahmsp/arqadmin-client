@@ -1,6 +1,3 @@
-/**
- * Created by cyro on 30/07/15.
- */
 Ext.define('ArqAdmin.overrides.grid.filters.filter.List', {
     override: 'Ext.grid.filters.filter.List',
 
