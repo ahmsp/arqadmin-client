@@ -13,6 +13,30 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         }
     },
 
+
+    onFilterFormButtonFilterClick: function (button) {
+        var me = this,
+            form = button.up('form'),
+            params = form.getValues(false, true),
+            grid = me.lookupReference('documentalTable'),
+            store = grid.getStore();
+
+        store.filter([
+            {
+                property: 'assunto',
+                operator: 'like',
+                value: 'planta'
+            }
+        ]);
+
+        //console.log(grid);
+
+        //grid.filters.clearFilters(true);
+        //grid.filters.filter
+
+
+    },
+
     onGridpanelSelect: function (rowmodel, record, index, eOpts) {
         // selects record in both grids
         var refs = this.getReferences();
@@ -265,6 +289,10 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         me.changeDisableCascadingCombos();
 
         me.lookupReference('especiedocumentalCombo').focus(true, 180);
+    },
+
+    onFilterFormButtonClearClick: function (button) {
+        button.up('form').reset();
     }
 
 });

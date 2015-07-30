@@ -37,18 +37,15 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
             items: [
                 {
                     xtype: 'button',
-                    action: 'clear',
                     flex: 1,
-                    text: 'Limpar filtros',
-                    handler: function(button) {
-                        button.up('form').reset();
-                    }
+                    text: 'Limpar formulário',
+                    handler: 'onFilterFormButtonClearClick'
                 },
                 {
                     xtype: 'button',
-                    action: 'filter',
                     flex: 1,
-                    text: 'Pesquisar'
+                    text: 'Pesquisar',
+                    handler: 'onFilterFormButtonFilterClick'
                 }
             ]
         }
@@ -162,8 +159,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
         {
             xtype: 'textfield',
             fieldLabel: 'Cod. Imagem',
-            name: 'imagem'
+            name: 'cod_imagem'
         }
-
     ]
 });

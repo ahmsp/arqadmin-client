@@ -29,7 +29,7 @@ Ext.define('ArqAdmin.view.documental.Grid', {
         },
         {
             xtype: 'gridcolumn',
-            defaultWidth: 250,
+            defaultWidth: 200,
             text: 'Classificação',
             columns: [
                 {
