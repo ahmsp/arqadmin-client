@@ -236,8 +236,3 @@
     text-decoration: underline;
 }
 
-/**, */
-.thumb-wrap .x-item-selected .x-view-item-focused {
-    outline: 0 !important;
-}
-
