@@ -17,7 +17,7 @@ Ext.define('ArqAdmin.store.classificacao.Especiedocumentais', {
             autoLoad: true,
             model: 'ArqAdmin.model.classificacao.Especiedocumental',
             remoteFilter: true,
-            remoteSort: true,
+            //remoteSort: true,
             proxy: {
                 type: 'rest',
                 url: '/api/documento/auxtable/Especiedocumental',

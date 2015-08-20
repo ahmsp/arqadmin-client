@@ -13,6 +13,9 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         }
     },
 
+    /*
+     * Filter Form
+     */
 
     onFilterFormButtonFilterClick: function (button) {
         var me = this,
@@ -20,6 +23,11 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
             params = form.getValues(false, true),
             grid = me.lookupReference('documentalTable'),
             store = grid.getStore();
+//console.log(form.getVal);
+
+
+        //if ()
+
 
         store.filter([
             {
@@ -34,8 +42,16 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         //grid.filters.clearFilters(true);
         //grid.filters.filter
 
-
     },
+
+    onFilterFormButtonClearClick: function (button) {
+        button.up('form').reset();
+    },
+
+
+    /*
+     * Grid
+     */
 
     onGridpanelSelect: function (rowmodel, record, index, eOpts) {
         // selects record in both grids
@@ -49,6 +65,45 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
         this.getViewModel().set('record', record);
         this.showView('documentalDetails');
+    },
+
+    showView: function (view) {
+        var layout = this.getReferences().displayPanel.getLayout();
+        layout.setActiveItem(this.lookupReference(view));
+    },
+
+
+    /*
+     * Form Panel
+     */
+
+    formLoadRecord: function (record) {
+        var me = this,
+            formPanel = me.getReferences().documentalForm,
+            form = formPanel.getForm();
+
+        // Clear form
+        form.reset();
+
+        me.clearFilterCascadingCombos();
+        form.loadRecord(record);
+        me.changeDisableCascadingCombos();
+    },
+
+    onAcervoComboSelect: function (combo, records, eOpts) {
+        var me = this,
+            formPanel = me.getReferences().documentalForm,
+            form = formPanel.getForm(),
+            combosRefs = this.lookupReference('classificFieldset').getReferences(),
+            values = records.getData();
+
+        delete values.id;
+
+        me.clearFilterCascadingCombos();
+        form.setValues(values);
+        me.changeDisableCascadingCombos();
+
+        me.lookupReference('especiedocumentalCombo').focus(true, 180);
     },
 
     onCascadingComboChange: function (combo, records, eOpts, conn) {
@@ -94,11 +149,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
     },
 
-    showView: function (view) {
-        var layout = this.getReferences().displayPanel.getLayout();
-        layout.setActiveItem(this.lookupReference(view));
-    },
-
     /*
      * Change the disabled state of cascading combos,
      * based on defined values
@@ -127,19 +177,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         Ext.Object.each(combos, function (key, combo, obj) {
             combo.getStore().clearFilter();
         });
-    },
-
-    formLoadRecord: function (record) {
-        var me = this,
-            formPanel = me.getReferences().documentalForm,
-            form = formPanel.getForm();
-
-        // Clear form
-        form.reset();
-
-        me.clearFilterCascadingCombos();
-        form.loadRecord(record);
-        me.changeDisableCascadingCombos();
     },
 
     /*
@@ -273,26 +310,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
     cancelEdit: function (button, e, eOpts) {
         // Show details
         this.showView('documentalDetails');
-    },
-
-    onAcervoComboSelect: function (combo, records, eOpts) {
-        var me = this,
-            formPanel = me.getReferences().documentalForm,
-            form = formPanel.getForm(),
-            combosRefs = this.lookupReference('classificFieldset').getReferences(),
-            values = records.getData();
-
-        delete values.id;
-
-        me.clearFilterCascadingCombos();
-        form.setValues(values);
-        me.changeDisableCascadingCombos();
-
-        me.lookupReference('especiedocumentalCombo').focus(true, 180);
-    },
-
-    onFilterFormButtonClearClick: function (button) {
-        button.up('form').reset();
     }
 
 });
