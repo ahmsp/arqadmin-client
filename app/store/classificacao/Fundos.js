@@ -17,7 +17,8 @@ Ext.define('ArqAdmin.store.classificacao.Fundos', {
             autoLoad: true,
             model: 'ArqAdmin.model.classificacao.Fundo',
             remoteFilter: true,
-            remoteSort: true,
+            remoteSort: false,
+            sortOnLoad: true,
             proxy: {
                 type: 'rest',
                 url: '/api/documento/auxtable/Fundo',
