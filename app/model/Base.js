@@ -2,7 +2,12 @@ Ext.define('ArqAdmin.model.Base', {
     extend: 'Ext.data.Model',
 
     requires: [
-        'ArqAdmin.util.Util'
+        'ArqAdmin.util.Util',
+        'Ext.data.proxy.Rest'
+    ],
+
+    fields: [
+        { name: 'id', type: 'int' }
     ],
 
     schema: {
@@ -10,7 +15,7 @@ Ext.define('ArqAdmin.model.Base', {
         urlPrefix: 'api',
         proxy: {
             type: 'rest',
-            url: '/{prefix}/{entityName}', // ex: '/api/classificacao/Subfundo' ???
+            url: '/{prefix}/{entityName:lowercase}', // '/api/subfundo'
             reader: {
                 type: 'json',
                 rootProperty: 'data'

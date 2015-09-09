@@ -15,7 +15,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardViewModel', {
             autoLoad: true,
             proxy: {
                 type: 'ajax',
-                url: '/api/documento/estatisticas',
+                url: '/api/estatisticas',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

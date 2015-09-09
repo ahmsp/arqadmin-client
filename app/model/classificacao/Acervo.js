@@ -1,15 +1,17 @@
-Ext.define('ArqAdmin.model.classificacao.Dossie', {
+Ext.define('ArqAdmin.model.classificacao.Acervo', {
     extend: 'ArqAdmin.model.Base',
 
-    entityName: 'Dossie',
+    entityName: 'Acervo',
 
     fields: [
+        { name: 'acervo_nome', sortType: 'asUCString'},
+        { name: 'descricao' },
         { name: 'fundo_id' },
         { name: 'subfundo_id' },
         { name: 'grupo_id' },
         { name: 'subgrupo_id' },
         { name: 'serie_id' },
         { name: 'subserie_id' },
-        { name: 'dossie_nome', sortType: 'asUCString'}
+        { name: 'dossie_id' }
     ]
 });

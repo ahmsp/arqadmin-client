@@ -1,16 +1,10 @@
 Ext.define('ArqAdmin.model.classificacao.Fundo', {
-    extend: 'Ext.data.Model',
+    extend: 'ArqAdmin.model.Base',
 
-    requires: [
-        'Ext.data.field.Field'
-    ],
+    entityName: 'Fundo',
 
     fields: [
-        {
-            name: 'id'
-        },
-        {
-            name: 'fundo_nome'
-        }
+        { name: 'fundo_nome', sortType: 'asUCString'}
     ]
+
 });

@@ -71,7 +71,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
             //emptyText: 'Selecione uma classificação...',
             displayField: 'acervo_nome',
             queryMode: 'local',
-            store: 'Acervos',
+            store: 'classificacao.Acervos',
             valueField: 'id',
             listeners: {
                 //select: 'onAcervoComboSelect'

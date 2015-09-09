@@ -1,69 +1,72 @@
 Ext.define('ArqAdmin.model.documental.Documento', {
-    extend: 'Ext.data.Model',
+    extend: 'ArqAdmin.model.Base',
 
-    requires: [
-        'Ext.data.field.Field'
-    ],
+    entityName: 'Documento',
 
     fields: [
         {
-            name: 'id'
+            name: 'fundo_id',
+            reference: 'classificacao.Fundo'
         },
         {
-            name: 'fundo_id'
+            name: 'fundo_nome',
+            mapping: 'fundo.fundo_nome'
         },
         {
-            mapping: 'fundo.fundo_nome',
-            name: 'fundo_nome'
+            name: 'subfundo_id',
+            reference: 'classificacao.Subfundo'
         },
         {
-            name: 'subfundo_id'
+            name: 'subfundo_nome',
+            mapping: 'subfundo.subfundo_nome'
         },
         {
-            mapping: 'subfundo.subfundo_nome',
-            name: 'subfundo_nome'
+            name: 'grupo_id',
+            reference: 'classificacao.Grupo'
         },
         {
-            name: 'grupo_id'
+            name: 'grupo_nome',
+            mapping: 'grupo.grupo_nome'
         },
         {
-            mapping: 'grupo.grupo_nome',
-            name: 'grupo_nome'
+            name: 'subgrupo_id',
+            reference: 'classificacao.Subgrupo'
         },
         {
-            name: 'subgrupo_id'
+            name: 'subgrupo_nome',
+            mapping: 'subgrupo.subgrupo_nome'
         },
         {
-            mapping: 'subgrupo.subgrupo_nome',
-            name: 'subgrupo_nome'
+            name: 'serie_id',
+            reference: 'classificacao.Serie'
         },
         {
-            name: 'serie_id'
+            name: 'serie_nome',
+            mapping: 'serie.serie_nome'
         },
         {
-            mapping: 'serie.serie_nome',
-            name: 'serie_nome'
+            name: 'subserie_id',
+            reference: 'classificacao.Subserie'
         },
         {
-            name: 'subserie_id'
+            name: 'subserie_nome',
+            mapping: 'subserie.subserie_nome'
         },
         {
-            mapping: 'subserie.subserie_nome',
-            name: 'subserie_nome'
+            name: 'dossie_id',
+            reference: 'classificacao.Dossie'
         },
         {
-            name: 'dossie_id'
+            name: 'dossie_nome',
+            mapping: 'dossie.dossie_nome'
         },
         {
-            mapping: 'dossie.dossie_nome',
-            name: 'dossie_nome'
+            name: 'especiedocumental_id',
+            reference: 'classificacao.Especiedocumental'
         },
         {
-            name: 'especiedocumental_id'
-        },
-        {
-            mapping: 'especie_documental.especiedocumental_nome',
-            name: 'especiedocumental_nome'
+            name: 'especiedocumental_nome',
+            mapping: 'especie_documental.especiedocumental_nome'
         },
         {
             name: 'notacao_preexistente'
@@ -84,11 +87,12 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'quantidade_doc'
         },
         {
-            name: 'conservacao_id'
+            name: 'conservacao_id',
+            reference: 'documental.Conservacao'
         },
         {
-            mapping: 'conservacao.conservacao_estado',
-            name: 'conservacao_estado'
+            name: 'conservacao_estado',
+            mapping: 'conservacao.conservacao_estado'
         },
         {
             name: 'interessado'
@@ -100,38 +104,42 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'notas'
         },
         {
-            name: 'lc_sala_id'
+            name: 'lc_sala_id',
+            reference: 'localizacao.LcSala'
         },
         {
-            mapping: 'lc_sala.sala',
-            name: 'lc_sala_sala'
+            name: 'lc_sala_sala',
+            mapping: 'lc_sala.sala'
         },
         {
-            name: 'lc_movel_id'
+            name: 'lc_movel_id',
+            reference: 'localizacao.LcMovel'
         },
         {
-            mapping: 'lc_movel.movel',
-            name: 'lc_movel_movel'
+            name: 'lc_movel_movel',
+            mapping: 'lc_movel.movel'
         },
         {
             name: 'lc_movel_num'
         },
         {
-            name: 'lc_compartimento_id'
+            name: 'lc_compartimento_id',
+            reference: 'localizacao.LcCompartimento'
         },
         {
-            mapping: 'lc_compartimento.compartimento',
-            name: 'lc_compartimento_compartimento'
+            name: 'lc_compartimento_compartimento',
+            mapping: 'lc_compartimento.compartimento'
         },
         {
             name: 'lc_compartimento_num'
         },
         {
-            name: 'lc_acondicionamento_id'
+            name: 'lc_acondicionamento_id',
+            reference: 'localizacao.LcAcondicionamento'
         },
         {
-            mapping: 'lc_acondicionamento.acondicionamento',
-            name: 'lc_acondicionamento_acondicionamento'
+            name: 'lc_acondicionamento_acondicionamento',
+            mapping: 'lc_acondicionamento.acondicionamento'
         },
         {
             name: 'lc_acondicionamento_num'
@@ -140,11 +148,12 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'lc_pagina'
         },
         {
-            name: 'dt_uso_id'
+            name: 'dt_uso_id',
+            reference: 'documental.DtUso'
         },
         {
-            mapping: 'dt_uso.uso',
-            name: 'dt_uso_uso'
+            name: 'dt_uso_uso',
+            mapping: 'dt_uso.uso'
         },
         {
             name: 'dt_endereco'

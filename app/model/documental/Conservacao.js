@@ -1,17 +1,9 @@
 Ext.define('ArqAdmin.model.documental.Conservacao', {
-    extend: 'Ext.data.Model',
-    alias: 'model.conservacao',
+    extend: 'ArqAdmin.model.Base',
 
-    requires: [
-        'Ext.data.field.Field'
-    ],
+    entityName: 'Conservacao',
 
     fields: [
-        {
-            name: 'id'
-        },
-        {
-            name: 'conservacao_estado'
-        }
+        { name: 'conservacao_estado', sortType: 'asUCString'}
     ]
 });
