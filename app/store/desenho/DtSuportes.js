@@ -6,7 +6,7 @@ Ext.define('ArqAdmin.store.desenho.DtSuportes', {
     model: 'ArqAdmin.model.desenho.DtSuporte',
 
     sorters: {
-        property: 'subfundo_nome'
+        property: 'suporte'
     }
 
 });
