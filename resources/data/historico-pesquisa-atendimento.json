@@ -1,0 +1,2424 @@
+{
+  "data": [
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Autor / Construtor: \"cavalheiro\"; ",
+      "data": "2015-08-14T14:54:14",
+      "params": {
+        "autor_construtor": "cavalheiro"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"jaula\"; ",
+      "data": "2015-08-14T16:17:56",
+      "params": {
+        "assunto": "jaula"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"zoo\"; ",
+      "data": "2015-08-14T16:18:04",
+      "params": {
+        "assunto": "zoo"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"ibirapura\"; ",
+      "data": "2015-08-14T16:18:12",
+      "params": {
+        "assunto": "ibirapura"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"ibirapuera\"; ",
+      "data": "2015-08-14T16:18:15",
+      "params": {
+        "assunto": "ibirapuera"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"ibirapuera\"; ",
+      "data": "2015-08-14T16:18:22",
+      "params": {
+        "assunto": "ibirapuera"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"jaula\"; ",
+      "data": "2015-08-14T16:18:27",
+      "params": {
+        "assunto": "jaula"
+      }
+    },
+    {
+      "acervo": "Fotográfico",
+      "parametros": "Autoria: \"bezerra\"; ",
+      "data": "2015-08-14T16:19:07",
+      "params": {
+        "autor": "bezerra"
+      }
+    },
+    {
+      "acervo": "Fotográfico",
+      "parametros": "Autoria: \"bezerra\"; ",
+      "data": "2015-08-14T16:19:14",
+      "params": {
+        "autor": "bezerra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Autor / Construtor: \"bezerra\"; ",
+      "data": "2015-08-14T16:19:25",
+      "params": {
+        "autor_construtor": "bezerra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"badaró\"; ",
+      "data": "2015-08-14T16:20:17",
+      "params": {
+        "endereco": "badaró"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"jaula\"; ",
+      "data": "2015-08-14T16:20:48",
+      "params": {
+        "assunto": "jaula"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"jardim\"; ",
+      "data": "2015-08-14T16:20:53",
+      "params": {
+        "assunto": "jardim"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"jardim\"; ",
+      "data": "2015-08-14T16:21:20",
+      "params": {
+        "endereco": "jardim"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Autor / Construtor: \"carlos botelho\"; ",
+      "data": "2015-08-14T16:21:59",
+      "params": {
+        "autor_construtor": "carlos botelho"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Autor / Construtor: \"botelho\"; ",
+      "data": "2015-08-14T16:22:03",
+      "params": {
+        "autor_construtor": "botelho"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Autor / Construtor: \"botelho\"; ",
+      "data": "2015-08-14T16:22:18",
+      "params": {
+        "autor_construtor": "botelho"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"jardim\"; ",
+      "data": "2015-08-14T16:22:24",
+      "params": {
+        "endereco": "jardim"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"arouche\"; ",
+      "data": "2015-08-14T16:22:45",
+      "params": {
+        "endereco": "arouche"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"Solon\"; ",
+      "data": "2015-08-19T14:11:09",
+      "params": {
+        "endereco": "Solon"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"ford\"; ",
+      "data": "2015-08-19T14:15:24",
+      "params": {
+        "assunto": "ford"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Assunto: \"fabrica ford\"; ",
+      "data": "2015-08-19T14:20:16",
+      "params": {
+        "serie_id": "192",
+        "assunto": "fabrica ford"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Assunto: \"fabrica ford\"; ",
+      "data": "2015-08-19T14:20:19",
+      "params": {
+        "serie_id": "192",
+        "assunto": "fabrica ford"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Assunto: \" ford\"; ",
+      "data": "2015-08-19T14:20:31",
+      "params": {
+        "serie_id": "192",
+        "assunto": " ford"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Assunto: \"moinho fluminense\"; ",
+      "data": "2015-08-19T14:20:46",
+      "params": {
+        "serie_id": "192",
+        "assunto": "moinho fluminense"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Assunto: \"fluminense\"; ",
+      "data": "2015-08-19T14:20:52",
+      "params": {
+        "serie_id": "192",
+        "assunto": "fluminense"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Assunto: \"moinho\"; ",
+      "data": "2015-08-19T14:20:57",
+      "params": {
+        "serie_id": "192",
+        "assunto": "moinho"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"lopes trovão\"; ",
+      "data": "2015-08-19T14:30:32",
+      "params": {
+        "endereco": "lopes trovão"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"solon\"; ",
+      "data": "2015-08-19T14:30:42",
+      "params": {
+        "endereco": "solon"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"odette barreto\"; ",
+      "data": "2015-08-19T15:37:58",
+      "params": {
+        "endereco": "odette barreto"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"odete gomes barreto\"; ",
+      "data": "2015-08-19T15:38:07",
+      "params": {
+        "endereco": "odete gomes barreto"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"lucinda barreto\"; ",
+      "data": "2015-08-19T15:38:21",
+      "params": {
+        "endereco": "lucinda barreto"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"santo amaro\"; ",
+      "data": "2015-08-19T15:38:28",
+      "params": {
+        "endereco": "santo amaro"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"julio colasso\"; ",
+      "data": "2015-08-19T15:38:47",
+      "params": {
+        "endereco": "julio colasso"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"vieira pinto\"; ",
+      "data": "2015-08-19T15:39:15",
+      "params": {
+        "endereco": "vieira pinto"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"renato rinaldi\"; ",
+      "data": "2015-08-19T15:39:38",
+      "params": {
+        "endereco": "renato rinaldi"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"coronel marques\"; ",
+      "data": "2015-08-19T15:39:56",
+      "params": {
+        "endereco": "coronel marques"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"ramos da costa\"; ",
+      "data": "2015-08-19T15:40:25",
+      "params": {
+        "endereco": "ramos da costa"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"amaro\"; ",
+      "data": "2015-08-19T15:40:30",
+      "params": {
+        "endereco": "amaro"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"evangelina\"; ",
+      "data": "2015-08-19T15:40:41",
+      "params": {
+        "endereco": "evangelina"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"jericino\"; ",
+      "data": "2015-08-19T15:40:52",
+      "params": {
+        "endereco": "jericino"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"silveira bueno\"; ",
+      "data": "2015-08-19T15:41:08",
+      "params": {
+        "endereco": "silveira bueno"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"eliana zanetti\"; ",
+      "data": "2015-08-19T15:41:19",
+      "params": {
+        "endereco": "eliana zanetti"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"manchester\"; ",
+      "data": "2015-08-19T15:41:35",
+      "params": {
+        "endereco": "manchester"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"aricanduva\"; ",
+      "data": "2015-08-19T15:41:45",
+      "params": {
+        "endereco": "aricanduva"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"penha de frança\"; ",
+      "data": "2015-08-19T15:41:53",
+      "params": {
+        "endereco": "penha de frança"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"penha\"; ",
+      "data": "2015-08-19T15:41:58",
+      "params": {
+        "endereco": "penha"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"Zambezé\"; ",
+      "data": "2015-08-19T15:42:49",
+      "params": {
+        "endereco": "Zambezé"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"dentista barreto\"; ",
+      "data": "2015-08-19T15:43:06",
+      "params": {
+        "endereco": "dentista barreto"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "de: \"1906\"; a: \"1923\"; ",
+      "data": "2015-08-19T15:43:32",
+      "params": {
+        "ano_ini": "1906",
+        "ano_fim": "1923"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"rua\"; de: \"1906\"; a: \"1923\"; ",
+      "data": "2015-08-19T15:43:52",
+      "params": {
+        "assunto": "rua",
+        "ano_ini": "1906",
+        "ano_fim": "1923"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"odette\"; de: \"1906\"; a: \"1923\"; ",
+      "data": "2015-08-19T15:44:15",
+      "params": {
+        "assunto": "odette",
+        "ano_ini": "1906",
+        "ano_fim": "1923"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"abertura\"; de: \"1906\"; a: \"1923\"; ",
+      "data": "2015-08-19T15:44:26",
+      "params": {
+        "assunto": "abertura",
+        "ano_ini": "1906",
+        "ano_fim": "1923"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"odette\"; ",
+      "data": "2015-08-19T15:44:50",
+      "params": {
+        "endereco": "odette"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"odete\"; ",
+      "data": "2015-08-19T15:44:54",
+      "params": {
+        "endereco": "odete"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"cantagalo\"; ",
+      "data": "2015-08-19T16:06:33",
+      "params": {
+        "endereco": "cantagalo"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"antonio de barros\"; ",
+      "data": "2015-08-19T16:06:46",
+      "params": {
+        "endereco": "antonio de barros"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Autor / Construtor: \"brown\"; ",
+      "data": "2015-08-19T16:13:32",
+      "params": {
+        "autor_construtor": "brown"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"solom\"; ",
+      "data": "2015-08-19T16:13:42",
+      "params": {
+        "assunto": "solom"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"solon\"; ",
+      "data": "2015-08-19T16:13:46",
+      "params": {
+        "assunto": "solon"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"solom\"; ",
+      "data": "2015-08-19T16:13:56",
+      "params": {
+        "endereco": "solom"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"solon\"; ",
+      "data": "2015-08-19T16:14:01",
+      "params": {
+        "endereco": "solon"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"carro\"; ",
+      "data": "2015-08-25T10:51:57",
+      "params": {
+        "assunto": "carro"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"carro\"; Endereço: \"rua bela cintra\"; ",
+      "data": "2015-08-25T11:34:43",
+      "params": {
+        "assunto": "carro",
+        "endereco": "rua bela cintra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"carro\"; Endereço: \"rua bela cintra\"; ",
+      "data": "2015-08-25T11:34:52",
+      "params": {
+        "assunto": "carro",
+        "endereco": "rua bela cintra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua bela cintra\"; ",
+      "data": "2015-08-25T11:35:16",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua bela cintra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua bela cintra\"; ",
+      "data": "2015-08-25T11:36:10",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua bela cintra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"bela cintra\"; ",
+      "data": "2015-08-25T11:36:53",
+      "params": {
+        "endereco": "bela cintra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"pirapitingui\"; ",
+      "data": "2015-08-25T11:38:49",
+      "params": {
+        "endereco": "pirapitingui"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bela cintra\"; ",
+      "data": "2015-08-25T11:41:56",
+      "params": {
+        "endereco": "rua bela cintra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bella cintra\"; ",
+      "data": "2015-08-25T11:43:20",
+      "params": {
+        "endereco": "rua bella cintra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bella cintra 124\"; ",
+      "data": "2015-08-25T11:44:41",
+      "params": {
+        "endereco": "rua bella cintra 124"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bella cintra 126\"; ",
+      "data": "2015-08-25T11:44:47",
+      "params": {
+        "endereco": "rua bella cintra 126"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bella cintra \"; ",
+      "data": "2015-08-25T11:44:51",
+      "params": {
+        "endereco": "rua bella cintra "
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bella cintra\"; ",
+      "data": "2015-08-25T11:44:55",
+      "params": {
+        "endereco": "rua bella cintra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bella cintra 98\"; ",
+      "data": "2015-08-25T11:53:01",
+      "params": {
+        "endereco": "rua bella cintra 98"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bella cintra\"; ",
+      "data": "2015-08-25T11:53:06",
+      "params": {
+        "endereco": "rua bella cintra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bella cintra 164\"; ",
+      "data": "2015-08-25T11:54:53",
+      "params": {
+        "endereco": "rua bella cintra 164"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bella cintra\"; ",
+      "data": "2015-08-25T11:54:58",
+      "params": {
+        "endereco": "rua bella cintra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua pirapitingui\"; ",
+      "data": "2015-08-25T11:57:26",
+      "params": {
+        "endereco": "rua pirapitingui"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua piratininga\"; ",
+      "data": "2015-08-25T11:58:16",
+      "params": {
+        "endereco": "rua piratininga"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua pirapitingui\"; ",
+      "data": "2015-08-25T12:02:35",
+      "params": {
+        "endereco": "rua pirapitingui"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bela cintra\"; ",
+      "data": "2015-08-25T12:09:22",
+      "params": {
+        "endereco": "rua bela cintra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua pirapitinguy\"; ",
+      "data": "2015-08-25T12:21:03",
+      "params": {
+        "endereco": "rua pirapitinguy"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua pirapitingui\"; ",
+      "data": "2015-08-25T12:21:26",
+      "params": {
+        "endereco": "rua pirapitingui"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua pirapitinguy\"; ",
+      "data": "2015-08-25T12:22:44",
+      "params": {
+        "endereco": "rua pirapitinguy"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bela cintra 126\"; ",
+      "data": "2015-08-25T12:28:53",
+      "params": {
+        "endereco": "rua bela cintra 126"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rua bela cintra\"; ",
+      "data": "2015-08-25T12:28:56",
+      "params": {
+        "endereco": "rua bela cintra"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"concordia\"; ",
+      "data": "2015-08-26T12:34:02",
+      "params": {
+        "endereco": "concordia"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"concordia\"; Nº do Processo: \"OP1908.001.036\"; ",
+      "data": "2015-08-26T13:40:23",
+      "params": {
+        "endereco": "concordia",
+        "processo": "OP1908.001.036"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"concordia\"; Cod. Imagem: \"OP1908.001.036\"; ",
+      "data": "2015-08-26T13:40:42",
+      "params": {
+        "endereco": "concordia",
+        "imagem": "OP1908.001.036"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Registro: \"OP1908.001.036\"; Endereço: \"concordia\"; ",
+      "data": "2015-08-26T13:41:26",
+      "params": {
+        "id": "OP1908.001.036",
+        "endereco": "concordia"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"intendencia\"; ",
+      "data": "2015-08-26T13:44:44",
+      "params": {
+        "endereco": "intendencia"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"carneiro leão\"; ",
+      "data": "2015-08-26T13:47:00",
+      "params": {
+        "endereco": "carneiro leão"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"gazometro\"; ",
+      "data": "2015-08-26T13:48:49",
+      "params": {
+        "endereco": "gazometro"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"gasometro\"; ",
+      "data": "2015-08-26T13:50:46",
+      "params": {
+        "endereco": "gasometro"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"joli\"; ",
+      "data": "2015-08-26T13:51:44",
+      "params": {
+        "endereco": "joli"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"joly\"; ",
+      "data": "2015-08-26T13:52:09",
+      "params": {
+        "endereco": "joly"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"rangel pestana\"; ",
+      "data": "2015-08-26T13:54:40",
+      "params": {
+        "endereco": "rangel pestana"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"bresser\"; ",
+      "data": "2015-08-26T13:56:56",
+      "params": {
+        "endereco": "bresser"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"concordia\"; ",
+      "data": "2015-08-26T14:00:44",
+      "params": {
+        "endereco": "concordia"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"sao Joao\"; Autor / Construtor: \"Ramos de Azevedo\"; ",
+      "data": "2015-08-27T08:49:19",
+      "params": {
+        "serie_id": "192",
+        "endereco": "sao Joao",
+        "autor_construtor": "Ramos de Azevedo"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"sao Joao\"; ",
+      "data": "2015-08-27T08:49:43",
+      "params": {
+        "serie_id": "192",
+        "endereco": "sao Joao"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"sao Joao\"; Data: \"1915\"; ",
+      "data": "2015-08-27T08:54:47",
+      "params": {
+        "serie_id": "192",
+        "endereco": "sao Joao",
+        "data_doc": "1915"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Cod. Imagem: \"OP 1915\"; ",
+      "data": "2015-08-27T08:55:27",
+      "params": {
+        "serie_id": "192",
+        "imagem": "OP 1915"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Cod. Imagem: \"OP1915\"; ",
+      "data": "2015-08-27T08:55:36",
+      "params": {
+        "serie_id": "192",
+        "imagem": "OP1915"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Cod. Imagem: \"OP1915-003530\"; ",
+      "data": "2015-08-27T08:55:52",
+      "params": {
+        "serie_id": "192",
+        "imagem": "OP1915-003530"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Cod. Imagem: \"OP1915_003530\"; ",
+      "data": "2015-08-27T08:55:57",
+      "params": {
+        "serie_id": "192",
+        "imagem": "OP1915_003530"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"São João\"; de: \"1915\"; ",
+      "data": "2015-08-27T08:58:40",
+      "params": {
+        "endereco": "São João",
+        "ano_ini": "1915"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"São João\"; ",
+      "data": "2015-08-27T09:03:34",
+      "params": {
+        "endereco": "São João"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"roque de mingo\"; ",
+      "data": "2015-08-27T14:51:43",
+      "params": {
+        "assunto": "roque de mingo"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"roque de mingo\"; ",
+      "data": "2015-08-27T14:52:14",
+      "params": {
+        "assunto": "roque de mingo"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"borges de figueiredo\"; ",
+      "data": "2015-08-27T16:00:29",
+      "params": {
+        "endereco": "borges de figueiredo"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"vanordem\"; ",
+      "data": "2015-08-27T16:06:08",
+      "params": {
+        "assunto": "vanordem"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"vanordem\"; Endereço: \"borges de fig\"; ",
+      "data": "2015-08-27T16:06:34",
+      "params": {
+        "assunto": "vanordem",
+        "endereco": "borges de fig"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"taubaté\"; ",
+      "data": "2015-08-27T16:07:05",
+      "params": {
+        "endereco": "taubaté"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"dom lu\"; ",
+      "data": "2015-08-28T11:34:00",
+      "params": {
+        "endereco": "dom lu"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"dom lu\"; ",
+      "data": "2015-08-28T11:34:02",
+      "params": {
+        "endereco": "dom lu"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"lasanha\"; ",
+      "data": "2015-08-28T11:34:07",
+      "params": {
+        "endereco": "lasanha"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"graça\"; ",
+      "data": "2015-08-28T11:34:28",
+      "params": {
+        "assunto": "graça"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Interessado: \"graça\"; ",
+      "data": "2015-08-28T11:34:42",
+      "params": {
+        "interessado": "graça"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"lasanha\"; ",
+      "data": "2015-08-28T11:35:14",
+      "params": {
+        "endereco": "lasanha"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"lazanha\"; ",
+      "data": "2015-08-28T11:35:21",
+      "params": {
+        "endereco": "lazanha"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"almirante barroso\"; ",
+      "data": "2015-08-28T13:35:37",
+      "params": {
+        "endereco": "almirante barroso"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Interessado: \"domingos alterio\"; ",
+      "data": "2015-08-28T15:07:49",
+      "params": {
+        "interessado": "domingos alterio"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua Álvares Penteado\"; Data: \"1910\"; ",
+      "data": "2015-08-29T10:28:53",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua Álvares Penteado",
+        "data_doc": "1910"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua Álvares Penteado\"; ",
+      "data": "2015-08-29T10:30:44",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua Álvares Penteado"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua Álvares Penteado\"; Data: \"1910\"; ",
+      "data": "2015-08-29T10:31:01",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua Álvares Penteado",
+        "data_doc": "1910"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua São Bento\"; Data: \"1922\"; ",
+      "data": "2015-08-29T10:35:09",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua São Bento",
+        "data_doc": "1922"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua São Bento\"; Data: \"1913\"; ",
+      "data": "2015-08-29T10:35:58",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua São Bento",
+        "data_doc": "1913"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua São Bento 200\"; ",
+      "data": "2015-08-29T10:42:18",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua São Bento 200"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua São Bento\"; Data: \"1910\"; ",
+      "data": "2015-08-29T10:45:40",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua São Bento",
+        "data_doc": "1910"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua São Bento\"; ",
+      "data": "2015-08-29T10:48:11",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua São Bento"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua São Bento\"; Data: \"1910\"; ",
+      "data": "2015-08-29T10:49:13",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua São Bento",
+        "data_doc": "1910"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua São Bento\"; Data: \"1913\"; ",
+      "data": "2015-08-29T10:49:18",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua São Bento",
+        "data_doc": "1913"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua São Bento\"; Data: \"1920\"; ",
+      "data": "2015-08-29T10:49:36",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua São Bento",
+        "data_doc": "1920"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Autor / Construtor: \"ricardo severo\"; ",
+      "data": "2015-08-29T10:49:54",
+      "params": {
+        "serie_id": "192",
+        "autor_construtor": "ricardo severo"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento\"; Autor / Construtor: \"ricardo severo\"; ",
+      "data": "2015-08-29T10:50:01",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento",
+        "autor_construtor": "ricardo severo"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento\"; Autor / Construtor: \"ricardo severo\"; ",
+      "data": "2015-08-29T10:55:54",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento",
+        "autor_construtor": "ricardo severo"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua bento\"; ",
+      "data": "2015-08-29T11:24:33",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua bento"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento\"; ",
+      "data": "2015-08-29T11:24:49",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento\"; Autor / Construtor: \"santa casa\"; ",
+      "data": "2015-08-29T11:44:43",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento",
+        "autor_construtor": "santa casa"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento\"; Autor / Construtor: \"moinho\"; ",
+      "data": "2015-08-29T11:44:50",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento",
+        "autor_construtor": "moinho"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento\"; ",
+      "data": "2015-08-29T11:44:54",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento\"; Autor / Construtor: \"penteado\"; ",
+      "data": "2015-08-29T11:45:38",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento",
+        "autor_construtor": "penteado"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento\"; Data: \"1913\"; ",
+      "data": "2015-08-29T12:28:27",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento",
+        "data_doc": "1913"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento\"; Interessado: \"siciliano\"; Data: \"1913\"; ",
+      "data": "2015-08-29T12:52:32",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento",
+        "interessado": "siciliano",
+        "data_doc": "1913"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento\"; Data: \"1910\"; ",
+      "data": "2015-08-29T12:54:25",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento",
+        "data_doc": "1910"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento\"; ",
+      "data": "2015-08-29T12:55:59",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Interessado: \"henrique sertório\"; ",
+      "data": "2015-08-29T13:17:24",
+      "params": {
+        "serie_id": "192",
+        "interessado": "henrique sertório"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Interessado: \"henrique sertorio\"; ",
+      "data": "2015-08-29T13:17:42",
+      "params": {
+        "serie_id": "192",
+        "interessado": "henrique sertorio"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Interessado: \" sertorio\"; ",
+      "data": "2015-08-29T13:17:46",
+      "params": {
+        "serie_id": "192",
+        "interessado": " sertorio"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Interessado: \"henrique sertorio\"; ",
+      "data": "2015-08-29T13:18:03",
+      "params": {
+        "serie_id": "192",
+        "interessado": "henrique sertorio"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Interessado: \"cecilia\"; ",
+      "data": "2015-08-29T13:25:51",
+      "params": {
+        "serie_id": "192",
+        "interessado": "cecilia"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento \"; ",
+      "data": "2015-08-29T13:43:45",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento "
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento \"; ",
+      "data": "2015-08-29T13:43:51",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento "
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"são bento \"; ",
+      "data": "2015-08-29T13:43:55",
+      "params": {
+        "serie_id": "192",
+        "endereco": "são bento "
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"ua são bento \"; ",
+      "data": "2015-08-29T13:44:25",
+      "params": {
+        "serie_id": "192",
+        "endereco": "ua são bento "
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento \"; ",
+      "data": "2015-08-29T13:44:27",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento "
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento \"; ",
+      "data": "2015-08-29T13:44:35",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento "
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua de são bento \"; ",
+      "data": "2015-08-29T13:44:43",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua de são bento "
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento \"; ",
+      "data": "2015-08-29T13:44:48",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento "
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua São Bento \"; ",
+      "data": "2015-08-29T13:45:02",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua São Bento "
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua São Bento \"; ",
+      "data": "2015-08-29T13:45:06",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua São Bento "
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua sao bento\"; ",
+      "data": "2015-08-29T13:45:18",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua sao bento"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua sao bento\"; Interessado: \"almeida\"; ",
+      "data": "2015-08-29T13:53:46",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua sao bento",
+        "interessado": "almeida"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua sao bento\"; Interessado: \"prado\"; ",
+      "data": "2015-08-29T13:53:53",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua sao bento",
+        "interessado": "prado"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua sao bento\"; ",
+      "data": "2015-08-29T13:58:58",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua sao bento"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua sao bento\"; Data: \"1922\"; ",
+      "data": "2015-08-29T14:17:00",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua sao bento",
+        "data_doc": "1922"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Data: \"1922\"; ",
+      "data": "2015-08-29T14:17:36",
+      "params": {
+        "serie_id": "192",
+        "data_doc": "1922"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua são bento\"; Data: \"1922\"; ",
+      "data": "2015-08-29T14:18:34",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua são bento",
+        "data_doc": "1922"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua sao bento\"; Data: \"1922\"; ",
+      "data": "2015-08-29T14:18:39",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua sao bento",
+        "data_doc": "1922"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua sao bento\"; ",
+      "data": "2015-08-29T14:18:44",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua sao bento"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"almirante barroso\"; ",
+      "data": "2015-09-01T11:57:08",
+      "params": {
+        "endereco": "almirante barroso"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"mixta\"; ",
+      "data": "2015-09-01T12:54:08",
+      "params": {
+        "endereco": "mixta"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"lucas\"; ",
+      "data": "2015-09-01T12:54:57",
+      "params": {
+        "endereco": "lucas"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"antonia de queiroz\"; ",
+      "data": "2015-09-01T12:56:12",
+      "params": {
+        "endereco": "antonia de queiroz"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"largo braz\"; ",
+      "data": "2015-09-01T13:02:56",
+      "params": {
+        "endereco": "largo braz"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"largo bras\"; ",
+      "data": "2015-09-01T13:03:00",
+      "params": {
+        "endereco": "largo bras"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"largo do bras\"; ",
+      "data": "2015-09-01T13:03:04",
+      "params": {
+        "endereco": "largo do bras"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"Brás\"; ",
+      "data": "2015-09-01T13:03:09",
+      "params": {
+        "endereco": "Brás"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"america\"; ",
+      "data": "2015-09-01T13:03:33",
+      "params": {
+        "endereco": "america"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"fernandes silva\"; ",
+      "data": "2015-09-01T13:04:34",
+      "params": {
+        "endereco": "fernandes silva"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"carlos botelho\"; ",
+      "data": "2015-09-01T13:07:23",
+      "params": {
+        "endereco": "carlos botelho"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"javari\"; ",
+      "data": "2015-09-01T14:26:19",
+      "params": {
+        "endereco": "javari"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"javri\"; ",
+      "data": "2015-09-01T14:26:53",
+      "params": {
+        "endereco": "javri"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"javry\"; ",
+      "data": "2015-09-01T14:27:30",
+      "params": {
+        "endereco": "javry"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"Javry\"; ",
+      "data": "2015-09-01T14:33:19",
+      "params": {
+        "endereco": "Javry"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"Javry\"; ",
+      "data": "2015-09-01T14:33:21",
+      "params": {
+        "endereco": "Javry"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"Javari\"; ",
+      "data": "2015-09-01T14:40:40",
+      "params": {
+        "endereco": "Javari"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"Javari\"; ",
+      "data": "2015-09-01T14:43:11",
+      "params": {
+        "endereco": "Javari"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua canuto saraiva\"; ",
+      "data": "2015-09-01T15:20:45",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua canuto saraiva"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua da mooca\"; ",
+      "data": "2015-09-01T15:21:07",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua da mooca"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"Mooca\"; ",
+      "data": "2015-09-01T15:54:35",
+      "params": {
+        "assunto": "Mooca"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"Mooca\"; Endereço: \"rua do oratório, 356\"; ",
+      "data": "2015-09-01T16:03:29",
+      "params": {
+        "assunto": "Mooca",
+        "endereco": "rua do oratório, 356"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"Mooca\"; Endereço: \"oratório, 356\"; ",
+      "data": "2015-09-01T16:03:39",
+      "params": {
+        "assunto": "Mooca",
+        "endereco": "oratório, 356"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"Mooca\"; Endereço: \"estrada do oratório, 356\"; ",
+      "data": "2015-09-01T16:03:48",
+      "params": {
+        "assunto": "Mooca",
+        "endereco": "estrada do oratório, 356"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"Mooca\"; Endereço: \"estrada do oratório\"; ",
+      "data": "2015-09-01T16:04:02",
+      "params": {
+        "assunto": "Mooca",
+        "endereco": "estrada do oratório"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"Mooca\"; Endereço: \"estrada oratório\"; ",
+      "data": "2015-09-01T16:04:09",
+      "params": {
+        "assunto": "Mooca",
+        "endereco": "estrada oratório"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"Mooca\"; Endereço: \"estrada do oratório\"; ",
+      "data": "2015-09-01T16:04:18",
+      "params": {
+        "assunto": "Mooca",
+        "endereco": "estrada do oratório"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"Mooca\"; Endereço: \"caminho da mooca\"; ",
+      "data": "2015-09-01T16:04:35",
+      "params": {
+        "assunto": "Mooca",
+        "endereco": "caminho da mooca"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Assunto: \"Mooca\"; ",
+      "data": "2015-09-01T16:04:58",
+      "params": {
+        "serie_id": "192",
+        "assunto": "Mooca"
+      }
+    },
+    {
+      "acervo": "Registros de Sepultamento",
+      "parametros": "Nome: \"angela maria\"; ",
+      "data": "2015-09-02T14:23:03",
+      "params": {
+        "nome": "angela maria"
+      }
+    },
+    {
+      "acervo": "Registros de Sepultamento",
+      "parametros": "Nome: \"ângela maria\"; ",
+      "data": "2015-09-02T14:24:12",
+      "params": {
+        "nome": "ângela maria"
+      }
+    },
+    {
+      "acervo": "Registros de Sepultamento",
+      "parametros": "Nome: \"auric\"; ",
+      "data": "2015-09-02T14:24:35",
+      "params": {
+        "nome": "auric"
+      }
+    },
+    {
+      "acervo": "Registros de Sepultamento",
+      "parametros": "Nome: \"casillo\"; ",
+      "data": "2015-09-02T14:27:07",
+      "params": {
+        "nome": "casillo"
+      }
+    },
+    {
+      "acervo": "Registros de Sepultamento",
+      "parametros": "Nome: \"casilo\"; ",
+      "data": "2015-09-02T14:27:24",
+      "params": {
+        "nome": "casilo"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"monsenhor de andrade\"; ",
+      "data": "2015-09-03T12:15:24",
+      "params": {
+        "serie_id": "192",
+        "endereco": "monsenhor de andrade"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"monsenhor de andrade\"; ",
+      "data": "2015-09-03T12:15:25",
+      "params": {
+        "serie_id": "192",
+        "endereco": "monsenhor de andrade"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"monsenhor andrade\"; ",
+      "data": "2015-09-03T12:17:11",
+      "params": {
+        "serie_id": "192",
+        "endereco": "monsenhor andrade"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Interessado: \"Francisco matarazzo\"; ",
+      "data": "2015-09-03T12:17:43",
+      "params": {
+        "serie_id": "192",
+        "interessado": "Francisco matarazzo"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Interessado: \"Francisco matarazzo\"; ",
+      "data": "2015-09-03T12:20:49",
+      "params": {
+        "interessado": "Francisco matarazzo"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "de: \"1908\"; ",
+      "data": "2015-09-03T12:45:18",
+      "params": {
+        "ano_ini": "1908"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"monsenhor andrade\"; de: \"1908\"; ",
+      "data": "2015-09-03T12:45:41",
+      "params": {
+        "endereco": "monsenhor andrade",
+        "ano_ini": "1908"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"florida\"; de: \"1908\"; ",
+      "data": "2015-09-03T12:51:41",
+      "params": {
+        "endereco": "florida",
+        "ano_ini": "1908"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"silo trigo\"; Endereço: \"florida\"; de: \"1908\"; ",
+      "data": "2015-09-03T12:53:26",
+      "params": {
+        "assunto": "silo trigo",
+        "endereco": "florida",
+        "ano_ini": "1908"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"silo trigo\"; de: \"1908\"; ",
+      "data": "2015-09-03T12:53:30",
+      "params": {
+        "assunto": "silo trigo",
+        "ano_ini": "1908"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"silo \"; de: \"1908\"; ",
+      "data": "2015-09-03T12:53:37",
+      "params": {
+        "assunto": "silo ",
+        "ano_ini": "1908"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"silo \"; de: \"1909\"; ",
+      "data": "2015-09-03T12:53:45",
+      "params": {
+        "assunto": "silo ",
+        "ano_ini": "1909"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"monsenhor\"; de: \"1909\"; ",
+      "data": "2015-09-03T12:53:52",
+      "params": {
+        "assunto": "monsenhor",
+        "ano_ini": "1909"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"monsenhor\"; de: \"1909\"; ",
+      "data": "2015-09-03T12:54:01",
+      "params": {
+        "endereco": "monsenhor",
+        "ano_ini": "1909"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Interessado: \"matarazzo\"; de: \"1908\"; ",
+      "data": "2015-09-03T13:00:52",
+      "params": {
+        "interessado": "matarazzo",
+        "ano_ini": "1908"
+      }
+    },
+    {
+      "acervo": "Registros de Sepultamento",
+      "parametros": "Nome: \"jacinto de carvalho\"; ",
+      "data": "2015-09-03T13:17:51",
+      "params": {
+        "nome": "jacinto de carvalho"
+      }
+    },
+    {
+      "acervo": "Registros de Sepultamento",
+      "parametros": "Nome: \"jacintho de carvalho\"; ",
+      "data": "2015-09-03T13:17:56",
+      "params": {
+        "nome": "jacintho de carvalho"
+      }
+    },
+    {
+      "acervo": "Registros de Sepultamento",
+      "parametros": "Nome: \"augusto cezar\"; ",
+      "data": "2015-09-03T13:18:03",
+      "params": {
+        "nome": "augusto cezar"
+      }
+    },
+    {
+      "acervo": "Registros de Sepultamento",
+      "parametros": "Nome: \"joaquim cavalheiro\"; ",
+      "data": "2015-09-03T13:18:37",
+      "params": {
+        "nome": "joaquim cavalheiro"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"carlos botelho\"; ",
+      "data": "2015-09-03T13:18:59",
+      "params": {
+        "endereco": "carlos botelho"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"concordia\"; ",
+      "data": "2015-09-03T13:23:02",
+      "params": {
+        "endereco": "concordia"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"carlos de campso\"; ",
+      "data": "2015-09-03T13:48:15",
+      "params": {
+        "endereco": "carlos de campso"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"carlos de campos\"; ",
+      "data": "2015-09-03T13:48:19",
+      "params": {
+        "endereco": "carlos de campos"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"casimiro de abreu\"; ",
+      "data": "2015-09-03T14:27:28",
+      "params": {
+        "endereco": "casimiro de abreu"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"casemiro de abreu\"; ",
+      "data": "2015-09-03T14:29:45",
+      "params": {
+        "endereco": "casemiro de abreu"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"casemiro de abreu\"; ",
+      "data": "2015-09-03T14:46:03",
+      "params": {
+        "endereco": "casemiro de abreu"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"casemiro de abreu\"; ",
+      "data": "2015-09-04T14:27:51",
+      "params": {
+        "endereco": "casemiro de abreu"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"cocheira\"; ",
+      "data": "2015-09-04T14:39:44",
+      "params": {
+        "assunto": "cocheira"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"cavalheiro\"; ",
+      "data": "2015-09-04T15:00:13",
+      "params": {
+        "endereco": "cavalheiro"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"claudino pinto\"; ",
+      "data": "2015-09-04T15:23:24",
+      "params": {
+        "endereco": "claudino pinto"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"belisario\"; ",
+      "data": "2015-09-04T16:11:17",
+      "params": {
+        "endereco": "belisario"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"conselheiro belisario\"; ",
+      "data": "2015-09-04T16:11:43",
+      "params": {
+        "endereco": "conselheiro belisario"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"conselheiro belizario\"; ",
+      "data": "2015-09-04T16:11:57",
+      "params": {
+        "endereco": "conselheiro belizario"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"conselheiro belisario\"; ",
+      "data": "2015-09-04T16:30:57",
+      "params": {
+        "endereco": "conselheiro belisario"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"euclides da cunha\"; ",
+      "data": "2015-09-08T12:04:56",
+      "params": {
+        "endereco": "euclides da cunha"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"intendencia\"; ",
+      "data": "2015-09-08T12:22:10",
+      "params": {
+        "endereco": "intendencia"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"intendencia 316\"; ",
+      "data": "2015-09-08T12:24:55",
+      "params": {
+        "endereco": "intendencia 316"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"intendencia 316\"; ",
+      "data": "2015-09-08T12:25:04",
+      "params": {
+        "endereco": "intendencia 316"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"intendencia\"; ",
+      "data": "2015-09-08T12:28:40",
+      "params": {
+        "endereco": "intendencia"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"itambe\"; de: \"1908\"; a: \"1908\"; ",
+      "data": "2015-09-08T12:29:35",
+      "params": {
+        "endereco": "itambe",
+        "ano_ini": "1908",
+        "ano_fim": "1908"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"itambe\"; a: \"1908\"; ",
+      "data": "2015-09-08T12:29:39",
+      "params": {
+        "endereco": "itambe",
+        "ano_fim": "1908"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Assunto: \"teatro municipal\"; ",
+      "data": "2015-09-08T12:30:54",
+      "params": {
+        "serie_id": "192",
+        "assunto": "teatro municipal"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Assunto: \"teatro municipal\"; ",
+      "data": "2015-09-08T12:30:54",
+      "params": {
+        "serie_id": "192",
+        "assunto": "teatro municipal"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Desenhos Técnicos\"; Assunto: \"teatro municipal\"; ",
+      "data": "2015-09-08T12:31:14",
+      "params": {
+        "serie_id": "259",
+        "assunto": "teatro municipal"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Desenhos Técnicos\"; Assunto: \"teatro municipal\"; ",
+      "data": "2015-09-08T12:35:23",
+      "params": {
+        "serie_id": "259",
+        "assunto": "teatro municipal"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua treze de maio\"; ",
+      "data": "2015-09-09T11:17:10",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua treze de maio"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"Rua treze de maio\"; ",
+      "data": "2015-09-09T11:21:55",
+      "params": {
+        "endereco": "Rua treze de maio"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"Rua treze de maio\"; de: \"1913\"; a: \"1914\"; ",
+      "data": "2015-09-09T11:49:34",
+      "params": {
+        "serie_id": "192",
+        "endereco": "Rua treze de maio",
+        "ano_ini": "1913",
+        "ano_fim": "1914"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; ",
+      "data": "2015-09-09T11:55:28",
+      "params": {
+        "endereco": "treze de maio"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; Data: \"1913\"; ",
+      "data": "2015-09-09T12:01:25",
+      "params": {
+        "endereco": "treze de maio",
+        "data_doc": "1913"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; Data: \"1913\"; Cod. Imagem: \"OP1913_005133_PR001.jpg\"; ",
+      "data": "2015-09-09T12:03:24",
+      "params": {
+        "endereco": "treze de maio",
+        "data_doc": "1913",
+        "imagem": "OP1913_005133_PR001.jpg"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; Cod. Imagem: \"OP1913_005134_PR001.jpg\"; ",
+      "data": "2015-09-09T12:05:11",
+      "params": {
+        "endereco": "treze de maio",
+        "imagem": "OP1913_005134_PR001.jpg"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; Cod. Imagem: \"OP1914_004289_PR001.jpg\"; ",
+      "data": "2015-09-09T12:05:48",
+      "params": {
+        "endereco": "treze de maio",
+        "imagem": "OP1914_004289_PR001.jpg"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; Cod. Imagem: \"OP1914_004289\"; ",
+      "data": "2015-09-09T12:06:04",
+      "params": {
+        "endereco": "treze de maio",
+        "imagem": "OP1914_004289"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio 97\"; ",
+      "data": "2015-09-09T12:06:22",
+      "params": {
+        "endereco": "treze de maio 97"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio, 97\"; ",
+      "data": "2015-09-09T12:06:33",
+      "params": {
+        "endereco": "treze de maio, 97"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"13 de maio, 97\"; ",
+      "data": "2015-09-09T12:06:48",
+      "params": {
+        "endereco": "13 de maio, 97"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; Data: \"1914\"; ",
+      "data": "2015-09-09T12:07:09",
+      "params": {
+        "endereco": "treze de maio",
+        "data_doc": "1914"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; de: \"1914\"; ",
+      "data": "2015-09-09T12:11:20",
+      "params": {
+        "endereco": "treze de maio",
+        "ano_ini": "1914"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; Interessado: \"sanfe\"; de: \"1914\"; ",
+      "data": "2015-09-09T12:11:34",
+      "params": {
+        "endereco": "treze de maio",
+        "interessado": "sanfe",
+        "ano_ini": "1914"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio 97\"; de: \"1914\"; ",
+      "data": "2015-09-09T12:12:48",
+      "params": {
+        "endereco": "treze de maio 97",
+        "ano_ini": "1914"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio, 97\"; de: \"1914\"; ",
+      "data": "2015-09-09T12:13:02",
+      "params": {
+        "endereco": "treze de maio, 97",
+        "ano_ini": "1914"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; de: \"1914\"; ",
+      "data": "2015-09-09T12:13:09",
+      "params": {
+        "endereco": "treze de maio",
+        "ano_ini": "1914"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; Interessado: \"san\"; ",
+      "data": "2015-09-09T12:21:48",
+      "params": {
+        "endereco": "treze de maio",
+        "interessado": "san"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; Interessado: \"san\"; de: \"1914\"; ",
+      "data": "2015-09-09T12:21:55",
+      "params": {
+        "endereco": "treze de maio",
+        "interessado": "san",
+        "ano_ini": "1914"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; de: \"1914\"; ",
+      "data": "2015-09-09T12:23:21",
+      "params": {
+        "endereco": "treze de maio",
+        "ano_ini": "1914"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; de: \"1914\"; Data: \"OP_1914_004289\"; ",
+      "data": "2015-09-09T12:25:40",
+      "params": {
+        "endereco": "treze de maio",
+        "ano_ini": "1914",
+        "data_doc": "OP_1914_004289"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; de: \"1914\"; Data: \"OP_1914_004289_PR001\"; ",
+      "data": "2015-09-09T12:26:01",
+      "params": {
+        "endereco": "treze de maio",
+        "ano_ini": "1914",
+        "data_doc": "OP_1914_004289_PR001"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; de: \"1915\"; ",
+      "data": "2015-09-09T12:26:21",
+      "params": {
+        "endereco": "treze de maio",
+        "ano_ini": "1915"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"treze de maio\"; Interessado: \"lui\"; de: \"1915\"; ",
+      "data": "2015-09-09T12:26:54",
+      "params": {
+        "endereco": "treze de maio",
+        "interessado": "lui",
+        "ano_ini": "1915"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"aumento de sala\"; Endereço: \"treze de maio\"; de: \"1914\"; ",
+      "data": "2015-09-09T12:45:17",
+      "params": {
+        "assunto": "aumento de sala",
+        "endereco": "treze de maio",
+        "ano_ini": "1914"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Endereço: \"tagua\"; ",
+      "data": "2015-09-09T14:07:37",
+      "params": {
+        "endereco": "tagua"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Assunto: \"cinema\"; ",
+      "data": "2015-09-09T14:44:29",
+      "params": {
+        "assunto": "cinema"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua paim\"; ",
+      "data": "2015-09-10T10:39:38",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua paim"
+      }
+    },
+    {
+      "acervo": "Textual e Cartográfico",
+      "parametros": "Fundo/Série: \"Série Obras Particulares\"; Endereço: \"rua paim\"; ",
+      "data": "2015-09-10T10:44:03",
+      "params": {
+        "serie_id": "192",
+        "endereco": "rua paim"
+      }
+    }
+  ]
+}

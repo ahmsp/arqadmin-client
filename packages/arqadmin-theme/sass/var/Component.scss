@@ -127,7 +127,7 @@ $ended: #F1485B;
   }
 
   .kpi-meta-charts {
-    margin-bottom: 20px;
+    margin-bottom: 0;
     overflow: visible;
 
     .x-panel-body, .x-panel, .x-box-inner {
@@ -184,6 +184,24 @@ $ended: #F1485B;
         font-size: $exec-font-size-small-title;
         font-weight: $exec-font-bold;
       }
+    }
+
+    .x-column-header {
+      border: none;
+      background-color: #fff;
+    }
+
+    .x-grid-header-ct {
+      border: none;
+    }
+
+    .x-grid-item, .x-column-header {
+      color: #7E8390;
+      font-weight: normal;
+    }
+
+    .x-grid-body {
+      border-top-color: #EFE2E2;
     }
 
     .redemption-body, .statistics-body {

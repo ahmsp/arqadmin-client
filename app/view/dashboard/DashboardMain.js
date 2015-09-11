@@ -16,7 +16,8 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
         'Ext.chart.PolarChart',
         'Ext.chart.series.Pie',
         'Ext.chart.interactions.Rotate',
-        'Ext.chart.interactions.ItemHighlight'
+        'Ext.chart.interactions.ItemHighlight',
+        'ArqAdmin.view.dashboard.SearchHistoryGrid'
     ],
 
     //itemId: 'dashboard-main',
@@ -70,7 +71,8 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
         {
             xtype: 'container',
             cls: 'kpi-meta-charts',
-
+            margin: '0 0 20px 0',
+            flex: 1,
             layout: {
                 type: 'hbox',
                 align: 'stretch'
@@ -80,6 +82,8 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
                 {
                     xtype: 'container',
                     cls: 'kpi-meta-charts',
+                    margin: '0',
+
                     flex: 1,
                     layout: {
                         type: 'vbox',
@@ -226,51 +230,23 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
                         },
                         {
                             xtype: 'container',
-                            height: 180,
+                            margin: '10px 0 0 0',
+                            //height: 180,
                             cls: 'kpi-meta-charts',
-
+                            flex: 1,
                             layout: {
-                                type: 'hbox',
+                                type: 'vbox',
                                 align: 'stretch'
                             },
 
                             items: [
                                 {
-                                    title: 'OUTROS INDICADORES',
-
-                                    margin: '0 10px 0 20px',
+                                    xtype: 'search-history',
                                     flex: 1,
-                                    //width: 380,
+                                    margin: '0 20px 0 20px',
                                     bodyCls: 'redemption-body',
-
-                                    layout: {
-                                        type: 'vbox',
-                                        align: 'stretch'
-                                    },
-
-                                    items: [{
-                                        xtype: 'container',
-                                        layout: {
-                                            type: 'hbox',
-                                            align: 'stretch'
-                                        },
-                                        flex: 1,
-                                        items: []
-                                    }]
-                                },
-                                {
-                                    xtype: 'panel',
-                                    bodyCls: 'statistics-body',
-                                    margin: '0 20px 0 0',
-                                    flex: 1,
-                                    title: 'QTD POR FUNDOS'
-                                },
-                                {
-                                    xtype: 'panel',
-                                    bodyCls: 'statistics-body',
-                                    margin: '0 20px 0 0',
-                                    flex: 1,
-                                    title: 'QTD POR FUNDOS'
+                                    cls: 'search-history',
+                                    //bodyCls: 'statistics-body',
                                 }
                             ]
                         }
@@ -280,11 +256,9 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
                     xtype: 'panel',
                     bodyCls: 'statistics-body',
                     margin: '0 20px 0 0',
-                    //flex: 1,
                     width: 280,
                     title: 'TERMOS PESQUISADOS'
                 }
-
 
 
             ]

@@ -215,7 +215,7 @@
 
 /** form login */
 .x-logindialog-header {
-    background: transparent url('../img/logo-login.png') no-repeat center;
+    background: transpa url('../img/logo-login.png') no-repeat center;
 }
 .x-logindialog-icon {
     background: #e6eaeb url('../img/arq-admin-logo-2.png') no-repeat center;
@@ -225,7 +225,7 @@
     text-align: center;
     color: #777;
     padding-top: 10px;
-    background-color: transparent;
+    background-color: #f5f5f5;
 }
 .x-logindialog-footer a:link, .x-logindialog-footer a:visited, .x-logindialog-footer a:active {
     text-decoration: underline;

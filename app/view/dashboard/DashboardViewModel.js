@@ -93,6 +93,26 @@ Ext.define('ArqAdmin.view.dashboard.DashboardViewModel', {
                     "url": "resources/reports/Q42013Report.pdf"
                 }
             ]
+        },
+        searchHistory: {
+            fields: [
+                {name: 'acervo'},
+                {name: 'parametros'},
+                {name: 'data'}
+            ],
+            autoLoad: true,
+            proxy: {
+                type: 'ajax',
+                url: 'resources/data/historico-pesquisa-atendimento.json',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'data'
+                }
+            },
+            sorters: {
+                property: 'data',
+                direction: 'DESC'
+            }
         }
     }
 
