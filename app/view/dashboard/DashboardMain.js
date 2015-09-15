@@ -259,32 +259,34 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
                     margin: '0 20px 0 0',
                     title: 'REGISTROS CADASTRADOS',
                     tpl: [
-                        '<div class="statistic-totals-header-total">Total de registros <span>{total}</span></div>',
+                        '<div class="statistic-totals-header-total">Total de registros <span>{total:this.numberFormat}</span></div>',
                         '<div class="statistic-totals-header">ACERVOS</div>',
                         '<tpl for="acervos">',
-                            //'<div class="statistic-tag {status}">{text}</div>',
-                            '<div class="statistic-totals-description">{description} <span>{ratio}</span></div>',
+                            '<div class="statistic-totals-description">{description} <span>{ratio:this.numberFormat}</span></div>',
                             '<div class="sparkline-totals">',
                                 '<div class="sparkline-totals-inner sparkline-totals-inner-{status}" style="width: {[(values.ratio / parent.total) * 100]}%;"></div>',
                             '</div>',
                         '</tpl>',
                         '<div class="statistic-totals-header">FUNDOS</div>',
                         '<tpl for="fundos">',
-                            //'<div class="statistic-tag {status}">{text}</div>',
-                            '<div class="statistic-totals-description">{description} <span>{ratio}</span></div>',
+                            '<div class="statistic-totals-description">{description} <span>{ratio:this.numberFormat}</span></div>',
                             '<div class="sparkline-totals">',
                                 '<div class="sparkline-totals-inner sparkline-totals-inner-{status}" style="width: {[(values.ratio / parent.total) * 100]}%;"></div>',
                             '</div>',
                         '</tpl>',
-                        //'<hr>',
                         '<div class="statistic-totals-header">FUNDO PMSP</div>',
                         '<tpl for="pmsp">',
-                        //'<div class="statistic-tag {status}">{text}</div>',
-                        '<div class="statistic-totals-description">{description} <span>{ratio}</span></div>',
+                        '<div class="statistic-totals-description">{description} <span>{ratio:this.numberFormat}</span></div>',
                         '<div class="sparkline-totals">',
                         '<div class="sparkline-totals-inner sparkline-totals-inner-{status}" style="width: {[(values.ratio / parent.total) * 100]}%;"></div>',
                         '</div>',
-                        '</tpl>'
+                        '</tpl>',
+                        {
+                            numberFormat: function(value){
+                                Ext.util.Format.decimalSeparator  = ",";
+                                return Ext.util.Format.number(value, '000,000');
+                            }
+                        }
                     ],
                     data: {
                         total: 120117,

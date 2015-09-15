@@ -44,42 +44,6 @@ Ext.define('ArqAdmin.view.dashboard.DashboardViewModel', {
                     "acervo": "foto",
                     "title": "FOTOGRÁFICO",
                     "desc": "Nono n ononononon ono ononononononononon",
-                    "qtd": "7.766",
-                    "thumb": "resources/img/acervo_foto_1.png",
-                    "url": "resources/reports/Q42013Report.pdf"
-                },
-                {
-                    "acervo": "sepult",
-                    "title": "REGISTROS DE SEPULTAMENTO",
-                    "desc": "Nono n ononononon ono ononononononononon",
-                    "qtd": "51.938",
-                    "thumb": "resources/img/acervo_cemit_1.jpg",
-                    "url": "resources/reports/Q42013Report.pdf"
-                }
-            ]
-        },
-        topSearches: {
-            fields: [
-                {name: 'acervo'}, // Cartográfico, ducumental
-                {name: 'id'},
-                {name: 'tipo'}, // documento, planta
-                {name: 'desc'}, // assundo
-                {name: 'qtd'},
-                {name: 'thumb'}
-            ],
-            data: [
-                {
-                    "acervo": "Documental",
-                    "title": "DOCUMENTAL E CARTOGRÁFICO",
-                    "desc": "Nono n ononononon ono ononononononononon",
-                    "qtd": "59.162",
-                    "thumb": "resources/img/acervo_docs_2.png",
-                    "url": "resources/reports/Q42013Report.pdf"
-                },
-                {
-                    "acervo": "foto",
-                    "title": "FOTOGRÁFICO",
-                    "desc": "Nono n ononononon ono ononononononononon",
                     "qtd": "9.068",
                     "thumb": "resources/img/acervo_foto_1.png",
                     "url": "resources/reports/Q42013Report.pdf"
