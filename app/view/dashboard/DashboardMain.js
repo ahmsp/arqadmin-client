@@ -245,7 +245,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
                                     flex: 1,
                                     margin: '0 20px 0 20px',
                                     bodyCls: 'redemption-body',
-                                    cls: 'search-history',
+                                    cls: 'search-history'
                                     //bodyCls: 'statistics-body',
                                 }
                             ]

@@ -52,6 +52,115 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
     ],
     items: [
         {
+            xtype: 'combobox',
+            reference: 'filterAcervoCombo',
+            fieldLabel: 'Classificação (Sugestões)',
+            name: 'acervo_id',
+            //emptyText: 'Selecione uma classificação...',
+            displayField: 'acervo_nome',
+            queryMode: 'local',
+            store: 'classificacao.Acervos',
+            valueField: 'id',
+            listeners: {
+                select: 'onAcervoComboSelect'
+            }
+        },
+        {
+            xtype: 'fieldset',
+            reference: 'filterClassificFieldset',
+            border: '1 0 0 0',
+            itemId: 'filterClassificFieldset',
+            margin: '10 0 20',
+            padding: '10 0 0',
+            defaults: {
+                queryMode: 'local',
+                triggers: {
+                    clear: {
+                        type: 'clear',
+                        clearOnEscape: true
+                    }
+                }
+            },
+            referenceHolder: true,
+            collapsible: true,
+            title: 'Classificação',
+            layout: {
+                type: 'vbox',
+                align: 'stretch'
+            },
+            items: [
+                {
+                    xtype: 'combobox',
+                    reference: 'fundoCombo',
+                    fieldLabel: 'Fundo',
+                    name: 'fundo_id',
+                    displayField: 'fundo_nome',
+                    store: 'classificacao.Fundos',
+                    valueField: 'id'
+                },
+                {
+                    xtype: 'combobox',
+                    reference: 'subfundoCombo',
+                    disabled: true,
+                    fieldLabel: 'Subfundo',
+                    name: 'subfundo_id',
+                    displayField: 'subfundo_nome',
+                    store: 'classificacao.Subfundos',
+                    valueField: 'id'
+                },
+                {
+                    xtype: 'combobox',
+                    reference: 'grupoCombo',
+                    disabled: true,
+                    fieldLabel: 'Grupo',
+                    name: 'grupo_id',
+                    displayField: 'grupo_nome',
+                    store: 'classificacao.Grupos',
+                    valueField: 'id'
+                },
+                {
+                    xtype: 'combobox',
+                    reference: 'subgrupoCombo',
+                    disabled: true,
+                    fieldLabel: 'Subgrupo',
+                    name: 'subgrupo_id',
+                    displayField: 'subgrupo_nome',
+                    store: 'classificacao.Subgrupos',
+                    valueField: 'id'
+                },
+                {
+                    xtype: 'combobox',
+                    reference: 'serieCombo',
+                    disabled: true,
+                    fieldLabel: 'Série',
+                    name: 'serie_id',
+                    displayField: 'serie_nome',
+                    store: 'classificacao.Series',
+                    valueField: 'id'
+                },
+                {
+                    xtype: 'combobox',
+                    reference: 'subserieCombo',
+                    disabled: true,
+                    fieldLabel: 'Subsérie',
+                    name: 'subserie_id',
+                    displayField: 'subserie_nome',
+                    store: 'classificacao.Subseries',
+                    valueField: 'id'
+                },
+                {
+                    xtype: 'combobox',
+                    reference: 'dossieCombo',
+                    disabled: true,
+                    fieldLabel: 'Dossiê',
+                    name: 'dossie_id',
+                    displayField: 'dossie_nome',
+                    store: 'classificacao.Dossies',
+                    valueField: 'id'
+                }
+            ]
+        },
+        {
             xtype: 'checkboxfield',
             fieldLabel: 'Com imagem',
             name: 'com_imagem',
@@ -62,20 +171,6 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
             xtype: 'textfield',
             name: 'id',
             fieldLabel: 'Registro'
-        },
-        {
-            xtype: 'combobox',
-            //reference: 'acervoCombo',
-            fieldLabel: 'Classificação (Atalho)',
-            name: 'acervo_id',
-            //emptyText: 'Selecione uma classificação...',
-            displayField: 'acervo_nome',
-            queryMode: 'local',
-            store: 'classificacao.Acervos',
-            valueField: 'id',
-            listeners: {
-                //select: 'onAcervoComboSelect'
-            }
         },
         {
             xtype: 'textfield',

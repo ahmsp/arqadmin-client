@@ -10,6 +10,11 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
             //select: 'onCascadingComboChange',
             change: 'onCascadingComboChange',
             focus: 'onCascadingComboFocus'
+        },
+        "#filterClassificFieldset combobox": {
+            //select: 'onCascadingComboChange',
+            change: 'onCascadingComboChange',
+            focus: 'onCascadingComboFocus'
         }
     },
 
@@ -48,11 +53,9 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         button.up('form').reset();
     },
 
-
     /*
-     * Grid
+     * Result Grid
      */
-
     onGridpanelSelect: function (rowmodel, record, index, eOpts) {
         // selects record in both grids
         var refs = this.getReferences();
@@ -72,43 +75,54 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         layout.setActiveItem(this.lookupReference(view));
     },
 
-
     /*
-     * Form Panel
+     * Form Edit
      */
-
     formLoadRecord: function (record) {
         var me = this,
+            combosRefs = me.lookupReference('classificFieldset').getReferences(),
             formPanel = me.getReferences().documentalForm,
             form = formPanel.getForm();
 
-        // Clear form
         form.reset();
-
-        me.clearFilterCascadingCombos();
+        me.clearFilterCascadingCombos(combosRefs);
         form.loadRecord(record);
-        me.changeDisableCascadingCombos();
+        me.changeDisableCascadingCombos(combosRefs);
     },
 
     onAcervoComboSelect: function (combo, records, eOpts) {
         var me = this,
-            formPanel = me.getReferences().documentalForm,
+            formPanel = combo.up('panel'),
             form = formPanel.getForm(),
-            combosRefs = this.lookupReference('classificFieldset').getReferences(),
             values = records.getData();
 
+        var classificFieldset = (formPanel.xtype === 'documental-form') ? 'classificFieldset' : 'filterClassificFieldset';
+        var combosRefs = me.lookupReference(classificFieldset).getReferences();
+
         delete values.id;
+        me.clearFilterCascadingCombos(combosRefs);
 
-        me.clearFilterCascadingCombos();
         form.setValues(values);
-        me.changeDisableCascadingCombos();
+        me.changeDisableCascadingCombos(combosRefs);
 
-        me.lookupReference('especiedocumentalCombo').focus(true, 180);
+        if (formPanel.xtype === 'documental-form') {
+            me.lookupReference('especiedocumentalCombo').focus(true, 180);
+        }
     },
 
     onCascadingComboChange: function (combo, records, eOpts, conn) {
         var me = this,
-            combosRefs = this.lookupReference('classificFieldset').getReferences();
+            formPanel = combo.up('panel');
+
+        if (formPanel.xtype === 'documental-form') {
+            var classificFieldset = 'classificFieldset';
+            var acervoCombo = 'acervoCombo';
+        } else {
+            var classificFieldset = 'filterClassificFieldset';
+            var acervoCombo = 'filterAcervoCombo';
+        }
+
+        var combosRefs = me.lookupReference(classificFieldset).getReferences();
 
         // clear all next combos
         var start = false;
@@ -124,9 +138,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
             }
         });
 
-        me.changeDisableCascadingCombos();
-        me.setAcervoComboValue();
-
+        me.changeDisableCascadingCombos(combosRefs);
+        me.setAcervoComboValue(acervoCombo);
     },
 
     onCascadingComboFocus: function (component, event, eOpts) {
@@ -149,12 +162,21 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
     },
 
+    /* Clear the filters of cascading combos */
+    clearFilterCascadingCombos: function (combosReferences) {
+        var combos = combosReferences;
+
+        Ext.Object.each(combos, function (key, combo, obj) {
+            combo.getStore().clearFilter();
+        });
+    },
+
     /*
      * Change the disabled state of cascading combos,
      * based on defined values
      */
-    changeDisableCascadingCombos: function () {
-        var combos = this.lookupReference('classificFieldset').getReferences();
+    changeDisableCascadingCombos: function (combosReferences) {
+        var combos = combosReferences;
 
         var lastSelectedCombo = null;
         Ext.Object.each(combos, function (key, combo, obj) {
@@ -171,22 +193,17 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         }
     },
 
-    /* Clean the filters of cascading combos */
-    clearFilterCascadingCombos: function () {
-        var combos = this.lookupReference('classificFieldset').getReferences();
-        Ext.Object.each(combos, function (key, combo, obj) {
-            combo.getStore().clearFilter();
-        });
-    },
-
     /*
      * Checks if the combination of "classificação" corresponds to an existing "acervo"
      * and sets the corresponding value for the combo
      */
-    setAcervoComboValue: function () {
+    setAcervoComboValue: function (acervoCombo) {
         var me = this,
-            acervoCombo = me.lookupReference('acervoCombo'),
-            refs = me.lookupReference('classificFieldset').getReferences();
+            acervoCombo = me.lookupReference(acervoCombo),
+            formPanel = acervoCombo.up('panel');
+
+        var classificFieldset = (formPanel.xtype === 'documental-form') ? 'classificFieldset' : 'filterClassificFieldset';
+        var refs = me.lookupReference(classificFieldset).getReferences();
 
         acervoCombo.clearValue();
 
