@@ -34,14 +34,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
             columns: [
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'fundo_id',
+                    dataIndex: 'fundo_nome',
                     text: 'Fundo',
-                    renderer: function(value, metaData, record) {
-                        return (record.get('fundo')) ? record.get('fundo').fundo_nome : '';
-                    },
                     filter: {
                         type: 'list',
-                        idField: 'id',
+                        idField: 'fundo_nome',
                         labelField: 'fundo_nome',
                         updateBuffer: 1500,
                         store: 'classificacao.Fundos'
@@ -49,14 +46,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'subfundo_id',
+                    dataIndex: 'subfundo_nome',
                     text: 'Subfundo',
-                    renderer: function(value, metaData, record) {
-                        return (record.get('subfundo')) ? record.get('subfundo').subfundo_nome : '';
-                    },
                     filter: {
                         type: 'list',
-                        idField: 'id',
+                        idField: 'subfundo_nome',
                         labelField: 'subfundo_nome',
                         updateBuffer: 1500,
                         store: 'classificacao.Subfundos'
@@ -64,14 +58,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'grupo_id',
+                    dataIndex: 'grupo_nome',
                     text: 'Grupo',
-                    renderer: function(value, metaData, record) {
-                        return (record.get('grupo')) ? record.get('grupo').grupo_nome : '';
-                    },
                     filter: {
                         type: 'list',
-                        idField: 'id',
+                        idField: 'grupo_nome',
                         labelField: 'grupo_nome',
                         updateBuffer: 1500,
                         store: 'classificacao.Grupos'
@@ -79,14 +70,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'subgrupo_id',
+                    dataIndex: 'subgrupo_nome',
                     text: 'Subgrupo',
-                    renderer: function(value, metaData, record) {
-                        return (record.get('subgrupo')) ? record.get('subgrupo').subgrupo_nome : '';
-                    },
                     filter: {
                         type: 'list',
-                        idField: 'id',
+                        idField: 'subgrupo_nome',
                         labelField: 'subgrupo_nome',
                         updateBuffer: 1500,
                         store: 'classificacao.Subgrupos'
@@ -94,14 +82,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'serie_id',
+                    dataIndex: 'serie_nome',
                     text: 'Série',
-                    renderer: function(value, metaData, record) {
-                        return (record.get('serie')) ? record.get('serie').serie_nome : '';
-                    },
                     filter: {
                         type: 'list',
-                        idField: 'id',
+                        idField: 'serie_nome',
                         labelField: 'serie_nome',
                         updateBuffer: 1500,
                         store: 'classificacao.Series'
@@ -109,14 +94,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'subserie_id',
+                    dataIndex: 'subserie_nome',
                     text: 'Subsérie',
-                    renderer: function(value, metaData, record) {
-                        return (record.get('subserie')) ? record.get('subserie').subserie_nome : '';
-                    },
                     filter: {
                         type: 'list',
-                        idField: 'id',
+                        idField: 'subserie_nome',
                         labelField: 'subserie_nome',
                         updateBuffer: 1500,
                         store: 'classificacao.Subseries'
@@ -124,14 +106,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'dossie_id',
+                    dataIndex: 'dossie_nome',
                     text: 'Dossiê',
-                    renderer: function(value, metaData, record) {
-                        return (record.get('dossie')) ? record.get('dossie').dossie_nome : '';
-                    },
                     filter: {
                         type: 'list',
-                        idField: 'id',
+                        idField: 'dossie_nome',
                         labelField: 'dossie_nome',
                         updateBuffer: 1500,
                         store: 'classificacao.Dossies'
@@ -141,14 +120,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'especiedocumental_id',
+            dataIndex: 'especiedocumental_nome',
             text: 'Espécie Documental',
-            renderer: function(value, metaData, record) {
-                return (record.get('especie_documental')) ? record.get('especie_documental').especiedocumental_nome: '';
-            },
             filter: {
                 type: 'list',
-                idField: 'id',
+                idField: 'especiedocumental_nome',
                 labelField: 'especiedocumental_nome',
                 updateBuffer: 1500,
                 store: 'classificacao.Especiedocumentais'
@@ -192,14 +168,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
         {
             xtype: 'gridcolumn',
             width: 110,
-            dataIndex: 'conservacao_id',
+            dataIndex: 'conservacao_estado',
             text: 'Estado de Conservação',
-            renderer: function(value, metaData, record) {
-                return (record.get('conservacao')) ? record.get('conservacao').conservacao_estado: '';
-            },
             filter: {
                 type: 'list',
-                idField: 'id',
+                idField: 'conservacao_estado',
                 labelField: 'conservacao_estado',
                 updateBuffer: 1500,
                 store: 'documental.Conservacoes'
@@ -250,14 +223,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'dt_uso_id',
+            dataIndex: 'dt_uso_uso',
             text: 'Uso',
-            renderer: function(value, metaData, record) {
-                return (record.get('dt_uso')) ? record.get('dt_uso').uso: '';
-            },
             filter: {
                 type: 'list',
-                idField: 'id',
+                idField: 'uso',
                 labelField: 'uso',
                 updateBuffer: 1500,
                 store: 'documental.DtUsos'
@@ -351,14 +321,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 {
                     xtype: 'gridcolumn',
                     width: 150,
-                    dataIndex: 'lc_sala_id',
+                    dataIndex: 'lc_sala_sala',
                     text: 'Sala',
-                    renderer: function(value, metaData, record) {
-                        return (record.get('lc_sala')) ? record.get('lc_sala').sala: '';
-                    },
                     filter: {
                         type: 'list',
-                        idField: 'id',
+                        idField: 'sala',
                         labelField: 'sala',
                         updateBuffer: 1500,
                         store: 'localizacao.LcSalas'
@@ -367,14 +334,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 {
                     xtype: 'gridcolumn',
                     width: 150,
-                    dataIndex: 'lc_movel_id',
+                    dataIndex: 'lc_movel_movel',
                     text: 'Móvel',
-                    renderer: function(value, metaData, record) {
-                        return (record.get('lc_movel')) ? record.get('lc_movel').movel: '';
-                    },
                     filter: {
                         type: 'list',
-                        idField: 'id',
+                        idField: 'movel',
                         labelField: 'movel',
                         updateBuffer: 1500,
                         store: 'localizacao.LcMoveis'
@@ -391,14 +355,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 {
                     xtype: 'gridcolumn',
                     width: 150,
-                    dataIndex: 'lc_compartimento_id',
+                    dataIndex: 'lc_compartimento_compartimento',
                     text: 'Compartimento',
-                    renderer: function(value, metaData, record) {
-                        return (record.get('lc_compartimento')) ? record.get('lc_compartimento').compartimento: '';
-                    },
                     filter: {
                         type: 'list',
-                        idField: 'id',
+                        idField: 'compartimento',
                         labelField: 'compartimento',
                         updateBuffer: 1500,
                         store: 'localizacao.LcCompartimentos'
@@ -415,14 +376,11 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                 {
                     xtype: 'gridcolumn',
                     width: 150,
-                    dataIndex: 'lc_acondicionamento_id',
+                    dataIndex: 'lc_acondicionamento_acondicionamento',
                     text: 'Acondicionamento',
-                    renderer: function(value, metaData, record) {
-                        return (record.get('lc_acondicionamento')) ? record.get('lc_acondicionamento').acondicionamento: '';
-                    },
                     filter: {
                         type: 'list',
-                        idField: 'id',
+                        idField: 'acondicionamento',
                         labelField: 'acondicionamento',
                         updateBuffer: 1500,
                         store: 'localizacao.LcAcondicionamentos'

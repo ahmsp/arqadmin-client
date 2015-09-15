@@ -4,6 +4,10 @@ Ext.define('ArqAdmin.store.documental.DtUsos', {
     alias: 'store.dtusos',
 
 
-    model: 'ArqAdmin.model.documental.DtUso'
+    model: 'ArqAdmin.model.documental.DtUso',
+
+    sorters: {
+        property: 'uso'
+    }
 
 });
