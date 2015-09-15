@@ -72,7 +72,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
             xtype: 'container',
             cls: 'kpi-meta-charts',
             margin: '0 0 20px 0',
-            flex: 1,
+            //flex: 1,
             layout: {
                 type: 'hbox',
                 align: 'stretch'
@@ -231,7 +231,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
                         {
                             xtype: 'container',
                             margin: '10px 0 0 0',
-                            //height: 180,
+                            height: 300,
                             cls: 'kpi-meta-charts',
                             flex: 1,
                             layout: {
@@ -254,13 +254,93 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
                 },
                 {
                     xtype: 'panel',
-                    bodyCls: 'statistics-body',
-                    margin: '0 20px 0 0',
+                    bodyCls: 'statistics-totals-body',
                     width: 280,
-                    title: 'TERMOS PESQUISADOS'
+                    margin: '0 20px 0 0',
+                    title: 'REGISTROS CADASTRADOS',
+                    tpl: [
+                        '<div class="statistic-totals-header-total">Total de registros <span>{total}</span></div>',
+                        '<div class="statistic-totals-header">ACERVOS</div>',
+                        '<tpl for="acervos">',
+                            //'<div class="statistic-tag {status}">{text}</div>',
+                            '<div class="statistic-totals-description">{description} <span>{ratio}</span></div>',
+                            '<div class="sparkline-totals">',
+                                '<div class="sparkline-totals-inner sparkline-totals-inner-{status}" style="width: {[(values.ratio / parent.total) * 100]}%;"></div>',
+                            '</div>',
+                        '</tpl>',
+                        '<div class="statistic-totals-header">FUNDOS</div>',
+                        '<tpl for="fundos">',
+                            //'<div class="statistic-tag {status}">{text}</div>',
+                            '<div class="statistic-totals-description">{description} <span>{ratio}</span></div>',
+                            '<div class="sparkline-totals">',
+                                '<div class="sparkline-totals-inner sparkline-totals-inner-{status}" style="width: {[(values.ratio / parent.total) * 100]}%;"></div>',
+                            '</div>',
+                        '</tpl>',
+                        //'<hr>',
+                        '<div class="statistic-totals-header">FUNDO PMSP</div>',
+                        '<tpl for="pmsp">',
+                        //'<div class="statistic-tag {status}">{text}</div>',
+                        '<div class="statistic-totals-description">{description} <span>{ratio}</span></div>',
+                        '<div class="sparkline-totals">',
+                        '<div class="sparkline-totals-inner sparkline-totals-inner-{status}" style="width: {[(values.ratio / parent.total) * 100]}%;"></div>',
+                        '</div>',
+                        '</tpl>'
+                    ],
+                    data: {
+                        total: 120117,
+                        acervos: [
+                            {
+                                status: 'darkblue',
+                                description: 'Textual/Cartográfico',
+                                ratio: 59111
+                            },
+                            {
+                                status: 'orange',
+                                description: 'REGISTROS DE SEPULTAMENTO',
+                                ratio: 51938
+                            },
+                            {
+                                status: 'darkgreen',
+                                description: 'FOTOGRÁFICO',
+                                ratio: 9068
+                            }
+                        ],
+                        fundos: [
+                            {
+                                status: 'purple',
+                                description: 'Prefeitura Municipal <br>de São Paulo',
+                                ratio: 102634
+                            },
+                            {
+                                status: 'high',
+                                description: 'Comissão do IV Centenário <br>da Cidade de São Paulo',
+                                ratio: 7379
+                            },
+                            {
+                                status: 'red',
+                                description: 'Severo & Villares <br>(Desenhos Técnicos)',
+                                ratio: 679
+                            }
+                        ],
+                        pmsp: [
+                            {
+                                status: 'green',
+                                description: 'Serviço Funerário Municipal <br>(Termos de Sepultamento)',
+                                ratio: 51938
+                            },
+                            {
+                                status: 'yellow',
+                                description: 'Diretoria de Obras e Viação <br>(Obras Particulares)',
+                                ratio: 39427
+                            },
+                            {
+                                status: 'violet',
+                                description: 'Diretoria de Polícia e Higiene <br>(Alvarás e Licenças)',
+                                ratio: 7864
+                            }
+                        ]
+                    }
                 }
-
-
             ]
         }
     ]

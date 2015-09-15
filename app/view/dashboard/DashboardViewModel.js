@@ -36,7 +36,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardViewModel', {
                     "acervo": "doc",
                     "title": "DOCUMENTAL E CARTOGRÁFICO",
                     "desc": "Nono n ononononon ono ononononononononon",
-                    "qtd": "59.162",
+                    "qtd": "59.111",
                     "thumb": "resources/img/acervo_docs_2.png",
                     "url": "resources/reports/Q42013Report.pdf"
                 },
@@ -80,7 +80,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardViewModel', {
                     "acervo": "foto",
                     "title": "FOTOGRÁFICO",
                     "desc": "Nono n ononononon ono ononononononononon",
-                    "qtd": "7.766",
+                    "qtd": "9.068",
                     "thumb": "resources/img/acervo_foto_1.png",
                     "url": "resources/reports/Q42013Report.pdf"
                 },

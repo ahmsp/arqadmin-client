@@ -28,6 +28,7 @@ $exec-tile-background: #ffffff;
 $exec-blue-color: #2e6eaf;
 $exec-red-color: #f1495b;
 $exec-green-color: #11c897;
+$exec-yellow-color: #cc9b25;
 $exec-light-blue-color: saturate(lighten($exec-blue-color, 53%), 70%);
 
 $exec-font-light-color: #a0a7b8;
@@ -204,7 +205,7 @@ $ended: #F1485B;
       border-top-color: #EFE2E2;
     }
 
-    .redemption-body, .statistics-body {
+    .redemption-body, .statistics-body, .statistics-totals-body  {
       border-radius: 3px;
 
       -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
@@ -223,12 +224,53 @@ $ended: #F1485B;
       padding: 15px;
     }
 
+    .statistics-totals-body {
+      //margin-right: 20px;
+      padding: 15px;
+    }
+
+    .statistics-totals-body hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid #E6E6E6;
+      margin: 18px 0 8px;
+      padding: 0;
+    }
+
     .statistic-header {
       font-size: $exec-font-size-content;
       font-weight: $exec-font-semibold;
       text-transform: uppercase;
       color: $exec-font-light-color;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .statistic-totals-header {
+      font-size: $exec-font-size-content;
+      font-weight: $exec-font-bold;
+      line-height: 100%;
+      text-transform: uppercase;
+      color: #585858;
+      width: 100%;
+      margin: 22px 0 12px;
+      padding:  0 0 0 5px;
+      //border-radius: 2px;
+      //background-color: #cfcfc4;
+      border-left: 4px solid #585858;
+    }
+
+    .statistic-totals-header-total {
+      font-size: 14px;
+      font-weight: $exec-font-bold;
+      color: $exec-font-color;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      border-bottom: 1px solid $exec-font-color;
+    }
+
+    .statistic-totals-header-total span {
+      float: right;
     }
 
     .sparkline {
@@ -273,7 +315,7 @@ $ended: #F1485B;
         background-color: $ended;
       }
     }
-    .statistic-description {
+    .statistic-description, .statistic-totals-description {
       line-height: 27px;
       font-size: $exec-font-size-small-content;
       font-weight: $exec-font-bold;
@@ -285,6 +327,74 @@ $ended: #F1485B;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
+    .statistic-totals-description {
+      float: none;
+      line-height: 119%;
+      margin-left: 0;
+      white-space: normal;
+    }
+
+    .statistic-totals-description span {
+      font-size: 13px;
+      float: right;
+    }
+
+    .sparkline-totals {
+      height: 7px;
+      //margin-left: 135px;
+      background-color: #e6e7eb;
+      clear: both;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      margin-top: 2px;
+
+      .sparkline-totals-inner {
+        height: 100%;
+        border-radius: 4px;
+      }
+      .sparkline-totals-inner-blue {
+        background-color: #AEC6CF;
+      }
+      .sparkline-totals-inner-green {
+        background-color: #77DD77;
+      }
+      .sparkline-totals-inner-darkgreen {
+        background-color: #12C897;
+      }
+      .sparkline-totals-inner-yellow {
+        background-color: #fde914;
+      }
+      .sparkline-totals-inner-gray {
+        background-color: #cfcfc4;
+      }
+      .sparkline-totals-inner-red {
+        background-color: #ff6961;
+      }
+      .sparkline-totals-inner-purple {
+        background-color: #b39eb5;
+      }
+      .sparkline-totals-inner-darkblue {
+        background-color: #779ecb;
+      }
+      .sparkline-totals-inner-orange {
+        background-color: #ffb347;
+      }
+      .sparkline-totals-inner-violet {
+        background-color: #cb99c9;
+      }
+
+      .sparkline-totals-inner-high {
+        background-color: #2ac8ef;
+      }
+      .sparkline-totals-inner-medium {
+        background-color: $active;
+      }
+      .sparkline-totals-inner-low {
+        background-color: $ended;
+      }
+    }
+
   }
 
   .thumb-title-container {
