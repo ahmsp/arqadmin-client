@@ -4,7 +4,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
     control: {
         "gridpanel": {
-            select: 'onGridpanelSelect'
+            select: 'onGridpanelSelect',
+            celldblclick: 'edit'
         },
         "#classificFieldset combobox": {
             //select: 'onCascadingComboChange',
@@ -15,43 +16,42 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
             //select: 'onCascadingComboChange',
             change: 'onCascadingComboChange',
             focus: 'onCascadingComboFocus'
+        },
+        "textfield": {
+            specialkey: 'onTextfieldSpecialkey'
         }
     },
 
     /*
      * Filter Form
      */
-
     onFilterFormButtonFilterClick: function (button) {
+        console.log('butao');
+
         var me = this,
             form = button.up('form'),
             params = form.getValues(false, true),
             grid = me.lookupReference('documentalTable'),
-            store = grid.getStore();
-//console.log(form.getVal);
+            store = grid.getStore(),
+            filters = [];
 
+        Ext.Object.each(params, function (key, value) {
+            filters.push({
+                'property': key,
+                'value': value,
+                'operator': form.getForm().findField(key).operator
+            });
+        });
 
-        //if ()
-
-
-        store.filter([
-            {
-                property: 'assunto',
-                operator: 'like',
-                value: 'planta'
-            }
-        ]);
-
-        //console.log(grid);
-
-        //grid.filters.clearFilters(true);
-        //grid.filters.filter
-
+        store.clearFilter(false);
+        grid.filters.clearFilters(true);
+        store.filter(filters);
     },
 
     onFilterFormButtonClearClick: function (button) {
         button.up('form').reset();
     },
+
 
     /*
      * Result Grid
@@ -266,7 +266,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
             if (result == 'yes') {
 
                 var record = me.getViewModel().get('record'),
-                    store = Ext.StoreManager.lookup('Documentos');
+                    store = Ext.StoreManager.lookup('documental.Documentos');
 
                 // Delete record from store
                 store.remove(record);
@@ -279,19 +279,17 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         });
     },
 
-    save: function (button, e, eOpts) {
+    onSave: function (button, e, eOpts) {
         var form = this.getReferences().documentalForm.getForm(),
             record = form.getRecord(),
-            store = Ext.StoreManager.lookup('Documentos');
+            values = form.getValues(false, true),
+            store = Ext.StoreManager.lookup('documental.Documentos');
 
         if (form.isValid()) {
 
-            // Update associated record with values
-            form.updateRecord();
+            record.set(values);
 
-            // Add to store if new record
             if (record.phantom) {
-                record.set('id', null);
                 store.add(record);
             }
 
@@ -302,13 +300,16 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
                     store.load();
                     //             RegSepult.util.Alert.msg(message, '');
 
-                    //console.log("success!!");
+                    // Display record
+                    //this.onGridpanelSelect(this, record);
+
+                    console.log("success!!");
                 },
                 failure: function () {
-                    //console.log("failed...");
+                    console.log("failed...");
                 },
                 callback: function () {
-                    //console.log("calling callback");
+                    console.log("calling callback");
                 },
                 scope: this
             });
@@ -318,15 +319,24 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
             //     console.log(me);
 
-            // Display record
-            this.onGridpanelSelect(this, record);
-
         }
     },
 
     cancelEdit: function (button, e, eOpts) {
         // Show details
         this.showView('documentalDetails');
+    },
+
+    onTextfieldSpecialkey: function (field, e, eOpts) {
+
+        if (e.getKey() == e.ENTER) {
+            var form = field.up('form');
+            if (form.xtype === 'documental-filterform') {
+                this.lookupReference('btnPesquisar').fireHandler();
+            } else if (form.xtype === 'documental-form') {
+                this.lookupReference('btnSave').fireHandler();
+            }
+        }
     }
 
 });

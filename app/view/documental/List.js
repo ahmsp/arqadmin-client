@@ -50,7 +50,8 @@ Ext.define('ArqAdmin.view.documental.List', {
             xtype: 'pagingtoolbar',
             dock: 'bottom',
             width: 360,
-            displayInfo: true
+            displayInfo: true,
+            store: 'documental.Documentos'
         }
     ]
 

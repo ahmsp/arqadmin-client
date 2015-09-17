@@ -151,8 +151,9 @@ Ext.define('ArqAdmin.view.documental.Documental', {
                             itemId: 'saveButton',
                             glyph: 57414,
                             text: 'Salvar',
+                            reference: 'btnSave',
                             listeners: {
-                                click: 'save'
+                                click: 'onSave'
                             }
                         },
                         {

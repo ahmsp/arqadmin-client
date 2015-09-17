@@ -7,8 +7,17 @@ Ext.define('ArqAdmin.view.main.MainModel', {
     alias: 'viewmodel.main',
 
     data: {
-        moduleTitle: '',
-        name: 'ArqAdmin'
+        name: 'ArqAdmin',
+
+        appName: 'ArqAdmin - Sistema de gestão dos acervos do Arquivo Histórico de São Paulo',
+        appHeaderIcon: '<span class="fa fa-desktop fa-lg app-header-logo">',
+        footer: 'Alexandre Cyro Pereira ...',
+
+        auth: {
+            hash: ''
+        },
+
+        moduleTitle: ''
     }
 
     //TODO - add data, formulas and/or methods to support your view

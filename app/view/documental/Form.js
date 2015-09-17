@@ -29,6 +29,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
     header: false,
     title: 'Editar Documento',
     fieldDefaults: {
+        msgTarget: 'side',
         labelWidth: 150,
         queryMode: 'local',
         forceSelection: true,
@@ -56,6 +57,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
                             flex: 1,
                             reference: 'acervoCombo',
                             fieldLabel: 'Classificação (Atalho)',
+                            submitValue: false,
                             name: 'acervo_id',
                             emptyText: 'Selecione uma classificação...',
                             displayField: 'acervo_nome',
@@ -292,9 +294,41 @@ Ext.define('ArqAdmin.view.documental.Form', {
                     minLength: 3
                 },
                 {
-                    xtype: 'textfield',
-                    fieldLabel: 'Uso',
-                    name: 'dt_uso_id'
+                    xtype: 'container',
+                    margin: '0 0 5',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            flex: 1,
+                            fieldLabel: 'Uso (Desenho Técnico)',
+                            name: 'dt_uso_id',
+                            displayField: 'uso',
+                            store: 'documental.DtUsos',
+                            valueField: 'id',
+                            triggers: {
+                                clear: {
+                                    type: 'clear',
+                                    clearOnEscape: true
+                                }
+                            }
+                        },
+                        {
+                            xtype: 'tbspacer',
+                            width: 3
+                        },
+                        {
+                            xtype: 'button',
+                            margin: '3 0',
+                            ui: 'default-toolbar-small',
+                            glyph: 58895,
+                            tooltip: 'Editar estados de conservação',
+                            tooltipType: 'title'
+                        }
+                    ]
                 },
                 {
                     xtype: 'textareafield',

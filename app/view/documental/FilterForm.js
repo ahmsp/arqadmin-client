@@ -21,6 +21,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
     scrollable: true,
     bodyPadding: 10,
     title: 'Pesquisa no Acervo',
+    formBind: true,
     defaults: {
         triggers: {
             clear: {
@@ -45,7 +46,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     xtype: 'button',
                     flex: 1,
                     text: 'Pesquisar',
-                    handler: 'onFilterFormButtonFilterClick'
+                    handler: 'onFilterFormButtonFilterClick',
+                    reference: 'btnPesquisar'
                 }
             ]
         }
@@ -53,6 +55,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
     items: [
         {
             xtype: 'combobox',
+            submitValue: false,
             reference: 'filterAcervoCombo',
             fieldLabel: 'Classificação (Sugestões)',
             name: 'acervo_id',
@@ -96,7 +99,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     name: 'fundo_id',
                     displayField: 'fundo_nome',
                     store: 'classificacao.Fundos',
-                    valueField: 'id'
+                    valueField: 'id',
+                    operator: 'eq'
                 },
                 {
                     xtype: 'combobox',
@@ -106,7 +110,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     name: 'subfundo_id',
                     displayField: 'subfundo_nome',
                     store: 'classificacao.Subfundos',
-                    valueField: 'id'
+                    valueField: 'id',
+                    operator: 'eq'
                 },
                 {
                     xtype: 'combobox',
@@ -116,7 +121,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     name: 'grupo_id',
                     displayField: 'grupo_nome',
                     store: 'classificacao.Grupos',
-                    valueField: 'id'
+                    valueField: 'id',
+                    operator: 'eq'
                 },
                 {
                     xtype: 'combobox',
@@ -126,7 +132,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     name: 'subgrupo_id',
                     displayField: 'subgrupo_nome',
                     store: 'classificacao.Subgrupos',
-                    valueField: 'id'
+                    valueField: 'id',
+                    operator: 'eq'
                 },
                 {
                     xtype: 'combobox',
@@ -136,7 +143,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     name: 'serie_id',
                     displayField: 'serie_nome',
                     store: 'classificacao.Series',
-                    valueField: 'id'
+                    valueField: 'id',
+                    operator: 'eq'
                 },
                 {
                     xtype: 'combobox',
@@ -146,7 +154,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     name: 'subserie_id',
                     displayField: 'subserie_nome',
                     store: 'classificacao.Subseries',
-                    valueField: 'id'
+                    valueField: 'id',
+                    operator: 'eq'
                 },
                 {
                     xtype: 'combobox',
@@ -156,7 +165,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     name: 'dossie_id',
                     displayField: 'dossie_nome',
                     store: 'classificacao.Dossies',
-                    valueField: 'id'
+                    valueField: 'id',
+                    operator: 'eq'
                 }
             ]
         },
@@ -165,32 +175,44 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
             fieldLabel: 'Com imagem',
             name: 'com_imagem',
             checked: true,
-            inputValue: '1'
+            inputValue: '1',
+            operator: '='
         },
         {
             xtype: 'textfield',
             name: 'id',
-            fieldLabel: 'Registro'
+            fieldLabel: 'Registro',
+            operator: 'eq'
         },
         {
             xtype: 'textfield',
             fieldLabel: 'Assunto',
-            name: 'assunto'
-        },
-        {
-            xtype: 'textfield',
-            fieldLabel: 'Endereço',
-            name: 'endereco'
+            name: 'assunto',
+            operator: 'like'
         },
         {
             xtype: 'textfield',
             fieldLabel: 'Interessado',
-            name: 'interessado'
+            name: 'interessado',
+            operator: 'like'
         },
         {
             xtype: 'textfield',
-            fieldLabel: 'Autor / Construtor',
-            name: 'autor_construtor'
+            fieldLabel: 'Endereço',
+            name: 'dt_endereco',
+            operator: 'like'
+        },
+        {
+            xtype: 'textfield',
+            fieldLabel: 'Autor',
+            name: 'dt_autor',
+            operator: 'like'
+        },
+        {
+            xtype: 'textfield',
+            fieldLabel: 'Construtor',
+            name: 'dt_construtor',
+            operator: 'like'
         },
         {
             xtype: 'container',
@@ -222,7 +244,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     fieldLabel: 'de',
                     hideLabel: true,
                     labelWidth: 16,
-                    name: 'ano_ini'
+                    name: 'ano_ini',
+                    operator: 'gte'
                 },
                 {
                     xtype: 'label',
@@ -237,24 +260,28 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     fieldLabel: 'a',
                     hideLabel: true,
                     labelWidth: 12,
-                    name: 'ano_fim'
+                    name: 'ano_fim',
+                    operator: 'lte'
                 }
             ]
         },
         {
             xtype: 'textfield',
             fieldLabel: 'Data',
-            name: 'data_doc'
+            name: 'data_doc',
+            operator: 'like'
         },
         {
             xtype: 'textfield',
             fieldLabel: 'Nº do Processo',
-            name: 'processo'
+            name: 'processo',
+            operator: 'like'
         },
         {
             xtype: 'textfield',
             fieldLabel: 'Cod. Imagem',
-            name: 'cod_imagem'
+            name: 'cod_imagem',
+            operator: 'like'
         }
     ]
 });
