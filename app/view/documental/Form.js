@@ -27,7 +27,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
     },
     bodyPadding: 10,
     header: false,
-    title: 'Editar Documento',
+    title: 'Editar registro',
     fieldDefaults: {
         msgTarget: 'side',
         labelWidth: 150,
@@ -207,7 +207,8 @@ Ext.define('ArqAdmin.view.documental.Form', {
                     displayField: 'especiedocumental_nome',
                     store: 'classificacao.Especiedocumentais',
                     typeAhead: true,
-                    valueField: 'id'
+                    valueField: 'id',
+                    afterLabelTextTpl: ArqAdmin.util.Util.required
                 },
                 {
                     xtype: 'textfield',
@@ -291,7 +292,8 @@ Ext.define('ArqAdmin.view.documental.Form', {
                     name: 'assunto',
                     allowBlank: false,
                     allowOnlyWhitespace: false,
-                    minLength: 3
+                    minLength: 3,
+                    afterLabelTextTpl: ArqAdmin.util.Util.required
                 },
                 {
                     xtype: 'container',

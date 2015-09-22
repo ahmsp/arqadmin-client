@@ -8,6 +8,7 @@ Ext.define('ArqAdmin.view.main.MainModel', {
 
     data: {
         name: 'ArqAdmin',
+        //urlBase: 'localhost:8787', ??
 
         appName: 'ArqAdmin - Sistema de gestão dos acervos do Arquivo Histórico de São Paulo',
         appHeaderIcon: '<span class="fa fa-desktop fa-lg app-header-logo">',

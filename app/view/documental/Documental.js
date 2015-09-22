@@ -8,7 +8,7 @@ Ext.define('ArqAdmin.view.documental.Documental', {
         'ArqAdmin.view.documental.DocumentalViewModel',
         'ArqAdmin.view.documental.FilterForm',
         'ArqAdmin.view.documental.Form',
-        'ArqAdmin.view.documental.Grid',
+        'ArqAdmin.view.documental.Table',
         'ArqAdmin.view.documental.List',
         'Ext.button.Button',
         'Ext.container.Container',
@@ -67,7 +67,7 @@ Ext.define('ArqAdmin.view.documental.Documental', {
                         {
                             xtype: 'button',
                             itemId: 'btnClearFilters',
-                            glyph: 61616,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('filter'),
                             tooltip: 'Limpar filtros'
                         },
                         {
@@ -76,13 +76,13 @@ Ext.define('ArqAdmin.view.documental.Documental', {
                         {
                             xtype: 'button',
                             itemId: 'btnShowTable',
-                            glyph: 58882,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('table'),
                             tooltip: 'Visualizar resultado em tabela'
                         },
                         {
                             xtype: 'button',
                             itemId: 'btnShowList',
-                            glyph: 58881,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('list'),
                             tooltip: 'Visualizar resultado em lista'
                         }
                     ]
@@ -90,7 +90,7 @@ Ext.define('ArqAdmin.view.documental.Documental', {
             ],
             items: [
                 {
-                    xtype: 'documental-grid'
+                    xtype: 'documental-table'
                 },
                 {
                     xtype: 'documental-list'
@@ -106,7 +106,14 @@ Ext.define('ArqAdmin.view.documental.Documental', {
             layout: 'card',
             bodyBorder: true,
             collapsible: true,
-            title: 'Detalhes do registro',
+            title: {
+                bind: '{displayPanelTitle}'
+            },
+            defaults: {
+                listeners: {
+                    activate: 'onDisplayPanelChildActivate'
+                }
+            },
             dockedItems: [
                 {
                     xtype: 'toolbar',
@@ -115,32 +122,32 @@ Ext.define('ArqAdmin.view.documental.Documental', {
                     items: [
                         {
                             xtype: 'button',
-                            glyph: 57412,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
                             text: 'Novo',
                             listeners: {
-                                click: 'add'
+                                click: 'onAdd'
                             }
                         },
                         {
                             xtype: 'button',
-                            glyph: 58895,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
                             text: 'Editar',
                             bind: {
-                                disabled: '{!record}'
+                                disabled: '{!documentalTable.selection}'
                             },
                             listeners: {
-                                click: 'edit'
+                                click: 'onEdit'
                             }
                         },
                         {
                             xtype: 'button',
-                            glyph: 57413,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('remove'),
                             text: 'Remover',
                             bind: {
-                                hidden: '{!record}'
+                                disabled: '{!editFormActive}'
                             },
                             listeners: {
-                                click: 'remove'
+                                click: 'onRemove'
                             }
                         },
                         {
@@ -149,8 +156,11 @@ Ext.define('ArqAdmin.view.documental.Documental', {
                         {
                             xtype: 'button',
                             itemId: 'saveButton',
-                            glyph: 57414,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('save'),
                             text: 'Salvar',
+                            bind: {
+                                disabled: '{!editFormActive}'
+                            },
                             reference: 'btnSave',
                             listeners: {
                                 click: 'onSave'
@@ -159,10 +169,13 @@ Ext.define('ArqAdmin.view.documental.Documental', {
                         {
                             xtype: 'button',
                             itemId: 'cancelButton',
-                            glyph: 57415,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('cancel'),
                             text: 'Cancelar',
+                            bind: {
+                                disabled: '{!editFormActive}'
+                            },
                             listeners: {
-                                click: 'cancelEdit'
+                                click: 'onCancelEdit'
                             }
                         }
                     ]
@@ -171,7 +184,7 @@ Ext.define('ArqAdmin.view.documental.Documental', {
             items: [
                 {
                     xtype: 'panel',
-                    reference: 'selectMessage',
+                    reference: 'documentalMessageContainer',
                     items: [
                         {
                             xtype: 'container',

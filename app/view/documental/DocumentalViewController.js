@@ -5,7 +5,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
     control: {
         "gridpanel": {
             select: 'onGridpanelSelect',
-            celldblclick: 'edit'
+            celldblclick: 'onEdit'
         },
         "#classificFieldset combobox": {
             //select: 'onCascadingComboChange',
@@ -57,22 +57,28 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
      * Result Grid
      */
     onGridpanelSelect: function (rowmodel, record, index, eOpts) {
-        // selects record in both grids
-        var refs = this.getReferences();
-        refs.documentalTable.setSelection(record);
-        refs.documentalList.setSelection(record);
+        var me = this,
+            viewModel = me.getViewModel();
 
-        //scroll grid to selected record
-        // list.getView().focusRow(index);
-        // list.getView().scrollRowIntoView(index);
+        //// selects record in both grids
+        var layoutItems = me.lookupReference('lists').getLayout().getLayoutItems();
+        Ext.Object.each(layoutItems, function(key, item){
+            item.setSelection(record);
+        });
 
-        this.getViewModel().set('record', record);
-        this.showView('documentalDetails');
+        viewModel.set('record', record);
+        viewModel.set('displayPanelTitle', 'Detalhes do registro');
+        me.showView('documentalDetails');
     },
 
     showView: function (view) {
         var layout = this.getReferences().displayPanel.getLayout();
         layout.setActiveItem(this.lookupReference(view));
+    },
+
+
+    onDisplayPanelChildActivate: function(page, eOpts) {
+        this.getViewModel().set('displayPanelActiveItem', page.reference);
     },
 
     /*
@@ -230,13 +236,15 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         }
     },
 
-    add: function (button, e, eOpts) {
-        var formPanel = this.getReferences().documentalForm,
+    onAdd: function (button, e, eOpts) {
+        var me = this,
+            formPanel = this.getReferences().documentalForm,
             form = formPanel.getForm(),
             newRecord = Ext.create('ArqAdmin.model.documental.Documento');
-        newRecord.set('id', null);
 
-        // Set record
+        me.getViewModel().set('displayPanelTitle', 'Novo registro');
+
+        newRecord.set('id', null);
         this.formLoadRecord(newRecord);
 
         // Set title
@@ -244,19 +252,18 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
         // Show form
         this.showView('documentalForm');
-
     },
 
-    edit: function (button, e, eOpts) {
+    onEdit: function (button, e, eOpts) {
         var me = this,
             record = me.getViewModel().get('record');
 
         me.formLoadRecord(record);
-        me.getReferences().displayPanel.setTitle('Editar Documento');
+        me.getViewModel().set('displayPanelTitle', 'Editar registro');
         me.showView('documentalForm');
     },
 
-    remove: function (button, e, eOpts) {
+    onRemove: function (button, e, eOpts) {
         var me = this;
 
         // Ask user to confirm this action
@@ -272,7 +279,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
                 store.remove(record);
 
                 // Hide display
-                me.showView('selectMessage');
+                me.showView('documentalMessageContainer');
 
             }
 
@@ -322,7 +329,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         }
     },
 
-    cancelEdit: function (button, e, eOpts) {
+    onCancelEdit: function (button, e, eOpts) {
         // Show details
         this.showView('documentalDetails');
     },

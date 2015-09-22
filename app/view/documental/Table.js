@@ -1,20 +1,10 @@
-Ext.define('ArqAdmin.view.documental.Grid', {
-    extend: 'Ext.grid.Panel',
-    xtype: 'documental-grid',
-
-    requires: [
-        'Ext.grid.column.Column',
-        //'Ext.grid.filters.filter.List',
-        //'Ext.grid.filters.filter.String',
-        //'Ext.grid.filters.filter.Number',
-        'Ext.toolbar.Paging',
-        'Ext.grid.filters.Filters'
-    ],
+Ext.define('ArqAdmin.view.documental.Table', {
+    extend: 'ArqAdmin.view.documental.BaseGrid',
+    xtype: 'documental-table',
 
     reference: 'documentalTable',
-    allowDeselect: true,
+    //allowDeselect: true,
     multiColumnSort: true,
-    store: 'documental.Documentos',
 
     columns: [
         {
@@ -403,21 +393,6 @@ Ext.define('ArqAdmin.view.documental.Grid', {
                     }
                 }
             ]
-        }
-    ],
-    dockedItems: [
-        {
-            xtype: 'pagingtoolbar',
-            dock: 'bottom',
-            width: 360,
-            displayInfo: true,
-            store: 'documental.Documentos'
-        }
-    ],
-    plugins: [
-        {
-            ptype: 'gridfilters',
-            menuFilterText: 'Filtros'
         }
     ]
 });

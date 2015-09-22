@@ -68,12 +68,12 @@ Ext.define('ArqAdmin.view.main.Main', {
                         {
                             xtype: 'button',
                             itemId: 'btnDashboard',
-                            glyph: 61481,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('dashboard'),
                             text: 'Painel'
                         },
                         {
                             xtype: 'button',
-                            glyph: 58883,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('acervos'),
                             text: 'Cadastro no Acervo',
                             menu: {
                                 xtype: 'menu',
@@ -99,12 +99,12 @@ Ext.define('ArqAdmin.view.main.Main', {
                         },
                         {
                             xtype: 'button',
-                            glyph: 61457,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('report'),
                             text: 'Relatórios'
                         },
                         {
                             xtype: 'button',
-                            glyph: 58892,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('chart'),
                             text: 'Estatísticas'
                         },
                         {
@@ -112,7 +112,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                         },
                         {
                             xtype: 'button',
-                            glyph: 58885,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('admin'),
                             text: 'Administração',
                             menu: {
                                 xtype: 'menu',
@@ -120,7 +120,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                                     {
                                         xtype: 'menuitem',
                                         itemId: 'documental',
-                                        glyph: 58894,
+                                        glyph: ArqAdmin.util.Glyphs.getGlyph('users'),
                                         text: 'Usuários'
                                     },
                                     {
@@ -145,7 +145,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                         },
                         {
                             xtype: 'button',
-                            glyph: 58891,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('user'),
                             text: 'Alexandre Cyro Pereira',
                             menu: {
                                 xtype: 'menu',
@@ -177,7 +177,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                         },
                         {
                             xtype: 'button',
-                            glyph: 58886,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('exit'),
                             text: 'Sair',
                             listeners: {
                                 click: 'onLogout'
@@ -213,7 +213,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                 {
                     xtype: 'button',
                     itemId: 'btnMaximize',
-                    glyph: 58880,
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('expand'),
                     tooltip: 'Maximizar',
                     tooltipType: 'title'
                 }

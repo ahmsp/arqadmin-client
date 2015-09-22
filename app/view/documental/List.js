@@ -1,19 +1,12 @@
 Ext.define('ArqAdmin.view.documental.List', {
-    extend: 'Ext.grid.Panel',
+    extend: 'ArqAdmin.view.documental.BaseGrid',
     xtype: 'documental-list',
-
-    requires: [
-        'Ext.grid.column.Template',
-        'Ext.XTemplate',
-        'Ext.toolbar.Paging'
-    ],
 
     reference: 'documentalList',
     enableColumnHide: false,
     enableColumnMove: false,
     enableColumnResize: false,
     sortableColumns: false,
-    store: 'documental.Documentos',
 
     columns: [
         {
@@ -44,15 +37,5 @@ Ext.define('ArqAdmin.view.documental.List', {
             text: 'Dados do Item',
             flex: 1
         }
-    ],
-    dockedItems: [
-        {
-            xtype: 'pagingtoolbar',
-            dock: 'bottom',
-            width: 360,
-            displayInfo: true,
-            store: 'documental.Documentos'
-        }
     ]
-
 });

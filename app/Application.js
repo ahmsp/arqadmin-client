@@ -12,7 +12,8 @@ Ext.define('ArqAdmin.Application', {
 
     requires: [
         'ArqAdmin.view.login.Login',
-        'ArqAdmin.view.main.Main'
+        'ArqAdmin.view.main.Main',
+        'ArqAdmin.util.Glyphs'
     ],
 
     name: 'ArqAdmin',
