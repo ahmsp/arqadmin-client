@@ -1,5 +1,5 @@
 Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
-    extend: 'Ext.app.ViewController',
+    extend: 'ArqAdmin.view.base.ViewController',
     alias: 'controller.documental',
 
     control: {
@@ -26,8 +26,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
      * Filter Form
      */
     onFilterFormButtonFilterClick: function (button) {
-        console.log('butao');
-
         var me = this,
             form = button.up('form'),
             params = form.getValues(false, true),
@@ -58,15 +56,19 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
      */
     onGridpanelSelect: function (rowmodel, record, index, eOpts) {
         var me = this,
-            viewModel = me.getViewModel();
+            viewModel = me.getViewModel(),
+            detailForm = me.lookupReference('documentalDetails');
 
-        //// selects record in both grids
-        var layoutItems = me.lookupReference('lists').getLayout().getLayoutItems();
-        Ext.Object.each(layoutItems, function(key, item){
-            item.setSelection(record);
+        // selects record in both grids
+        var layoutItems = me.lookupReference('cardLists').getLayout().getLayoutItems();
+        Ext.Object.each(layoutItems, function (key, componentGrid) {
+            if (record !== componentGrid.getSelection()[0]) {
+                me.selectRecord(componentGrid, index);
+            }
         });
 
         viewModel.set('record', record);
+        detailForm.loadRecord(record);
         viewModel.set('displayPanelTitle', 'Detalhes do registro');
         me.showView('documentalDetails');
     },
@@ -76,23 +78,20 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         layout.setActiveItem(this.lookupReference(view));
     },
 
-
-    onDisplayPanelChildActivate: function(page, eOpts) {
+    onDisplayPanelChildActivate: function (page, eOpts) {
         this.getViewModel().set('displayPanelActiveItem', page.reference);
     },
 
-    /*
-     * Form Edit
-     */
     formLoadRecord: function (record) {
         var me = this,
             combosRefs = me.lookupReference('classificFieldset').getReferences(),
-            formPanel = me.getReferences().documentalForm,
-            form = formPanel.getForm();
+            form = me.lookupReference('documentalForm');
 
-        form.reset();
+        //me.forceResetForm(form);
         me.clearFilterCascadingCombos(combosRefs);
+console.log(form.getValues(false, true));
         form.loadRecord(record);
+console.log(form.getValues(false, true));
         me.changeDisableCascadingCombos(combosRefs);
     },
 
@@ -238,23 +237,38 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
     onAdd: function (button, e, eOpts) {
         var me = this,
-            formPanel = this.getReferences().documentalForm,
-            form = formPanel.getForm(),
+            formPanel = me.lookupReference('documentalForm'),
+            //form = formPanel.getForm(),
             newRecord = Ext.create('ArqAdmin.model.documental.Documento');
 
-        me.getViewModel().set('displayPanelTitle', 'Novo registro');
+        if (formPanel.isDirty()) {
 
-        newRecord.set('id', null);
-        this.formLoadRecord(newRecord);
+console.log(formPanel.getValues(false, true));
 
-        // Set title
-        formPanel.setTitle('Adicionar Documento');
-
-        // Show form
-        this.showView('documentalForm');
+            Ext.Msg.show({
+                title: 'Formulário editado!',
+                msg: 'Os dados do formulário foram alterados. <br />Você descartar as alterações?',
+                buttons: Ext.Msg.YESNO,
+                animateTarget: 'button',
+                icon: Ext.Msg.QUESTION,
+                fn: function (btn, ev) {
+                    if (btn == 'yes') {
+                        me.getViewModel().set('displayPanelTitle', 'Novo registro');
+                        newRecord.set('id', null);
+                        me.formLoadRecord(newRecord);
+                        me.showView('documentalForm');
+                    }
+                }
+            });
+        } else {
+            me.getViewModel().set('displayPanelTitle', 'Novo registro');
+            newRecord.set('id', null);
+            me.formLoadRecord(newRecord);
+            me.showView('documentalForm');
+        }
     },
 
-    onEdit: function (button, e, eOpts) {
+    onEdit: function () {
         var me = this,
             record = me.getViewModel().get('record');
 
@@ -277,16 +291,18 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
 
                 // Delete record from store
                 store.remove(record);
+                store.sync();
 
+                console.log('result');
                 // Hide display
-                me.showView('documentalMessageContainer');
+                //me.showView('documentalMessageContainer');
 
             }
 
         });
     },
 
-    onSave: function (button, e, eOpts) {
+    onSave: function () {
         var form = this.getReferences().documentalForm.getForm(),
             record = form.getRecord(),
             values = form.getValues(false, true),
@@ -330,7 +346,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
     },
 
     onCancelEdit: function (button, e, eOpts) {
-        // Show details
         this.showView('documentalDetails');
     },
 

@@ -85,7 +85,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'quantidade_doc',
-            type: 'int'
+            type: 'int',
+            allowNull: true
         },
         {
             name: 'conservacao_id',

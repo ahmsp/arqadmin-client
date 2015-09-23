@@ -28,6 +28,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
     bodyPadding: 10,
     header: false,
     title: 'Editar registro',
+    trackResetOnLoad: true,
     fieldDefaults: {
         msgTarget: 'side',
         labelWidth: 150,
@@ -35,7 +36,6 @@ Ext.define('ArqAdmin.view.documental.Form', {
         forceSelection: true,
         typeAhead: true
     },
-
     layout: {
         type: 'vbox',
         align: 'stretch'
@@ -590,6 +590,11 @@ Ext.define('ArqAdmin.view.documental.Form', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        dirtychange: function(form, dirty) {
+            console.log('dirty');
+        }
+    }
 
 });

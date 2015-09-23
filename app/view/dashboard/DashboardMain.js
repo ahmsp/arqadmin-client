@@ -123,7 +123,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
                                     items: [{
                                         xtype: 'polar',
                                         flex: 1,
-                                        animation: true,
+                                        animation: false,
                                         padding: '10px 0 10px 10px',
                                         donut: true,
                                         interactions: ['rotate'],
@@ -156,7 +156,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
                                         xtype: 'polar',
                                         flex: 1,
                                         padding: '10px 10px 10px 0',
-                                        animation: true,
+                                        animation: false,
                                         donut: true,
                                         interactions: ['rotate'],
                                         colors: ['#11c897', '#ececec'],

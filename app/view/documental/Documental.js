@@ -40,8 +40,8 @@ Ext.define('ArqAdmin.view.documental.Documental', {
         {
             xtype: 'panel',
             region: 'center',
-            reference: 'lists',
-            itemId: 'lists',
+            reference: 'cardLists',
+            itemId: 'cardLists',
             layout: 'card',
             bodyBorder: true,
             dockedItems: [

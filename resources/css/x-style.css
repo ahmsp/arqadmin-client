@@ -70,9 +70,9 @@
     /*-webkit-box-shadow: none !important;*/
     /*-moz-box-shadow: none !important;*/
     /*box-shadow: none !important;*/
-    -webkit-box-shadow: #9DAEB1 0 1px 0px 0 inset, #9DAEB1 0 -1px 0px 0 inset, #9DAEB1 -1px 0 0px 0 inset, #9DAEB1 1px 0 0px 0 inset !important;
-    -moz-box-shadow: #9DAEB1 0 1px 0px 0 inset, #9DAEB1 0 -1px 0px 0 inset, #9DAEB1 -1px 0 0px 0 inset, #9DAEB1 1px 0 0px 0 inset !important;
-    box-shadow: #9DAEB1 0 1px 0px 0 inset, #9DAEB1 0 -1px 0px 0 inset, #9DAEB1 -1px 0 0px 0 inset, #9DAEB1 1px 0 0px 0 inset !important;
+    -webkit-box-shadow: #9DAEB1 0 1px 0 0 inset, #9DAEB1 0 -1px 0 0 inset, #9DAEB1 -1px 0 0 0 inset, #9DAEB1 1px 0 0 0 inset !important;
+    -moz-box-shadow: #9DAEB1 0 1px 0 0 inset, #9DAEB1 0 -1px 0 0 inset, #9DAEB1 -1px 0 0 0 inset, #9DAEB1 1px 0 0 0 inset !important;
+    box-shadow: #9DAEB1 0 1px 0 0 inset, #9DAEB1 0 -1px 0 0 inset, #9DAEB1 -1px 0 0 0 inset, #9DAEB1 1px 0 0 0 inset !important;
 }
 
 
@@ -85,7 +85,7 @@
     border-radius: 3px;
 }
 .x-css-shadow {
-    box-shadow: rgb(36, 35, 35) 0px 0px 6px !important;
+    box-shadow: rgb(36, 35, 35) 0 0 6px !important;
 }
 
 /* button default inner border width focus over */
@@ -94,9 +94,9 @@
     /*-webkit-box-shadow: none !important;*/
     /*-moz-box-shadow: none !important;*/
     /*box-shadow: none !important;*/
-    -webkit-box-shadow: #9DAEB1 0 1px 0px 0 inset, #9DAEB1 0 -1px 0px 0 inset, #9DAEB1 -1px 0 0px 0 inset, #9DAEB1 1px 0 0px 0 inset !important;
-    -moz-box-shadow: #9DAEB1 0 1px 0px 0 inset, #9DAEB1 0 -1px 0px 0 inset, #9DAEB1 -1px 0 0px 0 inset, #9DAEB1 1px 0 0px 0 inset !important;
-    box-shadow: #9DAEB1 0 1px 0px 0 inset, #9DAEB1 0 -1px 0px 0 inset, #9DAEB1 -1px 0 0px 0 inset, #9DAEB1 1px 0 0px 0 inset !important;
+    -webkit-box-shadow: #9DAEB1 0 1px 0 0 inset, #9DAEB1 0 -1px 0 0 inset, #9DAEB1 -1px 0 0 0 inset, #9DAEB1 1px 0 0 0 inset !important;
+    -moz-box-shadow: #9DAEB1 0 1px 0 0 inset, #9DAEB1 0 -1px 0 0 inset, #9DAEB1 -1px 0 0 0 inset, #9DAEB1 1px 0 0 0 inset !important;
+    box-shadow: #9DAEB1 0 1px 0 0 inset, #9DAEB1 0 -1px 0 0 inset, #9DAEB1 -1px 0 0 0 inset, #9DAEB1 1px 0 0 0 inset !important;
 }
 
 
@@ -215,7 +215,7 @@
 
 /** form login */
 .x-logindialog-header {
-    background: transpa url('../img/logo-login.png') no-repeat center;
+    background: transparent url('../img/logo-login.png') no-repeat center;
 }
 .x-logindialog-icon {
     background: #e6eaeb url('../img/arq-admin-logo-2.png') no-repeat center;

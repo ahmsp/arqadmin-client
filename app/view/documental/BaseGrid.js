@@ -30,5 +30,9 @@ Ext.define('ArqAdmin.view.documental.BaseGrid', {
             ptype: 'gridfilters',
             menuFilterText: 'Filtros'
         }
-    ]
+    ],
+    listeners: {
+        //render: 'onGridRender',
+        activate: 'onGridActivate'
+    }
 });
