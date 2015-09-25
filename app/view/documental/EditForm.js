@@ -1,6 +1,6 @@
-Ext.define('ArqAdmin.view.documental.Form', {
+Ext.define('ArqAdmin.view.documental.EditForm', {
     extend: 'Ext.form.Panel',
-    xtype: 'documental-form',
+    xtype: 'documental-editform',
 
     requires: [
         'Ext.button.Button',
@@ -15,7 +15,7 @@ Ext.define('ArqAdmin.view.documental.Form', {
         'Ext.toolbar.Spacer'
     ],
 
-    reference: 'documentalForm',
+    reference: 'editForm',
     scrollable: true,
     cls: 'custom-form-panel',
     defaults: {
@@ -590,11 +590,5 @@ Ext.define('ArqAdmin.view.documental.Form', {
                 }
             ]
         }
-    ],
-    listeners: {
-        dirtychange: function(form, dirty) {
-            console.log('dirty');
-        }
-    }
-
+    ]
 });

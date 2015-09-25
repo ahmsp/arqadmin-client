@@ -1,14 +1,14 @@
-Ext.define('ArqAdmin.view.documental.Details', {
+Ext.define('ArqAdmin.view.documental.DetailsPanel', {
     //extend: 'Ext.panel.Panel',
     extend: 'Ext.form.Panel',
-    xtype: 'documental-details',
+    xtype: 'documental-detailspanel',
 
     requires: [
         'Ext.panel.Panel',
         'Ext.form.field.Display'
     ],
 
-    reference: 'documentalDetails',
+    reference: 'detailsPanel',
     autoScroll: true,
     cls: 'display-panel',
     defaults: {

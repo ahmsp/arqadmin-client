@@ -39,6 +39,16 @@ Ext.define('ArqAdmin.util.Util', {
                 case Ext.form.action.Action.SERVER_INVALID:
                     me.showErrorMsg(result.message);
             }
+        },
+
+        showToast: function(text) {
+            Ext.toast({
+                html: text,
+                closable: false,
+                align: 't',
+                slideInDuration: 400,
+                minWidth: 400
+            });
         }
     }
 });

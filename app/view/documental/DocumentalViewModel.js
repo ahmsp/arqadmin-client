@@ -18,7 +18,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewModel', {
 
     formulas: {
         editFormActive: function (get) {
-            return get('displayPanelActiveItem') === 'documentalForm';
+            return get('displayPanelActiveItem') === 'editForm';
         }
 
         //currentItem: {

@@ -3,11 +3,11 @@ Ext.define('ArqAdmin.view.documental.Documental', {
     xtype: 'documental',
 
     requires: [
-        'ArqAdmin.view.documental.Details',
+        'ArqAdmin.view.documental.DetailsPanel',
         'ArqAdmin.view.documental.DocumentalViewController',
         'ArqAdmin.view.documental.DocumentalViewModel',
         'ArqAdmin.view.documental.FilterForm',
-        'ArqAdmin.view.documental.Form',
+        'ArqAdmin.view.documental.EditForm',
         'ArqAdmin.view.documental.Table',
         'ArqAdmin.view.documental.List',
         'Ext.button.Button',
@@ -183,31 +183,31 @@ Ext.define('ArqAdmin.view.documental.Documental', {
             ],
             items: [
                 {
-                    xtype: 'panel',
-                    reference: 'documentalMessageContainer',
-                    items: [
-                        {
-                            xtype: 'container',
-                            items: [
-                                {
-                                    xtype: 'container',
-                                    html: [
-                                        '<p>Selecione um registro na lista para exibir os detalhes. ',
-                                        'Para editar o registro clique no botão "Editar" com o registro selecionado.<br>',
-                                        'Para adicionar um registro clique no botão "Novo".</p>'
-                                    ],
-                                    padding: '25px 35px',
-                                    style: {
-                                        'text-align': 'center'
-                                    }
-                                }
-                            ]
-                        }
-                    ]
+                //    xtype: 'panel',
+                //    reference: 'documentalMessageContainer',
+                //    items: [
+                //        {
+                //            xtype: 'container',
+                //            items: [
+                //                {
+                //                    xtype: 'container',
+                //                    html: [
+                //                        '<p>Selecione um registro na lista para exibir os detalhes. ',
+                //                        'Para editar o registro clique no botão "Editar" com o registro selecionado.<br>',
+                //                        'Para adicionar um registro clique no botão "Novo".</p>'
+                //                    ],
+                //                    padding: '25px 35px',
+                //                    style: {
+                //                        'text-align': 'center'
+                //                    }
+                //                }
+                //            ]
+                //        }
+                //    ]
+                //},{
+                    xtype: 'documental-detailspanel'
                 },{
-                    xtype: 'documental-details'
-                },{
-                    xtype: 'documental-form'
+                    xtype: 'documental-editform'
                 }
             ]
         }
