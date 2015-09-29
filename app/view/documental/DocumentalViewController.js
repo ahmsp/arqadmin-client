@@ -105,7 +105,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
             form = me.lookupReference('editForm');
 
         //record.get('id');
-        $title = (Ext.Object.isEmpty(record)) ? 'Novo registro' : 'Editar registro';
+        var $title = (Ext.Object.isEmpty(record)) ? 'Novo registro' : 'Editar registro';
 
         me.forceResetForm(form);
         me.clearFilterCascadingCombos(combosRefs);
@@ -276,6 +276,9 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         var me = this,
             newRecord = Ext.create('ArqAdmin.model.documental.Documento');
 
+        newRecord.setId(null);
+        //newRecord.set('id', null);
+
         if (me.checkIfEditFormIsDirty()) {
             Ext.Msg.show({
                 title: 'Formulário editado!',
@@ -316,64 +319,90 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
     onRemove: function (button, e, eOpts) {
         var me = this;
 
-        // Ask user to confirm this action
-        Ext.Msg.confirm('Confirm Delete', 'Você tem certeza que deseja excluir este registro?', function (result) {
+        Ext.Msg.show({
+            title: 'Confirmação de exclusão!',
+            msg: 'Você tem certeza que deseja excluir este registro?',
+            buttons: Ext.Msg.YESNO,
+            animateTarget: 'button',
+            icon: Ext.Msg.QUESTION,
+            fn: function (btn, ev) {
+                if (btn === 'yes') {
+                    var record = me.getViewModel().get('record'),
+                        store = Ext.StoreManager.lookup('documental.Documentos');
 
-            // User confirmed yes
-            if (result == 'yes') {
-
-                var record = me.getViewModel().get('record'),
-                    store = Ext.StoreManager.lookup('documental.Documentos');
-
-                // Delete record from store
-                store.remove(record);
-                store.sync();
-
-                console.log('result');
-                // Hide display
-                //me.showView('documentalMessageContainer');
-
+                    store.remove(record);
+                    store.sync({
+                        success: function () {
+                            store.load({
+                                scope: me,
+                                callback: function (records, operation, success) {
+                                    me.selectRecord(me.lookupReference('documentalTable'), 0)
+                                }
+                            });
+                            ArqAdmin.util.Util.showToast('Sucesso!','Registro removido com sucesso!');
+                        },
+                        failure: function (form, action) {
+                            ArqAdmin.util.Util.handleFormFailure(action);
+                        },
+                        scope: me
+                    });
+                }
             }
-
         });
     },
 
     onSave: function () {
         var me = this,
-            form = me.getReferences().editForm.getForm(),
+            form = me.lookupReference('editForm'),
+            formBasic = form.getForm(),
             record = form.getRecord(),
             values = form.getValues(false, true),
-            store = Ext.StoreManager.lookup('documental.Documentos');
+            store = Ext.getStore('documental.Documentos');
 
-        if (form.isValid()) {
+        if (formBasic.isValid()) {
 
             record.set(values);
 
             if (record.phantom) {
+                record.setId(null);
                 store.add(record);
             }
 
             store.sync({
-                success: function () {
+                scope: me,
+                success: function (batch, options) {
+                    //var result = Ext.decode(batch.operations[0].getResponse().responseText);
+
                     store.load({
                         scope: me,
                         callback: function (records, operation, success) {
+                            //me.forceResetForm(form);
+                            form.reset();
                             me.selectRecord(me.lookupReference('documentalTable'), 0)
                         }
                     });
-                    ArqAdmin.util.Util.showToast('Registro salvo com sucesso!');
-                    console.log("success!!");
+                    ArqAdmin.util.Util.showToast('Sucesso!','Registro salvo com sucesso!');
                 },
-                failure: function (form, action) {
-                    ArqAdmin.util.Util.handleFormFailure(action);
-                },
-                callback: function () {
-                    console.log("calling callback");
-                },
-                scope: me
+                failure: function (batch, options) {
+                    //ArqAdmin.util.Util.handleFormFailure(action);
+
+                    // console.log(batch);
+                    //var exceptionList = batch.getExceptions(), // getOperations()
+                    //    msg = Ext.decode(exceptionList[0]._response.responseText).message;
+                    //
+                    //console.log(msg);
+
+                    // failure in store event
+                    //listeners: {
+                    //    exception: function(proxy, response, operation, eOpts) {
+                    //        alert('exception');
+                    //    }
+                    //}
+
+                }
             });
         } else {
-            ArqAdmin.util.Util.showToast('O formulário contém erros!');
+            ArqAdmin.util.Util.showToast('Atenção!','O formulário contém erros!');
         }
     },
 

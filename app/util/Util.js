@@ -41,13 +41,31 @@ Ext.define('ArqAdmin.util.Util', {
             }
         },
 
-        showToast: function(text) {
+        showToast: function (emphasis, text) {
             Ext.toast({
-                html: text,
+                html: '<strong>' + emphasis + '</strong>&nbsp; ' + text,
+                //html: [
+                //    '<strong>' + emphasis + '</strong>&nbsp; ' + text,
+                //    '<span class="close"></span>'
+                //],
                 closable: false,
                 align: 't',
-                slideInDuration: 400,
-                minWidth: 400
+                slideInDuration: 150,
+                autoCloseDelay: 4000, // default: 3000
+                minWidth: 600,
+                bodyPadding: '17',
+                bodyStyle: {
+                    'background-color': '#C4C7B2',
+                    'border': '1px solid #204C54',
+                    'color': '#204C54',
+                    'font-size': '16px',
+                    'text-align': 'center',
+                    '-webkit-border-radius': '4px',
+                    '-moz-border-radius': '4px',
+                    'border-radius': '4px'
+                },
+                //autoClose: false,
+                animateShadow: true
             });
         }
     }

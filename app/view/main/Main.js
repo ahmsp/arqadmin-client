@@ -105,7 +105,10 @@ Ext.define('ArqAdmin.view.main.Main', {
                         {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('chart'),
-                            text: 'Estatísticas'
+                            text: 'Estatísticas',
+                            handler: function () {
+                                ArqAdmin.util.Util.showToast('Sucesso!','Teste to toast para estatísticas! Teste to toast para estatísticas ');
+                            }
                         },
                         {
                             xtype: 'tbfill'

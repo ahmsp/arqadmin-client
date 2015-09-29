@@ -10,7 +10,9 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'fundo_nome',
-            mapping: 'fundo.fundo_nome'
+            mapping: 'fundo.fundo_nome',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'subfundo_id',
@@ -18,7 +20,9 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'subfundo_nome',
-            mapping: 'subfundo.subfundo_nome'
+            mapping: 'subfundo.subfundo_nome',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'grupo_id',
@@ -26,7 +30,9 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'grupo_nome',
-            mapping: 'grupo.grupo_nome'
+            mapping: 'grupo.grupo_nome',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'subgrupo_id',
@@ -34,7 +40,9 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'subgrupo_nome',
-            mapping: 'subgrupo.subgrupo_nome'
+            mapping: 'subgrupo.subgrupo_nome',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'serie_id',
@@ -42,7 +50,9 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'serie_nome',
-            mapping: 'serie.serie_nome'
+            mapping: 'serie.serie_nome',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'subserie_id',
@@ -50,7 +60,9 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'subserie_nome',
-            mapping: 'subserie.subserie_nome'
+            mapping: 'subserie.subserie_nome',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'dossie_id',
@@ -58,7 +70,9 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'dossie_nome',
-            mapping: 'dossie.dossie_nome'
+            mapping: 'dossie.dossie_nome',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'especiedocumental_id',
@@ -66,13 +80,17 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'especiedocumental_nome',
-            mapping: 'especie_documental.especiedocumental_nome'
+            mapping: 'especie_documental.especiedocumental_nome',
+            sortType: 'asUCString',
+            persist: false
         },
         {
-            name: 'notacao_preexistente'
+            name: 'notacao_preexistente',
+            sortType: 'asUCString'
         },
         {
-            name: 'notacao'
+            name: 'notacao',
+            sortType: 'asUCString'
         },
         {
             name: 'ano'
@@ -94,16 +112,21 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'conservacao_estado',
-            mapping: 'conservacao.conservacao_estado'
+            mapping: 'conservacao.conservacao_estado',
+            sortType: 'asUCString',
+            persist: false
         },
         {
-            name: 'interessado'
+            name: 'interessado',
+            sortType: 'asUCString'
         },
         {
-            name: 'assunto'
+            name: 'assunto',
+            sortType: 'asUCString'
         },
         {
-            name: 'notas'
+            name: 'notas',
+            sortType: 'asUCString'
         },
         {
             name: 'lc_sala_id',
@@ -111,7 +134,9 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'lc_sala_sala',
-            mapping: 'lc_sala.sala'
+            mapping: 'lc_sala.sala',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'lc_movel_id',
@@ -119,7 +144,9 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'lc_movel_movel',
-            mapping: 'lc_movel.movel'
+            mapping: 'lc_movel.movel',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'lc_movel_num'
@@ -130,7 +157,9 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'lc_compartimento_compartimento',
-            mapping: 'lc_compartimento.compartimento'
+            mapping: 'lc_compartimento.compartimento',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'lc_compartimento_num'
@@ -141,7 +170,9 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'lc_acondicionamento_acondicionamento',
-            mapping: 'lc_acondicionamento.acondicionamento'
+            mapping: 'lc_acondicionamento.acondicionamento',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'lc_acondicionamento_num'
@@ -155,31 +186,41 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'dt_uso_uso',
-            mapping: 'dt_uso.uso'
+            mapping: 'dt_uso.uso',
+            sortType: 'asUCString',
+            persist: false
         },
         {
-            name: 'dt_endereco'
+            name: 'dt_endereco',
+            sortType: 'asUCString'
         },
         {
-            name: 'dt_end_complemento'
+            name: 'dt_end_complemento',
+            sortType: 'asUCString'
         },
         {
-            name: 'dt_endereco_atual'
+            name: 'dt_endereco_atual',
+            sortType: 'asUCString'
         },
         {
-            name: 'dt_endatual_complemento'
+            name: 'dt_endatual_complemento',
+            sortType: 'asUCString'
         },
         {
-            name: 'dt_proprietario'
+            name: 'dt_proprietario',
+            sortType: 'asUCString'
         },
         {
-            name: 'dt_autor'
+            name: 'dt_autor',
+            sortType: 'asUCString'
         },
         {
-            name: 'dt_construtor'
+            name: 'dt_construtor',
+            sortType: 'asUCString'
         },
         {
-            name: 'dt_notas'
+            name: 'dt_notas',
+            sortType: 'asUCString'
         }
     ]
 });
