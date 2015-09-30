@@ -137,7 +137,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         var $title = (Ext.Object.isEmpty(record)) ? 'Novo registro' : 'Editar registro';
 
         me.forceResetForm(form);
-        //me.clearFilterCascadingCombos(combosRefs);
+        //me.clearFilterCascadingCombos(combosRefs); //todo: remove
         form.loadRecord(record);
         me.changeDisableCascadingCombos(combosRefs);
 
