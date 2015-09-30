@@ -53,6 +53,7 @@ Ext.define('ArqAdmin.util.Util', {
                 slideInDuration: 150,
                 autoCloseDelay: 4000, // default: 3000
                 minWidth: 600,
+                width: 600,
                 bodyPadding: '17',
                 bodyStyle: {
                     'background-color': '#C4C7B2',

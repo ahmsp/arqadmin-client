@@ -16,22 +16,19 @@ Ext.define('ArqAdmin.view.main.MainController', {
         },
         "button#btnMaximize": {
             click: 'maximizeModuleContainer'
-        },
-        "#toolbarHeader button": {
-            click: 'onResultToolbarButtonsClick'
         }
     },
 
-    onNavigationButtonClick: function(btn, e, eOpts) {
-        switch(btn.itemId) {
+    onNavigationButtonClick: function (btn, e, eOpts) {
+        switch (btn.itemId) {
             case 'btnDashboard':
                 this.showView('dashboardMain');
                 break;
         }
     },
 
-    onNavigationMenuitemClick: function(item, e, eOpts) {
-        switch(item.itemId) {
+    onNavigationMenuitemClick: function (item, e, eOpts) {
+        switch (item.itemId) {
             case 'menuitemDocumental':
                 this.showView('documental');
                 break;
@@ -44,7 +41,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
         }
     },
 
-    maximizeModuleContainer: function(button, e, eOpts) {
+    maximizeModuleContainer: function (button, e, eOpts) {
         var header = this.lookupReference('headerTitle');
         var nav = this.lookupReference('navigation');
         var footer = this.lookupReference('footer');
@@ -68,16 +65,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
 
     },
 
-    onResultToolbarButtonsClick: function(button, e, eOpts) {
-        if ((button.itemId == 'btnClearFilters')) {
-            button.up('panel').down('grid').filters.clearFilters(true);
-        } else {
-            var setActive = (button.itemId == 'btnShowTable') ? 0 : 1;
-            button.up('panel').getLayout().setActiveItem(setActive);
-        }
-    },
-
-    showView: function(view) {
+    showView: function (view) {
         var me = this;
         var layout = me.getReferences().modulescontainer.getLayout();
         var viewModel = me.getViewModel();
@@ -85,7 +73,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
         layout.setActiveItem(me.lookupReference(view));
     },
 
-    onLogout: function(button, e, eOpts) {
+    onLogout: function (button, e, eOpts) {
         var me = this;
         Ext.Ajax.request({
             url: '/auth/logout',
@@ -95,7 +83,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
         });
     },
 
-    onLogoutSuccess: function(conn, response, options, eOpts) {
+    onLogoutSuccess: function (conn, response, options, eOpts) {
         var result = ArqAdmin.util.Util.decodeJSON(conn.responseText);
 
         if (result.success) {
@@ -106,14 +94,14 @@ Ext.define('ArqAdmin.view.main.MainController', {
         }
     },
 
-    onLogoutFailure: function(conn, response, options, eOpts) {
+    onLogoutFailure: function (conn, response, options, eOpts) {
         ArqAdmin.util.Util.showErrorMsg(conn.responseText);
     },
 
-    onContainerAfterLayout: function(container, layout, eOpts) {
-        var me = this;
-        var activeItem = layout.getActiveItem();
-        var viewModel = me.getViewModel();
+    onContainerAfterLayout: function (container, layout, eOpts) {
+        var me = this,
+            activeItem = layout.getActiveItem(),
+            viewModel = me.getViewModel();
 
         viewModel.set('moduleTitle', activeItem.getViewModel().get('moduleTitle'));
     }

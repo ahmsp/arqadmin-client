@@ -45,9 +45,10 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
     },
 
     onGridBeforeselect: function (rowmodel, record, index, eOpts) {
-        var me = this;
+        var me = this,
+            editForm = me.lookupReference('editForm');
 
-        if (me.checkIfEditFormIsDirty()) {
+        if (editForm.isDirty()) {
             Ext.Msg.show({
                 title: 'Formulário editado!',
                 msg: 'Os dados do formulário foram alterados. <br />Você deseja descartar as alterações?',
@@ -69,7 +70,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         var me = this;
 
         // selects record in both grids
-        var layoutItems = me.lookupReference('cardLists').getLayout().getLayoutItems();
+        var layoutItems = me.lookupReference('resultsPanel').getLayout().getLayoutItems();
         Ext.Object.each(layoutItems, function (key, componentGrid) {
             if (record !== componentGrid.getSelection()[0]) {
                 me.selectRecord(componentGrid, index);
@@ -84,7 +85,35 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         this.onEdit();
     },
 
-    showView: function (view) {
+    onGridClearFilters: function () {
+        this.lookupReference('documentalTable').filters.clearFilters(true);
+    },
+
+    setResultsPanelActiveItem: function (button) {
+        var me = this;
+
+        switch (button.itemId) {
+            case 'btnShowTable':
+                me.showViewResultsPanel('documentalTable');
+                break;
+            case 'btnShowList':
+                me.showViewResultsPanel('documentalList');
+                break;
+            case 'btnShowGallery':
+                me.showViewResultsPanel('documentalGallery');
+                break;
+        }
+    },
+
+    showViewResultsPanel: function (itemReference) {
+        var me = this,
+            layout = me.getReferences().resultsPanel.getLayout(),
+            item = me.lookupReference(itemReference);
+
+        layout.setActiveItem(item);
+    },
+
+    showViewDisplayPanel: function (view) {
         var layout = this.getReferences().displayPanel.getLayout();
         layout.setActiveItem(this.lookupReference(view));
     },
@@ -108,12 +137,12 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         var $title = (Ext.Object.isEmpty(record)) ? 'Novo registro' : 'Editar registro';
 
         me.forceResetForm(form);
-        me.clearFilterCascadingCombos(combosRefs);
+        //me.clearFilterCascadingCombos(combosRefs);
         form.loadRecord(record);
         me.changeDisableCascadingCombos(combosRefs);
 
         if (showForm) {
-            me.showView('editForm');
+            me.showViewDisplayPanel('editForm');
             me.getViewModel().set('displayPanelTitle', $title);
         }
     },
@@ -129,7 +158,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         me.lookupReference('detailsPanel').loadRecord(record);
         if (showForm) {
             me.getViewModel().set('displayPanelTitle', 'Detalhes do registro');
-            me.showView('detailsPanel');
+            me.showViewDisplayPanel('detailsPanel');
         }
     },
 
@@ -146,7 +175,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         me.clearFilterCascadingCombos(combosRefs);
 
         form.setValues(values);
-        me.changeDisableCascadingCombos(combosRefs);
+        //me.changeDisableCascadingCombos(combosRefs);
 
         if (formPanel.xtype === 'documental-editform') {
             me.lookupReference('especiedocumentalCombo').focus(true, 180);
@@ -170,7 +199,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         // clear all next combos
         var start = false;
         Ext.Object.each(combosRefs, function (key, cb, obj) {
-
             // check if this is next combo
             if (cb === combo.next()) {
                 start = true;
@@ -182,7 +210,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         });
 
         me.changeDisableCascadingCombos(combosRefs);
-        me.setAcervoComboValue(acervoCombo);
+        me.lookupReference(acervoCombo).setValue(me.findAcervoId(formPanel.getValues()));
     },
 
     onCascadingComboFocus: function (component, event, eOpts) {
@@ -235,51 +263,35 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         }
     },
 
-    /*
-     * Checks if the combination of "classificação" corresponds to an existing "acervo"
-     * and sets the corresponding value for the combo
-     */
-    setAcervoComboValue: function (acervoCombo) {
-        var me = this,
-            acervoCombo = me.lookupReference(acervoCombo),
-            formPanel = acervoCombo.up('panel');
+    findAcervoId: function (classificacaoData) {
+        var store = Ext.getStore('classificacao.Acervos');
 
-        var classificFieldset = (formPanel.xtype === 'documental-editform') ? 'classificFieldset' : 'filterClassificFieldset';
-        var refs = me.lookupReference(classificFieldset).getReferences();
-
-        acervoCombo.clearValue();
-
-        // check if the combination exists in acervoCombo
-        var recordIndex = acervoCombo.getStore().findBy(
-            function (record, id) {
-
-                if (refs.fundoCombo.value === record.get('fundo_id') &&
-                    refs.subfundoCombo.value === record.get('subfundo_id') &&
-                    refs.grupoCombo.value === record.get('grupo_id') &&
-                    refs.subgrupoCombo.value === record.get('subgrupo_id') &&
-                    refs.serieCombo.value === record.get('serie_id') &&
-                    refs.subserieCombo.value === record.get('subserie_id') &&
-                    refs.dossieCombo.value === record.get('dossie_id')) {
+        var recordIndex = store.findBy(
+            function (rec, id) {
+                if ((classificacaoData.fundo_id || null) === rec.get('fundo_id') &&
+                    (classificacaoData.subfundo_id || null) === rec.get('subfundo_id') &&
+                    (classificacaoData.grupo_id || null) === rec.get('grupo_id') &&
+                    (classificacaoData.subgrupo_id || null) === rec.get('subgrupo_id') &&
+                    (classificacaoData.serie_id || null) === rec.get('serie_id') &&
+                    (classificacaoData.subserie_id || null) === rec.get('subserie_id') &&
+                    (classificacaoData.dossie_id || null) === rec.get('dossie_id')) {
                     return true;
                 }
                 return false;
             }
         );
 
-        if (recordIndex != -1) {
-            // set combo value by index
-            acervoCombo.setValue(acervoCombo.getStore().getAt(recordIndex).get(acervoCombo.valueField));
-        }
+        return (recordIndex == -1) ? null : store.getAt(recordIndex).getId();
     },
 
     onAdd: function () {
         var me = this,
+            editForm = me.lookupReference('editForm'),
             newRecord = Ext.create('ArqAdmin.model.documental.Documento');
 
         newRecord.setId(null);
-        //newRecord.set('id', null);
 
-        if (me.checkIfEditFormIsDirty()) {
+        if (editForm.isDirty()) {
             Ext.Msg.show({
                 title: 'Formulário editado!',
                 msg: 'Os dados do formulário foram alterados. <br />Você deseja descartar as alterações?',
@@ -297,23 +309,71 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         }
     },
 
-    checkIfEditFormIsDirty: function () {
-        var editForm = this.lookupReference('editForm');
-
-        //if (editForm.isDirty()) {
-        if (!Ext.Object.isEmpty(editForm.getValues(false, true))) {
-            return true;
-        }
-        return false;
-    },
-
     onEdit: function () {
         var me = this,
-            record = me.getViewModel().get('record');
+            record = me.getViewModel().get('record'),
+            acervoId = me.findAcervoId(record.getData());
+
+        record.set('acervo_id', acervoId);
 
         me.editFormLoadRecord(record, true);
         me.getViewModel().set('displayPanelTitle', 'Editar registro');
-        me.showView('editForm');
+        me.showViewDisplayPanel('editForm');
+    },
+
+    onSave: function () {
+        var me = this,
+            form = me.lookupReference('editForm'),
+            formBasic = form.getForm(),
+            record = form.getRecord(),
+            values = form.getValues(),
+            store = Ext.getStore('documental.Documentos');
+
+        if (formBasic.isValid()) {
+
+            record.set(values);
+
+            if (record.phantom) {
+                record.setId(null);
+                store.add(record);
+            }
+
+            store.sync({
+                scope: me,
+                success: function (batch, options) {
+                    //var result = Ext.decode(batch.operations[0].getResponse().responseText);
+
+                    store.load({
+                        scope: me,
+                        callback: function (records, operation, success) {
+                            //me.forceResetForm(form);
+                            form.reset();
+                            me.selectRecord(me.lookupReference('documentalTable'), 0)
+                        }
+                    });
+                    ArqAdmin.util.Util.showToast('Sucesso!', 'Registro salvo com sucesso!');
+                },
+                failure: function (batch, options) {
+                    //ArqAdmin.util.Util.handleFormFailure(action);
+
+                    // console.log(batch);
+                    //var exceptionList = batch.getExceptions(), // getOperations()
+                    //    msg = Ext.decode(exceptionList[0]._response.responseText).message;
+                    //
+                    //console.log(msg);
+
+                    // failure in store event
+                    //listeners: {
+                    //    exception: function(proxy, response, operation, eOpts) {
+                    //        alert('exception');
+                    //    }
+                    //}
+
+                }
+            });
+        } else {
+            ArqAdmin.util.Util.showToast('Atenção!', 'O formulário contém erros!');
+        }
     },
 
     onRemove: function (button, e, eOpts) {
@@ -339,7 +399,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
                                     me.selectRecord(me.lookupReference('documentalTable'), 0)
                                 }
                             });
-                            ArqAdmin.util.Util.showToast('Sucesso!','Registro removido com sucesso!');
+                            ArqAdmin.util.Util.showToast('Sucesso!', 'Registro removido com sucesso!');
                         },
                         failure: function (form, action) {
                             ArqAdmin.util.Util.handleFormFailure(action);
@@ -351,63 +411,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
         });
     },
 
-    onSave: function () {
-        var me = this,
-            form = me.lookupReference('editForm'),
-            formBasic = form.getForm(),
-            record = form.getRecord(),
-            values = form.getValues(false, true),
-            store = Ext.getStore('documental.Documentos');
-
-        if (formBasic.isValid()) {
-
-            record.set(values);
-
-            if (record.phantom) {
-                record.setId(null);
-                store.add(record);
-            }
-
-            store.sync({
-                scope: me,
-                success: function (batch, options) {
-                    //var result = Ext.decode(batch.operations[0].getResponse().responseText);
-
-                    store.load({
-                        scope: me,
-                        callback: function (records, operation, success) {
-                            //me.forceResetForm(form);
-                            form.reset();
-                            me.selectRecord(me.lookupReference('documentalTable'), 0)
-                        }
-                    });
-                    ArqAdmin.util.Util.showToast('Sucesso!','Registro salvo com sucesso!');
-                },
-                failure: function (batch, options) {
-                    //ArqAdmin.util.Util.handleFormFailure(action);
-
-                    // console.log(batch);
-                    //var exceptionList = batch.getExceptions(), // getOperations()
-                    //    msg = Ext.decode(exceptionList[0]._response.responseText).message;
-                    //
-                    //console.log(msg);
-
-                    // failure in store event
-                    //listeners: {
-                    //    exception: function(proxy, response, operation, eOpts) {
-                    //        alert('exception');
-                    //    }
-                    //}
-
-                }
-            });
-        } else {
-            ArqAdmin.util.Util.showToast('Atenção!','O formulário contém erros!');
-        }
-    },
-
     onCancelEdit: function (button, e, eOpts) {
-        this.showView('detailsPanel');
+        this.showViewDisplayPanel('detailsPanel');
     },
 
     onTextfieldSpecialkey: function (field, e, eOpts) {

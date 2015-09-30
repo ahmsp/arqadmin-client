@@ -26,6 +26,84 @@ Ext.define('ArqAdmin.view.documental.DetailsPanel', {
                 labelWidth: 150
             },
             collapsible: true,
+            title: 'Classificação',
+            layout: {
+                type: 'vbox',
+                align: 'stretch'
+            },
+            items: [
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'Fundo',
+                    name: 'fundo_nome',
+                    bind: {
+                        hidden: '{!record.fundo_nome}'
+                        //value: '{record.fundo_nome}'
+                    }
+                },
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'Subfundo',
+                    name: 'subfundo_nome',
+                    bind: {
+                        hidden: '{!record.subfundo_nome}'
+                        //value: '{record.subfundo_nome}'
+                    }
+                },
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'Grupo',
+                    name: 'grupo_nome',
+                    bind: {
+                        hidden: '{!record.grupo_nome}'
+                        //value: '{record.grupo_nome}'
+                    }
+                },
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'Subgrupo',
+                    name: 'subgrupo_nome',
+                    bind: {
+                        hidden: '{!record.subgrupo_nome}'
+                        //value: '{record.subgrupo_nome}'
+                    }
+                },
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'Série',
+                    name: 'serie_nome',
+                    bind: {
+                        hidden: '{!record.serie_nome}'
+                        //value: '{record.serie_nome}'
+                    }
+                },
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'Subsérie',
+                    name: 'subserie_nome',
+                    bind: {
+                        hidden: '{!record.subserie_nome}'
+                        //value: '{record.subserie_nome}'
+                    }
+                },
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'Dossiê',
+                    name: 'dossie_nome',
+                    bind: {
+                        hidden: '{!record.dossie_nome}'
+                        //value: '{record.dossie_nome}'
+                    }
+                }
+            ]
+        },
+        {
+            xtype: 'panel',
+            ui: 'light',
+            defaults: {
+                labelWidth: 150
+            },
+            collapsible: true,
             title: 'Dados de Cadastro',
             layout: {
                 type: 'vbox',
@@ -335,84 +413,6 @@ Ext.define('ArqAdmin.view.documental.DetailsPanel', {
                     bind: {
                         hidden: '{!record.lc_pagina}'
                         //value: '{record.lc_pagina}'
-                    }
-                }
-            ]
-        },
-        {
-            xtype: 'panel',
-            ui: 'light',
-            defaults: {
-                labelWidth: 150
-            },
-            collapsible: true,
-            title: 'Classificação',
-            layout: {
-                type: 'vbox',
-                align: 'stretch'
-            },
-            items: [
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'Fundo',
-                    name: 'fundo_nome',
-                    bind: {
-                        hidden: '{!record.fundo_nome}'
-                        //value: '{record.fundo_nome}'
-                    }
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'Subfundo',
-                    name: 'subfundo_nome',
-                    bind: {
-                        hidden: '{!record.subfundo_nome}'
-                        //value: '{record.subfundo_nome}'
-                    }
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'Grupo',
-                    name: 'grupo_nome',
-                    bind: {
-                        hidden: '{!record.grupo_nome}'
-                        //value: '{record.grupo_nome}'
-                    }
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'Subgrupo',
-                    name: 'subgrupo_nome',
-                    bind: {
-                        hidden: '{!record.subgrupo_nome}'
-                        //value: '{record.subgrupo_nome}'
-                    }
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'Série',
-                    name: 'serie_nome',
-                    bind: {
-                        hidden: '{!record.serie_nome}'
-                        //value: '{record.serie_nome}'
-                    }
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'Subsérie',
-                    name: 'subserie_nome',
-                    bind: {
-                        hidden: '{!record.subserie_nome}'
-                        //value: '{record.subserie_nome}'
-                    }
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'Dossiê',
-                    name: 'dossie_nome',
-                    bind: {
-                        hidden: '{!record.dossie_nome}'
-                        //value: '{record.dossie_nome}'
                     }
                 }
             ]

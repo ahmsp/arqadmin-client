@@ -231,16 +231,16 @@ Ext.define('ArqAdmin.view.main.Main', {
             items: [
                 {
                     xtype: 'dashboard-main'
-                },
-                {
-                    xtype: 'documental'
-                },
-                {
-                    xtype: 'fotograficocontainer'
-                },
-                {
-                    xtype: 'sepultamentocontainer'
                 }
+                //{
+                //    xtype: 'documental'
+                //},
+                //{
+                //    xtype: 'fotograficocontainer'
+                //},
+                //{
+                //    xtype: 'sepultamentocontainer'
+                //}
             ],
             listeners: {
                 afterlayout: 'onContainerAfterLayout'

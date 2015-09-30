@@ -33,6 +33,7 @@ Ext.define('ArqAdmin.view.base.ViewController', {
     },
 
     selectRecord: function (grid, recordIndex) {
+        //grid.setSelection(recordIndex);
         grid.getView().getSelectionModel().select(recordIndex);
         grid.getView().focusRow(recordIndex);
     }

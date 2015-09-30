@@ -6,6 +6,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
     fields: [
         {
             name: 'fundo_id',
+            type: 'int',
+            allowNull: true,
             reference: 'classificacao.Fundo'
         },
         {
@@ -16,6 +18,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'subfundo_id',
+            type: 'int',
+            allowNull: true,
             reference: 'classificacao.Subfundo'
         },
         {
@@ -26,6 +30,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'grupo_id',
+            type: 'int',
+            allowNull: true,
             reference: 'classificacao.Grupo'
         },
         {
@@ -36,6 +42,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'subgrupo_id',
+            type: 'int',
+            allowNull: true,
             reference: 'classificacao.Subgrupo'
         },
         {
@@ -46,6 +54,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'serie_id',
+            type: 'int',
+            allowNull: true,
             reference: 'classificacao.Serie'
         },
         {
@@ -56,6 +66,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'subserie_id',
+            type: 'int',
+            allowNull: true,
             reference: 'classificacao.Subserie'
         },
         {
@@ -66,6 +78,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'dossie_id',
+            type: 'int',
+            allowNull: true,
             reference: 'classificacao.Dossie'
         },
         {
@@ -76,6 +90,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'especiedocumental_id',
+            type: 'int',
+            allowNull: true,
             reference: 'classificacao.Especiedocumental'
         },
         {
@@ -108,6 +124,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'conservacao_id',
+            type: 'int',
+            allowNull: true,
             reference: 'documental.Conservacao'
         },
         {
@@ -130,6 +148,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'lc_sala_id',
+            type: 'int',
+            allowNull: true,
             reference: 'localizacao.LcSala'
         },
         {
@@ -140,6 +160,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'lc_movel_id',
+            type: 'int',
+            allowNull: true,
             reference: 'localizacao.LcMovel'
         },
         {
@@ -153,6 +175,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'lc_compartimento_id',
+            type: 'int',
+            allowNull: true,
             reference: 'localizacao.LcCompartimento'
         },
         {
@@ -166,6 +190,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'lc_acondicionamento_id',
+            type: 'int',
+            allowNull: true,
             reference: 'localizacao.LcAcondicionamento'
         },
         {
@@ -182,6 +208,8 @@ Ext.define('ArqAdmin.model.documental.Documento', {
         },
         {
             name: 'dt_uso_id',
+            type: 'int',
+            allowNull: true,
             reference: 'documental.DtUso'
         },
         {

@@ -40,6 +40,62 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
         type: 'vbox',
         align: 'stretch'
     },
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            ui: 'toolbar-light',
+            items: [
+                {
+                    xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
+                    text: 'Novo',
+                    listeners: {
+                        click: 'onAdd'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    itemId: 'saveButton',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('save'),
+                    text: 'Salvar',
+                    bind: {
+                        disabled: '{!editFormActive}'
+                    },
+                    reference: 'btnSave',
+                    listeners: {
+                        click: 'onSave'
+                    }
+                },
+                {
+                    xtype: 'tbfill'
+                },
+                {
+                    xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('remove'),
+                    text: 'Remover',
+                    bind: {
+                        disabled: '{!editFormActive}'
+                    },
+                    listeners: {
+                        click: 'onRemove'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    itemId: 'cancelButton',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('cancel'),
+                    text: 'Cancelar',
+                    bind: {
+                        disabled: '{!editFormActive}'
+                    },
+                    listeners: {
+                        click: 'onCancelEdit'
+                    }
+                }
+            ]
+        }
+    ],
     items: [
         {
             xtype: 'fieldset',
