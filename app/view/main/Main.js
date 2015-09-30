@@ -8,8 +8,8 @@ Ext.define('ArqAdmin.view.main.Main', {
         'ArqAdmin.view.main.MainModel',
         'ArqAdmin.view.dashboard.DashboardMain',
         'ArqAdmin.view.documental.Documental',
-        'ArqAdmin.view.fotografico.Container',
-        'ArqAdmin.view.sepultamento.Container',
+        //'ArqAdmin.view.fotografico.Container',
+        //'ArqAdmin.view.sepultamento.Container',
         'ArqAdmin.view.footer.Panel',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button',
@@ -225,7 +225,7 @@ Ext.define('ArqAdmin.view.main.Main', {
         {
             xtype: 'container',
             region: 'center',
-            reference: 'modulescontainer',
+            reference: 'modulesContainer',
             padding: '8 8 0',
             layout: 'card',
             items: [
@@ -233,13 +233,13 @@ Ext.define('ArqAdmin.view.main.Main', {
                     xtype: 'dashboard-main'
                 }
                 //{
-                //    xtype: 'documental'
+                //    xtype: 'module-documental'
                 //},
                 //{
-                //    xtype: 'fotograficocontainer'
+                //    xtype: 'modulefotografico'
                 //},
                 //{
-                //    xtype: 'sepultamentocontainer'
+                //    xtype: 'moduleSepultamento'
                 //}
             ],
             listeners: {

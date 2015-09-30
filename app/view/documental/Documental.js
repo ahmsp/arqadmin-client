@@ -1,6 +1,6 @@
 Ext.define('ArqAdmin.view.documental.Documental', {
     extend: 'Ext.container.Container',
-    xtype: 'documental',
+    xtype: 'module-documental',
 
     requires: [
         'ArqAdmin.view.documental.DetailsPanel',
@@ -25,7 +25,7 @@ Ext.define('ArqAdmin.view.documental.Documental', {
     viewModel: {
         type: 'documental'
     },
-    reference: 'documental',
+    reference: 'moduleDocumental',
     layout: 'border',
 
     items: [

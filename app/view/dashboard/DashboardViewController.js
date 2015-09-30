@@ -4,18 +4,17 @@ Ext.define('ArqAdmin.view.dashboard.DashboardViewController', {
 
     onDataviewItemClick: function(dataview, record, item, index, e, eOpts) {
 
-        var appMain = dataview.up('app-main');
-        var cardLayout = appMain.lookupReference('modulescontainer').getLayout();
+        var mainController = dataview.up('app-main').getController();
 
         switch(record.get('acervo')) {
             case 'doc':
-                cardLayout.setActiveItem(appMain.lookupReference('documental'));
+                mainController.showView('module-documental');
                 break;
             case 'foto':
-                cardLayout.setActiveItem(appMain.lookupReference('fotograficoContainer'));
+                mainController.showView('module-fotografico');
                 break;
             case 'sepult':
-                cardLayout.setActiveItem(appMain.lookupReference('sepultamentoContainer'));
+                mainController.showView('module-sepultamento');
                 break;
         }
     }

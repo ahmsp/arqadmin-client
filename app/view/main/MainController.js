@@ -30,15 +30,33 @@ Ext.define('ArqAdmin.view.main.MainController', {
     onNavigationMenuitemClick: function (item, e, eOpts) {
         switch (item.itemId) {
             case 'menuitemDocumental':
-                this.showView('documental');
+                this.showView('module-documental');
                 break;
             case 'menuitemFotografico':
-                this.showView('fotograficoContainer');
+                this.showView('module-fotografico');
                 break;
             case 'menuitemSepultamento':
-                this.showView('sepultamentoContainer');
+                this.showView('module-sepultamento');
                 break;
         }
+    },
+
+    showView: function (viewXtype) {
+        var me = this,
+            card = me.lookupReference('modulesContainer');
+
+        var viewReference = viewXtype.replace(/-([a-z])/gi, function ($0, $1) {
+            return $1.toUpperCase();
+        });
+
+        var view = me.lookupReference(viewReference);
+
+        if (!view) {
+            view = Ext.widget(viewXtype);
+            card.add(view);
+        }
+
+        card.getLayout().setActiveItem(view);
     },
 
     maximizeModuleContainer: function (button, e, eOpts) {
@@ -63,14 +81,6 @@ Ext.define('ArqAdmin.view.main.MainController', {
             button.setTooltip('Maximizar');
         }
 
-    },
-
-    showView: function (view) {
-        var me = this;
-        var layout = me.getReferences().modulescontainer.getLayout();
-        var viewModel = me.getViewModel();
-
-        layout.setActiveItem(me.lookupReference(view));
     },
 
     onLogout: function (button, e, eOpts) {
