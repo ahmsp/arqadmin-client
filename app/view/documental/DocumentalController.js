@@ -264,7 +264,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     },
 
     findAcervoId: function (classificacaoData) {
-        var store = Ext.getStore('classificacao.Acervos');
+        var store = Ext.getStore('staticData.classificacao.Acervos');
 
         var recordIndex = store.findBy(
             function (rec, id) {

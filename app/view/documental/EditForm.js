@@ -118,7 +118,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             emptyText: 'Selecione uma classificação...',
                             displayField: 'acervo_nome',
                             queryMode: 'local',
-                            store: 'classificacao.Acervos',
+                            store: 'staticData.classificacao.Acervos',
                             valueField: 'id',
                             listeners: {
                                 select: 'onAcervoComboSelect'
@@ -168,7 +168,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Fundo',
                             name: 'fundo_id',
                             displayField: 'fundo_nome',
-                            store: 'classificacao.Fundos',
+                            store: 'staticData.classificacao.Fundos',
                             valueField: 'id'
                         },
                         {
@@ -178,7 +178,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Subfundo',
                             name: 'subfundo_id',
                             displayField: 'subfundo_nome',
-                            store: 'classificacao.Subfundos',
+                            store: 'staticData.classificacao.Subfundos',
                             valueField: 'id'
                         },
                         {
@@ -188,7 +188,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Grupo',
                             name: 'grupo_id',
                             displayField: 'grupo_nome',
-                            store: 'classificacao.Grupos',
+                            store: 'staticData.classificacao.Grupos',
                             valueField: 'id'
                         },
                         {
@@ -198,7 +198,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Subgrupo',
                             name: 'subgrupo_id',
                             displayField: 'subgrupo_nome',
-                            store: 'classificacao.Subgrupos',
+                            store: 'staticData.classificacao.Subgrupos',
                             valueField: 'id'
                         },
                         {
@@ -208,7 +208,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Série',
                             name: 'serie_id',
                             displayField: 'serie_nome',
-                            store: 'classificacao.Series',
+                            store: 'staticData.classificacao.Series',
                             valueField: 'id'
                         },
                         {
@@ -218,7 +218,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Subsérie',
                             name: 'subserie_id',
                             displayField: 'subserie_nome',
-                            store: 'classificacao.Subseries',
+                            store: 'staticData.classificacao.Subseries',
                             valueField: 'id'
                         },
                         {
@@ -228,7 +228,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Dossiê',
                             name: 'dossie_id',
                             displayField: 'dossie_nome',
-                            store: 'classificacao.Dossies',
+                            store: 'staticData.classificacao.Dossies',
                             valueField: 'id'
                         }
                     ]
@@ -261,7 +261,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                     allowBlank: false,
                     allowOnlyWhitespace: false,
                     displayField: 'especiedocumental_nome',
-                    store: 'classificacao.Especiedocumentais',
+                    store: 'staticData.classificacao.Especiedocumentais',
                     typeAhead: true,
                     valueField: 'id',
                     afterLabelTextTpl: ArqAdmin.util.Util.required
@@ -304,7 +304,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Estado de Conservação',
                             name: 'conservacao_id',
                             displayField: 'conservacao_estado',
-                            store: 'documental.Conservacoes',
+                            store: 'staticData.documental.Conservacoes',
                             valueField: 'id',
                             triggers: {
                                 clear: {
@@ -365,7 +365,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Uso (Desenho Técnico)',
                             name: 'dt_uso_id',
                             displayField: 'uso',
-                            store: 'documental.DtUsos',
+                            store: 'staticData.documental.DtUsos',
                             valueField: 'id',
                             triggers: {
                                 clear: {
@@ -490,7 +490,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Sala',
                             name: 'lc_sala_id',
                             displayField: 'sala',
-                            store: 'localizacao.LcSalas',
+                            store: 'staticData.localizacao.LcSalas',
                             valueField: 'id',
                             triggers: {
                                 clear: {
@@ -527,7 +527,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Móvel',
                             name: 'lc_movel_id',
                             displayField: 'movel',
-                            store: 'localizacao.LcMoveis',
+                            store: 'staticData.localizacao.LcMoveis',
                             valueField: 'id',
                             triggers: {
                                 clear: {
@@ -569,7 +569,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Compartimento',
                             name: 'lc_compartimento_id',
                             displayField: 'compartimento',
-                            store: 'localizacao.LcCompartimentos',
+                            store: 'staticData.localizacao.LcCompartimentos',
                             valueField: 'id',
                             triggers: {
                                 clear: {
@@ -611,7 +611,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             fieldLabel: 'Acondicionamento',
                             name: 'lc_acondicionamento_id',
                             displayField: 'acondicionamento',
-                            store: 'localizacao.LcAcondicionamentos',
+                            store: 'staticData.localizacao.LcAcondicionamentos',
                             valueField: 'id',
                             triggers: {
                                 clear: {

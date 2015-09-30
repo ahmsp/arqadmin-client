@@ -31,7 +31,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                         idField: 'fundo_nome',
                         labelField: 'fundo_nome',
                         updateBuffer: 1500,
-                        store: 'classificacao.Fundos'
+                        store: 'staticData.classificacao.Fundos'
                     }
                 },
                 {
@@ -43,7 +43,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                         idField: 'subfundo_nome',
                         labelField: 'subfundo_nome',
                         updateBuffer: 1500,
-                        store: 'classificacao.Subfundos'
+                        store: 'staticData.classificacao.Subfundos'
                     }
                 },
                 {
@@ -55,7 +55,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                         idField: 'grupo_nome',
                         labelField: 'grupo_nome',
                         updateBuffer: 1500,
-                        store: 'classificacao.Grupos'
+                        store: 'staticData.classificacao.Grupos'
                     }
                 },
                 {
@@ -67,7 +67,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                         idField: 'subgrupo_nome',
                         labelField: 'subgrupo_nome',
                         updateBuffer: 1500,
-                        store: 'classificacao.Subgrupos'
+                        store: 'staticData.classificacao.Subgrupos'
                     }
                 },
                 {
@@ -79,7 +79,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                         idField: 'serie_nome',
                         labelField: 'serie_nome',
                         updateBuffer: 1500,
-                        store: 'classificacao.Series'
+                        store: 'staticData.classificacao.Series'
                     }
                 },
                 {
@@ -91,7 +91,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                         idField: 'subserie_nome',
                         labelField: 'subserie_nome',
                         updateBuffer: 1500,
-                        store: 'classificacao.Subseries'
+                        store: 'staticData.classificacao.Subseries'
                     }
                 },
                 {
@@ -103,7 +103,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                         idField: 'dossie_nome',
                         labelField: 'dossie_nome',
                         updateBuffer: 1500,
-                        store: 'classificacao.Dossies'
+                        store: 'staticData.classificacao.Dossies'
                     }
                 }
             ]
@@ -117,7 +117,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                 idField: 'especiedocumental_nome',
                 labelField: 'especiedocumental_nome',
                 updateBuffer: 1500,
-                store: 'classificacao.Especiedocumentais'
+                store: 'staticData.classificacao.Especiedocumentais'
             }
         },
         {
@@ -165,7 +165,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                 idField: 'conservacao_estado',
                 labelField: 'conservacao_estado',
                 updateBuffer: 1500,
-                store: 'documental.Conservacoes'
+                store: 'staticData.documental.Conservacoes'
             }
         },
         {
@@ -220,7 +220,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                 idField: 'uso',
                 labelField: 'uso',
                 updateBuffer: 1500,
-                store: 'documental.DtUsos'
+                store: 'staticData.documental.DtUsos'
             }
         },
         {
@@ -318,7 +318,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                         idField: 'sala',
                         labelField: 'sala',
                         updateBuffer: 1500,
-                        store: 'localizacao.LcSalas'
+                        store: 'staticData.localizacao.LcSalas'
                     }
                 },
                 {
@@ -331,7 +331,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                         idField: 'movel',
                         labelField: 'movel',
                         updateBuffer: 1500,
-                        store: 'localizacao.LcMoveis'
+                        store: 'staticData.localizacao.LcMoveis'
                     }
                 },
                 {
@@ -352,7 +352,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                         idField: 'compartimento',
                         labelField: 'compartimento',
                         updateBuffer: 1500,
-                        store: 'localizacao.LcCompartimentos'
+                        store: 'staticData.localizacao.LcCompartimentos'
                     }
                 },
                 {
@@ -373,7 +373,7 @@ Ext.define('ArqAdmin.view.documental.Table', {
                         idField: 'acondicionamento',
                         labelField: 'acondicionamento',
                         updateBuffer: 1500,
-                        store: 'localizacao.LcAcondicionamentos'
+                        store: 'staticData.localizacao.LcAcondicionamentos'
                     }
                 },
                 {

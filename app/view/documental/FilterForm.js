@@ -62,7 +62,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
             //emptyText: 'Selecione uma classificação...',
             displayField: 'acervo_nome',
             queryMode: 'local',
-            store: 'classificacao.Acervos',
+            store: 'staticData.classificacao.Acervos',
             valueField: 'id',
             listeners: {
                 select: 'onAcervoComboSelect'
@@ -98,7 +98,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     fieldLabel: 'Fundo',
                     name: 'fundo_id',
                     displayField: 'fundo_nome',
-                    store: 'classificacao.Fundos',
+                    store: 'staticData.classificacao.Fundos',
                     valueField: 'id',
                     operator: 'eq'
                 },
@@ -109,7 +109,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     fieldLabel: 'Subfundo',
                     name: 'subfundo_id',
                     displayField: 'subfundo_nome',
-                    store: 'classificacao.Subfundos',
+                    store: 'staticData.classificacao.Subfundos',
                     valueField: 'id',
                     operator: 'eq'
                 },
@@ -120,7 +120,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     fieldLabel: 'Grupo',
                     name: 'grupo_id',
                     displayField: 'grupo_nome',
-                    store: 'classificacao.Grupos',
+                    store: 'staticData.classificacao.Grupos',
                     valueField: 'id',
                     operator: 'eq'
                 },
@@ -131,7 +131,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     fieldLabel: 'Subgrupo',
                     name: 'subgrupo_id',
                     displayField: 'subgrupo_nome',
-                    store: 'classificacao.Subgrupos',
+                    store: 'staticData.classificacao.Subgrupos',
                     valueField: 'id',
                     operator: 'eq'
                 },
@@ -142,7 +142,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     fieldLabel: 'Série',
                     name: 'serie_id',
                     displayField: 'serie_nome',
-                    store: 'classificacao.Series',
+                    store: 'staticData.classificacao.Series',
                     valueField: 'id',
                     operator: 'eq'
                 },
@@ -153,7 +153,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     fieldLabel: 'Subsérie',
                     name: 'subserie_id',
                     displayField: 'subserie_nome',
-                    store: 'classificacao.Subseries',
+                    store: 'staticData.classificacao.Subseries',
                     valueField: 'id',
                     operator: 'eq'
                 },
@@ -164,7 +164,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                     fieldLabel: 'Dossiê',
                     name: 'dossie_id',
                     displayField: 'dossie_nome',
-                    store: 'classificacao.Dossies',
+                    store: 'staticData.classificacao.Dossies',
                     valueField: 'id',
                     operator: 'eq'
                 }
