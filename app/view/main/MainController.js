@@ -69,7 +69,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
             header.hide();
             nav.hide();
             footer.hide();
-            button.setGlyph('58884');
+            button.setGlyph(ArqAdmin.util.Glyphs.getGlyph('contract'));
             button.setTooltip('Minimizar');
 
         } else {
@@ -77,7 +77,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
             header.show();
             nav.show();
             footer.show();
-            button.setGlyph(ArqAdmin.util.Glyphs.getGlyph('contract'));
+            button.setGlyph(ArqAdmin.util.Glyphs.getGlyph('expand'));
             button.setTooltip('Maximizar');
         }
 

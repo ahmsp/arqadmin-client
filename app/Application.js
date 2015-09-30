@@ -19,7 +19,6 @@ Ext.define('ArqAdmin.Application', {
     name: 'ArqAdmin',
 
     stores: [
-        'documental.Documentos',
         'staticData.documental.Conservacoes',
         'staticData.documental.DtUsos',
         'staticData.classificacao.Acervos',

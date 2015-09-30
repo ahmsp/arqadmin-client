@@ -32,9 +32,20 @@ Ext.define('ArqAdmin.view.base.ViewController', {
         }
     },
 
-    selectRecord: function (grid, recordIndex) {
-        //grid.setSelection(recordIndex);
-        grid.getView().getSelectionModel().select(recordIndex);
-        grid.getView().focusRow(recordIndex);
+    selectRecord: function (grid, record) {
+        //grid.setSelection(record);
+        var grid = grid || this.lookupReference('resultTable');
+        grid.getSelectionModel().select(record);
+        grid.getView().focusRow(record);
+    },
+
+    /**
+     * deselect all in both grids
+     */
+    deselectAllGrids: function () {
+        var layoutItems = this.lookupReference('resultsPanel').getLayout().getLayoutItems();
+        Ext.Object.each(layoutItems, function (key, componentGrid) {
+            componentGrid.getSelectionModel().deselectAll();
+        });
     }
 });

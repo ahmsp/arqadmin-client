@@ -13,8 +13,10 @@ Ext.define('ArqAdmin.view.documental.BaseGrid', {
         'Ext.toolbar.Paging'
     ],
 
+    //store: 'documental.Documentos',
+    bind: '{documentos}',
+
     allowDeselect: true,
-    store: 'documental.Documentos',
 
     dockedItems: [
         {
@@ -22,7 +24,8 @@ Ext.define('ArqAdmin.view.documental.BaseGrid', {
             dock: 'bottom',
             width: 360,
             displayInfo: true,
-            store: 'documental.Documentos'
+            //store: 'documental.Documentos',
+            bind : '{documentos}'
         }
     ],
     plugins: [

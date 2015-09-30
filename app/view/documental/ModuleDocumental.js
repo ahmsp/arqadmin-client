@@ -8,8 +8,8 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
         'ArqAdmin.view.documental.DocumentalModel',
         'ArqAdmin.view.documental.FilterForm',
         'ArqAdmin.view.documental.EditForm',
-        'ArqAdmin.view.documental.Table',
-        'ArqAdmin.view.documental.List',
+        'ArqAdmin.view.documental.ResultTable',
+        'ArqAdmin.view.documental.ResultList',
         'Ext.button.Button',
         'Ext.container.Container',
         'Ext.form.Label',
@@ -80,7 +80,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                             //text: 'Editar',
                             tooltip: 'Editar o item selecionado',
                             bind: {
-                                disabled: '{!documentalTable.selection}'
+                                disabled: '{!resultTable.selection}'
                             },
                             handler: 'onEdit'
                         },
@@ -118,10 +118,10 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
             ],
             items: [
                 {
-                    xtype: 'documental-table'
+                    xtype: 'result-table'
                 },
                 {
-                    xtype: 'documental-list'
+                    xtype: 'result-list'
                 }
             ]
         },

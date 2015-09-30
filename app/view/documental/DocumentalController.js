@@ -23,7 +23,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         var me = this,
             form = button.up('form'),
             params = form.getValues(false, true),
-            grid = me.lookupReference('documentalTable'),
+            grid = me.lookupReference('resultTable'),
             store = grid.getStore(),
             filters = [];
 
@@ -73,7 +73,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         var layoutItems = me.lookupReference('resultsPanel').getLayout().getLayoutItems();
         Ext.Object.each(layoutItems, function (key, componentGrid) {
             if (record !== componentGrid.getSelection()[0]) {
-                me.selectRecord(componentGrid, index);
+                me.selectRecord(componentGrid, record);
             }
         });
 
@@ -86,7 +86,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     },
 
     onGridClearFilters: function () {
-        this.lookupReference('documentalTable').filters.clearFilters(true);
+        this.lookupReference('resultTable').filters.clearFilters(true);
     },
 
     setResultsPanelActiveItem: function (button) {
@@ -94,10 +94,10 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
         switch (button.itemId) {
             case 'btnShowTable':
-                me.showViewResultsPanel('documentalTable');
+                me.showViewResultsPanel('resultTable');
                 break;
             case 'btnShowList':
-                me.showViewResultsPanel('documentalList');
+                me.showViewResultsPanel('resultList');
                 break;
             case 'btnShowGallery':
                 me.showViewResultsPanel('documentalGallery');
@@ -306,6 +306,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             });
         } else {
             me.editFormLoadRecord(newRecord, true);
+            me.deselectAllGrids();
         }
     },
 
@@ -327,7 +328,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             formBasic = form.getForm(),
             record = form.getRecord(),
             values = form.getValues(),
-            store = Ext.getStore('documental.Documentos');
+            store = me.getStore('documentos');
 
         if (formBasic.isValid()) {
 
@@ -341,14 +342,14 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             store.sync({
                 scope: me,
                 success: function (batch, options) {
-                    //var result = Ext.decode(batch.operations[0].getResponse().responseText);
-
+                    var result = Ext.decode(batch.operations[0].getResponse().responseText);
                     store.load({
                         scope: me,
                         callback: function (records, operation, success) {
                             //me.forceResetForm(form);
                             form.reset();
-                            me.selectRecord(me.lookupReference('documentalTable'), 0)
+                            var record = store.findRecord('id', result.id);
+                            me.selectRecord(null, record)
                         }
                     });
                     ArqAdmin.util.Util.showToast('Sucesso!', 'Registro salvo com sucesso!');
@@ -388,7 +389,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             fn: function (btn, ev) {
                 if (btn === 'yes') {
                     var record = me.getViewModel().get('record'),
-                        store = Ext.StoreManager.lookup('documental.Documentos');
+                        store = me.getStore('documentos');
 
                     store.remove(record);
                     store.sync({
@@ -396,7 +397,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                             store.load({
                                 scope: me,
                                 callback: function (records, operation, success) {
-                                    me.selectRecord(me.lookupReference('documentalTable'), 0)
+                                    me.selectRecord(null, 0)
                                 }
                             });
                             ArqAdmin.util.Util.showToast('Sucesso!', 'Registro removido com sucesso!');

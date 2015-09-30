@@ -8,6 +8,21 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
         displayPanelActiveItem: ''
     },
 
+    stores: {
+        documentos: {
+            model: 'ArqAdmin.model.documental.Documento',
+            autoLoad: true,
+            pageSize: 100,
+            remoteFilter: true,
+            remoteSort: true
+        }
+        //desenhosTecnicos: {
+        //    model: 'ArqAdmin.model.desenho.DesenhoTecnico',
+        //    autoLoad: true
+        //}
+    },
+
+
     //links: {
     //    //currentItem: record || Ext.create('ArqAdmin.model.documental.Documento')
     //    currentItem: record || {
@@ -24,7 +39,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
         //currentItem: {
         //
         //    bind: {
-        //        bindTo: '{documentalTable.selection}',
+        //        bindTo: '{resultTable.selection}',
         //        deep: true
         //    },
         //

@@ -1,8 +1,8 @@
-Ext.define('ArqAdmin.view.documental.Table', {
+Ext.define('ArqAdmin.view.documental.ResultTable', {
     extend: 'ArqAdmin.view.documental.BaseGrid',
-    xtype: 'documental-table',
+    xtype: 'result-table',
 
-    reference: 'documentalTable',
+    reference: 'resultTable',
     //allowDeselect: true,
     multiColumnSort: true,
 

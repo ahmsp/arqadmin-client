@@ -1,4 +1,4 @@
-Ext.define('ArqAdmin.model.sfm.RegistroSepultamento', {
+Ext.define('ArqAdmin.model.sepultamento.RegistroSepultamento', {
     extend: 'ArqAdmin.model.Base',
 
     entityName: 'RegistroSepultamento',

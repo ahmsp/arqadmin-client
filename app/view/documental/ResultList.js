@@ -1,8 +1,8 @@
-Ext.define('ArqAdmin.view.documental.List', {
+Ext.define('ArqAdmin.view.documental.ResultList', {
     extend: 'ArqAdmin.view.documental.BaseGrid',
-    xtype: 'documental-list',
+    xtype: 'result-list',
 
-    reference: 'documentalList',
+    reference: 'resultList',
     enableColumnHide: false,
     enableColumnMove: false,
     enableColumnResize: false,
