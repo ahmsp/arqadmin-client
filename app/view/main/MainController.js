@@ -22,7 +22,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
     onNavigationButtonClick: function (btn, e, eOpts) {
         switch (btn.itemId) {
             case 'btnDashboard':
-                this.showView('dashboardMain');
+                this.showView('module-dashboard');
                 break;
         }
     },

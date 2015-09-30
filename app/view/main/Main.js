@@ -6,11 +6,8 @@ Ext.define('ArqAdmin.view.main.Main', {
     requires: [
         'ArqAdmin.view.main.MainController',
         'ArqAdmin.view.main.MainModel',
-        'ArqAdmin.view.dashboard.DashboardMain',
-        'ArqAdmin.view.documental.Documental',
-        //'ArqAdmin.view.fotografico.Container',
-        //'ArqAdmin.view.sepultamento.Container',
-        'ArqAdmin.view.footer.Panel',
+        'ArqAdmin.view.dashboard.ModuleDashboard',
+        'ArqAdmin.view.documental.ModuleDocumental',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button',
         'Ext.menu.Menu',
@@ -107,7 +104,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                             glyph: ArqAdmin.util.Glyphs.getGlyph('chart'),
                             text: 'Estatísticas',
                             handler: function () {
-                                ArqAdmin.util.Util.showToast('Sucesso!','Teste to toast para estatísticas! Teste to toast para estatísticas ');
+                                ArqAdmin.util.Util.showToast('Sucesso!', 'Teste to toast para estatísticas! Teste to toast para estatísticas ');
                             }
                         },
                         {
@@ -230,28 +227,28 @@ Ext.define('ArqAdmin.view.main.Main', {
             layout: 'card',
             items: [
                 {
-                    xtype: 'dashboard-main'
+                    xtype: 'module-dashboard'
                 }
-                //{
-                //    xtype: 'module-documental'
-                //},
-                //{
-                //    xtype: 'modulefotografico'
-                //},
-                //{
-                //    xtype: 'moduleSepultamento'
-                //}
+                //{xtype: 'module-documental'}, // dynamically loaded
+                //{xtype: 'module-fotografico'}, // dynamically loaded
+                //{xtype: 'module-sepultamento'} // dynamically loaded
             ],
             listeners: {
                 afterlayout: 'onContainerAfterLayout'
             }
         },
         {
-            xtype: 'footerpanel',
+            xtype: 'panel',
             collapsed: true,
             collapsible: true,
             region: 'south',
-            split: true
+            split: true,
+            reference: 'footer',
+            height: 250,
+            //width: 400,
+            glyph: 61457,
+            title: 'Histórico de iteração'
+
         }
     ]
 });

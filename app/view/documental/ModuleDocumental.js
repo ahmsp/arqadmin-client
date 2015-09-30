@@ -1,11 +1,11 @@
-Ext.define('ArqAdmin.view.documental.Documental', {
+Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
     extend: 'Ext.container.Container',
     xtype: 'module-documental',
 
     requires: [
         'ArqAdmin.view.documental.DetailsPanel',
-        'ArqAdmin.view.documental.DocumentalViewController',
-        'ArqAdmin.view.documental.DocumentalViewModel',
+        'ArqAdmin.view.documental.DocumentalController',
+        'ArqAdmin.view.documental.DocumentalModel',
         'ArqAdmin.view.documental.FilterForm',
         'ArqAdmin.view.documental.EditForm',
         'ArqAdmin.view.documental.Table',

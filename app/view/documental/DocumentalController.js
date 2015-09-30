@@ -1,4 +1,4 @@
-Ext.define('ArqAdmin.view.documental.DocumentalViewController', {
+Ext.define('ArqAdmin.view.documental.DocumentalController', {
     extend: 'ArqAdmin.view.base.ViewController',
     alias: 'controller.documental',
 

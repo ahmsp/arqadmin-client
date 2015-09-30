@@ -1,4 +1,4 @@
-Ext.define('ArqAdmin.view.dashboard.DashboardViewModel', {
+Ext.define('ArqAdmin.view.dashboard.DashboardModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.dashboard',
 

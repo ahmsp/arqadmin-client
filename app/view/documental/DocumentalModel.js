@@ -1,4 +1,4 @@
-Ext.define('ArqAdmin.view.documental.DocumentalViewModel', {
+Ext.define('ArqAdmin.view.documental.DocumentalModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.documental',
 

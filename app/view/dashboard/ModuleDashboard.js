@@ -1,11 +1,11 @@
-Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
+Ext.define('ArqAdmin.view.dashboard.ModuleDashboard', {
     extend: 'Ext.panel.Panel',
 
-    xtype: 'dashboard-main',
+    xtype: 'module-dashboard',
 
     requires: [
-        'ArqAdmin.view.dashboard.DashboardViewModel',
-        'ArqAdmin.view.dashboard.DashboardViewController',
+        'ArqAdmin.view.dashboard.DashboardModel',
+        'ArqAdmin.view.dashboard.DashboardController',
         'Ext.view.View',
         'Ext.XTemplate',
         'Ext.chart.CartesianChart',
@@ -20,15 +20,15 @@ Ext.define('ArqAdmin.view.dashboard.DashboardMain', {
         'ArqAdmin.view.dashboard.SearchHistoryGrid'
     ],
 
-    //itemId: 'dashboard-main',
-    //cls: 'dashboard-main',
+    //itemId: 'dashboard-main', //todo: change to module-dashboard
+    //cls: 'dashboard-main', //todo: change to module-dashboard
     cls: 'kpi-main',
 
     controller: 'dashboard',
     viewModel: {
         type: 'dashboard'
     },
-    reference: 'dashboardMain',
+    reference: 'moduleDashboard',
 
     layout: {
         type: 'vbox',
