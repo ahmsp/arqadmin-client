@@ -41,32 +41,59 @@ Ext.define('ArqAdmin.util.Util', {
             }
         },
 
-        showToast: function (emphasis, text) {
+        showToast: function (type, emphasis, text) {
+
+            var color = '#204C54';
+            var bgColor = '#C4C7B2';
+            var borderColor = '#204C54';
+
+            switch (type) {
+                case 'success':
+                    color = '#204C54';
+                    bgColor = '#C4C7B2';
+                    borderColor = '#204C54';
+                    break;
+                case 'info':
+                    color = '#31708f';
+                    bgColor = '#d9edf7';
+                    borderColor = '#bce8f1';
+                    break;
+                case 'warning':
+                    color = '#8a6d3b';
+                    bgColor = '#fcf8e3';
+                    borderColor = '#faebcc';
+                    break;
+                case 'danger':
+                    color = '#a94442';
+                    bgColor = '#f2dede';
+                    borderColor = '#ebccd1';
+            }
+
             Ext.toast({
                 html: '<strong>' + emphasis + '</strong>&nbsp; ' + text,
-                //html: [
-                //    '<strong>' + emphasis + '</strong>&nbsp; ' + text,
-                //    '<span class="close"></span>'
-                //],
                 closable: false,
-                align: 't',
-                slideInDuration: 150,
-                autoCloseDelay: 4000, // default: 3000
-                minWidth: 600,
+                align: 'tr',
+                useXAxis: true,
+                slideInAnimation: 'easeInOut',
+                slideInDuration: 300,
+                autoCloseDelay: 3000, // default: 3000
+                closeOnMouseDown: true,
+                //autoClose: false,
+                animateShadow: true,
                 width: 600,
                 bodyPadding: '17',
+                paddingX: 15,
+                paddingY: 15,
                 bodyStyle: {
-                    'background-color': '#C4C7B2',
-                    'border': '1px solid #204C54',
-                    'color': '#204C54',
+                    'background-color': bgColor,
+                    'border': '1px solid ' + borderColor,
+                    'color': color,
                     'font-size': '16px',
-                    'text-align': 'center',
+                    //'text-align': 'center',
                     '-webkit-border-radius': '4px',
                     '-moz-border-radius': '4px',
                     'border-radius': '4px'
-                },
-                //autoClose: false,
-                animateShadow: true
+                }
             });
         }
     }

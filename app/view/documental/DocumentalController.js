@@ -330,6 +330,10 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             values = form.getValues(),
             store = me.getStore('documentos');
 
+        if (!form.isDirty()) {
+            return;
+        }
+
         if (formBasic.isValid()) {
 
             record.set(values);
@@ -342,7 +346,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             store.sync({
                 scope: me,
                 success: function (batch, options) {
-                    var result = Ext.decode(batch.operations[0].getResponse().responseText);
+                    var operations = batch.getOperations();
+                    var result = Ext.decode(operations[0].getResponse().responseText);
                     store.load({
                         scope: me,
                         callback: function (records, operation, success) {
@@ -352,28 +357,11 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                             me.selectRecord(null, record)
                         }
                     });
-                    ArqAdmin.util.Util.showToast('Sucesso!', 'Registro salvo com sucesso!');
-                },
-                failure: function (batch, options) {
-                    //ArqAdmin.util.Util.handleFormFailure(action);
-
-                    // console.log(batch);
-                    //var exceptionList = batch.getExceptions(), // getOperations()
-                    //    msg = Ext.decode(exceptionList[0]._response.responseText).message;
-                    //
-                    //console.log(msg);
-
-                    // failure in store event
-                    //listeners: {
-                    //    exception: function(proxy, response, operation, eOpts) {
-                    //        alert('exception');
-                    //    }
-                    //}
-
+                    ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com êxito!');
                 }
             });
         } else {
-            ArqAdmin.util.Util.showToast('Atenção!', 'O formulário contém erros!');
+            ArqAdmin.util.Util.showToast('danger', 'Erro!', 'O formulário contém dados inválidos!');
         }
     },
 
@@ -400,7 +388,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                                     me.selectRecord(null, 0)
                                 }
                             });
-                            ArqAdmin.util.Util.showToast('Sucesso!', 'Registro removido com sucesso!');
+                            ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'Registro removido com sucesso!');
                         },
                         failure: function (form, action) {
                             ArqAdmin.util.Util.handleFormFailure(action);

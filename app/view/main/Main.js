@@ -16,7 +16,8 @@ Ext.define('ArqAdmin.view.main.Main', {
         'Ext.toolbar.Separator',
         'Ext.form.Label',
         'Ext.layout.container.Border',
-        'Ext.layout.container.Card'
+        'Ext.layout.container.Card',
+        'ArqAdmin.util.Glyphs'
     ],
 
     controller: 'main',
@@ -104,7 +105,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                             glyph: ArqAdmin.util.Glyphs.getGlyph('chart'),
                             text: 'Estatísticas',
                             handler: function () {
-                                ArqAdmin.util.Util.showToast('Sucesso!', 'Teste to toast para estatísticas! Teste to toast para estatísticas ');
+                                ArqAdmin.util.Util.showToast('danger', 'Sucesso!', 'Teste to toast para estatísticas! Teste to toast para estatísticas ');
                             }
                         },
                         {

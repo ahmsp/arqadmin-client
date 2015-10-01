@@ -7,7 +7,7 @@ Ext.define('ArqAdmin.model.Base', {
     ],
 
     fields: [
-        { name: 'id', type: 'int' }
+        {name: 'id', type: 'int'}
     ],
 
     schema: {
@@ -22,14 +22,12 @@ Ext.define('ArqAdmin.model.Base', {
             },
             writer: {
                 type: 'json'
-                //writeAllFields: true,
-                //encode: true, // add a toJSON method when rootProperty is defined
-                //rootProperty: 'data',
-                //allowSingle: false //one request for creating, updating or deleting records
             },
             listeners: {
-                exception: function(proxy, response, operation){
-                    ArqAdmin.util.Util.showErrorMsg(response.responseText);
+                exception: function (proxy, request, operation) {
+                    var message = request.responseText || 'Erro! Ocorreu uma falha no servidor';
+
+                    ArqAdmin.util.Util.showErrorMsg(message);
                 }
             }
 
