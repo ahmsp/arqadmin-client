@@ -8,7 +8,7 @@ Ext.define('ArqAdmin.view.main.MainModel', {
 
     data: {
         name: 'ArqAdmin',
-        //urlBase: 'localhost:8787', ??
+        apiUrl: 'xxx',
 
         appName: 'ArqAdmin - Sistema de gestão dos acervos do Arquivo Histórico de São Paulo',
         appHeaderIcon: '<span class="fa fa-desktop fa-lg app-header-logo">',
@@ -19,7 +19,15 @@ Ext.define('ArqAdmin.view.main.MainModel', {
         },
 
         moduleTitle: ''
+    },
+
+    formulas: {
+        apiUrl: function () {
+            //return ArqAdmin.config.Runtime.getApiUrl();
+        }
+
     }
+
 
     //TODO - add data, formulas and/or methods to support your view
 });

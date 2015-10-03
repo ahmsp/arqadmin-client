@@ -106,7 +106,8 @@ Ext.define('ArqAdmin.view.main.Main', {
                             text: 'Estatísticas',
                             handler: function () {
                                 ArqAdmin.util.Util.showToast('danger', 'Sucesso!', 'Teste to toast para estatísticas! Teste to toast para estatísticas ');
-                            }
+                            },
+                            scope: this
                         },
                         {
                             xtype: 'tbfill'

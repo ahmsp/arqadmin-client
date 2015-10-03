@@ -86,7 +86,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
     onLogout: function (button, e, eOpts) {
         var me = this;
         Ext.Ajax.request({
-            url: '/auth/logout',
+            url: ArqAdmin.config.Runtime.getApiUrl() + '/auth/logout',
             scope: me,
             success: 'onLogoutSuccess',
             failure: 'onLogoutFailure'

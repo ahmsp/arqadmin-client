@@ -15,7 +15,7 @@ Ext.define('ArqAdmin.model.Base', {
         urlPrefix: 'api',
         proxy: {
             type: 'rest',
-            url: '/{prefix}/{entityName:lowercase}', // '/api/subfundo'
+            url: ArqAdmin.config.Runtime.getApiUrl() + '/{prefix}/{entityName:lowercase}',
             reader: {
                 type: 'json',
                 rootProperty: 'data'

@@ -34,7 +34,7 @@ Ext.define('ArqAdmin.view.login.LoginController', {
 
         form.submit({
             clientValidation: true,
-            url: '/auth/login',
+            url: ArqAdmin.config.Runtime.getApiUrl() + '/auth/login',
             scope: me,
             success: 'onLoginSuccess',
             failure: 'onLoginFailure'
