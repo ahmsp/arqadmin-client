@@ -2,10 +2,23 @@ Ext.define('ArqAdmin.view.main.MainController', {
     extend: 'Ext.app.ViewController',
 
     requires: [
-        'ArqAdmin.util.Util'
+        'ArqAdmin.util.Util',
+        'ArqAdmin.controller.StaticData',
     ],
 
     alias: 'controller.main',
+
+    init: function () {
+        var me = this;
+
+        me.getTokenFromLocalStorage();
+
+        me.control({
+            "app-main": {
+                afterrender: this.initiateControllers
+            }
+        });
+    },
 
     control: {
         "#navigation toolbar button": {
@@ -17,6 +30,17 @@ Ext.define('ArqAdmin.view.main.MainController', {
         "button#btnMaximize": {
             click: 'maximizeModuleContainer'
         }
+    },
+
+    initiateControllers: function () {
+        ArqAdmin.app.createController('StaticData');
+    },
+
+    getTokenFromLocalStorage: function () {
+        var token = localStorage.getItem('access-token');
+
+        Ext.Ajax.setDefaultHeaders({'Authorization': 'Bearer ' + token});
+        this.getViewModel().set('token', token);
     },
 
     onNavigationButtonClick: function (btn, e, eOpts) {
@@ -84,17 +108,23 @@ Ext.define('ArqAdmin.view.main.MainController', {
     },
 
     onLogout: function (button, e, eOpts) {
-        var me = this;
-        Ext.Ajax.request({
-            url: ArqAdmin.config.Runtime.getApiUrl() + '/auth/logout',
-            scope: me,
-            success: 'onLogoutSuccess',
-            failure: 'onLogoutFailure'
-        });
+        //var me = this;
+
+        localStorage.removeItem('access-token');
+
+        //Ext.Ajax.request({
+        //    url: ArqAdmin.config.Runtime.getBaseUrl() + '/auth/logout',
+        //    scope: me,
+        //    success: 'onLogoutSuccess',
+        //    failure: 'onLogoutFailure'
+        //});
+
+        this.getView().destroy();
+        window.location.reload();
     },
 
-    onLogoutSuccess: function (conn, response, options, eOpts) {
-        var result = ArqAdmin.util.Util.decodeJSON(conn.responseText);
+    onLogoutSuccess: function (response, eOpts) {
+        var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
 
         if (result.success) {
             this.getView().destroy();
@@ -104,8 +134,8 @@ Ext.define('ArqAdmin.view.main.MainController', {
         }
     },
 
-    onLogoutFailure: function (conn, response, options, eOpts) {
-        ArqAdmin.util.Util.showErrorMsg(conn.responseText);
+    onLogoutFailure: function (response, eOpts) {
+        ArqAdmin.util.Util.showErrorMsg(response.responseText);
     },
 
     onContainerAfterLayout: function (container, layout, eOpts) {

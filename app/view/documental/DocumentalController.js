@@ -390,8 +390,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                             });
                             ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'Registro removido com sucesso!');
                         },
-                        failure: function (form, action) {
-                            ArqAdmin.util.Util.handleFormFailure(action);
+                        failure: function () {
+                            ArqAdmin.util.Util.showToast('danger', 'Erro!', 'Não foi possivel remover o registro!');
                         },
                         scope: me
                     });

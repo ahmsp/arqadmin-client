@@ -19,34 +19,8 @@ Ext.define('ArqAdmin.Application', {
 
     name: 'ArqAdmin',
 
-    stores: [
-        'staticData.documental.Conservacoes',
-        'staticData.documental.DtUsos',
-        'staticData.classificacao.Acervos',
-        'staticData.classificacao.Fundos',
-        'staticData.classificacao.Subfundos',
-        'staticData.classificacao.Grupos',
-        'staticData.classificacao.Subgrupos',
-        'staticData.classificacao.Series',
-        'staticData.classificacao.Subseries',
-        'staticData.classificacao.Dossies',
-        'staticData.classificacao.Especiedocumentais',
-        'staticData.desenhoTecnico.DtConservacoes',
-        'staticData.desenhoTecnico.DtEscalas',
-        'staticData.desenhoTecnico.DtSuportes',
-        'staticData.desenhoTecnico.DtTecnicas',
-        'staticData.desenhoTecnico.DtTipos',
-        'staticData.localizacao.LcAcondicionamentos',
-        'staticData.localizacao.LcCompartimentos',
-        'staticData.localizacao.LcMoveis',
-        'staticData.localizacao.LcSalas',
-        'staticData.sepultamento.SfmCartorios',
-        'staticData.sepultamento.SfmCausamortis',
-        'staticData.sepultamento.SfmCemiterios',
-        'staticData.sepultamento.SfmEstadocivis',
-        'staticData.sepultamento.SfmNacionalidades',
-        'staticData.sepultamento.SfmNaturalidades'
-    ],
+    controllers: [],
+    stores: [],
 
     glyphFontFamily: 'icomoon',
 
@@ -69,34 +43,19 @@ Ext.define('ArqAdmin.Application', {
         var me = this;
 
         var task = new Ext.util.DelayedTask(function () {
-
             //Fade out the body mask
             me.splashscreen.fadeOut({
                 duration: 1000,
                 remove: true,
                 listeners: {
                     afteranimate: function (el, startTime, eOpts) {
-                        //Ext.widget('login-dialog');
-                        Ext.widget('app-main');
+                        var token = localStorage.getItem('access-token');
+                        Ext.widget(token ? 'app-main' : 'login-dialog');
                     }
                 }
             });
-
-            ////Fade out the icon and message
-            //me.splashscreen.next().fadeOut({
-            //    duration: 1000,
-            //    remove: true,
-            //    listeners: {
-            //        afteranimate: function (el, startTime, eOpts) {
-            //            //Ext.create('widget.login-dialog');
-            //            Ext.widget('app-main');
-            //        }
-            //    }
-            //});
         });
 
         task.delay(3000);
-
-        //Ext.widget('app-main');
     }
 });

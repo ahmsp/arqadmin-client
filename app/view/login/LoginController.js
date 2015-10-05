@@ -16,47 +16,7 @@ Ext.define('ArqAdmin.view.login.LoginController', {
         }
     },
 
-    onTextfieldSpecialkey: function(field, e, eOpts) {
-        var form = this.lookupReference('loginform');
-        if (form.isValid()) {
-            if (e.getKey() == e.ENTER) {
-                var button = this.lookupReference('btnSubmit');
-                button.fireEvent('click', button);
-            }
-        }
-    },
-
-    doLogin: function() {
-        var me = this,
-            form = me.lookupReference('loginform');
-
-        me.getView().mask('Autenticando... Aguarde...');
-
-        form.submit({
-            clientValidation: true,
-            url: ArqAdmin.config.Runtime.getApiUrl() + '/auth/login',
-            scope: me,
-            success: 'onLoginSuccess',
-            failure: 'onLoginFailure'
-        });
-
-    },
-
-    onLoginFailure: function(form, action) {
-        this.getView().unmask();
-
-        ArqAdmin.util.Util.handleFormFailure(action);
-    },
-
-    onLoginSuccess: function(form, action) {
-        var view = this.getView();
-        view.unmask();
-        view.close();
-        Ext.create('ArqAdmin.view.main.Main');
-        // Packt.util.SessionMonitor.start();
-    },
-
-    onWindowShow: function(component, eOpts) {
+    onWindowShow: function (component, eOpts) {
         var bodyHeight = Ext.getBody().getViewSize().height;
         var toPosition = (bodyHeight - component.height) / 2;
 
@@ -69,34 +29,32 @@ Ext.define('ArqAdmin.view.login.LoginController', {
                 y: toPosition
             },
             listeners: {
-                afteranimate: function() {
+                afteranimate: function () {
                     this.lookupReference('fieldUsername').focus(true, 180);
                 },
                 scope: this
             }
         });
-
-        // Ext.create('Ext.fx.Anim', {
-        //     target: win,
-        //     duration: 300,
-        //     ease: 'elasticIn',
-        //     from: {
-        //         y: -400 //starting width 400
-        //     },
-        //     to: {
-        //         y: 100
-        //     }
-        // });
     },
 
-    onFieldPasswordKeypress: function(textfield, e, eOpts) {
+    onTextfieldSpecialkey: function (field, e, eOpts) {
+        var form = this.lookupReference('loginform');
+        if (form.isValid()) {
+            if (e.getKey() == e.ENTER) {
+                var button = this.lookupReference('btnSubmit');
+                button.fireEvent('click', button);
+            }
+        }
+    },
+
+    onFieldPasswordKeypress: function (textfield, e, eOpts) {
         var charCode = e.getCharCode(),
             me = this;
 
-        if((e.shiftKey && charCode >= 97 && charCode <= 122) ||
-            (!e.shiftKey && charCode >= 65 && charCode <= 90)){
+        if ((e.shiftKey && charCode >= 97 && charCode <= 122) ||
+            (!e.shiftKey && charCode >= 65 && charCode <= 90)) {
 
-            if(me.capslockTooltip === undefined){
+            if (me.capslockTooltip === undefined) {
                 me.capslockTooltip = Ext.create('capslocktooltip');
             }
 
@@ -104,17 +62,94 @@ Ext.define('ArqAdmin.view.login.LoginController', {
 
         } else {
 
-            if(me.capslockTooltip !== undefined){
+            if (me.capslockTooltip !== undefined) {
                 me.capslockTooltip.hide();
             }
         }
     },
 
-    onButtonSubmitClick: function(button, e, eOpts) {
+    onButtonSubmitClick: function (button, e, eOpts) {
         var me = this;
 
-        if (me.lookupReference('loginform').isValid()){
+        if (me.lookupReference('loginform').isValid()) {
             me.doLogin();
         }
+    },
+
+    doLogin: function () {
+        var me = this,
+            form = me.lookupReference('loginform'),
+            configs = ArqAdmin.config.Runtime.getConfig(),
+            formData = form.getValues();
+
+        //if (!form.isValid()) {
+        //    return;
+        //}
+
+        me.getView().mask('Autenticando... Aguarde...');
+
+        formData.client_id = configs.client_id;
+        formData.client_secret = configs.client_secret;
+        formData.grant_type = configs.grant_type;
+
+        Ext.Ajax.request({
+            url: ArqAdmin.config.Runtime.getBaseUrl() + '/authenticate',
+            method: 'POST',
+            jsonData: formData,
+            scope: me,
+            success: 'onLoginSuccess',
+            failure: 'onLoginFailure'
+        });
+
+        //form.submit({
+        //    clientValidation: true,
+        //    url: ArqAdmin.config.Runtime.getBaseUrl() + '/authenticate',
+        //    params: {
+        //        client_id: configs.client_id,
+        //        client_secret: configs.client_secret,
+        //        grant_type: configs.grant_type
+        //    },
+        //    scope: me,
+        //    success: 'onLoginSuccess',
+        //    failure: 'onLoginFailure'
+        //});
+
+    },
+
+    onLoginSuccess: function (response, opts) {
+        //onLoginSuccess: function (form, action) {
+        var me = this,
+            result = ArqAdmin.util.Util.decodeJSON(response.responseText),
+        //result = ArqAdmin.util.Util.decodeJSON(action.response.responseText),
+            view = me.getView();
+
+        if (result.access_token) {
+
+            me.saveToken(result.access_token, result.refresh_token);
+
+            view.unmask();
+            view.close();
+            Ext.widget('app-main');
+        }
+
+    },
+
+    onLoginFailure: function (response, opts) {
+        var me = this,
+            result = ArqAdmin.util.Util.decodeJSON(response.responseText);
+
+        me.clearToken();
+        me.getView().unmask();
+        ArqAdmin.util.Util.showErrorMsg(result.error_description);
+    },
+
+    saveToken: function (accessToken, refreshToken) {
+        localStorage.setItem('access-token', accessToken);
+        localStorage.setItem('refresh-token', refreshToken);
+    },
+
+    clearToken: function () {
+        localStorage.removeItem('access-token');
+        localStorage.removeItem('refresh-token');
     }
 });

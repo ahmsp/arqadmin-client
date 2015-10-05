@@ -15,7 +15,7 @@ Ext.define('ArqAdmin.model.Base', {
         urlPrefix: 'api',
         proxy: {
             type: 'rest',
-            url: ArqAdmin.config.Runtime.getApiUrl() + '/{prefix}/{entityName:lowercase}',
+            url: ArqAdmin.config.Runtime.getBaseUrl() + '/{prefix}/{entityName:lowercase}',
             reader: {
                 type: 'json',
                 rootProperty: 'data'
@@ -25,9 +25,13 @@ Ext.define('ArqAdmin.model.Base', {
             },
             listeners: {
                 exception: function (proxy, request, operation) {
-                    var message = request.responseText || 'Erro! Ocorreu uma falha no servidor';
+                    var error = ArqAdmin.util.Util.decodeJSON(request.responseText);
+                    ArqAdmin.util.Util.showErrorMsg(error.error_description);
 
-                    ArqAdmin.util.Util.showErrorMsg(message);
+
+                // {"error":"access_denied","error_description":"The resource owner or authorization server denied the request."}
+                // status 401
+
                 }
             }
 
