@@ -22,19 +22,7 @@ Ext.define('ArqAdmin.model.Base', {
             },
             writer: {
                 type: 'json'
-            },
-            listeners: {
-                exception: function (proxy, request, operation) {
-                    var error = ArqAdmin.util.Util.decodeJSON(request.responseText);
-                    ArqAdmin.util.Util.showErrorMsg(error.error_description);
-
-
-                // {"error":"access_denied","error_description":"The resource owner or authorization server denied the request."}
-                // status 401
-
-                }
             }
-
         }
     }
 });

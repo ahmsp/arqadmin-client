@@ -6,6 +6,7 @@
 
 Ext.require('ArqAdmin.ux.form.trigger.Clear');
 Ext.require('ArqAdmin.overrides.grid.filters.filter.List');
+Ext.require('ArqAdmin.controller.OAuth');
 
 Ext.define('ArqAdmin.Application', {
     extend: 'Ext.app.Application',
@@ -19,7 +20,10 @@ Ext.define('ArqAdmin.Application', {
 
     name: 'ArqAdmin',
 
-    controllers: [],
+    controllers: [
+        'OAuth'
+    ],
+
     stores: [],
 
     glyphFontFamily: 'icomoon',
@@ -40,7 +44,34 @@ Ext.define('ArqAdmin.Application', {
     },
 
     launch: function () {
-        var me = this;
+        var me = this,
+            refreshToken = localStorage.getItem('refresh-token'),
+            allowedAccess = false;
+
+        if (refreshToken) {
+            var mainController = ArqAdmin.app.getController('OAuth'),
+                configs = ArqAdmin.config.Runtime.getConfig(),
+                params = {};
+
+            params.client_id = configs.client_id;
+            params.client_secret = configs.client_secret;
+            params.grant_type = 'refresh_token';
+            params.refresh_token = refreshToken;
+
+            Ext.Ajax.request({
+                url: configs.baseUrl + '/authenticate',
+                method: 'POST',
+                jsonData: params,
+                scope: me,
+                success: function (response) {
+                    var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
+                    if (result.access_token) {
+                        mainController.saveToken(result.access_token, result.refresh_token);
+                        allowedAccess = true;
+                    }
+                }
+            });
+        }
 
         var task = new Ext.util.DelayedTask(function () {
             //Fade out the body mask
@@ -49,8 +80,7 @@ Ext.define('ArqAdmin.Application', {
                 remove: true,
                 listeners: {
                     afteranimate: function (el, startTime, eOpts) {
-                        var token = localStorage.getItem('access-token');
-                        Ext.widget(token ? 'app-main' : 'login-dialog');
+                        Ext.widget(allowedAccess ? 'app-main' : 'login-dialog');
                     }
                 }
             });

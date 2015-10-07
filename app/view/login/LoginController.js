@@ -7,7 +7,8 @@ Ext.define('ArqAdmin.view.login.LoginController', {
     alias: 'controller.login',
 
     requires: [
-        'ArqAdmin.util.Util'
+        'ArqAdmin.util.Util',
+        'ArqAdmin.util.SessionMonitor'
     ],
 
     control: {
@@ -82,10 +83,6 @@ Ext.define('ArqAdmin.view.login.LoginController', {
             configs = ArqAdmin.config.Runtime.getConfig(),
             formData = form.getValues();
 
-        //if (!form.isValid()) {
-        //    return;
-        //}
-
         me.getView().mask('Autenticando... Aguarde...');
 
         formData.client_id = configs.client_id;
@@ -100,56 +97,28 @@ Ext.define('ArqAdmin.view.login.LoginController', {
             success: 'onLoginSuccess',
             failure: 'onLoginFailure'
         });
-
-        //form.submit({
-        //    clientValidation: true,
-        //    url: ArqAdmin.config.Runtime.getBaseUrl() + '/authenticate',
-        //    params: {
-        //        client_id: configs.client_id,
-        //        client_secret: configs.client_secret,
-        //        grant_type: configs.grant_type
-        //    },
-        //    scope: me,
-        //    success: 'onLoginSuccess',
-        //    failure: 'onLoginFailure'
-        //});
-
     },
 
     onLoginSuccess: function (response, opts) {
-        //onLoginSuccess: function (form, action) {
         var me = this,
             result = ArqAdmin.util.Util.decodeJSON(response.responseText),
-        //result = ArqAdmin.util.Util.decodeJSON(action.response.responseText),
             view = me.getView();
 
         if (result.access_token) {
-
-            me.saveToken(result.access_token, result.refresh_token);
-
+            ArqAdmin.app.getController('OAuth').saveToken(result.access_token, result.refresh_token);
             view.unmask();
             view.close();
             Ext.widget('app-main');
         }
-
     },
 
     onLoginFailure: function (response, opts) {
         var me = this,
             result = ArqAdmin.util.Util.decodeJSON(response.responseText);
 
-        me.clearToken();
+        ArqAdmin.app.getController('OAuth').clearToken();
         me.getView().unmask();
         ArqAdmin.util.Util.showErrorMsg(result.error_description);
-    },
-
-    saveToken: function (accessToken, refreshToken) {
-        localStorage.setItem('access-token', accessToken);
-        localStorage.setItem('refresh-token', refreshToken);
-    },
-
-    clearToken: function () {
-        localStorage.removeItem('access-token');
-        localStorage.removeItem('refresh-token');
     }
+
 });

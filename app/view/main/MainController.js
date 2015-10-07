@@ -3,22 +3,10 @@ Ext.define('ArqAdmin.view.main.MainController', {
 
     requires: [
         'ArqAdmin.util.Util',
-        'ArqAdmin.controller.StaticData',
+        'ArqAdmin.controller.StaticData'
     ],
 
     alias: 'controller.main',
-
-    init: function () {
-        var me = this;
-
-        me.getTokenFromLocalStorage();
-
-        me.control({
-            "app-main": {
-                afterrender: this.initiateControllers
-            }
-        });
-    },
 
     control: {
         "#navigation toolbar button": {
@@ -32,15 +20,54 @@ Ext.define('ArqAdmin.view.main.MainController', {
         }
     },
 
+    init: function () {
+        var me = this;
+
+        Ext.Ajax.on({
+            beforerequest: me.onBeforeRequest,
+            //requestcomplete : me.onRequestComplete,
+            requestexception: me.onRequestException
+        });
+
+        me.control({
+            "app-main": {
+                afterrender: this.initiateControllers
+            }
+        });
+    },
+
     initiateControllers: function () {
         ArqAdmin.app.createController('StaticData');
     },
 
-    getTokenFromLocalStorage: function () {
-        var token = localStorage.getItem('access-token');
+    onBeforeRequest: function (conn, options, eOpts) {
+        var me = this,
+            token = localStorage.getItem('access-token');
 
-        Ext.Ajax.setDefaultHeaders({'Authorization': 'Bearer ' + token});
-        this.getViewModel().set('token', token);
+        options.useDefaultXhrHeader = false; //nao incluir X-Requested-With ???
+        options.headers = {'Authorization': 'Bearer ' + token};
+    },
+
+    onRequestException: function (conn, response, options, eOpts) {
+        var me = this;
+
+        // "error":"access_denied"
+        if (response.status === 401) {
+            Ext.Msg.show({
+                title: 'Sessão expirada!',
+                message: 'Sessão expirada. A aplicação nirá icializada',
+                buttons: Ext.Msg.OK,
+                icon: Ext.Msg.ERROR,
+                fn: function (btn) {
+                    if (btn === 'ok') {
+                        me.onLogout();
+                    }
+                }
+            });
+        } else {
+            var error = ArqAdmin.util.Util.decodeJSON(request.responseText);
+            ArqAdmin.util.Util.showErrorMsg(error.error_description);
+        }
     },
 
     onNavigationButtonClick: function (btn, e, eOpts) {
@@ -108,34 +135,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
     },
 
     onLogout: function (button, e, eOpts) {
-        //var me = this;
-
-        localStorage.removeItem('access-token');
-
-        //Ext.Ajax.request({
-        //    url: ArqAdmin.config.Runtime.getBaseUrl() + '/auth/logout',
-        //    scope: me,
-        //    success: 'onLogoutSuccess',
-        //    failure: 'onLogoutFailure'
-        //});
-
-        this.getView().destroy();
-        window.location.reload();
-    },
-
-    onLogoutSuccess: function (response, eOpts) {
-        var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
-
-        if (result.success) {
-            this.getView().destroy();
-            window.location.reload();
-        } else {
-            ArqAdmin.util.Util.showErrorMsg(result.msg);
-        }
-    },
-
-    onLogoutFailure: function (response, eOpts) {
-        ArqAdmin.util.Util.showErrorMsg(response.responseText);
+        ArqAdmin.app.getController('OAuth').logout();
     },
 
     onContainerAfterLayout: function (container, layout, eOpts) {
