@@ -49,30 +49,10 @@ Ext.define('ArqAdmin.controller.OAuth', {
 
     saveToken: function (accessToken, refreshToken) {
         console.log('saveToken');
-        //this.startTaskRefreshToken();
         ArqAdmin.util.SessionMonitor.start();
         localStorage.setItem('access-token', accessToken);
         localStorage.setItem('refresh-token', refreshToken);
         //Ext.Ajax.setDefaultHeaders({'Authorization': 'Bearer ' + accessToken});
-    },
-
-    RefreshTokenTask: function () {
-        var me = this;
-
-        var task = new Ext.util.DelayedTask(function () {
-
-        });
-
-        task.delay(3000);
-
-        //var curHour = Ext.Date.format(new Date(), 'H:i:s')
-        //console.log('startTaskTimer: ' + curHour);
-
-        var task = Ext.TaskManager.start({
-            //run: me.doRefreshToken,
-            interval: 6000 // 30 minutes
-        });
-        console.log(task);
     },
 
     clearToken: function () {

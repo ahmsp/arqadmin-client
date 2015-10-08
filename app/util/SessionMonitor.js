@@ -8,8 +8,9 @@ Ext.define('ArqAdmin.util.SessionMonitor', {
 
     interval: 1000 * 10, // run every 10 seconds.
     lastActive: null,
-    maxInactive: 1000 * 60 * 15, // 15 minutes of inactivity allowed
+    maxInactive: 1000 * 60 * 1, // 15 minutes of inactivity allowed
     remaining: 0,
+    refreshTokenDelay: 1000 * 60 * 15,
     ui: Ext.getBody(),
 
     /**
@@ -45,7 +46,7 @@ Ext.define('ArqAdmin.util.SessionMonitor', {
                     Ext.TaskManager.stop(ArqAdmin.util.SessionMonitor.countDownTask);
                     ArqAdmin.util.SessionMonitor.window.hide();
                     ArqAdmin.util.SessionMonitor.start();
-                    ArqAdmin.app.getController('OAuth').refreshToken();
+                    ArqAdmin.app.getController('OAuth').doRefreshToken();
                     console.log('session alive');
                 }
             },
@@ -82,6 +83,10 @@ Ext.define('ArqAdmin.util.SessionMonitor', {
             interval: 1000,
             scope: me
         };
+
+        this.refreshTokenTask = new Ext.util.DelayedTask(function () {
+            ArqAdmin.app.getController('OAuth').doRefreshToken();
+        });
     },
 
     /**
@@ -121,6 +126,7 @@ Ext.define('ArqAdmin.util.SessionMonitor', {
         this.ui.on('keydown', this.captureActivity, this);
 
         Ext.TaskManager.start(this.sessionTask);
+        this.refreshTokenTask.delay(this.refreshTokenDelay);
     },
 
     /**

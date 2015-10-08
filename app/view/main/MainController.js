@@ -41,6 +41,9 @@ Ext.define('ArqAdmin.view.main.MainController', {
     },
 
     onBeforeRequest: function (conn, options, eOpts) {
+
+        console.log(options.url);
+
         var me = this,
             token = localStorage.getItem('access-token');
 
