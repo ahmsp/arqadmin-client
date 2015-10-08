@@ -7,8 +7,7 @@ Ext.define('ArqAdmin.view.login.LoginController', {
     alias: 'controller.login',
 
     requires: [
-        'ArqAdmin.util.Util',
-        'ArqAdmin.util.SessionMonitor'
+        'ArqAdmin.util.Util'
     ],
 
     control: {

@@ -7,7 +7,10 @@ Ext.define('ArqAdmin.controller.OAuth', {
 
     init: function () {
         var me = this;
-        //Ext.Ajax.on('requestexception', me.onRequestException);
+
+        this.refreshTokenTask = new Ext.util.DelayedTask(function () {
+            me.doRefreshToken();
+        });
 
         me.addRef([
             {
@@ -39,20 +42,29 @@ Ext.define('ArqAdmin.controller.OAuth', {
                 success: function (response) {
                     var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
                     if (result.access_token) {
-                        console.log('refreshToken');
                         me.saveToken(result.access_token, result.refresh_token);
                     }
+                },
+                failure: function (reponse) {
+                    Ext.Msg.show({
+                        title: 'Acesso negado!',
+                        message: 'Houve um problema com as credenciais de acesso. A Aplicação será reiniciada.',
+                        buttons: Ext.Msg.OK,
+                        icon: Ext.Msg.ERROR,
+                        fn: function (btn) {
+                            if (btn === 'ok') {
+                                me.onLogout();
+                            }
+                        }
+                    });
                 }
             });
         }
     },
 
     saveToken: function (accessToken, refreshToken) {
-        console.log('saveToken');
-        ArqAdmin.util.SessionMonitor.start();
         localStorage.setItem('access-token', accessToken);
         localStorage.setItem('refresh-token', refreshToken);
-        //Ext.Ajax.setDefaultHeaders({'Authorization': 'Bearer ' + accessToken});
     },
 
     clearToken: function () {
@@ -66,6 +78,9 @@ Ext.define('ArqAdmin.controller.OAuth', {
         me.clearToken();
         me.getAppMain().destroy();
         window.location.reload();
-    }
+    },
 
+    refreshTokenTaskDelay: function () {
+        this.refreshTokenTask.delay(ArqAdmin.config.Runtime.getRefreshTokenInterval());
+    }
 });

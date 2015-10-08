@@ -23,12 +23,6 @@ Ext.define('ArqAdmin.view.main.MainController', {
     init: function () {
         var me = this;
 
-        Ext.Ajax.on({
-            beforerequest: me.onBeforeRequest,
-            //requestcomplete : me.onRequestComplete,
-            requestexception: me.onRequestException
-        });
-
         me.control({
             "app-main": {
                 afterrender: this.initiateControllers
@@ -38,39 +32,6 @@ Ext.define('ArqAdmin.view.main.MainController', {
 
     initiateControllers: function () {
         ArqAdmin.app.createController('StaticData');
-    },
-
-    onBeforeRequest: function (conn, options, eOpts) {
-
-        console.log(options.url);
-
-        var me = this,
-            token = localStorage.getItem('access-token');
-
-        options.useDefaultXhrHeader = false; //nao incluir X-Requested-With ???
-        options.headers = {'Authorization': 'Bearer ' + token};
-    },
-
-    onRequestException: function (conn, response, options, eOpts) {
-        var me = this;
-
-        // "error":"access_denied"
-        if (response.status === 401) {
-            Ext.Msg.show({
-                title: 'Sessão expirada!',
-                message: 'Sessão expirada. A aplicação nirá icializada',
-                buttons: Ext.Msg.OK,
-                icon: Ext.Msg.ERROR,
-                fn: function (btn) {
-                    if (btn === 'ok') {
-                        me.onLogout();
-                    }
-                }
-            });
-        } else {
-            var error = ArqAdmin.util.Util.decodeJSON(request.responseText);
-            ArqAdmin.util.Util.showErrorMsg(error.error_description);
-        }
     },
 
     onNavigationButtonClick: function (btn, e, eOpts) {
