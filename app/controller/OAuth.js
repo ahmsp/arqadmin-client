@@ -1,10 +1,6 @@
 Ext.define('ArqAdmin.controller.OAuth', {
     extend: 'Ext.app.Controller',
 
-    requires: [],
-    stores: [],
-    views: [],
-
     init: function () {
         var me = this;
 
@@ -35,7 +31,7 @@ Ext.define('ArqAdmin.controller.OAuth', {
             params.refresh_token = refreshToken;
 
             Ext.Ajax.request({
-                url: ArqAdmin.config.Runtime.getBaseUrl() + '/authenticate',
+                url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/authenticate',
                 method: 'POST',
                 jsonData: params,
                 scope: me,
@@ -44,19 +40,6 @@ Ext.define('ArqAdmin.controller.OAuth', {
                     if (result.access_token) {
                         me.saveToken(result.access_token, result.refresh_token);
                     }
-                },
-                failure: function (reponse) {
-                    Ext.Msg.show({
-                        title: 'Acesso negado!',
-                        message: 'Houve um problema com as credenciais de acesso. A Aplicação será reiniciada.',
-                        buttons: Ext.Msg.OK,
-                        icon: Ext.Msg.ERROR,
-                        fn: function (btn) {
-                            if (btn === 'ok') {
-                                me.onLogout();
-                            }
-                        }
-                    });
                 }
             });
         }

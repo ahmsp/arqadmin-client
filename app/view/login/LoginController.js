@@ -89,7 +89,7 @@ Ext.define('ArqAdmin.view.login.LoginController', {
         formData.grant_type = configs.grant_type;
 
         Ext.Ajax.request({
-            url: ArqAdmin.config.Runtime.getBaseUrl() + '/authenticate',
+            url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/authenticate',
             method: 'POST',
             jsonData: formData,
             scope: me,

@@ -65,7 +65,7 @@ Ext.define('ArqAdmin.Application', {
             params.refresh_token = refreshToken;
 
             Ext.Ajax.request({
-                url: configs.baseUrl + '/authenticate',
+                url: configs.apiBaseUrl + '/authenticate',
                 method: 'POST',
                 jsonData: params,
                 scope: me,
