@@ -1,17 +1,77 @@
-/**
- * Session Monitor task, alerts the user that their session will expire in 60 seconds and provides
- * the options to continue working or logout.  If the count-down timer expires,  the user is automatically
- * logged out.
- */
 Ext.define('ArqAdmin.util.SessionMonitor', {
     singleton: true,
 
-    interval: 1000 * 10, // run every 10 seconds.
-    lastActive: null,
-    maxInactive: 1000 * 60 * 1, // 15 minutes of inactivity allowed
-    remaining: 0,
-    refreshTokenDelay: 1000 * 60 * 15,
+    startTime: null,
+    doRefreshTokenInterval: 1000 * 60 * 55, // 55 minutes to do refresh token
+    lastActivity: null,
+    maxInactive: 1000 * 60 * 60 * 8, // 8 hours of inactivity allowed
     ui: Ext.getBody(),
+
+    constructor: function () {
+        var me = this;
+
+        this.sessionTask = {
+            run: me.monitorUI,
+            interval: 1000,
+            scope: me
+        };
+
+        this.countDownTask = {
+            run: me.countDown,
+            interval: 1000,
+            scope: me
+        };
+    },
+
+    monitorUI: function () {
+        console.log('monitorUI');
+
+        var now = new Date();
+        var tempoDecorrido = (now - this.startTime);
+        var inactive = (now - this.lastActive);
+
+        if (inactive >= this.maxInactive) {
+            this.stop();
+
+            this.window.show();
+            this.remaining = 60;  // seconds remaining.
+            Ext.TaskManager.start(this.countDownTask);
+        }
+
+        if (tempoDecorrido >= this.doRefreshTokenInterval) {
+            this.stop();
+            ArqAdmin.app.getController('OAuth').doRefreshToken();
+        }
+    },
+
+    start: function () {
+        console.log('start session monitor');
+
+        this.ui = Ext.getBody();
+        this.ui.on('mousemove', this.captureActivity, this);
+        this.ui.on('keydown', this.captureActivity, this);
+
+        this.startTime = new Date();
+        Ext.TaskManager.start(this.sessionTask);
+    },
+
+    stop: function () {
+        Ext.TaskManager.stop(this.sessionTask);
+    },
+
+    captureActivity: function () {
+        this.lastActivity = new Date();
+    },
+
+    countDown: function () {
+        this.window.down('label').update('Sua sessão ira expirar em ' + this.remaining + ' segundo' + ((this.remaining == 1) ? '.' : 's.'));
+
+        --this.remaining;
+
+        if (this.remaining < 0) {
+            ArqAdmin.app.getController('OAuth').logout();
+        }
+    },
 
     /**
      * Dialog to display expiration message and count-down timer.
@@ -60,95 +120,6 @@ Ext.define('ArqAdmin.util.SessionMonitor', {
                 }
             }
         ]
-    }),
+    })
 
-    /**
-     * Sets up a timer task to monitor for mousemove/keydown events and
-     * a count-down timer task to be used by the 60 second count-down dialog.
-     */
-    constructor: function (config) {
-        var me = this;
-
-        // session monitor task
-        this.sessionTask = {
-            run: me.monitorUI,
-            interval: me.interval,
-            scope: me
-        };
-
-        // session timeout task, displays a 60 second countdown
-        // message alerting user that their session is about to expire.
-        this.countDownTask = {
-            run: me.countDown,
-            interval: 1000,
-            scope: me
-        };
-
-        this.refreshTokenTask = new Ext.util.DelayedTask(function () {
-            ArqAdmin.app.getController('OAuth').doRefreshToken();
-        });
-    },
-
-    /**
-     * Simple method to register with the mousemove and keydown events.
-     */
-    captureActivity: function (eventObj, el, eventOptions) {
-        this.lastActive = new Date();
-    },
-
-    /**
-     *  Monitors the UI to determine if you've exceeded the inactivity threshold.
-     */
-    monitorUI: function () {
-        var now = new Date();
-        var inactive = (now - this.lastActive);
-
-        if (inactive >= this.maxInactive) {
-            this.stop();
-
-            this.window.show();
-            this.remaining = 60;  // seconds remaining.
-            Ext.TaskManager.start(this.countDownTask);
-        }
-    },
-
-    /**
-     * Starts the session timer task and registers mouse/keyboard activity event monitors.
-     */
-    start: function () {
-        console.log('start session monitor');
-
-        this.lastActive = new Date();
-
-        this.ui = Ext.getBody();
-
-        this.ui.on('mousemove', this.captureActivity, this);
-        this.ui.on('keydown', this.captureActivity, this);
-
-        Ext.TaskManager.start(this.sessionTask);
-        this.refreshTokenTask.delay(this.refreshTokenDelay);
-    },
-
-    /**
-     * Stops the session timer task and unregisters the mouse/keyboard activity event monitors.
-     */
-    stop: function () {
-        Ext.TaskManager.stop(this.sessionTask);
-        this.ui.un('mousemove', this.captureActivity, this);  //  always wipe-up after yourself...
-        this.ui.un('keydown', this.captureActivity, this);
-    },
-
-    /**
-     * Countdown function updates the message label in the user dialog which displays
-     * the seconds remaining prior to session expiration.  If the counter expires, you're logged out.
-     */
-    countDown: function () {
-        this.window.down('label').update('Sua sessão ira expirar em ' + this.remaining + ' segundo' + ((this.remaining == 1) ? '.' : 's.'));
-
-        --this.remaining;
-
-        if (this.remaining < 0) {
-            ArqAdmin.app.getController('OAuth').logout();
-        }
-    }
 });

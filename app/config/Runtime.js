@@ -9,7 +9,7 @@ Ext.define('ArqAdmin.config.Runtime', {
         client_secret: 'LV3OIv9pzSVqMLGkxgGVx9meKK9qIe5r8kGbN7V1',
         grant_type: 'password',
 
-        refreshTokenInterval: 1000 * 60 * 10 // 55 minutes
+        refreshTokenInterval: 1000 * 60 * 55 // 55 minutes
     },
 
     constructor: function (config) {
