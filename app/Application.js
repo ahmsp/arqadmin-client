@@ -32,6 +32,7 @@ Ext.define('ArqAdmin.Application', {
     init: function () {
         var me = this;
 
+        // AjaxEventHandler
         //Ext.util.Observable.observe(Ext.data.Connection);
         //Ext.data.Connection.on({
         //    beforerequest: me.onBeforeRequest,
