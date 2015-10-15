@@ -32,6 +32,13 @@ Ext.define('ArqAdmin.Application', {
     init: function () {
         var me = this;
 
+        //Ext.util.Observable.observe(Ext.data.Connection);
+        //Ext.data.Connection.on({
+        //    beforerequest: me.onBeforeRequest,
+        //    requestcomplete: me.onRequestComplete,
+        //    requestexception: me.onRequestException
+        //});
+
         Ext.Ajax.on({
             beforerequest: me.onBeforeRequest,
             requestcomplete: me.onRequestComplete,
@@ -64,6 +71,7 @@ Ext.define('ArqAdmin.Application', {
             params.client_secret = configs.client_secret;
             params.grant_type = 'refresh_token';
             params.refresh_token = refreshToken;
+            params.checktoken = true;
 
             Ext.Ajax.request({
                 url: configs.apiBaseUrl + '/authenticate',
@@ -97,16 +105,23 @@ Ext.define('ArqAdmin.Application', {
 
     onBeforeRequest: function (conn, options, eOpts) {
         var token = localStorage.getItem('access-token');
-        options.useDefaultXhrHeader = false; //nao incluir X-Requested-With ???
-        options.headers = {'Authorization': 'Bearer ' + token};
+        //options.useDefaultXhrHeader = true; //nao incluir X-Requested-With ???
+        options.headers = {
+            'Authorization': 'Bearer ' + token
+        };
+        //conn.setCors(true);
     },
 
-    onRequestException: function (conn, response, options, eOpts) {
+    onRequestException: function (conn, response, options) {
         var me = this,
             error = ArqAdmin.util.Util.decodeJSON(response.responseText);
 
+        // check if request is a refreshtoken of "launch" method
+        if (options.jsonData.checktoken) {
+            return true;
+        }
+
         if (options.url.split('/').pop() === 'authenticate') {
-console.log('onRequestException');
 
             //errors OAuth
             //status: 401 //{"error": "invalid_credentials","error_description": "The user credentials were incorrect."}
@@ -120,7 +135,7 @@ console.log('onRequestException');
                 icon: Ext.Msg.ERROR,
                 fn: function (btn) {
                     if (btn === 'ok') {
-                        me.onLogout();
+                        ArqAdmin.app.getController('OAuth').logout();
                     }
                 }
             });

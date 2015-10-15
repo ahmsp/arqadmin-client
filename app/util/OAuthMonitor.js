@@ -117,7 +117,6 @@ Ext.define('ArqAdmin.util.OAuthMonitor', {
 
         if (inactive >= this.maxInactive) {
             this.stop();
-
             this.window.show();
             this.remaining = 60;  // seconds remaining.
             Ext.TaskManager.start(this.countDownTask);

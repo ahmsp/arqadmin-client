@@ -4,23 +4,13 @@ Ext.define('ArqAdmin.controller.OAuth', {
     init: function () {
         var me = this;
 
-        this.refreshTokenTask = new Ext.util.DelayedTask(function () {
-            me.doRefreshToken();
-        });
-
-        //this.testTask = {
-        //    run: function() {
-        //        console.log('tesk test');
-        //    },
-        //    interval: 1000 * 60
-        //};
-
         me.addRef([
             {
                 ref: 'appMain',
                 selector: 'app-main'
             }
         ]);
+
         this.callParent();
     },
 
@@ -68,26 +58,6 @@ Ext.define('ArqAdmin.controller.OAuth', {
         me.clearToken();
         me.getAppMain().destroy();
         window.location.reload();
-    },
-
-    refreshTokenTaskDelay: function () {
-        this.refreshTokenTask.delay(ArqAdmin.config.Runtime.getRefreshTokenInterval());
-    },
-
-    startTestTask: function () {
     }
 
-    //monitor: function () {
-    //    var initCount = new Date();
-    //    var max = 60000
-    //    var limit = 60000;
-    //
-    //    if (limit >= this.maxInactive) {
-    //        this.stop();
-    //
-    //        this.window.show();
-    //        this.remaining = 60;  // seconds remaining.
-    //        Ext.TaskManager.start(this.countDownTask);
-    //    }
-    //}
 });
