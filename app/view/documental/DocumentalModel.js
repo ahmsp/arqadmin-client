@@ -15,7 +15,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
             pageSize: 100,
             remoteFilter: true,
             remoteSort: true
-        },
+        }
         //desenhosTecnicos: {
         //    model: 'ArqAdmin.model.desenho.DesenhoTecnico',
         //    autoLoad: true

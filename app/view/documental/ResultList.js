@@ -12,15 +12,21 @@ Ext.define('ArqAdmin.view.documental.ResultList', {
         {
             xtype: 'gridcolumn',
             renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-                if (value) {
-                    var imgPath = 'data/img-acervo-dt/thumbnails/';
-                    var imgThumb = value.replace('.jpg','_75x75.jpg');
-                    return '<img src="' + imgPath + imgThumb + '" >';
+
+                var imgId = record.get('desenhos_tecnicos')[0].id;
+
+                //if (value) {
+                //    //var imgPath = 'data/img-acervo-dt/thumbnails/';
+                //    //var imgThumb = value.replace('.jpg','_75x75.jpg');
+                //    //return '<img src="' + imgPath + imgThumb + '" >';
+                if(imgId){
+                    return '<img src="http://arqadmin.dev/api/desenhotecnico/' + imgId + '/imagem" >';
+
                 } else {
                     return '<img src="resources/ico/no-image.png" >';
                 }
             },
-            dataIndex: 'imagem',
+            dataIndex: 'id',
             tdCls: 'x-custom-td-thumbnail',
             text: 'Imagem'
         },
