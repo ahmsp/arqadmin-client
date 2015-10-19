@@ -14,9 +14,8 @@ Ext.define('ArqAdmin.view.documental.ResultList', {
             renderer: function (value, metaData, record) {
                 var dt = record.get('desenhos_tecnicos');
                 if (!Ext.isEmpty(dt)) {
-                    var baseUrl = ArqAdmin.config.Runtime.getApiBaseUrl();
-                    var imgPath = baseUrl + '/imagem/cartografico/' + dt[0].id;
-                    return '<img src="' + imgPath + '/75" onerror="this.src=\'resources/ico/no-image.png\';">';
+                    var imgPath = ArqAdmin.config.Runtime.getImagesCartografico() + dt[0].id + '/75';
+                    return '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">';
                 } else {
                     return '<img src="resources/ico/no-image.png" >';
                 }

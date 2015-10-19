@@ -49,9 +49,44 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     },
 
     onGridRender: function (grid) {
-
         if (grid.referece = 'resultList') {
-            //
+            grid.tip = Ext.create('Ext.tip.ToolTip', {
+                target: grid.el,
+                delegate: grid.view.cellSelector,
+                trackMouse: true,
+                anchor: 'top',
+                dismissDelay: 0,
+                bodyStyle: 'background-color:#eee;padding:0;',
+                renderTo: Ext.getBody(),
+                listeners: {
+                    beforeshow: function updateTipBody(tip) {
+                        gridColums = grid.view.getGridColumns();
+                        column = gridColums[tip.triggerElement.cellIndex];
+                        if (column.dataIndex === 'id') {
+                            record = grid.view.getRecord(tip.triggerElement.parentNode);
+                            var dt = record.get('desenhos_tecnicos');
+                            if (!Ext.isEmpty(dt)) {
+                                var imgPath = ArqAdmin.config.Runtime.getImagesCartografico() + dt[0].id + '/300';
+                                var ttip = [
+                                    '<div class="tipcls">' +
+                                   '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">' +
+                                    '</div>'
+                                ];
+                                tip.update(ttip);
+                            } else {
+                                return false;
+                            }
+                        } else {
+                            return false;
+                        }
+                    },
+                    click: {
+                        fn: function (tip) {
+                            tip.hide();
+                        }
+                    }
+                }
+            });
         }
     },
 

@@ -236,3 +236,17 @@
     text-decoration: underline;
 }
 
+/* img tooltip*/
+.tipcls {
+    background: #eee url('../img/loading.gif') no-repeat center;
+    /*background-color: #eee;*/
+    height: 320px;
+    width: 320px;
+    /*padding: 10px;*/
+    /*border: none;*/
+    text-align: center;
+    display: table-cell !important;
+    vertical-align: middle !important;
+}
+
+
