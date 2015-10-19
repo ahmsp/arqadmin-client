@@ -11,17 +11,12 @@ Ext.define('ArqAdmin.view.documental.ResultList', {
     columns: [
         {
             xtype: 'gridcolumn',
-            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-
-                var imgId = record.get('desenhos_tecnicos')[0].id;
-
-                //if (value) {
-                //    //var imgPath = 'data/img-acervo-dt/thumbnails/';
-                //    //var imgThumb = value.replace('.jpg','_75x75.jpg');
-                //    //return '<img src="' + imgPath + imgThumb + '" >';
-                if(imgId){
-                    return '<img src="http://arqadmin.dev/api/desenhotecnico/' + imgId + '/imagem" >';
-
+            renderer: function (value, metaData, record) {
+                var dt = record.get('desenhos_tecnicos');
+                if (!Ext.isEmpty(dt)) {
+                    var baseUrl = ArqAdmin.config.Runtime.getApiBaseUrl();
+                    var imgPath = baseUrl + '/imagem/cartografico/' + dt[0].id;
+                    return '<img src="' + imgPath + '/75" onerror="this.src=\'resources/ico/no-image.png\';">';
                 } else {
                     return '<img src="resources/ico/no-image.png" >';
                 }

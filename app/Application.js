@@ -106,7 +106,7 @@ Ext.define('ArqAdmin.Application', {
 
     onBeforeRequest: function (conn, options, eOpts) {
         var token = localStorage.getItem('access-token');
-        //options.useDefaultXhrHeader = true; //nao incluir X-Requested-With ???
+        options.useDefaultXhrHeader = false; //nao incluir X-Requested-With ???
         options.headers = {
             'Authorization': 'Bearer ' + token
         };
@@ -149,9 +149,9 @@ Ext.define('ArqAdmin.Application', {
 
         if (response.status === 200 && options.url.split('/').pop() === 'authenticate') {
 
-            console.log('NEW TOKEN - (onRequestComplete)' + Ext.Date.format(new Date(), 'H:i:s'));
-            //ArqAdmin.app.getController('OAuth').refreshTokenTaskDelay();
             ArqAdmin.util.OAuthMonitor.start();
+
+            console.log('NEW TOKEN - (onRequestComplete)' + Ext.Date.format(new Date(), 'H:i:s'));
         }
     }
 

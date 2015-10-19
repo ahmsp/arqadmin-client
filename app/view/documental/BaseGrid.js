@@ -38,7 +38,7 @@ Ext.define('ArqAdmin.view.documental.BaseGrid', {
         beforeselect: 'onGridBeforeselect',
         select: 'onGridSelect',
         celldblclick: 'onGridCelldblclick',
-        //render: 'onGridRender',
+        render: 'onGridRender',
         activate: 'onGridActivate'
     }
 });

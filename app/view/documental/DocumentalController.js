@@ -39,13 +39,20 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             });
         });
 
-        store.clearFilter(true);
         grid.filters.clearFilters(true);
+        store.clearFilter(true);
         store.filter(filters);
     },
 
     onFilterFormButtonClearClick: function (button) {
         button.up('form').reset();
+    },
+
+    onGridRender: function (grid) {
+
+        if (grid.referece = 'resultList') {
+            //
+        }
     },
 
     onGridBeforeselect: function (rowmodel, record, index, eOpts) {
