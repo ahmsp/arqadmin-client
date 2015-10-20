@@ -58,6 +58,24 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
         editFormActive: function (get) {
             return get('displayPanelActiveItem') === 'editForm';
         }
+        
+        //desenhos: {
+        //    bind: {
+        //        bindTo: '{documentos.desenhos_tecnicos}',
+        //        deep: true
+        //    },
+        //
+        //    get: function(value){
+        //        var values = value ? value.split(',') : [],
+        //            texts = [];
+        //        values.forEach(function(item){
+        //            texts.push(Ext.create('Packt.model.TextCombo',{
+        //                text: item
+        //            }));
+        //        });
+        //        return texts;
+        //    }
+        //}
 
         //currentItem: {
         //

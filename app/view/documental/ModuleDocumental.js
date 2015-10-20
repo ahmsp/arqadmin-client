@@ -10,6 +10,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
         'ArqAdmin.view.documental.EditForm',
         'ArqAdmin.view.documental.ResultTable',
         'ArqAdmin.view.documental.ResultList',
+        'ArqAdmin.view.documental.ResultGallery',
         'Ext.button.Button',
         'Ext.container.Container',
         'Ext.form.Label',
@@ -112,6 +113,13 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                             glyph: ArqAdmin.util.Glyphs.getGlyph('list'),
                             tooltip: 'Visualizar resultado em lista',
                             handler: 'setResultsPanelActiveItem'
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'btnShowGallery',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('gallery'),
+                            tooltip: 'Visualizar galeria de imagens',
+                            handler: 'setResultsPanelActiveItem'
                         }
                     ]
                 }
@@ -122,6 +130,9 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                 },
                 {
                     xtype: 'result-list'
+                },
+                {
+                    xtype: 'result-gallery'
                 }
             ]
         },

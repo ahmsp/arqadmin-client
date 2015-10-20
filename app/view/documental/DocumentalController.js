@@ -66,7 +66,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                             record = grid.view.getRecord(tip.triggerElement.parentNode);
                             var dt = record.get('desenhos_tecnicos');
                             if (!Ext.isEmpty(dt)) {
-                                var imgPath = ArqAdmin.config.Runtime.getImagesCartografico() + dt[0].id + '/300';
+                                var imgPath = ArqAdmin.config.Runtime.getImagesCartografico() + dt[0].id + '/320';
                                 var ttip = [
                                     '<div class="tipcls">' +
                                    '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">' +
@@ -146,7 +146,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                 me.showViewResultsPanel('resultList');
                 break;
             case 'btnShowGallery':
-                me.showViewResultsPanel('documentalGallery');
+                me.showViewResultsPanel('resultGallery');
                 break;
         }
     },
