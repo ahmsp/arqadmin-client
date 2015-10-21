@@ -62,7 +62,7 @@ Ext.define('ArqAdmin.view.documental.ResultGallery', {
             ],
             listeners: {
                 //beforeselect: 'onGridBeforeselect',
-                select: 'onGridSelect',
+                select: 'onGridSelect'
                 //celldblclick: 'onGridCelldblclick',
                 //render: 'onGridRender',
                 //activate: 'onGridActivate'
