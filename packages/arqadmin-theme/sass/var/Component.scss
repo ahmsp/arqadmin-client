@@ -5,7 +5,7 @@ $neutral-color: #e1e1e1;
 $neutral-light-color: mix(white, $neutral-color, 68%);
 $panel-light-header-background-color: mix($base-light-color, $neutral-light-color, 50%);
 $panel-header-font-size: 14px;
-$panel-frame-border-radius: 0;
+$panel-frame-border-radius: 0 0 0 0;
 $grid-row-cell-focus-border-width: 0 !default;
 $button-small-font-size: 13px;
 $button-small-border-radius: 2px;

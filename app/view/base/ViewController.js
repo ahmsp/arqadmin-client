@@ -26,17 +26,26 @@ Ext.define('ArqAdmin.view.base.ViewController', {
     //},
 
     onGridActivate: function (grid) {
-        var selection = grid.getSelection()[0];
+        var selection = grid.getSelectionModel().getSelection()[0];
         if (selection) {
-            grid.getView().focusRow(selection);
+            if (grid.isXType('dataview')) {
+                grid.focusNode(selection);
+            } else {
+                grid.getView().focusRow(selection);
+            }
         }
     },
 
     selectRecord: function (grid, record) {
-        //grid.setSelection(record);
         var grid = grid || this.lookupReference('resultTable');
+
         grid.getSelectionModel().select(record);
-        grid.getView().focusRow(record);
+
+        //if (grid.isXType('dataview')) {
+        //    grid.focusNode(record);
+        //} else {
+        //    grid.getView().focusRow(record);
+        //}
     },
 
     /**

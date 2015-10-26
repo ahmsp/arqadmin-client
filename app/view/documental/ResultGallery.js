@@ -27,15 +27,19 @@ Ext.define('ArqAdmin.view.documental.ResultGallery', {
             overItemCls: 'x-item-over',
             tpl: [
                 '<tpl if="this.count(values)" >',
-                '<tpl for=".">',
-                '<tpl if="!Ext.isEmpty(values.desenhos_tecnicos)">',
-                '<div class="thumb-wrap thumb-wrap-medium" id="{file_name}">',
-                '<div class="thumb">{[this.getImage(values.desenhos_tecnicos)]}</div>',
-                '</div>',
-                '</tpl>',
-                '</tpl>',
-                '<tpl else>',
-                '<span class="empty-text" >Nenhuma imagem para exibir</span>',
+                    '<tpl for=".">',
+                        '<tpl if="!Ext.isEmpty(values.desenhos_tecnicos)">',
+                        '<div class="thumb-wrap thumb-wrap-medium" id="{file_name}">',
+                            '<div class="thumb">{[this.getImage(values.desenhos_tecnicos)]}',
+                                '<div class="expand-img">',
+                                    '<a href="#recId={id}" id="img-expand" recId="{id}"><span class="icon-expand" style="font-family:icomoon;"> Ampliar</span></a>',
+                                '</div>',
+                            '</div>',
+                        '</div>',
+                        '</tpl>',
+                    '</tpl>',
+               '<tpl else>',
+                    '<span class="empty-text" >Nenhuma imagem para exibir</span>',
                 '</tpl>',
                 {
                     count: function (values) {
@@ -61,11 +65,16 @@ Ext.define('ArqAdmin.view.documental.ResultGallery', {
                 }
             ],
             listeners: {
-                //beforeselect: 'onGridBeforeselect',
-                select: 'onGridSelect'
-                //celldblclick: 'onGridCelldblclick',
-                //render: 'onGridRender',
-                //activate: 'onGridActivate'
+                beforeselect: 'onGridBeforeselect',
+                select: 'onGridSelect',
+                itemdblclick: 'onGridCelldblclick',
+                activate: 'onGridActivate',
+                click: {
+                    delegate: 'a',
+                    preventDefault: true,
+                    element: 'el',
+                    fn: 'onButtonImgExpandClick'
+                }
             }
         }
     ],
@@ -77,6 +86,11 @@ Ext.define('ArqAdmin.view.documental.ResultGallery', {
             displayInfo: true,
             bind : '{documentos}'
         }
-    ]
-
+    ],
+    listeners: {
+        activate: function (panel) {
+            var dataview = panel.down('dataview');
+            dataview.fireEvent('activate', dataview);
+        }
+    }
 });

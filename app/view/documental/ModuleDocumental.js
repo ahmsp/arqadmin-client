@@ -19,7 +19,8 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
         'Ext.panel.Panel',
         'Ext.toolbar.Fill',
         'Ext.toolbar.Separator',
-        'Ext.toolbar.Toolbar'
+        'Ext.toolbar.Toolbar',
+        'ArqAdmin.view.documental.image.desenhoTecnico.ImageViewerDesenhoTecnico'
     ],
 
     controller: 'documental',

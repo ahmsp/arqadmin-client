@@ -6,6 +6,7 @@
 
 Ext.require('ArqAdmin.ux.form.trigger.Clear');
 Ext.require('ArqAdmin.overrides.grid.filters.filter.List');
+Ext.require('ArqAdmin.overrides.view.View');
 Ext.require('ArqAdmin.controller.OAuth');
 Ext.require('ArqAdmin.util.OAuthMonitor');
 

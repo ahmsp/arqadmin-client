@@ -47,16 +47,16 @@ Ext.define('ArqAdmin.view.dashboard.ModuleDashboard', {
 
             tpl: [
                 '<tpl for=".">',
-                '<div class="thumb-wrap">',
-                '<a class="thumb" href="#">',
-                '<div class="thumb-icon"><img src="{thumb}" alt="{title}" height="57" width="57"></div>',
-                '<div class="thumb-title-container">',
-                '<div class="thumb-title">Acervo<br />{title}</div>',
-                '<div class="thumb-title-small">{qtd} registros cadastrados</div>',
-                '</div>',
-                '<div class="thumb-download"></div>',
-                '</a>',
-                '</div>',
+                    '<div class="thumb-wrap">',
+                        '<a class="thumb" href="#">',
+                            '<div class="thumb-icon"><img src="{thumb}" alt="{title}" height="57" width="57"></div>',
+                                '<div class="thumb-title-container">',
+                                '<div class="thumb-title">Acervo<br />{title}</div>',
+                                '<div class="thumb-title-small">{qtd} registros cadastrados</div>',
+                            '</div>',
+                            '<div class="thumb-download"></div>',
+                        '</a>',
+                    '</div>',
                 '</tpl>'
             ],
             listeners: {

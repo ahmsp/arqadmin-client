@@ -69,7 +69,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                                 var imgPath = ArqAdmin.config.Runtime.getImagesCartografico() + dt[0].id + '/320';
                                 var ttip = [
                                     '<div class="tipcls">' +
-                                   '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">' +
+                                    '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">' +
                                     '</div>'
                                 ];
                                 tip.update(ttip);
@@ -118,13 +118,31 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         // selects record in both grids
         var layoutItems = me.lookupReference('resultsPanel').getLayout().getLayoutItems();
         Ext.Object.each(layoutItems, function (key, componentGrid) {
-            if (record !== componentGrid.getSelection()[0]) {
+
+            if (componentGrid.reference == 'resultGallery') {
+                componentGrid = componentGrid.down('dataview');
+            }
+
+            if (record !== componentGrid.getSelectionModel().getSelection()[0]) {
                 me.selectRecord(componentGrid, record);
             }
         });
 
         me.getViewModel().set('record', record);
         me.detailsPanelLoadRecord(record, true);
+    },
+
+    onButtonImgExpandClick: function(event, target) {
+
+        this.showImageViewerWindow();
+
+        //if (target.id == 'about-box') {
+        //    var aboutWindow = Ext.create('widget.aboutwindow', {
+        //        // animateTarget: 'thumbsviewDoc',
+        //    });
+        //} else {
+        //    window.open(target.href, '_blank');
+        //}
     },
 
     onGridCelldblclick: function () {
@@ -162,6 +180,15 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     showViewDisplayPanel: function (view) {
         var layout = this.getReferences().displayPanel.getLayout();
         layout.setActiveItem(this.lookupReference(view));
+    },
+
+    showImageViewerWindow: function () {
+
+
+        var win = Ext.widget('imageviewer-desenhotecnico');
+        win.show();
+
+
     },
 
     onDisplayPanelChildActivate: function (page, eOpts) {

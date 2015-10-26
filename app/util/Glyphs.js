@@ -23,7 +23,9 @@ Ext.define('ArqAdmin.util.Glyphs', {
         filter: 'xf0b0',
         table: 'xe602',
         list: 'xe601',
-        gallery: 'xf00a'
+        gallery: 'xf00a',
+        image: 'xe904',
+        close: 'xe610'
     },
 
     constructor: function(config) {
