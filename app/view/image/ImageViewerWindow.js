@@ -1,11 +1,18 @@
-Ext.define('ArqAdmin.view.documental.image.desenhoTecnico.ImageViewerDesenhoTecnico', {
+Ext.define('ArqAdmin.view.image.ImageViewerWindow', {
     extend: 'Ext.window.Window',
-    xtype: 'imageviewer-desenhotecnico',
+    xtype: 'imageviewer-window',
 
     requires: [
-        'ArqAdmin.view.documental.image.desenhoTecnico.ImageViewer',
-        'ArqAdmin.view.documental.ImageViewerDetail'
+        'ArqAdmin.view.image.ImageViewer',
+        'ArqAdmin.view.image.ImageViewerDataview'
     ],
+
+    viewModel: {
+        data: {
+            title: 'Tititititititititi',
+            currentImage: ''
+        }
+    },
 
     height: 500,
     width: 500,
@@ -39,18 +46,13 @@ Ext.define('ArqAdmin.view.documental.image.desenhoTecnico.ImageViewerDesenhoTecn
             region: 'center'
         },
         {
-            xtype: 'imageviewer-detail',
-            region: 'east',
-            split: true,
-            reference: 'displayPanel',
-            width: 450,
-            layout: 'card',
-            bodyBorder: true,
-            collapsible: true,
-
-            //margin: '0 0 0 0',
-            splitterResize: false
+            xtype: 'imageviewer-dataview',
+            region: 'south',
         }
+        //{
+        //    xtype: 'imageviewer-detail',
+        //    region: 'east',
+        //}
     ]
 
 });

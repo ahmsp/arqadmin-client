@@ -132,17 +132,10 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         me.detailsPanelLoadRecord(record, true);
     },
 
-    onButtonImgExpandClick: function(event, target) {
+    onButtonShowImageClick: function (event, target) {
+        var imgId = target.id.split('-').pop();
 
-        this.showImageViewerWindow();
-
-        //if (target.id == 'about-box') {
-        //    var aboutWindow = Ext.create('widget.aboutwindow', {
-        //        // animateTarget: 'thumbsviewDoc',
-        //    });
-        //} else {
-        //    window.open(target.href, '_blank');
-        //}
+        this.showImageViewerWindow(imgId);
     },
 
     onGridCelldblclick: function () {
@@ -182,13 +175,41 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         layout.setActiveItem(this.lookupReference(view));
     },
 
-    showImageViewerWindow: function () {
+    showImageViewerWindow: function (imageId) {
+        var me = this,
+            win = Ext.widget('imageviewer-window');
 
+        var dataView = me.lookupReference('resultGallery').down('dataview');
+        var record = dataView.getSelectionModel().getSelection()[0];
 
-        var win = Ext.widget('imageviewer-desenhotecnico');
+        //console.log(dataView);
+        //console.log(record);
+
+        win.getViewModel().set('currentImage', record.data.desenhos_tecnicos[0]);
+
+        win.add({
+            xtype: 'dt-imagedetail',
+            region: 'east'
+        });
+
+        var store = me.getStore('desenhosTecnicos');
+        var images = record.getData().desenhos_tecnicos;
+
+        //Ext.Object.each(images, function(key, value) {
+        //});
+
+        store.loadRawData(images);
+        console.log(store);
+        win.down('dataview').setStore(store);
+
+        //win.getViewModel().getStore('images').setModel(record);
+        //win.getViewModel().set('images', record);
+
+        //win.on('render', function (win) {
+        //    console.log(win.getViewModel().get('images'));
+        //});
+
         win.show();
-
-
     },
 
     onDisplayPanelChildActivate: function (page, eOpts) {

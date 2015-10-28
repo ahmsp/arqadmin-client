@@ -29,16 +29,17 @@ Ext.define('ArqAdmin.view.documental.ResultGallery', {
                 '<tpl if="this.count(values)" >',
                     '<tpl for=".">',
                         '<tpl if="!Ext.isEmpty(values.desenhos_tecnicos)">',
-                        '<div class="thumb-wrap thumb-wrap-medium" id="{file_name}">',
-                            '<div class="thumb">{[this.getImage(values.desenhos_tecnicos)]}',
-                                '<div class="expand-img">',
-                                    '<a href="#recId={id}" id="img-expand" recId="{id}"><span class="icon-expand" style="font-family:icomoon;"> Ampliar</span></a>',
+                            '<div class="thumb-wrap thumb-wrap-medium"">',
+                                '<div class="thumb">{[this.getImage(values.desenhos_tecnicos)]}',
+                                    '<div class="expand-img">',
+                                        '<a href="#" id="img-{[values.desenhos_tecnicos[0].id]}"><span class="icon-expand" style="font-family:icomoon;"> Visualizar</span></a>',
+                                    '</div>',
+                                    '{[this.spamMoreImages(values.desenhos_tecnicos)]}',
                                 '</div>',
                             '</div>',
-                        '</div>',
                         '</tpl>',
                     '</tpl>',
-               '<tpl else>',
+                '<tpl else>',
                     '<span class="empty-text" >Nenhuma imagem para exibir</span>',
                 '</tpl>',
                 {
@@ -49,10 +50,22 @@ Ext.define('ArqAdmin.view.documental.ResultGallery', {
                                 count++;
                             }
                         });
-                        if (count > 0) {
-                            return true;
+                        return count > 0 || false;
+                    },
+                    spamMoreImages: function (dt) {
+                        var count = 0;
+                        Ext.Object.each(dt, function (k, v) {
+                            if (!Ext.isEmpty(v.id)) {
+                                count++;
+                            }
+                        });
+
+                        if (count > 1) {
+                            var more = count -1;
+                            return '<span class="img-plus">+' + more + '</span>';
                         }
-                        return false;
+
+                        return '';
                     },
                     getImage: function (dt) {
                         if (!Ext.isEmpty(dt)) {
@@ -73,7 +86,7 @@ Ext.define('ArqAdmin.view.documental.ResultGallery', {
                     delegate: 'a',
                     preventDefault: true,
                     element: 'el',
-                    fn: 'onButtonImgExpandClick'
+                    fn: 'onButtonShowImageClick'
                 }
             }
         }

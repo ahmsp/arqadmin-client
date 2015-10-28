@@ -1,4 +1,4 @@
-Ext.define('ArqAdmin.view.documental.image.desenhoTecnico.ImageViewer', {
+Ext.define('ArqAdmin.view.image.ImageViewer', {
     extend: 'Ext.container.Container',
     xtype: 'imageviewer',
 

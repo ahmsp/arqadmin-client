@@ -18,6 +18,7 @@ Ext.define('ArqAdmin.view.login.Login', {
     autoShow: true,
     width: 350,
     height: 500,
+    cls: 'x-logindialog',
     shadow: false,
     border: false,
     draggable: false,
@@ -29,7 +30,7 @@ Ext.define('ArqAdmin.view.login.Login', {
     closeAction: 'hide',
     header: false,
     title: 'Login',
-    plain: true,
+    //plain: true,
 
     layout: {
         type: 'vbox',

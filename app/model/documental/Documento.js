@@ -8,7 +8,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'fundo_id',
             type: 'int',
             allowNull: true,
-            reference: 'classificacao.Fundo'
+            reference: 'staticData.classificacao.Fundo'
         },
         {
             name: 'fundo_nome',
@@ -20,7 +20,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'subfundo_id',
             type: 'int',
             allowNull: true,
-            reference: 'classificacao.Subfundo'
+            reference: 'staticData.classificacao.Subfundo'
         },
         {
             name: 'subfundo_nome',
@@ -32,7 +32,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'grupo_id',
             type: 'int',
             allowNull: true,
-            reference: 'classificacao.Grupo'
+            reference: 'staticData.classificacao.Grupo'
         },
         {
             name: 'grupo_nome',
@@ -44,7 +44,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'subgrupo_id',
             type: 'int',
             allowNull: true,
-            reference: 'classificacao.Subgrupo'
+            reference: 'staticData.classificacao.Subgrupo'
         },
         {
             name: 'subgrupo_nome',
@@ -56,7 +56,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'serie_id',
             type: 'int',
             allowNull: true,
-            reference: 'classificacao.Serie'
+            reference: 'staticData.classificacao.Serie'
         },
         {
             name: 'serie_nome',
@@ -68,7 +68,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'subserie_id',
             type: 'int',
             allowNull: true,
-            reference: 'classificacao.Subserie'
+            reference: 'staticData.classificacao.Subserie'
         },
         {
             name: 'subserie_nome',
@@ -80,7 +80,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'dossie_id',
             type: 'int',
             allowNull: true,
-            reference: 'classificacao.Dossie'
+            reference: 'staticData.classificacao.Dossie'
         },
         {
             name: 'dossie_nome',
@@ -92,7 +92,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'especiedocumental_id',
             type: 'int',
             allowNull: true,
-            reference: 'classificacao.Especiedocumental'
+            reference: 'staticData.classificacao.Especiedocumental'
         },
         {
             name: 'especiedocumental_nome',
@@ -126,7 +126,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'conservacao_id',
             type: 'int',
             allowNull: true,
-            reference: 'documental.Conservacao'
+            reference: 'staticData.documental.Conservacao'
         },
         {
             name: 'conservacao_estado',
@@ -150,7 +150,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'lc_sala_id',
             type: 'int',
             allowNull: true,
-            reference: 'localizacao.LcSala'
+            reference: 'staticData.localizacao.LcSala'
         },
         {
             name: 'lc_sala_sala',
@@ -162,7 +162,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'lc_movel_id',
             type: 'int',
             allowNull: true,
-            reference: 'localizacao.LcMovel'
+            reference: 'staticData.localizacao.LcMovel'
         },
         {
             name: 'lc_movel_movel',
@@ -177,7 +177,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'lc_compartimento_id',
             type: 'int',
             allowNull: true,
-            reference: 'localizacao.LcCompartimento'
+            reference: 'staticData.localizacao.LcCompartimento'
         },
         {
             name: 'lc_compartimento_compartimento',
@@ -192,7 +192,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'lc_acondicionamento_id',
             type: 'int',
             allowNull: true,
-            reference: 'localizacao.LcAcondicionamento'
+            reference: 'staticData.localizacao.LcAcondicionamento'
         },
         {
             name: 'lc_acondicionamento_acondicionamento',
@@ -210,7 +210,7 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'dt_uso_id',
             type: 'int',
             allowNull: true,
-            reference: 'documental.DtUso'
+            reference: 'staticData.documental.DtUso'
         },
         {
             name: 'dt_uso_uso',

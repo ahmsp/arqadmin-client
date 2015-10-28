@@ -1,160 +1,126 @@
-Ext.define('ArqAdmin.view.documental.ImageViewerDetail', {
-    extend: 'Ext.panel.Panel',
-    //extend: 'Ext.form.Panel',
-    xtype: 'imageviewer-detail',
-
-    requires: [
-        'Ext.form.field.Display'
-    ],
-
-    //ui: 'light',
-    autoScroll: true,
-    //cls: 'display-panel',
-    title: 'Detalhes da imagem',
-    defaults: {
-        bodyPadding: '6 0 0',
-        margin: '4 0 0'
-    },
-    layout: 'anchor',
-    bodyPadding: '4 8 0',
+Ext.define('ArqAdmin.view.documental.image.desenhoTecnico.ImageDetail', {
+    extend: 'ArqAdmin.view.image.BaseImageViewerDetail',
+    xtype: 'dt-imagedetail',
 
     items: [
         {
             xtype: 'displayfield',
-            fieldLabel: 'Código da Imagem',
-            name: 'id',
+            fieldLabel: 'Código interno',
             bind: {
-                hidden: '{!dt.id}'
-            }
-        },
-        {
-            xtype: 'displayfield',
-            fieldLabel: 'Notação',
-            name: 'notacao',
-            bind: {
-                hidden: '{!dt.notacao}'
-            }
-        },
-        {
-            xtype: 'displayfield',
-            fieldLabel: 'Prancha nº',
-            name: 'prancha_num',
-            bind: {
-                hidden: '{!dt.prancha_num}'
-            }
-        },
-        {
-            xtype: 'displayfield',
-            fieldLabel: 'Original nº',
-            name: 'original_num',
-            bind: {
-                hidden: '{!dt.original_num}'
-            }
-        },
-        {
-            xtype: 'displayfield',
-            fieldLabel: 'Data',
-            name: 'desenho_data',
-            bind: {
-                hidden: '{!dt.desenho_data}'
+                value: '{currentImage.id}'
             }
         },
         {
             xtype: 'displayfield',
             fieldLabel: 'Descrição',
-            name: 'descricao',
             bind: {
-                hidden: '{!dt.descricao}'
+                value: '{currentImage.descricao}'
+            }
+        },
+        {
+            xtype: 'displayfield',
+            fieldLabel: 'Notação',
+            bind: {
+                value: '{currentImage.notacao}'
+            }
+        },
+        {
+            xtype: 'displayfield',
+            fieldLabel: 'Prancha nº',
+            bind: {
+                value: '{currentImage.prancha_num}'
+            }
+        },
+        {
+            xtype: 'displayfield',
+            fieldLabel: 'Original nº',
+            bind: {
+                value: '{currentImage.original_num}'
+            }
+        },
+        {
+            xtype: 'displayfield',
+            fieldLabel: 'Data',
+            bind: {
+                value: '{currentImage.desenho_data}'
             }
         },
         {
             xtype: 'displayfield',
             fieldLabel: 'Desenhista',
-            name: 'desenhista',
             bind: {
-                hidden: '{!dt.desenhista}'
+                value: '{currentImage.desenhista}'
             }
         },
         {
             xtype: 'displayfield',
             fieldLabel: 'Original',
-            name: 'original',
             bind: {
-                hidden: '{!dt.original}'
+                value: '{currentImage.original}'
             }
         },
         {
             xtype: 'displayfield',
             fieldLabel: 'Cópia',
-            name: 'copia',
             bind: {
-                hidden: '{!dt.copia}'
+                value: '{currentImage.copia}'
             }
         },
         {
             xtype: 'displayfield',
             fieldLabel: 'Tipo',
-            name: 'dt_tipo_id',
             bind: {
-                hidden: '{!dt.dt_tipo_id}'
+                value: '{currentImage.dt_tipo.tipo}'
             }
         },
         {
             xtype: 'displayfield',
             fieldLabel: 'Dimansão',
-            name: 'dimensao',
             bind: {
-                hidden: '{!dt.dimensao}'
+                value: '{currentImage.dimensao}'
             }
         },
         {
             xtype: 'displayfield',
             fieldLabel: 'Suporte',
-            name: 'dt_suporte_id',
             bind: {
-                hidden: '{!dt.dt_suporte_id}'
+                value: '{currentImage.dt_suporte.suporte}'
             }
         },
         {
             xtype: 'displayfield',
             fieldLabel: 'Escala',
-            name: 'dt_escala_id',
             bind: {
-                hidden: '{!dt.dt_escala_id}'
+                value: '{currentImage.dt_escala.escala}'
             }
         },
         {
             xtype: 'displayfield',
             fieldLabel: 'Técnica',
-            name: 'dt_tecnica_id',
             bind: {
-                hidden: '{!dt.dt_tecnica_id}'
+                value: '{currentImage.dt_tecnica.tecnica}'
             }
         },
         {
             xtype: 'displayfield',
             fieldLabel: 'Notas',
-            name: 'notas',
             bind: {
-                hidden: '{!dt.notas}'
+                value: '{currentImage.notas}'
             }
         },
         {
             xtype: 'displayfield',
             fieldLabel: 'Conservação',
-            name: 'dt_conservacao_id',
             bind: {
-                hidden: '{!dt.dt_conservacao_id}'
+                value: '{currentImage.dt_conservacao.conservacao}'
             }
         },
         {
             xtype: 'displayfield',
             fieldLabel: 'Nome do arquivo',
-            name: 'arquivo_nome',
             bind: {
-                hidden: '{!dt.arquivo_nome}'
+                value: '{currentImage.arquivo_nome}'
             }
         }
     ]
-
 });
