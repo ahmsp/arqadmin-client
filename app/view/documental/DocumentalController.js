@@ -177,37 +177,19 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
     showImageViewerWindow: function (imageId) {
         var me = this,
+            dtStore = me.getStore('desenhosTecnicos'),
+            dataView = me.lookupReference('resultGallery').down('dataview'),
+            selectedRecord = dataView.getSelectionModel().getSelection()[0],
+            imagesList = selectedRecord.getData().desenhos_tecnicos,
             win = Ext.widget('imageviewer-window');
-
-        var dataView = me.lookupReference('resultGallery').down('dataview');
-        var record = dataView.getSelectionModel().getSelection()[0];
-
-        //console.log(dataView);
-        //console.log(record);
-
-        win.getViewModel().set('currentImage', record.data.desenhos_tecnicos[0]);
 
         win.add({
             xtype: 'dt-imagedetail',
             region: 'east'
         });
 
-        var store = me.getStore('desenhosTecnicos');
-        var images = record.getData().desenhos_tecnicos;
-
-        //Ext.Object.each(images, function(key, value) {
-        //});
-
-        store.loadRawData(images);
-        console.log(store);
-        win.down('dataview').setStore(store);
-
-        //win.getViewModel().getStore('images').setModel(record);
-        //win.getViewModel().set('images', record);
-
-        //win.on('render', function (win) {
-        //    console.log(win.getViewModel().get('images'));
-        //});
+        dtStore.loadRawData(imagesList);
+        win.down('dataview').setStore(dtStore);
 
         win.show();
     },

@@ -2,8 +2,10 @@ Ext.define('ArqAdmin.view.image.ImageViewer', {
     extend: 'Ext.container.Container',
     xtype: 'imageviewer',
 
+    reference: 'imageViewer',
+
     layout: {
-        type: 'hbox',
+        type: 'vbox',
         align: 'stretch'
     },
 
@@ -25,9 +27,82 @@ Ext.define('ArqAdmin.view.image.ImageViewer', {
 
         me.items = [
             {
+                xtype: 'toolbar',
+                ui: 'toolbar-dark',
+                defaults: {
+                    tooltipType: 'title'
+                },
+                items: [
+                    {
+                        xtype: 'label',
+                        style: {
+                            color: '#fff',
+                            'font-size': '14px',
+                            'font-weight': 'bold'
+                        },
+                        text: 'Visualização da imagem'
+                    },
+                    {
+                        xtype: 'tbfill'
+                    },
+                    {
+                        xtype: 'button',
+                        tooltip: 'Ajustar a largura da tela',
+                        icon: 'resources/ico/move_horizontal.png',
+                        listeners: {click: me.stretchHorizontally, scope: me}
+                    },
+                    {
+                        xtype: 'button',
+                        tooltip: 'Ajustar a altura da tela',
+                        icon: 'resources/ico/move_vertical.png',
+                        listeners: {click: me.stretchVertically, scope: me}
+                    },
+                    {
+                        xtype: 'button',
+                        tooltip: 'Ajustar a tela',
+                        icon: 'resources/ico/move_alt.png',
+                        listeners: {click: me.stretchOptimally, scope: me}
+                    },
+                    {
+                        xtype: 'button',
+                        tooltip: 'Aumentar',
+                        icon: 'resources/ico/zoom_in.png',
+                        listeners: {click: me.zoomIn, scope: me}
+                    },
+                    {
+                        xtype: 'button',
+                        tooltip: 'Diminuir',
+                        icon: 'resources/ico/zoom_out.png',
+                        listeners: {click: me.zoomOut, scope: me}
+                    },
+                    {
+                        xtype: 'button',
+                        tooltip: 'Rotacionar sentido horário',
+                        icon: 'resources/ico/redo.png',
+                        listeners: {click: me.rotateClockwise, scope: me}
+                    },
+                    {
+                        xtype: 'button',
+                        tooltip: 'Rotacionar sentido anti-horário',
+                        icon: 'resources/ico/undo.png',
+                        listeners: {click: me.rotateAntiClockwise, scope: me}
+                    },
+                    {
+                        xtype: 'tbseparator'
+                    },
+                    {
+                        xtype: 'button',
+                        tooltip: 'Fechar vizualização da imagem',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('close'),
+                        listeners: {click: me.windowClose, scope: me}
+                    }
+                ]
+            },
+            {
                 xtype: 'container',
                 itemId: 'imagecontainer',
                 flex: 1,
+                //cls: 'imageWrap', // .imageWrap .x-autocontainer-innerCt {vertical-align: middle;}
                 style: {
                     overflow: 'hidden',
                     backgroundColor: '#f2f1f0',
@@ -35,85 +110,14 @@ Ext.define('ArqAdmin.view.image.ImageViewer', {
                 },
                 items: [
                     {
-                        xtype: 'toolbar',
-                        ui: 'toolbar-dark',
-                        defaults: {
-                            tooltipType: 'title'
-                        },
-                        items: [
-                            {
-                                xtype: 'label',
-                                style: {
-                                    color: '#fff',
-                                    'font-size': '14px',
-                                    'font-weight': 'bold'
-                                },
-                                text: 'Visualização da imagem'
-                            },
-                            {
-                                xtype: 'tbfill'
-                            },
-                            {
-                                xtype: 'button',
-                                tooltip: 'Ajustar a largura da tela',
-                                icon: 'resources/ico/move_horizontal.png',
-                                listeners: {click: me.stretchHorizontally, scope: me}
-                            },
-                            {
-                                xtype: 'button',
-                                tooltip: 'Ajustar a altura da tela',
-                                icon: 'resources/ico/move_vertical.png',
-                                listeners: {click: me.stretchVertically, scope: me}
-                            },
-                            {
-                                xtype: 'button',
-                                tooltip: 'Ajustar a tela',
-                                icon: 'resources/ico/move_alt.png',
-                                listeners: {click: me.stretchOptimally, scope: me}
-                            },
-                            {
-                                xtype: 'button',
-                                tooltip: 'Aumentar',
-                                icon: 'resources/ico/zoom_in.png',
-                                listeners: {click: me.zoomIn, scope: me}
-                            },
-                            {
-                                xtype: 'button',
-                                tooltip: 'Diminuir',
-                                icon: 'resources/ico/zoom_out.png',
-                                listeners: {click: me.zoomOut, scope: me}
-                            },
-                            {
-                                xtype: 'button',
-                                tooltip: 'Rotacionar sentido horário',
-                                icon: 'resources/ico/redo.png',
-                                listeners: {click: me.rotateClockwise, scope: me}
-                            },
-                            {
-                                xtype: 'button',
-                                tooltip: 'Rotacionar sentido anti-horário',
-                                icon: 'resources/ico/undo.png',
-                                listeners: {click: me.rotateAntiClockwise, scope: me}
-                            },
-                            {
-                                xtype: 'tbseparator'
-                            },
-                            {
-                                xtype: 'button',
-                                tooltip: 'Fechar vizualização da imagem',
-                                glyph: ArqAdmin.util.Glyphs.getGlyph('close'),
-                                listeners: {click: me.windowClose, scope: me}
-                            }
-                        ]
-                    },
-                    {
                         xtype: 'image',
                         mode: 'element',
                         id: 'img_view',
-                        //src: me.src,
-                        src: '',
+                        //src: 'resources/img/loading.gif',
                         style: {
-                            boxShadow: '0 0 1px 1px #888'
+                            //display: 'block',
+                            //margin: 'auto',
+                            boxShadow: '0 0 1px 1px #C7C7C7'
                         },
                         listeners: {
                             render: function (image) {

@@ -47,7 +47,7 @@ Ext.define('ArqAdmin.view.image.ImageViewerWindow', {
         },
         {
             xtype: 'imageviewer-dataview',
-            region: 'south',
+            region: 'south'
         }
         //{
         //    xtype: 'imageviewer-detail',

@@ -11,19 +11,16 @@ Ext.define('ArqAdmin.view.image.ImageViewerDataview', {
     items: [
         {
             xtype: 'dataview',
-            //flex: 1,
-            scrollable: true,
 
-            //store: 'documental.Documentos',
             //bind: '{images}',
 
+            scrollable: true,
             cls: 'images-view',
             emptyText: '<span class="empty-text">Nenhuma imagem para exibir</span>',
             itemSelector: 'div.thumb-wrap',
             trackOver: true,
             overItemCls: 'x-item-over',
             tpl: [
-                //'{[this.test(values)]}',
                 '<tpl for=".">',
                     '<div class="thumb-wrap thumb-wrap-small"">',
                         '<div class="thumb">{[this.getImage(values.id)]}</div>',
@@ -37,9 +34,23 @@ Ext.define('ArqAdmin.view.image.ImageViewerDataview', {
                 }
             ],
             listeners: {
-                select: function (view, record, index) {
-                    //console.log(this.getViewModel());
-                    this.getViewModel().set('currentImage', record);
+                viewready: function (view) {
+                    view.getSelectionModel().select(view.getStore().getAt(0));
+                },
+                select: function (viewmodel, record, index) {
+                    var me = this,
+                        imageViewer = me.up('window').down('container'),
+                        image = imageViewer.getImage();
+
+                    if(record){
+                        me.up('window').getViewModel().set('currentImage', record.getData());
+                        //form.loadRecord(record);
+
+                        var imgLink = ArqAdmin.config.Runtime.getImagesCartografico() + record.getId() + '/600';
+                        image.setSrc(imgLink);
+                    }
+
+
                 }
             }
         }

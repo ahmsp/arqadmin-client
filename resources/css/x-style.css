@@ -438,3 +438,6 @@
     text-decoration:none;
 }
 
+.imageWrap .x-autocontainer-innerCt {
+    vertical-align: middle;
+}
