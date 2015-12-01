@@ -9,23 +9,20 @@ Ext.define('ArqAdmin.view.image.ImageViewerWindow', {
 
     viewModel: {
         data: {
-            title: 'Tititititititititi',
+            title: '',
             currentImage: ''
         }
     },
 
     height: 500,
     width: 500,
-    //border: 0,
-    //glyph: ArqAdmin.util.Glyphs.getGlyph('image'),
+    border: false,
+    glyph: ArqAdmin.util.Glyphs.getGlyph('image'),
     //cls: 'x-custom-imgprev-window',
     layout: 'border',
-    //bodyPadding: 10,
-    header: false,
-    //title: 'Visualização de imagens',
+    bodyPadding: 10,
+    title: 'Visualização de imagens',
     maximized: true,
-    //plain: true,
-    //frame: true,
 
     autoScroll: true,
     modal: true,
@@ -34,6 +31,10 @@ Ext.define('ArqAdmin.view.image.ImageViewerWindow', {
     //bodyStyle: {
     //    background: '#ececec'
     //},
+
+    style: {
+        border: 'none'
+    },
 
     bind: {
         //title: '{title}',

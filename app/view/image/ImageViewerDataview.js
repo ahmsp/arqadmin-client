@@ -39,7 +39,7 @@ Ext.define('ArqAdmin.view.image.ImageViewerDataview', {
                 },
                 select: function (viewmodel, record, index) {
                     var me = this,
-                        imageViewer = me.up('window').down('container'),
+                        imageViewer = me.up('window').down('container#imageViewer'),
                         image = imageViewer.getImage();
 
                     if(record){
@@ -49,7 +49,6 @@ Ext.define('ArqAdmin.view.image.ImageViewerDataview', {
                         var imgLink = ArqAdmin.config.Runtime.getImagesCartografico() + record.getId() + '/600';
                         image.setSrc(imgLink);
                     }
-
 
                 }
             }

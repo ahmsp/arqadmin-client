@@ -75,7 +75,7 @@ Ext.define('ArqAdmin.view.documental.image.desenhoTecnico.ImageDetail', {
         },
         {
             xtype: 'displayfield',
-            fieldLabel: 'Dimansão',
+            fieldLabel: 'Dimensão',
             bind: {
                 value: '{currentImage.dimensao}'
             }

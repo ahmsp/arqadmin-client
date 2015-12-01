@@ -175,7 +175,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         layout.setActiveItem(this.lookupReference(view));
     },
 
-    showImageViewerWindow: function (imageId) {
+    showImageViewerWindow: function () {
         var me = this,
             dtStore = me.getStore('desenhosTecnicos'),
             dataView = me.lookupReference('resultGallery').down('dataview'),

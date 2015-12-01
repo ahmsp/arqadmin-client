@@ -3,6 +3,7 @@ Ext.define('ArqAdmin.view.image.ImageViewer', {
     xtype: 'imageviewer',
 
     reference: 'imageViewer',
+    itemId: 'imageViewer',
 
     layout: {
         type: 'vbox',
@@ -33,22 +34,23 @@ Ext.define('ArqAdmin.view.image.ImageViewer', {
                     tooltipType: 'title'
                 },
                 items: [
-                    {
-                        xtype: 'label',
-                        style: {
-                            color: '#fff',
-                            'font-size': '14px',
-                            'font-weight': 'bold'
-                        },
-                        text: 'Visualização da imagem'
-                    },
-                    {
-                        xtype: 'tbfill'
-                    },
+                    //{
+                    //    xtype: 'label',
+                    //    style: {
+                    //        color: '#fff',
+                    //        'font-size': '14px',
+                    //        'font-weight': 'bold'
+                    //    },
+                    //    text: 'Imagem'
+                    //},
+                    //{
+                    //    xtype: 'tbfill'
+                    //},
                     {
                         xtype: 'button',
                         tooltip: 'Ajustar a largura da tela',
-                        icon: 'resources/ico/move_horizontal.png',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('close'),
+                        //icon: 'resources/ico/move_horizontal.png',
                         listeners: {click: me.stretchHorizontally, scope: me}
                     },
                     {
@@ -86,16 +88,16 @@ Ext.define('ArqAdmin.view.image.ImageViewer', {
                         tooltip: 'Rotacionar sentido anti-horário',
                         icon: 'resources/ico/undo.png',
                         listeners: {click: me.rotateAntiClockwise, scope: me}
-                    },
-                    {
-                        xtype: 'tbseparator'
-                    },
-                    {
-                        xtype: 'button',
-                        tooltip: 'Fechar vizualização da imagem',
-                        glyph: ArqAdmin.util.Glyphs.getGlyph('close'),
-                        listeners: {click: me.windowClose, scope: me}
                     }
+                    //{
+                    //    xtype: 'tbseparator'
+                    //},
+                    //{
+                    //    xtype: 'button',
+                    //    tooltip: 'Fechar vizualização da imagem',
+                    //    glyph: ArqAdmin.util.Glyphs.getGlyph('close'),
+                    //    listeners: {click: me.windowClose, scope: me}
+                    //}
                 ]
             },
             {
