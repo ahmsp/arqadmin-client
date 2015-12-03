@@ -113,7 +113,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     },
 
     onGridSelect: function (rowmodel, record, index, eOpts) {
-        var me = this;
+        var me = this,
+            imagesList = record.getData().desenhos_tecnicos;
 
         // selects record in both grids
         var layoutItems = me.lookupReference('resultsPanel').getLayout().getLayoutItems();
@@ -128,6 +129,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             }
         });
 
+        me.getStore('desenhosTecnicos').loadRawData(imagesList);
         me.getViewModel().set('record', record);
         me.detailsPanelLoadRecord(record, true);
     },
@@ -178,19 +180,13 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     showImageViewerWindow: function () {
         var me = this,
             dtStore = me.getStore('desenhosTecnicos'),
-            dataView = me.lookupReference('resultGallery').down('dataview'),
-            selectedRecord = dataView.getSelectionModel().getSelection()[0],
-            imagesList = selectedRecord.getData().desenhos_tecnicos,
             win = Ext.widget('imageviewer-window');
 
         win.add({
             xtype: 'dt-imagedetail',
             region: 'east'
         });
-
-        dtStore.loadRawData(imagesList);
         win.down('dataview').setStore(dtStore);
-
         win.show();
     },
 

@@ -14,6 +14,7 @@ Ext.define('ArqAdmin.view.image.ImageViewerDataview', {
 
             //bind: '{images}',
 
+            multiSelect: true,
             scrollable: true,
             cls: 'images-view',
             emptyText: '<span class="empty-text">Nenhuma imagem para exibir</span>',
@@ -34,23 +35,8 @@ Ext.define('ArqAdmin.view.image.ImageViewerDataview', {
                 }
             ],
             listeners: {
-                viewready: function (view) {
-                    view.getSelectionModel().select(view.getStore().getAt(0));
-                },
-                select: function (viewmodel, record, index) {
-                    var me = this,
-                        imageViewer = me.up('window').down('container#imageViewer'),
-                        image = imageViewer.getImage();
-
-                    if(record){
-                        me.up('window').getViewModel().set('currentImage', record.getData());
-                        //form.loadRecord(record);
-
-                        var imgLink = ArqAdmin.config.Runtime.getImagesCartografico() + record.getId() + '/600';
-                        image.setSrc(imgLink);
-                    }
-
-                }
+                viewready: 'onDataviewViewready',
+                select: 'onDataviewSelect'
             }
         }
     ]

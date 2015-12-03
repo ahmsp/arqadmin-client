@@ -4,14 +4,47 @@ Ext.define('ArqAdmin.view.image.ImageViewerWindow', {
 
     requires: [
         'ArqAdmin.view.image.ImageViewer',
-        'ArqAdmin.view.image.ImageViewerDataview'
+        'ArqAdmin.view.image.ImageViewerDataview',
+        'ArqAdmin.view.image.ImageViewerController',
+        'ArqAdmin.view.image.DownloadImageWindow'
     ],
 
+    controller: 'imageviewer',
     viewModel: {
         data: {
             title: '',
             currentImage: ''
         }
+        //stores: {
+        //    download: {
+        //        fields: [
+        //            {name: 'size'},
+        //            {name: 'px'},
+        //            {name: 'cm'},
+        //            {name: 'dpi'}
+        //        ],
+        //        data: [
+        //            {
+        //                "size": "Pequeno",
+        //                "px": "3.500",
+        //                "cm": "30",
+        //                "dpi": "72"
+        //            },
+        //            {
+        //                "size": "Pequeno",
+        //                "px": "3.500",
+        //                "cm": "30",
+        //                "dpi": "72"
+        //            },
+        //            {
+        //                "size": "Pequeno",
+        //                "px": "3.500",
+        //                "cm": "30",
+        //                "dpi": "72"
+        //            }
+        //        ]
+        //    }
+        //}
     },
 
     height: 500,

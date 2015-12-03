@@ -57,6 +57,9 @@ Ext.define('ArqAdmin.view.documental.image.desenhoTecnico.ImageDetail', {
             fieldLabel: 'Original',
             bind: {
                 value: '{currentImage.original}'
+            },
+            renderer: function (value, field) {
+                return (value) ? 'Sim' : '';
             }
         },
         {
@@ -64,6 +67,9 @@ Ext.define('ArqAdmin.view.documental.image.desenhoTecnico.ImageDetail', {
             fieldLabel: 'Cópia',
             bind: {
                 value: '{currentImage.copia}'
+            },
+            renderer: function (value, field) {
+                return (value) ? 'Sim' : '';
             }
         },
         {

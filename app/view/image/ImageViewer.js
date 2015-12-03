@@ -34,70 +34,70 @@ Ext.define('ArqAdmin.view.image.ImageViewer', {
                     tooltipType: 'title'
                 },
                 items: [
-                    //{
-                    //    xtype: 'label',
-                    //    style: {
-                    //        color: '#fff',
-                    //        'font-size': '14px',
-                    //        'font-weight': 'bold'
-                    //    },
-                    //    text: 'Imagem'
-                    //},
-                    //{
-                    //    xtype: 'tbfill'
-                    //},
                     {
                         xtype: 'button',
                         tooltip: 'Ajustar a largura da tela',
-                        glyph: ArqAdmin.util.Glyphs.getGlyph('close'),
-                        //icon: 'resources/ico/move_horizontal.png',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('expandHorizontal'),
                         listeners: {click: me.stretchHorizontally, scope: me}
                     },
                     {
                         xtype: 'button',
                         tooltip: 'Ajustar a altura da tela',
-                        icon: 'resources/ico/move_vertical.png',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('expandVertical'),
                         listeners: {click: me.stretchVertically, scope: me}
                     },
                     {
                         xtype: 'button',
                         tooltip: 'Ajustar a tela',
-                        icon: 'resources/ico/move_alt.png',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('adjust'),
                         listeners: {click: me.stretchOptimally, scope: me}
                     },
                     {
                         xtype: 'button',
                         tooltip: 'Aumentar',
-                        icon: 'resources/ico/zoom_in.png',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('zoomIn'),
                         listeners: {click: me.zoomIn, scope: me}
                     },
                     {
                         xtype: 'button',
                         tooltip: 'Diminuir',
-                        icon: 'resources/ico/zoom_out.png',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('zoomOut'),
                         listeners: {click: me.zoomOut, scope: me}
                     },
                     {
                         xtype: 'button',
                         tooltip: 'Rotacionar sentido horário',
-                        icon: 'resources/ico/redo.png',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('redo'),
                         listeners: {click: me.rotateClockwise, scope: me}
                     },
                     {
                         xtype: 'button',
                         tooltip: 'Rotacionar sentido anti-horário',
-                        icon: 'resources/ico/undo.png',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('undo'),
                         listeners: {click: me.rotateAntiClockwise, scope: me}
+                    },
+                    {
+                        xtype: 'tbfill'
+                    },
+                    {
+                        xtype: 'splitbutton',
+                        text: 'Salvar imagem',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('download'),
+                        handler: 'downloadImages',
+                        menu: [
+                            {
+                                text: 'Salvar esta imagem',
+                                glyph: ArqAdmin.util.Glyphs.getGlyph('image2'),
+                                handler: 'downloadImages'
+                            },
+                            {
+                                text: 'Salvar todas as imagens',
+                                glyph: ArqAdmin.util.Glyphs.getGlyph('images2'),
+                                action: 'allImages',
+                                handler: 'downloadImages'
+                            }
+                        ]
                     }
-                    //{
-                    //    xtype: 'tbseparator'
-                    //},
-                    //{
-                    //    xtype: 'button',
-                    //    tooltip: 'Fechar vizualização da imagem',
-                    //    glyph: ArqAdmin.util.Glyphs.getGlyph('close'),
-                    //    listeners: {click: me.windowClose, scope: me}
-                    //}
                 ]
             },
             {
