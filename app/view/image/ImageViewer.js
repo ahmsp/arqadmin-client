@@ -80,23 +80,10 @@ Ext.define('ArqAdmin.view.image.ImageViewer', {
                         xtype: 'tbfill'
                     },
                     {
-                        xtype: 'splitbutton',
+                        xtype: 'button',
                         text: 'Salvar imagem',
                         glyph: ArqAdmin.util.Glyphs.getGlyph('download'),
-                        handler: 'downloadImages',
-                        menu: [
-                            {
-                                text: 'Salvar esta imagem',
-                                glyph: ArqAdmin.util.Glyphs.getGlyph('image2'),
-                                handler: 'downloadImages'
-                            },
-                            {
-                                text: 'Salvar todas as imagens',
-                                glyph: ArqAdmin.util.Glyphs.getGlyph('images2'),
-                                action: 'allImages',
-                                handler: 'downloadImages'
-                            }
-                        ]
+                        handler: 'showDownloadImagesWindow'
                     }
                 ]
             },

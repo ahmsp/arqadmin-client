@@ -2,7 +2,10 @@ Ext.define('ArqAdmin.view.image.DownloadImageWindow', {
     extend: 'Ext.window.Window',
     xtype: 'download-window',
 
-    requires: [],
+    requires: [
+        'ArqAdmin.view.image.ImageViewerController'
+    ],
+    controller: 'imageviewer',
 
     //viewModel: {
     //    data: {
@@ -11,79 +14,121 @@ Ext.define('ArqAdmin.view.image.DownloadImageWindow', {
     //    }
     //},
 
-    height: 500,
+    height: 350,
     width: 500,
+    layout: 'border',
     glyph: ArqAdmin.util.Glyphs.getGlyph('download'),
-    bodyPadding: 10,
-    title: 'Download de imagens',
+    title: 'Download da imagem',
     draggable: false,
     autoScroll: true,
     modal: true,
     closable: true,
-
-    bind: {
-        //title: '{title}',
-        //glyph: '{glyph}'
+    bodyStyle: {
+        background: '#ececec'
     },
 
     items: [
         {
             xtype: 'form',
-            //title: 'My Form',
-            //layout: 'anchor',
+            reference: 'downloadImageForm',
+            //title: 'Download',
+            layout: 'anchor',
+            region: 'center',
+            bodyPadding: '10 15 0',
+            //margin: '10 20 20',
 
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'bottom',
+                    ui: 'toolbar-light',
+                    items: [
+                        {xtype: 'tbfill'},
+                        {
+                            xtype: 'button',
+                            text: 'Salvar imagem',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('download'),
+                            handler: 'downloadImage'
+                        },
+                        {
+                            xtype: 'button',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('cancel'),
+                            text: 'Cancelar',
+                            handler: function (button) {
+                                button.up('window').close();
+                            }
+                        }
+                    ]
+                }
+            ],
             items: [
+                {
+                    xtype: 'hiddenfield',
+                    name: 'id',
+                    value: ''
+                },
+                {
+                    xtype: 'displayfield',
+                    //fieldLabel: 'Imagem',
+                    //labelAlign: 'top',
+                    name: 'descricao',
+                    value: '',
+                    fieldStyle: {
+                        'font-size': '18px  !important',
+                        'line-height': '130%',
+                        'font-weight': 'bold'
+                    },
+                    padding: 0
+                },
                 {
                     xtype: 'fieldset',
                     flex: 1,
-                    title: 'tamanho das imagens',
+                    title: 'Tamanho da imagem',
                     defaultType: 'radio',
                     layout: 'anchor',
                     defaults: {
                         anchor: '100%'
                     },
+                    margin: '15 0 10',
                     items: [
                         {
                             xtype: 'radiogroup',
-                            //fieldLabel: 'Single Column',
                             columns: 1,
                             items: [
-                                {boxLabel: 'Padrão: 1500px ou 10cm (maior lado); 72dpi; formato: jpg', name: 'size', inputValue: 1},
-                                {boxLabel: 'Padrão: 3500px ou 30cm (maior lado); 300dpi; formato: jpg', name: 'size', inputValue: 2, checked: true},
-                                {boxLabel: 'Item 3', name: 'size', inputValue: 3}
+                                {
+                                    boxLabel: 'Média: 1800px ou 15cm (maior lado); 300dpi; formato: jpg',
+                                    name: 'img_size',
+                                    inputValue: 'medium'
+                                },
+                                {
+                                    boxLabel: 'Grande (padrão): 3600px ou 30cm (maior lado); 300dpi; formato: jpg',
+                                    name: 'img_size',
+                                    inputValue: 'standard',
+                                    checked: true
+                                },
+                                {
+                                    boxLabel: 'Grande: 3600px ou 30cm (maior lado); 300dpi; formato: tif',
+                                    name: 'img_size',
+                                    inputValue: 'large'
+                                },
+                                {
+                                    boxLabel: 'Original*: Tamanho original da imagem digitalizada.',
+                                    name: 'img_size',
+                                    inputValue: 'original'
+                                }
                             ]
                         }
+                    ]
+                },
+                {
+                    xtype: 'component',
+                    html: [
+                        'Obs.: Na opção da imagem original, ',
+                        'dependendo do formato, pode ser necessário programa ',
+                        'especifico para visualização ou edição da imagem.'
                     ]
                 }
             ]
         }
-        //{
-        //    xtype: 'gridpanel',
-        //    height: 250,
-        //    width: 400,
-        //    title: 'My Grid Panel',
-        //    columns: [
-        //        {
-        //            xtype: 'gridcolumn',
-        //            dataIndex: 'string',
-        //            text: 'String'
-        //        },
-        //        {
-        //            xtype: 'numbercolumn',
-        //            dataIndex: 'number',
-        //            text: 'Number'
-        //        },
-        //        {
-        //            xtype: 'datecolumn',
-        //            dataIndex: 'date',
-        //            text: 'Date'
-        //        },
-        //        {
-        //            xtype: 'booleancolumn',
-        //            dataIndex: 'bool',
-        //            text: 'Boolean'
-        //        }
-        //    ]
-        //}
     ]
 });
