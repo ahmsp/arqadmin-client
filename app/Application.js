@@ -26,7 +26,9 @@ Ext.define('ArqAdmin.Application', {
         'OAuth'
     ],
 
-    stores: [],
+    stores: [
+        'documental.Documentos'
+    ],
 
     glyphFontFamily: 'icomoon',
 
