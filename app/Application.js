@@ -27,7 +27,7 @@ Ext.define('ArqAdmin.Application', {
     ],
 
     stores: [
-        'documental.Documentos'
+        //'documental.Documentos'
     ],
 
     glyphFontFamily: 'icomoon',

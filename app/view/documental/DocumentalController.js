@@ -39,7 +39,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             });
         });
 
-        grid.filters.clearFilters(true);
+        //grid.filters.clearFilters(true);
         store.clearFilter(true);
         store.filter(filters);
     },
