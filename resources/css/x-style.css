@@ -441,3 +441,8 @@
 .imageWrap .x-autocontainer-innerCt {
     vertical-align: middle;
 }
+
+.x-toast {
+    border-style: none;
+    background-color: transparent;
+}

@@ -142,6 +142,7 @@ Ext.define('ArqAdmin.controller.StaticData', {
                     store.sync({
                         success: function (conn, response, options, eOpts) {
                             store.reload();
+                            ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi removido com êxito!');
                         }
                     });
                 }

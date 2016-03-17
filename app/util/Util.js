@@ -72,8 +72,8 @@ Ext.define('ArqAdmin.util.Util', {
             Ext.toast({
                 html: '<strong>' + emphasis + '</strong>&nbsp; ' + text,
                 closable: false,
-                align: 'tr',
-                useXAxis: true,
+                align: 't',
+                //useXAxis: true,
                 slideInAnimation: 'easeInOut',
                 slideInDuration: 300,
                 autoCloseDelay: 3000, // default: 3000
