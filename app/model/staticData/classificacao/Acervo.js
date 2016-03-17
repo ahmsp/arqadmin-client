@@ -13,5 +13,15 @@ Ext.define('ArqAdmin.model.staticData.classificacao.Acervo', {
         { name: 'serie_id' },
         { name: 'subserie_id' },
         { name: 'dossie_id' }
-    ]
+    ],
+
+    validators: {
+        acervo_nome: [
+            { type: 'presence'},
+            { type: 'length', min: 3, max: 45}
+        ],
+        descricao: [
+            { type: 'length', max: 45}
+        ]
+    }
 });

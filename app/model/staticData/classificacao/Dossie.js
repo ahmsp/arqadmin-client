@@ -11,5 +11,12 @@ Ext.define('ArqAdmin.model.staticData.classificacao.Dossie', {
         { name: 'serie_id' },
         { name: 'subserie_id' },
         { name: 'dossie_nome', sortType: 'asUCString'}
-    ]
+    ],
+
+    validators: {
+        dossie_nome: [
+            { type: 'presence'},
+            { type: 'length', min: 3, max: 75}
+        ]
+    }
 });

@@ -22,7 +22,8 @@ Ext.define('ArqAdmin.view.staticData.documental.Conservacoes', {
             dataIndex: 'conservacao_estado',
             editor: {
                 allowBlank: false,
-                maxLength: 15
+                maxLength: 15,
+                minLenght: 3
             },
             filter: {
                 type: 'string',

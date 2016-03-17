@@ -5,5 +5,12 @@ Ext.define('ArqAdmin.model.staticData.classificacao.Especiedocumental', {
 
     fields: [
         { name: 'especiedocumental_nome', sortType: 'asUCString'}
-    ]
+    ],
+
+    validators: {
+        especiedocumental_nome: [
+            { type: 'presence'},
+            { type: 'length', min: 3, max: 145}
+        ]
+    }
 });

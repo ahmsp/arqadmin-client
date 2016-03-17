@@ -72,25 +72,16 @@ Ext.define('ArqAdmin.controller.StaticData', {
 
         me.control({
             'staticdatagrid': {
-                //render: me.render,
-                //edit: me.onEdit,
-                afterrender: me.onAfterRender,
+                render: me.onRender,
+                edit: me.onRowEditingEdit,
+                canceledit: me.onRowEditingCanceledit,
                 widgetclick: me.onWidgetClick
             },
             'staticdatagrid button#add': {
                 click: me.onButtonClickAdd
             },
-            'staticdatagrid button#save': {
-                click: me.onButtonClickSave
-            },
-            'staticdatagrid button#cancel': {
-                click: me.onButtonClickCancel
-            },
             'staticdatagrid button#clearFilter': {
                 click: me.onButtonClickClearFilter
-            },
-            'citiesgrid button#clearGrouping': {
-                toggle: me.onButtonToggleClearGrouping
             }
         });
     },
@@ -101,75 +92,42 @@ Ext.define('ArqAdmin.controller.StaticData', {
         });
     },
 
-    onStoreSync: function (store, operation, options) {
-        console.log('sync');
-
-        ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com êxito!');
+    onRender: function (component, eOpts) {
+        Ext.grid.RowEditor.prototype.cancelBtnText = "Cancelar";
+        Ext.grid.RowEditor.prototype.saveBtnText = "Atualizar";
     },
-
-    //render: function (component, options) {
-    //    //component.getStore().load();
-    //
-    //    if (component.xtype === 'citiesgrid' && component.features.length > 0) {
-    //        if (component.features[0].ftype === 'grouping') {
-    //            component.down('toolbar#topToolbar').add([
-    //                {
-    //                    xtype: 'tbseparator'
-    //                },
-    //                {
-    //                    xtype: 'button',
-    //                    itemId: 'clearGrouping',
-    //                    text: 'Group by Country: ON',
-    //                    glyph: Packt.util.Glyphs.getGlyph('groupCountry'),
-    //                    enableToggle: true,
-    //                    pressed: true
-    //                }
-    //            ]);
-    //        }
-    //    }
-    //},
 
     onButtonClickAdd: function (button, e, options) {
         var grid = button.up('staticdatagrid'),
             store = grid.getStore(),
             modelName = store.getModel().getName(),
-            cellEditing = grid.getPlugin('cellplugin'),
+            rowEditing = grid.getPlugin('rowEditing'),
             newRecord = Ext.create(modelName);
 
         newRecord.setId(null);
         store.insert(0, newRecord);
-
-        cellEditing.startEditByPosition({row: 0, column: 1});
+        rowEditing.startEdit(newRecord, 1);
     },
 
-    onButtonClickSave: function (button, e, options) {
-        var grid = button.up('staticdatagrid'),
-            store = grid.getStore(),
-            errors = grid.validate();
+    onRowEditingEdit: function (editor, context, options) {
+        var store = context.grid.getStore();
 
-        if (errors === undefined) {
-            store.sync({
-                success: function (batch, options) {
-                    store.load();
-                    ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com êxito!');
-                }
-            });
-        } else {
-            Ext.Msg.alert(errors);
+        store.sync({
+            success: function (batch, options) {
+                store.reload();
+                ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com êxito!');
+            }
+        });
+    },
+
+    onRowEditingCanceledit: function (editor, context, eOpts) {
+        // Canceling editing of a locally added, unsaved record: remove it
+        if (context.record.phantom) {
+            context.grid.getStore().remove(context.record);
         }
     },
 
-    //onEdit: function (editor, context, options) {
-    //    context.record.set('last_update', new Date());
-    //},
-
-    onButtonClickCancel: function (button, e, options) {
-        button.up('staticdatagrid').getStore().reload();
-    },
-
     onButtonClickClearFilter: function (button, e, options) {
-        console.log(button.up('staticdatagrid').filters);
-
         button.up('staticdatagrid').filters.clearFilters();
     },
 
@@ -177,14 +135,17 @@ Ext.define('ArqAdmin.controller.StaticData', {
         var store = grid.getStore(),
             rec = button.getWidgetRecord();
 
-        store.remove(rec);
-        Ext.Msg.alert('Excluir', 'Salve as alterações para efetivar a exclusão dos registro removidos');
-    },
-
-    onAfterRender: function (grid, options) {
-        var view = grid.getView();
-        view.on('itemupdate', function (record, index, node, options) {
-            grid.validateRow(record, index, node, options);
-        });
+        if (rec) {
+            Ext.Msg.confirm('Confirmação de esclusão', 'Você tem certeza que deseja excluir este registro?', function (result) {
+                if (result == 'yes') {
+                    store.remove(rec);
+                    store.sync({
+                        success: function (conn, response, options, eOpts) {
+                            store.reload();
+                        }
+                    });
+                }
+            });
+        }
     }
 });
