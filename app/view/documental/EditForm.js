@@ -323,7 +323,9 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar estados de conservação',
-                            tooltipType: 'title'
+                            tooltipType: 'title',
+                            action: 'conservacoes-grid',
+                            handler: 'onButtonStaticDataClick'
                         }
                     ]
                 },

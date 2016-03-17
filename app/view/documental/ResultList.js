@@ -37,5 +37,8 @@ Ext.define('ArqAdmin.view.documental.ResultList', {
             text: 'Dados do Item',
             flex: 1
         }
-    ]
+    ],
+    listeners: {
+        cellclick: 'onGridCellClick'
+    }
 });

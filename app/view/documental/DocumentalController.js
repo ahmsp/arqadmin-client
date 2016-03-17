@@ -140,8 +140,18 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         this.showImageViewerWindow(imgId);
     },
 
-    onGridCelldblclick: function () {
-        this.onEdit();
+    onGridCellClick: function (grid, td, cellIndex, record, tr, rowIndex, e, eOpts) {
+        var me = this;
+
+        if (cellIndex === 0 && !Ext.isEmpty(record.data.desenhos_tecnicos)) {
+            me.showImageViewerWindow();
+        }
+    },
+
+    onGridCelldblclick: function (grid, td, cellIndex) {
+        if (cellIndex !== 0) {
+            this.onEdit();
+        }
     },
 
     onGridClearFilters: function () {
@@ -354,6 +364,28 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         );
 
         return (recordIndex == -1) ? null : store.getAt(recordIndex).getId();
+    },
+
+    onButtonStaticDataClick: function (button) {
+
+        var win = Ext.widget('staticdata-window', {
+            title: button.tooltip.toUpperCase(),
+            //animateTarget: button
+            listeners: {
+                close: function () {
+                    var grid = this.down('gridpanel');
+                    grid.filters.clearFilters();
+                    grid.getStore().reload();
+                }
+            }
+        });
+
+        win.add({
+            xtype: button.action,
+            region: 'center'
+        });
+
+        win.show();
     },
 
     onAdd: function () {
