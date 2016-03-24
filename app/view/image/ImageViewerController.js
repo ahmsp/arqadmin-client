@@ -1,10 +1,6 @@
 Ext.define('ArqAdmin.view.image.ImageViewerController', {
-    extend: 'ArqAdmin.view.base.ViewController',
+    extend: 'ArqAdmin.view.base.AcervosViewController',
     alias: 'controller.imageviewer',
-
-    onDataviewViewready: function (view) {
-        view.getSelectionModel().select(view.getStore().getAt(0));
-    },
 
     onDataviewSelect: function (viewmodel, record, index) {
         var me = this,
@@ -13,13 +9,60 @@ Ext.define('ArqAdmin.view.image.ImageViewerController', {
             image = imageViewer.getImage();
 
         if (record) {
-            me.getViewModel().set('currentImage', record.getData());
+            me.getViewModel().set('record', record);
+            me.detailsPanelLoadRecord(record, true);
 
             var imgLink = ArqAdmin.config.Runtime.getImagesCartografico() + record.getId() + '/600';
             image.setSrc(imgLink);
         }
     },
 
+    onGridCelldblclick: function (grid, td, cellIndex) {
+        if (cellIndex !== 0) {
+            this.onEdit();
+        }
+    },
+
+    onAdd: function () {
+        var me = this,
+            editForm = me.lookupReference('imageViewerForm'),
+            newRecord = Ext.create('ArqAdmin.model.desenho.DesenhoTecnico');
+
+        newRecord.setId(null);
+
+        if (editForm.isDirty()) {
+            Ext.Msg.show({
+                title: 'Formulário editado!',
+                msg: 'Os dados do formulário foram alterados. <br />Você deseja descartar as alterações?',
+                buttons: Ext.Msg.YESNO,
+                animateTarget: 'button',
+                icon: Ext.Msg.QUESTION,
+                fn: function (btn, ev) {
+                    if (btn == 'yes') {
+                        me.editFormLoadRecord(newRecord, true);
+                    }
+                }
+            });
+        } else {
+            me.editFormLoadRecord(newRecord, true);
+        }
+    },
+
+    onEdit: function () {
+        var me = this,
+            record = me.getViewModel().get('record');
+
+        me.editFormLoadRecord(record, true);
+    },
+
+
+    /**
+     * Download images
+     */
+
+    /**
+     * Show download window
+     */
     showDownloadImagesWindow: function () {
         var me = this,
             dataview = me.getView().down('dataview'),

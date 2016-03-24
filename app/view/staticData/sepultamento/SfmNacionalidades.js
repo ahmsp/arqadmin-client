@@ -1,8 +1,8 @@
-Ext.define('ArqAdmin.view.staticData.documental.Conservacoes', {
+Ext.define('ArqAdmin.view.staticData.sepultamento.SfmNacionalidades', {
     extend: 'ArqAdmin.view.staticData.BaseGrid',
-    xtype: 'conservacoes-grid',
+    xtype: 'nacionalidades-grid',
 
-    store: 'staticData.documental.Conservacoes',
+    store: 'staticData.classificacao.SfmNacionalidades',
 
     columns: [
         {
@@ -18,14 +18,14 @@ Ext.define('ArqAdmin.view.staticData.documental.Conservacoes', {
             }
         },
         {
-            text: 'Estado de Conservação',
+            text: 'Nacionalidades',
             flex: 1,
             tdCls: 'td-align-middle',
-            dataIndex: 'conservacao_estado',
+            dataIndex: 'nacionalidade',
             editor: {
                 allowBlank: false,
-                maxLength: 15,
-                minLength: 3
+                minLength: 3,
+                maxLength: 145
             },
             filter: {
                 type: 'string',

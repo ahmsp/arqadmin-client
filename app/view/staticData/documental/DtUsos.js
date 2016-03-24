@@ -1,8 +1,8 @@
-Ext.define('ArqAdmin.view.staticData.documental.Conservacoes', {
+Ext.define('ArqAdmin.view.staticData.documental.DtUsos', {
     extend: 'ArqAdmin.view.staticData.BaseGrid',
-    xtype: 'conservacoes-grid',
+    xtype: 'usos-grid',
 
-    store: 'staticData.documental.Conservacoes',
+    store: 'staticData.documental.DtUsos',
 
     columns: [
         {
@@ -21,10 +21,10 @@ Ext.define('ArqAdmin.view.staticData.documental.Conservacoes', {
             text: 'Estado de Conservação',
             flex: 1,
             tdCls: 'td-align-middle',
-            dataIndex: 'conservacao_estado',
+            dataIndex: 'uso',
             editor: {
                 allowBlank: false,
-                maxLength: 15,
+                maxLength: 75,
                 minLength: 3
             },
             filter: {

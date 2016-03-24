@@ -1,6 +1,21 @@
-Ext.define('ArqAdmin.view.documental.image.desenhoTecnico.ImageDetail', {
-    extend: 'ArqAdmin.view.image.BaseImageViewerDetail',
-    xtype: 'dt-imagedetail',
+Ext.define('ArqAdmin.view.documental.image.ImageViewerDetail', {
+    extend: 'Ext.form.Panel',
+    xtype: 'imageviewer-detail',
+
+    reference: 'imageViewerDetailsPanel',
+    autoScroll: true,
+    cls: 'display-panel',
+    defaults: {
+        bodyPadding: '6 0 0',
+        margin: '4 0 0',
+        labelWidth: 150
+    },
+
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
+    bodyPadding: '4 8 0',
 
     items: [
         {
@@ -8,6 +23,16 @@ Ext.define('ArqAdmin.view.documental.image.desenhoTecnico.ImageDetail', {
             fieldLabel: 'Código interno',
             bind: {
                 value: '{currentImage.id}'
+            }
+        },
+        {
+            xtype: 'displayfield',
+            fieldLabel: 'Acervo tipo',
+            bind: {
+                value: '{currentImage.acervo_tipo}'
+            },
+            renderer: function (value, field) {
+                return (value === 'cartografico') ? 'Cartográfico' : 'Textual';
             }
         },
         {
@@ -123,9 +148,9 @@ Ext.define('ArqAdmin.view.documental.image.desenhoTecnico.ImageDetail', {
         },
         {
             xtype: 'displayfield',
-            fieldLabel: 'Nome do arquivo',
+            fieldLabel: 'Nome do arquivo (original)',
             bind: {
-                value: '{currentImage.arquivo_nome}'
+                value: '{currentImage.arquivo_original}'
             }
         }
     ]

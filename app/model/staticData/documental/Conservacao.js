@@ -5,12 +5,5 @@ Ext.define('ArqAdmin.model.staticData.documental.Conservacao', {
 
     fields: [
         { name: 'conservacao_estado', sortType: 'asUCString'}
-    ],
-
-    validators: {
-        conservacao_estado: [
-            { type: 'presence'},
-            { type: 'length', min: 3, max: 15}
-        ]
-    }
+    ]
 });

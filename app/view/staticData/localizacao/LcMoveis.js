@@ -1,8 +1,8 @@
-Ext.define('ArqAdmin.view.staticData.documental.Conservacoes', {
+Ext.define('ArqAdmin.view.staticData.localizacao.LcMoveis', {
     extend: 'ArqAdmin.view.staticData.BaseGrid',
-    xtype: 'conservacoes-grid',
+    xtype: 'moveis-grid',
 
-    store: 'staticData.documental.Conservacoes',
+    store: 'staticData.localizacao.LcMoveis',
 
     columns: [
         {
@@ -18,14 +18,14 @@ Ext.define('ArqAdmin.view.staticData.documental.Conservacoes', {
             }
         },
         {
-            text: 'Estado de Conservação',
+            text: 'Sala',
             flex: 1,
             tdCls: 'td-align-middle',
-            dataIndex: 'conservacao_estado',
+            dataIndex: 'movel',
             editor: {
                 allowBlank: false,
-                maxLength: 15,
-                minLength: 3
+                minLength: 3,
+                maxLength: 45
             },
             filter: {
                 type: 'string',

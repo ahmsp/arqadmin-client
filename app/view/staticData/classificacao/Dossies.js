@@ -1,8 +1,8 @@
-Ext.define('ArqAdmin.view.staticData.documental.Conservacoes', {
+Ext.define('ArqAdmin.view.staticData.classificacao.Dossies', {
     extend: 'ArqAdmin.view.staticData.BaseGrid',
-    xtype: 'conservacoes-grid',
+    xtype: 'dossies-grid',
 
-    store: 'staticData.documental.Conservacoes',
+    store: 'staticData.classificacao.Dossies',
 
     columns: [
         {
@@ -18,14 +18,14 @@ Ext.define('ArqAdmin.view.staticData.documental.Conservacoes', {
             }
         },
         {
-            text: 'Estado de Conservação',
+            text: 'Dossiê',
             flex: 1,
             tdCls: 'td-align-middle',
-            dataIndex: 'conservacao_estado',
+            dataIndex: 'dossie_nome',
             editor: {
                 allowBlank: false,
-                maxLength: 15,
-                minLength: 3
+                minLength: 3,
+                maxLength: 145
             },
             filter: {
                 type: 'string',

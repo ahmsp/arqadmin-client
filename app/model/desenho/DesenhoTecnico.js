@@ -11,6 +11,9 @@ Ext.define('ArqAdmin.model.desenho.DesenhoTecnico', {
             reference: 'documental.Documento'
         },
         {
+            name: 'acervo_tipo'
+        },
+        {
             name: 'notacao'
         },
         {
@@ -104,6 +107,9 @@ Ext.define('ArqAdmin.model.desenho.DesenhoTecnico', {
         },
         {
             name: 'arquivo_nome'
+        },
+        {
+            name: 'arquivo_original'
         }
     ]
 });

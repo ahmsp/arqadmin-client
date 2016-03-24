@@ -5,7 +5,12 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
     data: {
         moduleTitle: 'Acervo Documental / Cartográfico',
         displayPanelTitle: 'Detalhes do registro',
-        displayPanelActiveItem: ''
+        displayPanelActiveItem: '',
+
+        detailPanelReference: 'detailsPanel',
+        editFormReference: 'editForm',
+        displayPanelReference: 'displayPanel'
+
     },
 
     stores: {
@@ -48,57 +53,17 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
 
     },
 
-
-    //links: {
-    //    //currentItem: record || Ext.create('ArqAdmin.model.documental.Documento')
-    //    currentItem: record || {
-    //        type: 'Documento',
-    //        create: true
-    //    }
-    //},
-
     formulas: {
-        editFormActive: function (get) {
-            return get('displayPanelActiveItem') === 'editForm';
-        }
-        
-        //desenhos: {
-        //    bind: {
-        //        bindTo: '{documentos.desenhos_tecnicos}',
-        //        deep: true
-        //    },
-        //
-        //    get: function(value){
-        //        var values = value ? value.split(',') : [],
-        //            texts = [];
-        //        values.forEach(function(item){
-        //            texts.push(Ext.create('Packt.model.TextCombo',{
-        //                text: item
-        //            }));
-        //        });
-        //        return texts;
-        //    }
-        //}
 
-        //currentItem: {
-        //
-        //    bind: {
-        //        bindTo: '{resultTable.selection}',
-        //        deep: true
-        //    },
-        //
-        //    get: function (documento) {
-        //        return documento;
-        //    },
-        //
-        //    set: function (documento) {
-        //        var me = this;
-        //        if (!documento.isModel) {
-        //            documento = me.get('documentos').getById(documento);
-        //        }
-        //        me.set('currentItem', documento);
-        //    }
-        //}
+        displayPanelTitle: function (get) {
+            var title = 'Detalhes do registro';
+
+            if (get('displayPanelActiveItem') == 'editForm') {
+                title = (get('record').getId()) ? 'Editar registro' : 'Novo registro';
+            }
+
+            return title;
+        }
 
     }
 

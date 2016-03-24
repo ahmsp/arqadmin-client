@@ -1,7 +1,8 @@
 Ext.define('ArqAdmin.view.documental.FilterForm', {
     extend: 'Ext.form.Panel',
-
     xtype: 'documental-filterform',
+
+    reference: 'filterForm',
 
     requires: [
         'Ext.button.Button',

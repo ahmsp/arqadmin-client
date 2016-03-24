@@ -1,9 +1,9 @@
 Ext.define('ArqAdmin.view.documental.DocumentalController', {
-    extend: 'ArqAdmin.view.base.ViewController',
+    extend: 'ArqAdmin.view.base.AcervosViewController',
     alias: 'controller.documental',
 
     control: {
-        "#classificFieldset combobox": {
+        "#editClassificFieldset combobox": {
             change: 'onCascadingComboChange',
             focus: 'onCascadingComboFocus'
         },
@@ -135,9 +135,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     },
 
     onButtonShowImageClick: function (event, target) {
-        var imgId = target.id.split('-').pop();
-
-        this.showImageViewerWindow(imgId);
+        //var imgId = target.id.split('-').pop();
+        this.showImageViewerWindow();
     },
 
     onGridCellClick: function (grid, td, cellIndex, record, tr, rowIndex, e, eOpts) {
@@ -182,105 +181,50 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         layout.setActiveItem(item);
     },
 
-    showViewDisplayPanel: function (view) {
-        var layout = this.getReferences().displayPanel.getLayout();
-        layout.setActiveItem(this.lookupReference(view));
-    },
+    //showViewDisplayPanel: function (view) {
+    //    var layout = this.lookupReference('displayPanel').getLayout();
+    //    layout.setActiveItem(view);
+    //},
 
     showImageViewerWindow: function () {
         var me = this,
             dtStore = me.getStore('desenhosTecnicos'),
             win = Ext.widget('imageviewer-window');
 
-        win.add({
-            xtype: 'dt-imagedetail',
-            region: 'east'
-        });
         win.down('dataview').setStore(dtStore);
         win.show();
-    },
-
-    onDisplayPanelChildActivate: function (page, eOpts) {
-        this.getViewModel().set('displayPanelActiveItem', page.reference);
-    },
-
-    /**
-     * Loads an {@link Ext.data.Model} into this form
-     *
-     * @param {Ext.data.Model} record The record to load
-     * @param {boolean} showForm
-     */
-    editFormLoadRecord: function (record, showForm) {
-        var me = this,
-            combosRefs = me.lookupReference('classificFieldset').getReferences(),
-            form = me.lookupReference('editForm');
-
-        //record.get('id');
-        var $title = (Ext.Object.isEmpty(record)) ? 'Novo registro' : 'Editar registro';
-
-        me.forceResetForm(form);
-        //me.clearFilterCascadingCombos(combosRefs); //todo: remove
-        form.loadRecord(record);
-        me.changeDisableCascadingCombos(combosRefs);
-
-        if (showForm) {
-            me.showViewDisplayPanel('editForm');
-            me.getViewModel().set('displayPanelTitle', $title);
-        }
-    },
-
-    /**
-     *
-     * @param {Ext.data.Record} record
-     * @param {boolean} showForm
-     */
-    detailsPanelLoadRecord: function (record, showForm) {
-        var me = this;
-
-        me.lookupReference('detailsPanel').loadRecord(record);
-        if (showForm) {
-            me.getViewModel().set('displayPanelTitle', 'Detalhes do registro');
-            me.showViewDisplayPanel('detailsPanel');
-        }
     },
 
     onAcervoComboSelect: function (combo, records, eOpts) {
         var me = this,
             formPanel = combo.up('panel'),
+            formPanelRef = formPanel.reference,
             form = formPanel.getForm(),
-            values = records.getData();
-
-        var classificFieldset = (formPanel.xtype === 'documental-editform') ? 'classificFieldset' : 'filterClassificFieldset';
-        var combosRefs = me.lookupReference(classificFieldset).getReferences();
+            values = records.getData(),
+            fieldset = (formPanelRef === 'editForm') ? 'editClassificFieldset' : 'filterClassificFieldset',
+            combos = me.lookupReference(fieldset).getReferences();
 
         delete values.id;
-        me.clearFilterCascadingCombos(combosRefs);
+        me.clearFilterCascadingCombos(combos);
 
         form.setValues(values);
-        //me.changeDisableCascadingCombos(combosRefs);
 
-        if (formPanel.xtype === 'documental-editform') {
+        if (formPanelRef === 'editForm') {
             me.lookupReference('especiedocumentalCombo').focus(true, 180);
         }
     },
 
     onCascadingComboChange: function (combo, records, eOpts, conn) {
         var me = this,
-            formPanel = combo.up('panel');
-
-        if (formPanel.xtype === 'documental-editform') {
-            var classificFieldset = 'classificFieldset';
-            var acervoCombo = 'acervoCombo';
-        } else {
-            var classificFieldset = 'filterClassificFieldset';
-            var acervoCombo = 'filterAcervoCombo';
-        }
-
-        var combosRefs = me.lookupReference(classificFieldset).getReferences();
+            formPanel = combo.up('panel'),
+            formRef = formPanel.reference,
+            acervoComboRef = (formRef === 'editForm') ? 'editAcervoCombo' : 'filterAcervoCombo',
+            fieldset = (formRef === 'editForm') ? 'editClassificFieldset' : 'filterClassificFieldset',
+            combos = me.lookupReference(fieldset).getReferences();
 
         // clear all next combos
         var start = false;
-        Ext.Object.each(combosRefs, function (key, cb, obj) {
+        Ext.Object.each(combos, function (key, cb, obj) {
             // check if this is next combo
             if (cb === combo.next()) {
                 start = true;
@@ -291,8 +235,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             }
         });
 
-        me.changeDisableCascadingCombos(combosRefs);
-        me.lookupReference(acervoCombo).setValue(me.findAcervoId(formPanel.getValues()));
+        me.changeDisableCascadingCombos(formRef);
+        me.lookupReference(acervoComboRef).setValue(me.findAcervoId(formPanel.getValues()));
     },
 
     onCascadingComboFocus: function (component, event, eOpts) {
@@ -308,16 +252,14 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
         comboStore.clearFilter();
 
-        // filter the combo based in parent cobo value (id)
+        // filter the combo based in parent combo value (id)
         comboStore.filterBy(function (record) {
             return record.get(filterProperty) === prevCombo.value;
         });
     },
 
     /* Clear the filters of cascading combos */
-    clearFilterCascadingCombos: function (combosReferences) {
-        var combos = combosReferences;
-
+    clearFilterCascadingCombos: function (combos) {
         Ext.Object.each(combos, function (key, combo, obj) {
             combo.getStore().clearFilter();
         });
@@ -326,17 +268,20 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     /*
      * Change the disabled state of cascading combos,
      * based on defined values
+     *
+     * @param {string} form reference ('filterForm'|'editForm')
      */
-    changeDisableCascadingCombos: function (combosReferences) {
-        var combos = combosReferences;
+    changeDisableCascadingCombos: function (formRef) {
+        var me = this,
+            fieldset = (formRef === 'filterForm') ? 'filterClassificFieldset' : 'editClassificFieldset',
+            combos = me.lookupReference(fieldset).getReferences();
 
         var lastSelectedCombo = null;
         Ext.Object.each(combos, function (key, combo, obj) {
-
             if (!Ext.isEmpty(combo.value)) {
                 combo.enable();
                 lastSelectedCombo = combo;
-            } else if (combo !== combos.fundoCombo) {
+            } else if (combo.reference !== 'fundoCombo') {
                 combo.disable();
             }
         });
@@ -350,13 +295,13 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
         var recordIndex = store.findBy(
             function (rec, id) {
-                if ((classificacaoData.fundo_id || null) === rec.get('fundo_id') &&
-                    (classificacaoData.subfundo_id || null) === rec.get('subfundo_id') &&
-                    (classificacaoData.grupo_id || null) === rec.get('grupo_id') &&
-                    (classificacaoData.subgrupo_id || null) === rec.get('subgrupo_id') &&
-                    (classificacaoData.serie_id || null) === rec.get('serie_id') &&
-                    (classificacaoData.subserie_id || null) === rec.get('subserie_id') &&
-                    (classificacaoData.dossie_id || null) === rec.get('dossie_id')) {
+                if ((classificacaoData.fundo_id || 0) === rec.get('fundo_id') &&
+                    (classificacaoData.subfundo_id || 0) === rec.get('subfundo_id') &&
+                    (classificacaoData.grupo_id || 0) === rec.get('grupo_id') &&
+                    (classificacaoData.subgrupo_id || 0) === rec.get('subgrupo_id') &&
+                    (classificacaoData.serie_id || 0) === rec.get('serie_id') &&
+                    (classificacaoData.subserie_id || 0) === rec.get('subserie_id') &&
+                    (classificacaoData.dossie_id || 0) === rec.get('dossie_id')) {
                     return true;
                 }
                 return false;
@@ -364,28 +309,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         );
 
         return (recordIndex == -1) ? null : store.getAt(recordIndex).getId();
-    },
-
-    onButtonStaticDataClick: function (button) {
-
-        var win = Ext.widget('staticdata-window', {
-            title: button.tooltip.toUpperCase(),
-            //animateTarget: button
-            listeners: {
-                close: function () {
-                    var grid = this.down('gridpanel');
-                    grid.filters.clearFilters();
-                    grid.getStore().reload();
-                }
-            }
-        });
-
-        win.add({
-            xtype: button.action,
-            region: 'center'
-        });
-
-        win.show();
     },
 
     onAdd: function () {
@@ -405,11 +328,13 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                 fn: function (btn, ev) {
                     if (btn == 'yes') {
                         me.editFormLoadRecord(newRecord, true);
+                        me.changeDisableCascadingCombos('editForm');
                     }
                 }
             });
         } else {
             me.editFormLoadRecord(newRecord, true);
+            me.changeDisableCascadingCombos('editForm');
             me.deselectAllGrids();
         }
     },
@@ -422,8 +347,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         record.set('acervo_id', acervoId);
 
         me.editFormLoadRecord(record, true);
-        me.getViewModel().set('displayPanelTitle', 'Editar registro');
-        me.showViewDisplayPanel('editForm');
+        me.changeDisableCascadingCombos('editForm');
     },
 
     onSave: function () {
@@ -450,8 +374,9 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             store.sync({
                 scope: me,
                 success: function (batch, options) {
-                    var operations = batch.getOperations();
-                    var result = Ext.decode(operations[0].getResponse().responseText);
+                    var operations = batch.getOperations(),
+                        result = Ext.decode(operations[0].getResponse().responseText);
+
                     store.load({
                         scope: me,
                         callback: function (records, operation, success) {
@@ -504,18 +429,16 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         });
     },
 
-    onCancelEdit: function (button, e, eOpts) {
-        this.showViewDisplayPanel('detailsPanel');
-    },
-
     onTextfieldSpecialkey: function (field, e, eOpts) {
 
         if (e.getKey() == e.ENTER) {
             var form = field.up('form');
-            if (form.xtype === 'documental-filterform') {
-                this.lookupReference('btnPesquisar').fireHandler();
-            } else if (form.xtype === 'documental-editform') {
-                this.lookupReference('btnSave').fireHandler();
+            if (form) {
+                if (form.xtype === 'documental-filterform') {
+                    this.lookupReference('btnPesquisar').fireHandler();
+                } else if (form.xtype === 'documental-editform') {
+                    this.lookupReference('btnSave').fireHandler();
+                }
             }
         }
     }

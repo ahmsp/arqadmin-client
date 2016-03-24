@@ -1,6 +1,6 @@
-Ext.define('ArqAdmin.view.image.ImageViewer', {
+Ext.define('ArqAdmin.view.image.ImageViewerImg', {
     extend: 'Ext.container.Container',
-    xtype: 'imageviewer',
+    xtype: 'imageviewer-img',
 
     reference: 'imageViewer',
     itemId: 'imageViewer',
@@ -84,6 +84,27 @@ Ext.define('ArqAdmin.view.image.ImageViewer', {
                         text: 'Salvar imagem',
                         glyph: ArqAdmin.util.Glyphs.getGlyph('download'),
                         handler: 'showDownloadImagesWindow'
+                    },
+                    {
+                        xtype: 'tbseparator'
+                    },
+                    {
+                        xtype: 'button',
+                        itemId: 'btnAdd',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
+                        //text: 'Novo',
+                        tooltip: 'Adicionar nova imagem',
+                        handler: 'onAdd'
+                    },
+                    {
+                        xtype: 'button',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
+                        //text: 'Editar',
+                        tooltip: 'Editar a imagem selecionada',
+                        bind: {
+                            disabled: '{!resultTable.selection}'
+                        },
+                        handler: 'onEdit'
                     }
                 ]
             },

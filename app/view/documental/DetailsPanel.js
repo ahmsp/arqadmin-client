@@ -1,12 +1,6 @@
 Ext.define('ArqAdmin.view.documental.DetailsPanel', {
-    //extend: 'Ext.panel.Panel',
     extend: 'Ext.form.Panel',
     xtype: 'documental-detailspanel',
-
-    requires: [
-        'Ext.panel.Panel',
-        'Ext.form.field.Display'
-    ],
 
     reference: 'detailsPanel',
     autoScroll: true,
@@ -424,32 +418,7 @@ Ext.define('ArqAdmin.view.documental.DetailsPanel', {
             title: 'Imagens digitalizadas',
             items: [
                 {
-                    xtype: 'dataview',
-                    bind: {
-                        store: '{desenhosTecnicos}'
-                    },
-                    scrollable: true,
-                    cls: 'images-view',
-                    //emptyText: '<span class="empty-text">Nenhuma imagem para exibir</span>',
-                    itemSelector: 'div.thumb-wrap',
-                    trackOver: true,
-                    overItemCls: 'x-item-over',
-                    tpl: [
-                        '<tpl for=".">',
-                        '<div class="thumb-wrap thumb-wrap-small">',
-                        '<div class="thumb">{[this.getImage(values.id)]}</div>',
-                        '</div>',
-                        '</tpl>',
-                        {
-                            getImage: function (id) {
-                                var imgPath = ArqAdmin.config.Runtime.getImagesCartografico() + id + '/100';
-                                return '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">';
-                            }
-                        }
-                    ],
-                    listeners: {
-                        select: 'showImageViewerWindow'
-                    }
+                    xtype: 'documental-thumbsdataview'
                 }
             ]
         }

@@ -36,7 +36,9 @@ Ext.define('ArqAdmin.view.image.ImageViewerDataview', {
             ],
             listeners: {
                 viewready: 'onDataviewViewready',
-                select: 'onDataviewSelect'
+                select: 'onDataviewSelect',
+                itemclick: 'onDataviewSelect',
+                itemdblclick: 'onGridCelldblclick'
             }
         }
     ]

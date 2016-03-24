@@ -22,7 +22,7 @@ Ext.define('ArqAdmin.view.staticData.BaseGrid', {
             },
             {
                 ptype: 'rowediting',
-                clicksToEdit: 1,
+                clicksToEdit: 2,
                 pluginId: 'rowEditing',
                 errorSummary: false
             }
@@ -34,12 +34,26 @@ Ext.define('ArqAdmin.view.staticData.BaseGrid', {
                 dock: 'top',
                 ui: 'toolbar-light',
                 itemId: 'topToolbar',
+                defaults: {
+                    tooltipType: 'title'
+                },
                 items: [
                     {
                         xtype: 'button',
                         itemId: 'add',
-                        text: 'Adicionar novo',
-                        glyph: ArqAdmin.util.Glyphs.getGlyph('add')
+                        text: 'Novo',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
+                        tooltip: 'Adicionar novo atalho de Classificação'
+                    },
+                    {
+                        xtype: 'button',
+                        itemId: 'edit',
+                        text: 'Editar',
+                        glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
+                        tooltip: 'Editar o item selecionado',
+                        bind: {
+                            disabled: '{!acervosGrid.selection}'
+                        }
                     },
                     {
                         xtype: 'tbfill'
@@ -59,6 +73,7 @@ Ext.define('ArqAdmin.view.staticData.BaseGrid', {
             [
                 {
                     xtype: 'widgetcolumn',
+                    tdCls: 'td-align-middle',
                     width: 50,
                     sortable: false,
                     menuDisabled: true,
