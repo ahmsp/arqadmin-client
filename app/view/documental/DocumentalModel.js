@@ -31,35 +31,20 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
 
         // Static data
         //fundos: {source: 'staticData.classificacao.Fundos'},
-        //conservacoes: {source: 'staticData.documental.Conservacoes'},
-        //dtUsos: {source: 'staticData.documental.DtUsos'},
-        //acervos: {source: 'staticData.classificacao.Acervos'},
-        //subfundos: {source: 'staticData.classificacao.Subfundos'},
-        //grupos: {source: 'staticData.classificacao.Grupos'},
-        //subgrupos: {source: 'staticData.classificacao.Subgrupos'},
-        //series: {source: 'staticData.classificacao.Series'},
-        //subseries: {source: 'staticData.classificacao.Subseries'},
-        //dossies: {source: 'staticData.classificacao.Dossies'},
-        //especiedocumentais: {source: 'staticData.classificacao.Especiedocumentais'},
-        //dtConservacoes: {source: 'staticData.desenhoTecnico.DtConservacoes'},
-        //dtEscalas: {source: 'staticData.desenhoTecnico.DtEscalas'},
-        //dtSuportes: {source: 'staticData.desenhoTecnico.DtSuportes'},
-        //dtTecnicas: {source: 'staticData.desenhoTecnico.DtTecnicas'},
-        //dtTipos: {source: 'staticData.desenhoTecnico.DtTipos'},
-        //lcAcondicionamentos: {source: 'staticData.localizacao.LcAcondicionamentos'},
-        //lcCompartimentos: {source: 'staticData.localizacao.LcCompartimentos'},
-        //lcMoveis: {source: 'staticData.localizacao.LcMoveis'},
-        //lcSalas: {source: 'staticData.localizacao.LcSalas'}
-
+        //...
     },
 
     formulas: {
+
+        //test: function (get) {
+        //    console.log(get('record'));
+        //},
 
         displayPanelTitle: function (get) {
             var title = 'Detalhes do registro';
 
             if (get('displayPanelActiveItem') == 'editForm') {
-                title = (get('record').getId()) ? 'Editar registro' : 'Novo registro';
+                title = get('record').phantom ? 'Novo registro' : 'Editar registro';
             }
 
             return title;

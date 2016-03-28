@@ -147,8 +147,8 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
             layout: 'card',
             bodyBorder: true,
             collapsible: true,
-            title: {
-                bind: '{displayPanelTitle}'
+            bind: {
+                title: '{displayPanelTitle}'
             },
             defaults: {
                 listeners: {

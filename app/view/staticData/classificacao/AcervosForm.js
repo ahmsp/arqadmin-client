@@ -13,11 +13,9 @@ Ext.define('ArqAdmin.view.staticData.classificacao.AcervosForm', {
         type: 'vbox',
         align: 'stretch'
     },
-
     bind: {
         disabled: '{!acervosGrid.selection}'
     },
-
     defaults: {
         queryMode: 'local',
         triggers: {
@@ -57,29 +55,28 @@ Ext.define('ArqAdmin.view.staticData.classificacao.AcervosForm', {
                 },
                 {
                     xtype: 'button',
-                    itemId: 'saveButton',
+                    itemId: 'save',
                     glyph: ArqAdmin.util.Glyphs.getGlyph('save'),
                     text: 'Salvar',
                     reference: 'btnSave',
-                    tooltip: 'Salvar classificação para o atalho selecionado',
-                    listeners: {
-                        click: 'onSave'
-                    }
+                    tooltip: 'Salvar classificação para o atalho selecionado'
                 },
                 {
                     xtype: 'button',
-                    itemId: 'cancelButton',
+                    itemId: 'cancel',
                     glyph: ArqAdmin.util.Glyphs.getGlyph('cancel'),
                     text: 'Cancelar',
-                    tooltip: 'Cancelar edição de classificação',
-                    listeners: {
-                        click: 'onCancelEdit'
-                    }
+                    tooltip: 'Cancelar edição de classificação'
                 }
             ]
         }
     ],
     items: [
+        {
+            xtype: 'hiddenfield',
+            name: 'id',
+            value: null
+        },
         {
             xtype: 'combobox',
             reference: 'fundoCombo',

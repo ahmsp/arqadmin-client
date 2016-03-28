@@ -22,7 +22,7 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerModel', {
             var title = 'Detalhes da Imagem';
 
             if (get('displayPanelActiveItem') == 'imageViewerForm') {
-                title = (get('record').getId()) ? 'Editar imagem' : 'Nova imagem';
+                title = get('record').phantom ? 'Editar imagem' : 'Nova imagem';
             }
 
             return title;

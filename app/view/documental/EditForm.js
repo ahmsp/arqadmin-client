@@ -232,6 +232,9 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                     xtype: 'displayfield',
                     fieldLabel: 'Registro nº',
                     name: 'id'
+                    //bind: {
+                    //    value: '{record.id}'
+                    //}
                 },
                 {
                     xtype: 'container',
@@ -676,7 +679,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                     tooltip: 'Editar ou adicionar novas imagens',
                     tooltipType: 'title',
                     bind: {
-                        disabled: '{!record.data.id}'
+                        disabled: '{!record.id}'
                     },
                     handler: 'showImageViewerWindow'
                 },

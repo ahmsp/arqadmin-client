@@ -93,6 +93,12 @@ Ext.define('ArqAdmin.controller.StaticData', {
             'staticdatagrid button#clearFilter': {
                 click: me.onButtonClickClearFilter
             },
+            'acervos-form button#save': {
+                click: me.onAcervoFormSave
+            },
+            'acervos-form button#cancel': {
+                click: me.onAcervoFormCancel
+            },
             "acervos-form combobox": {
                 change: 'onCascadingComboChange',
                 focus: 'onCascadingComboFocus'
@@ -261,6 +267,55 @@ Ext.define('ArqAdmin.controller.StaticData', {
         });
         if (lastSelectedCombo) {
             lastSelectedCombo.next().enable();
+        }
+    },
+
+    onAcervoFormSave: function () {
+        var me = this,
+            form = me.getAcervosForm(),
+            formBasic = form.getForm(),
+            record = form.getRecord(),
+            values = form.getValues(),
+            store = me.getStore('staticData.classificacao.Acervos');
+
+        if (!form.isDirty()) {
+            return;
+        }
+
+        if (formBasic.isValid()) {
+
+            record.set(values);
+
+            if (record.phantom) {
+                record.setId(null);
+                store.add(record);
+            }
+
+            store.sync({
+                scope: me,
+                success: function (batch, options) {
+                    store.load();
+                    ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com êxito!');
+                },
+                failure: function (batch, options) {
+                    ArqAdmin.util.Util.showToast('danger', 'Erro!', 'Não foi possivel atualizar o registro!');
+                }
+            });
+
+        } else {
+            ArqAdmin.util.Util.showToast('danger', 'Erro!', 'O formulário contém dados inválidos!');
+        }
+    },
+
+    onAcervoFormCancel: function (button, e, eOpts) {
+        var me = this,
+            form = me.getAcervosForm(),
+            record = form.getRecord();
+
+        form.reset(true);
+
+        if (record.phantom) {
+            form.loadRecord(record);
         }
     }
 
