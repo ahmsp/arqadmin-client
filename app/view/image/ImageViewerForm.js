@@ -14,16 +14,10 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
         align: 'stretch'
     },
     defaults: {
+        padding: '6 12 5',
         layout: {
             type: 'vbox',
             align: 'stretch'
-        },
-        queryMode: 'local',
-        triggers: {
-            clear: {
-                type: 'clear',
-                clearOnEscape: true
-            }
         }
     },
     fieldDefaults: {
@@ -82,281 +76,368 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
     ],
     items: [
         {
-            xtype: 'displayfield',
-            fieldLabel: 'Código interno',
-            name: 'id'
+            xtype: 'hiddenfield',
+            name: 'documento_id',
+            value: ''
         },
         {
-            xtype: 'combobox',
-            fieldLabel: 'Acervo Tipo',
-            name: 'acervo_tipo',
-            //queryMode: 'local',
-            allowBlank: false,
-            store: [
-                ['cartografico','Cartográfico'],
-                ['textual', 'Textual']
-            ]
-        },
-        {
-            xtype: 'textareafield',
-            fieldLabel: 'Descrição',
-            name: 'descricao'
-        },
-        {
-            xtype: 'textfield',
-            fieldLabel: 'Notação',
-            name: '{currentImage.notacao}'
-        },
-        {
-            xtype: 'textfield',
-            fieldLabel: 'Prancha nº',
-            name: '{currentImage.prancha_num}'
-        },
-        {
-            xtype: 'textfield',
-            fieldLabel: 'Original nº',
-            name: '{currentImage.original_num}'
-        },
-        {
-            xtype: 'textfield',
-            fieldLabel: 'Data',
-            name: '{currentImage.desenho_data}'
-        },
-        {
-            xtype: 'textfield',
-            fieldLabel: 'Desenhista',
-            name: '{currentImage.desenhista}'
-        },
-        {
-            xtype: 'textfield',
-            fieldLabel: 'Original',
-            name: '{currentImage.original}',
-            renderer: function (value, field) {
-                return (value) ? 'Sim' : '';
-            }
-        },
-        {
-            xtype: 'textfield',
-            fieldLabel: 'Cópia',
-            name: '{currentImage.copia}',
-            renderer: function (value, field) {
-                return (value) ? 'Sim' : '';
-            }
-        },
-        {
-            xtype: 'container',
-            margin: '0 0 5',
-            layout: {
-                type: 'hbox',
-                align: 'stretch'
+            xtype: 'fieldset',
+            title: 'Tipo de Acervo',
+            defaults: {
+                queryMode: 'local',
+                triggers: {
+                    clear: {
+                        type: 'clear',
+                        clearOnEscape: true
+                    }
+                }
             },
             items: [
                 {
                     xtype: 'combobox',
-                    flex: 1,
-                    fieldLabel: 'Tipo',
-                    name: 'dt_tipo_id',
-                    displayField: 'tipo',
-                    store: 'staticData.desenhoTecnico.DtTipos',
-                    valueField: 'id',
-                    triggers: {
-                        clear: {
-                            type: 'clear',
-                            clearOnEscape: true
-                        }
-                    }
-                },
-                {
-                    xtype: 'tbspacer',
-                    width: 3
-                },
-                {
-                    xtype: 'button',
-                    margin: '3 0',
-                    ui: 'default-toolbar-small',
-                    glyph: 58895,
-                    tooltip: 'Editar Tipos',
-                    tooltipType: 'title',
-                    action: 'tipos-grid',
-                    handler: 'onButtonStaticDataClick'
+                    fieldLabel: 'Acervo',
+                    name: 'acervo_tipo',
+                    reference: 'acervoTipo',
+                    allowBlank: false,
+                    store: [
+                        ['cartografico', 'Cartográfico'],
+                        ['textual', 'Textual']
+                    ]
                 }
             ]
         },
         {
-            xtype: 'textfield',
-            fieldLabel: 'Dimensão',
-            name: '{currentImage.dimensao}'
-        },
-        {
-            xtype: 'displayfield',
-            fieldLabel: 'Suporte',
-            name: '{currentImage.dt_suporte.suporte}'
-        },
-        {
-            xtype: 'container',
-            margin: '0 0 5',
-            layout: {
-                type: 'hbox',
-                align: 'stretch'
+            xtype: 'fieldset',
+            title: 'Dados Gerais',
+            bind: {
+                disabled: '{!acervoTipo.selection}'
+            },
+            defaults: {
+                queryMode: 'local',
+                triggers: {
+                    clear: {
+                        type: 'clear',
+                        clearOnEscape: true
+                    }
+                }
             },
             items: [
                 {
-                    xtype: 'combobox',
-                    flex: 1,
-                    fieldLabel: 'Suporte',
-                    name: 'dt_suporte_id',
-                    displayField: 'suporte',
-                    store: 'staticData.desenhoTecnico.DtSuportes',
-                    valueField: 'id',
-                    triggers: {
-                        clear: {
-                            type: 'clear',
-                            clearOnEscape: true
-                        }
+                    xtype: 'displayfield',
+                    fieldLabel: 'Código interno',
+                    name: 'id',
+                    bind: {
+                        hidden: '{!record.id}'
                     }
                 },
                 {
-                    xtype: 'tbspacer',
-                    width: 3
+                    xtype: 'textareafield',
+                    fieldLabel: 'Descrição',
+                    name: 'descricao',
+                    allowBlank: false,
+                    minLength: 3
                 },
                 {
-                    xtype: 'button',
-                    margin: '3 0',
-                    ui: 'default-toolbar-small',
-                    glyph: 58895,
-                    tooltip: 'Editar Suportes',
-                    tooltipType: 'title',
-                    action: 'suportes-grid',
-                    handler: 'onButtonStaticDataClick'
+                    xtype: 'textfield',
+                    fieldLabel: 'Notação',
+                    name: 'notacao'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'Data',
+                    name: 'desenho_data'
+                },
+                {
+                    xtype: 'radiogroup',
+                    fieldLabel: 'Original',
+                    columns: 2,
+                    margin: '0 0 12',
+                    items: [
+                        { boxLabel: 'Sim', name: 'original', inputValue: '1' },
+                        { boxLabel: 'Não', name: 'original', inputValue: '0', checked: true}
+                    ]
+                },
+                {
+                    xtype: 'radiogroup',
+                    fieldLabel: 'Cópia',
+                    columns: 2,
+                    margin: '0 0 10',
+                    items: [
+                        { boxLabel: 'Sim', name: 'copia', inputValue: '1' },
+                        { boxLabel: 'Não', name: 'copia', inputValue: '0', checked: true}
+                    ]
+                },
+                {
+                    xtype: 'textareafield',
+                    fieldLabel: 'Notas',
+                    name: 'notas'
+                },
+                {
+                    xtype: 'container',
+                    margin: '0 0 5',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            flex: 1,
+                            fieldLabel: 'Estado de Conservação',
+                            name: 'dt_conservacao_id',
+                            displayField: 'conservacao',
+                            store: 'staticData.desenhoTecnico.DtConservacoes',
+                            valueField: 'id',
+                            triggers: {
+                                clear: {
+                                    type: 'clear',
+                                    clearOnEscape: true
+                                }
+                            }
+                        },
+                        {
+                            xtype: 'tbspacer',
+                            width: 3
+                        },
+                        {
+                            xtype: 'button',
+                            margin: '3 0',
+                            ui: 'default-toolbar-small',
+                            glyph: 58895,
+                            tooltip: 'Editar Estados de Conservação',
+                            tooltipType: 'title',
+                            action: 'dtconservacoes-grid',
+                            handler: 'onButtonStaticDataClick'
+                        }
+                    ]
                 }
             ]
         },
         {
-            xtype: 'container',
-            margin: '0 0 5',
-            layout: {
-                type: 'hbox',
-                align: 'stretch'
+            xtype: 'fieldset',
+            title: 'Dados Específicos (Cartográfico)',
+            bind: {
+                hidden: '{!isCartografico}'
+            },
+            defaults: {
+                queryMode: 'local',
+                triggers: {
+                    clear: {
+                        type: 'clear',
+                        clearOnEscape: true
+                    }
+                }
             },
             items: [
                 {
-                    xtype: 'combobox',
-                    flex: 1,
-                    fieldLabel: 'Escala',
-                    name: 'dt_escala_id',
-                    displayField: 'escala',
-                    store: 'staticData.desenhoTecnico.DtEscalas',
-                    valueField: 'id',
-                    triggers: {
-                        clear: {
-                            type: 'clear',
-                            clearOnEscape: true
+                    xtype: 'textfield',
+                    fieldLabel: 'Prancha nº',
+                    name: 'prancha_num'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'Original nº',
+                    name: 'original_num'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'Desenhista',
+                    name: 'desenhista'
+                },
+
+                {
+                    xtype: 'container',
+                    margin: '0 0 5',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            flex: 1,
+                            fieldLabel: 'Tipo',
+                            name: 'dt_tipo_id',
+                            displayField: 'tipo',
+                            store: 'staticData.desenhoTecnico.DtTipos',
+                            valueField: 'id',
+                            triggers: {
+                                clear: {
+                                    type: 'clear',
+                                    clearOnEscape: true
+                                }
+                            }
+                        },
+                        {
+                            xtype: 'tbspacer',
+                            width: 3
+                        },
+                        {
+                            xtype: 'button',
+                            margin: '3 0',
+                            ui: 'default-toolbar-small',
+                            glyph: 58895,
+                            tooltip: 'Editar Tipos',
+                            tooltipType: 'title',
+                            action: 'tipos-grid',
+                            handler: 'onButtonStaticDataClick'
                         }
-                    }
+                    ]
                 },
                 {
-                    xtype: 'tbspacer',
-                    width: 3
+                    xtype: 'textfield',
+                    fieldLabel: 'Dimensão',
+                    name: 'dimensao'
                 },
                 {
-                    xtype: 'button',
-                    margin: '3 0',
-                    ui: 'default-toolbar-small',
-                    glyph: 58895,
-                    tooltip: 'Editar Escalas',
-                    tooltipType: 'title',
-                    action: 'escalas-grid',
-                    handler: 'onButtonStaticDataClick'
+                    xtype: 'container',
+                    margin: '0 0 5',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            flex: 1,
+                            fieldLabel: 'Suporte',
+                            name: 'dt_suporte_id',
+                            displayField: 'suporte',
+                            store: 'staticData.desenhoTecnico.DtSuportes',
+                            valueField: 'id',
+                            triggers: {
+                                clear: {
+                                    type: 'clear',
+                                    clearOnEscape: true
+                                }
+                            }
+                        },
+                        {
+                            xtype: 'tbspacer',
+                            width: 3
+                        },
+                        {
+                            xtype: 'button',
+                            margin: '3 0',
+                            ui: 'default-toolbar-small',
+                            glyph: 58895,
+                            tooltip: 'Editar Suportes',
+                            tooltipType: 'title',
+                            action: 'suportes-grid',
+                            handler: 'onButtonStaticDataClick'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'container',
+                    margin: '0 0 5',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            flex: 1,
+                            fieldLabel: 'Escala',
+                            name: 'dt_escala_id',
+                            displayField: 'escala',
+                            store: 'staticData.desenhoTecnico.DtEscalas',
+                            valueField: 'id',
+                            triggers: {
+                                clear: {
+                                    type: 'clear',
+                                    clearOnEscape: true
+                                }
+                            }
+                        },
+                        {
+                            xtype: 'tbspacer',
+                            width: 3
+                        },
+                        {
+                            xtype: 'button',
+                            margin: '3 0',
+                            ui: 'default-toolbar-small',
+                            glyph: 58895,
+                            tooltip: 'Editar Escalas',
+                            tooltipType: 'title',
+                            action: 'escalas-grid',
+                            handler: 'onButtonStaticDataClick'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'container',
+                    margin: '0 0 5',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            flex: 1,
+                            fieldLabel: 'Técnica',
+                            name: 'dt_tecnica_id',
+                            displayField: 'tecnica',
+                            store: 'staticData.desenhoTecnico.DtTecnicas',
+                            valueField: 'id',
+                            triggers: {
+                                clear: {
+                                    type: 'clear',
+                                    clearOnEscape: true
+                                }
+                            }
+                        },
+                        {
+                            xtype: 'tbspacer',
+                            width: 3
+                        },
+                        {
+                            xtype: 'button',
+                            margin: '3 0',
+                            ui: 'default-toolbar-small',
+                            glyph: 58895,
+                            tooltip: 'Editar Técnicas',
+                            tooltipType: 'title',
+                            action: 'tecnicas-grid',
+                            handler: 'onButtonStaticDataClick'
+                        }
+                    ]
                 }
             ]
         },
         {
-            xtype: 'container',
-            margin: '0 0 5',
-            layout: {
-                type: 'hbox',
-                align: 'stretch'
+            xtype: 'fieldset',
+            title: 'Imagem (Arquivo)',
+            bind: {
+                disabled: '{!acervoTipo.selection}'
             },
             items: [
                 {
-                    xtype: 'combobox',
-                    flex: 1,
-                    fieldLabel: 'Técnica',
-                    name: 'dt_tecnica_id',
-                    displayField: 'tecnica',
-                    store: 'staticData.desenhoTecnico.DtTecnicas',
-                    valueField: 'id',
-                    triggers: {
-                        clear: {
-                            type: 'clear',
-                            clearOnEscape: true
-                        }
+                    xtype: 'displayfield',
+                    fieldLabel: 'Nome do arquivo (original)',
+                    name: 'arquivo_original',
+                    bind: {
+                        hidden: '{!record.arquivo_original}'
+                        // value: '{currentImage.arquivo_original}'
                     }
                 },
                 {
-                    xtype: 'tbspacer',
-                    width: 3
-                },
-                {
-                    xtype: 'button',
-                    margin: '3 0',
-                    ui: 'default-toolbar-small',
-                    glyph: 58895,
-                    tooltip: 'Editar Técnicas',
-                    tooltipType: 'title',
-                    action: 'tecnicas-grid',
-                    handler: 'onButtonStaticDataClick'
-                }
-            ]
-        },
-        {
-            xtype: 'textareafield',
-            fieldLabel: 'Notas',
-            name: '{currentImage.notas}'
-        },
-        {
-            xtype: 'container',
-            margin: '0 0 5',
-            layout: {
-                type: 'hbox',
-                align: 'stretch'
-            },
-            items: [
-                {
-                    xtype: 'combobox',
-                    flex: 1,
-                    fieldLabel: 'Estado de Conservação',
-                    name: 'dt_conservacao_id',
-                    displayField: 'conservacao',
-                    store: 'staticData.desenhoTecnico.DtConservacoes',
-                    valueField: 'id',
-                    triggers: {
-                        clear: {
-                            type: 'clear',
-                            clearOnEscape: true
-                        }
+                    xtype: 'filefield',
+                    // buttonOnly: true,
+                    msgTarget: 'side',
+                    allowBlank: false,
+                    fieldLabel: 'Imagem',
+                    name: 'arquivo_original',
+                    emptyText: 'Carregar imagem...',
+                    buttonText: 'Selecione...',
+                    listeners: {
+                        change: 'onFileFieldChange'
                     }
-                },
-                {
-                    xtype: 'tbspacer',
-                    width: 3
-                },
-                {
-                    xtype: 'button',
-                    margin: '3 0',
-                    ui: 'default-toolbar-small',
-                    glyph: 58895,
-                    tooltip: 'Editar Estados de Conservação',
-                    tooltipType: 'title',
-                    action: 'dtconservacoes-grid',
-                    handler: 'onButtonStaticDataClick'
                 }
             ]
-        },
-        {
-            xtype: 'displayfield',
-            fieldLabel: 'Nome do arquivo',
-            name: '{currentImage.arquivo_nome}'
         }
     ]
 });

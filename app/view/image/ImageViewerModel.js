@@ -12,6 +12,16 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerModel', {
         displayPanelReference: 'imageViewerDisplayPanel'
     },
 
+    // stores: {
+    //     desenhosTecnicos: {
+    //         model: 'ArqAdmin.model.desenho.DesenhoTecnico',
+    //         autoLoad: false,
+    //         pageSize: 100,
+    //         remoteFilter: true,
+    //         remoteSort: true
+    //     }
+    // },
+
     formulas: {
 
         currentImage: function (get) {
@@ -26,6 +36,16 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerModel', {
             }
 
             return title;
+        },
+
+        isCartografico: {
+            bind: {
+                bindTo: '{acervoTipo.selection}',
+                deep: true
+            },
+            get: function(record) {
+                return record ? record.data.field1 === 'cartografico' : false;
+            }
         }
     }
 

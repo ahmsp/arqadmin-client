@@ -11,6 +11,7 @@ Ext.define('ArqAdmin.view.image.ImageViewerDataview', {
     items: [
         {
             xtype: 'dataview',
+            reference: 'imageViewerDataview',
 
             //bind: '{images}',
 
@@ -38,7 +39,8 @@ Ext.define('ArqAdmin.view.image.ImageViewerDataview', {
                 viewready: 'onDataviewViewready',
                 select: 'onDataviewSelect',
                 itemclick: 'onDataviewSelect',
-                itemdblclick: 'onGridCelldblclick'
+                itemdblclick: 'onGridCelldblclick',
+                deselect: 'onImageviewerDataviewDeselect'
             }
         }
     ]

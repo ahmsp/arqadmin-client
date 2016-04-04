@@ -117,11 +117,10 @@ Ext.define('ArqAdmin.Application', {
     },
 
     onRequestException: function (conn, response, options) {
-        var me = this,
-            error = ArqAdmin.util.Util.decodeJSON(response.responseText);
+        var error = ArqAdmin.util.Util.decodeJSON(response.responseText);
 
         // check if request is a refreshtoken of "launch" method
-        if (options.jsonData.checktoken) {
+        if (options.jsonData && options.jsonData.checktoken) {
             return true;
         }
 

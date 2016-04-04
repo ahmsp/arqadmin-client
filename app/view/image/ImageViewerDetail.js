@@ -84,7 +84,7 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerDetail', {
                 value: '{currentImage.original}'
             },
             renderer: function (value, field) {
-                return (value) ? 'Sim' : '';
+                return (value) ? 'Sim' : 'Não';
             }
         },
         {
@@ -94,7 +94,7 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerDetail', {
                 value: '{currentImage.copia}'
             },
             renderer: function (value, field) {
-                return (value) ? 'Sim' : '';
+                return (value) ? 'Sim' : 'Não';
             }
         },
         {

@@ -10,7 +10,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
         detailPanelReference: 'detailsPanel',
         editFormReference: 'editForm',
         displayPanelReference: 'displayPanel'
-
     },
 
     stores: {

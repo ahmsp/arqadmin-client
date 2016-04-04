@@ -25,21 +25,21 @@ Ext.define('ArqAdmin.util.Util', {
             });
         },
 
-        //handleFormFailure: function (action) {
-        //    var me = this,
-        //        result = ArqAdmin.util.Util.decodeJSON(action.response.responseText);
-        //
-        //    switch (action.failureType) {
-        //        case Ext.form.action.Action.CLIENT_INVALID:
-        //            me.showErrorMsg('O formulário não pode ser submetido com valores inválidos');
-        //            break;
-        //        case Ext.form.action.Action.CONNECT_FAILURE:
-        //            me.showErrorMsg(action.response.responseText);
-        //            break;
-        //        case Ext.form.action.Action.SERVER_INVALID:
-        //            me.showErrorMsg(result.message);
-        //    }
-        //},
+        handleFormFailure: function (action) {
+            var me = this,
+                result = ArqAdmin.util.Util.decodeJSON(action.response.responseText);
+
+            switch (action.failureType) {
+                case Ext.form.action.Action.CLIENT_INVALID:
+                    me.showErrorMsg('O formulário contém valores inválidos');
+                    break;
+                case Ext.form.action.Action.CONNECT_FAILURE:
+                    me.showErrorMsg(action.response.responseText);
+                    break;
+                case Ext.form.action.Action.SERVER_INVALID:
+                    me.showErrorMsg(result.message);
+            }
+        },
 
         showToast: function (type, emphasis, text) {
 

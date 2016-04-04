@@ -191,7 +191,12 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             dtStore = me.getStore('desenhosTecnicos'),
             win = Ext.widget('imageviewer-window');
 
+        win.getViewModel().set('documentoId', me.getViewModel().get('record').getId());
+
         win.down('dataview').setStore(dtStore);
+        win.on('close', function () {
+            me.getStore('documentos').reload();
+        });
         win.show();
     },
 

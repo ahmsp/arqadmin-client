@@ -88,6 +88,16 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                             handler: 'onEdit'
                         },
                         {
+                            xtype: 'button',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('images2'),
+                            //text: 'Editar',
+                            tooltip: 'Editar ou adicionar novas imagens',
+                            bind: {
+                                disabled: '{!resultTable.selection}'
+                            },
+                            handler: 'showImageViewerWindow'
+                        },
+                        {
                             xtype: 'tbseparator'
                         },
                         {

@@ -5,6 +5,14 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
     reference: 'editForm',
     scrollable: true,
     cls: 'custom-form-panel',
+    bodyPadding: 10,
+    header: false,
+    title: 'Editar registro',
+    trackResetOnLoad: true,
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
     defaults: {
         padding: '6 12 5',
         layout: {
@@ -12,20 +20,12 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
             align: 'stretch'
         }
     },
-    bodyPadding: 10,
-    header: false,
-    title: 'Editar registro',
-    trackResetOnLoad: true,
     fieldDefaults: {
         msgTarget: 'side',
         labelWidth: 150,
         queryMode: 'local',
         forceSelection: true,
         typeAhead: true
-    },
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
     },
     dockedItems: [
         {
@@ -112,7 +112,6 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar classificação',
-                            tooltipType: 'title',
                             action: 'acervos-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -268,7 +267,6 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar espécie documental',
-                            tooltipType: 'title',
                             action: 'especiedocumental-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -331,7 +329,6 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar estados de conservação',
-                            tooltipType: 'title',
                             action: 'conservacoes-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -394,7 +391,6 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar Usos (Desenho Técnico)',
-                            tooltipType: 'title',
                             action: 'usos-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -521,7 +517,6 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar salas',
-                            tooltipType: 'title',
                             action: 'salas-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -560,7 +555,6 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar móveis',
-                            tooltipType: 'title',
                             action: 'moveis-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -604,7 +598,6 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar compartimentos',
-                            tooltipType: 'title',
                             action: 'compartimentos-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -648,7 +641,6 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar acondicionamentos',
-                            tooltipType: 'title',
                             action: 'acondicionamentos-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -677,7 +669,6 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                     text: 'Editar / Adicionar novas imagens',
                     //glyph: 58895,
                     tooltip: 'Editar ou adicionar novas imagens',
-                    tooltipType: 'title',
                     bind: {
                         disabled: '{!record.id}'
                     },

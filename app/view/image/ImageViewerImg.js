@@ -2,8 +2,8 @@ Ext.define('ArqAdmin.view.image.ImageViewerImg', {
     extend: 'Ext.container.Container',
     xtype: 'imageviewer-img',
 
-    reference: 'imageViewer',
-    itemId: 'imageViewer',
+    reference: 'imageViewerImg',
+    itemId: 'imageViewerImg',
 
     layout: {
         type: 'vbox',
@@ -127,7 +127,7 @@ Ext.define('ArqAdmin.view.image.ImageViewerImg', {
                         style: {
                             //display: 'block',
                             //margin: 'auto',
-                            boxShadow: '0 0 1px 1px #C7C7C7'
+                            //boxShadow: '0 0 1px 1px #C7C7C7'
                         },
                         listeners: {
                             render: function (image) {
