@@ -70,6 +70,19 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                     listeners: {
                         click: 'onCancelEdit'
                     }
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('images2'),
+                    // text: 'Imagens',
+                    tooltip: 'Editar ou adicionar novas imagens',
+                    bind: {
+                        disabled: '{!resultTable.selection}'
+                    },
+                    handler: 'showImageViewerWindow'
                 }
             ]
         }

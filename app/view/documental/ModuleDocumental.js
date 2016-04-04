@@ -69,39 +69,6 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                         },
                         {
                             xtype: 'button',
-                            itemId: 'btnAdd',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
-                            //text: 'Novo',
-                            tooltip: 'Adicionar novo item',
-                            listeners: {
-                                click: 'onAdd'
-                            }
-                        },
-                        {
-                            xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
-                            //text: 'Editar',
-                            tooltip: 'Editar o item selecionado',
-                            bind: {
-                                disabled: '{!resultTable.selection}'
-                            },
-                            handler: 'onEdit'
-                        },
-                        {
-                            xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('images2'),
-                            //text: 'Editar',
-                            tooltip: 'Editar ou adicionar novas imagens',
-                            bind: {
-                                disabled: '{!resultTable.selection}'
-                            },
-                            handler: 'showImageViewerWindow'
-                        },
-                        {
-                            xtype: 'tbseparator'
-                        },
-                        {
-                            xtype: 'button',
                             itemId: 'btnClearFilters',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('filter'),
                             //text: 'Limpar filtros',
@@ -132,6 +99,39 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                             glyph: ArqAdmin.util.Glyphs.getGlyph('gallery'),
                             tooltip: 'Visualizar galeria de imagens',
                             handler: 'setResultsPanelActiveItem'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'btnAdd',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
+                            // text: 'Novo',
+                            tooltip: 'Adicionar novo item',
+                            listeners: {
+                                click: 'onAdd'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
+                            // text: 'Editar',
+                            tooltip: 'Editar o item selecionado',
+                            bind: {
+                                disabled: '{!resultTable.selection}'
+                            },
+                            handler: 'onEdit'
+                        },
+                        {
+                            xtype: 'button',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('images2'),
+                            // text: 'Imagens',
+                            tooltip: 'Editar ou adicionar novas imagens',
+                            bind: {
+                                disabled: '{!resultTable.selection}'
+                            },
+                            handler: 'showImageViewerWindow'
                         }
                     ]
                 }
