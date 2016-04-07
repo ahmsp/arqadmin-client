@@ -10,7 +10,7 @@ Ext.define('ArqAdmin.view.image.ImageViewerController', {
             me.getViewModel().set('record', record);
             me.detailsPanelLoadRecord(record, true);
 
-            var imgLink = ArqAdmin.config.Runtime.getImagesCartografico() + record.getId() + '/600';
+            var imgLink = ArqAdmin.config.Runtime.getImagesCartografico() + record.getId() + '/1024';
             image.setSrc(imgLink);
         }
     },
