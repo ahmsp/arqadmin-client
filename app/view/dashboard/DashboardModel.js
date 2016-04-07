@@ -34,7 +34,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardModel', {
             data: [
                 {
                     "acervo": "doc",
-                    "title": "DOCUMENTAL E CARTOGRÁFICO",
+                    "title": "TEXTUAL E CARTOGRÁFICO",
                     "desc": "Nono n ononononon ono ononononononononon",
                     "qtd": "59.111",
                     "thumb": "resources/img/acervo_docs_2.png",
