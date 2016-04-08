@@ -58,6 +58,19 @@ Ext.define('ArqAdmin.view.image.ImageViewerController', {
         me.lookupReference('imageViewerDataview').getSelectionModel().deselectAll();
     },
 
+    onClone: function () {
+        var me = this,
+            form = me.lookupReference('imageViewerForm'),
+            values = form.getValues(),
+            newRecord = Ext.create('ArqAdmin.model.desenho.DesenhoTecnico');
+        
+        newRecord.set(values);
+        newRecord.setId(null);
+
+        me.editFormLoadRecord(newRecord, true);
+        me.lookupReference('imageViewerDataview').getSelectionModel().deselectAll();
+    },
+
     onEdit: function () {
         var me = this,
             record = me.getViewModel().get('record');

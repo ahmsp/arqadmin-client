@@ -43,6 +43,15 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                 },
                 {
                     xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
+                    text: 'Clonar',
+                    tooltip: 'Clonar os dados para um novo registro',
+                    listeners: {
+                        click: 'onClone'
+                    }
+                },
+                {
+                    xtype: 'button',
                     itemId: 'saveButton',
                     glyph: ArqAdmin.util.Glyphs.getGlyph('save'),
                     text: 'Salvar',
@@ -205,7 +214,6 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar Estados de Conservação',
-                            tooltipType: 'title',
                             action: 'dtconservacoes-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -278,7 +286,6 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar Tipos',
-                            tooltipType: 'title',
                             action: 'tipos-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -322,7 +329,6 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar Suportes',
-                            tooltipType: 'title',
                             action: 'suportes-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -361,7 +367,6 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar Escalas',
-                            tooltipType: 'title',
                             action: 'escalas-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -400,7 +405,6 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                             ui: 'default-toolbar-small',
                             glyph: 58895,
                             tooltip: 'Editar Técnicas',
-                            tooltipType: 'title',
                             action: 'tecnicas-grid',
                             handler: 'onButtonStaticDataClick'
                         }
@@ -433,6 +437,9 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                     name: 'arquivo_original',
                     emptyText: 'Carregar imagem...',
                     buttonText: 'Selecione...',
+                    bind: {
+                        hidden: '{record.id}'
+                    },
                     listeners: {
                         change: 'onFileFieldChange'
                     }

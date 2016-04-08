@@ -92,14 +92,14 @@ Ext.define('ArqAdmin.view.image.ImageViewerImg', {
                         xtype: 'button',
                         itemId: 'btnAdd',
                         glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
-                        //text: 'Novo',
+                        text: 'Nova',
                         tooltip: 'Adicionar nova imagem',
                         handler: 'onAdd'
                     },
                     {
                         xtype: 'button',
                         glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
-                        //text: 'Editar',
+                        text: 'Editar',
                         tooltip: 'Editar a imagem selecionada',
                         bind: {
                             disabled: '{!resultTable.selection}'

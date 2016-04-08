@@ -46,6 +46,10 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerModel', {
             get: function(record) {
                 return record ? record.data.field1 === 'cartografico' : false;
             }
+        },
+
+        displayCartografico: function (get) {
+            return get('currentImage').acervo_tipo === 'cartografico';
         }
     }
 
