@@ -143,7 +143,22 @@ Ext.define('ArqAdmin.Application', {
                 }
             });
         } else {
-            ArqAdmin.util.Util.showErrorMsg(error.error_description);
+            var errorDescription = ArqAdmin.util.Util.decodeJSON(error.error_description)
+
+            if (Ext.isObject(errorDescription)) {
+                var message = '';
+
+                Ext.Object.each(errorDescription, function(key, value, myself) {
+                    message = message + value + "<br>";
+                });
+
+                ArqAdmin.util.Util.showErrorMsg(message);
+            } else {
+                ArqAdmin.util.Util.showErrorMsg(errorDescription);
+                // ArqAdmin.util.Util.showErrorMsg(error.user_message);
+            }
+
+
         }
     },
 

@@ -16,7 +16,7 @@ Ext.define('ArqAdmin.view.documental.BaseGrid', {
     //store: 'documental.Documentos',
     bind: '{documentos}',
 
-    allowDeselect: true,
+    // allowDeselect: true,
 
     dockedItems: [
         {

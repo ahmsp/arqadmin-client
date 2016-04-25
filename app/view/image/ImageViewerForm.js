@@ -421,27 +421,22 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
             items: [
                 {
                     xtype: 'displayfield',
+                    reference: 'arquivoOriginal',
                     fieldLabel: 'Nome do arquivo (original)',
-                    name: 'arquivo_original',
-                    bind: {
-                        hidden: '{!record.arquivo_original}'
-                        // value: '{currentImage.arquivo_original}'
-                    }
+                    name: 'arquivo_original'
                 },
                 {
                     xtype: 'filefield',
                     // buttonOnly: true,
-                    msgTarget: 'side',
-                    allowBlank: false,
-                    fieldLabel: 'Imagem',
-                    name: 'arquivo_original',
+                    fieldLabel: 'Imagem (Original)',
+                    name: 'filename',
                     emptyText: 'Carregar imagem...',
                     buttonText: 'Selecione...',
                     bind: {
-                        hidden: '{record.id}'
+                        hidden: '{record.arquivo_original}'
                     },
                     listeners: {
-                        change: 'onFileFieldChange'
+                        change: 'onFilefieldChange'
                     }
                 }
             ]

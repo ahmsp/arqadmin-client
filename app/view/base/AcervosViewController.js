@@ -13,14 +13,6 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
         form.reset(true);
     },
 
-    onDataviewViewready: function (view) {
-        var selected = view.getStore().getAt(0);
-
-        if (selected) {
-            view.getSelectionModel().select(selected);
-        }
-    },
-
     onDisplayPanelChildActivate: function (page, eOpts) {
         this.getViewModel().set('displayPanelActiveItem', page.reference);
     },
@@ -134,16 +126,35 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
         }
     },
 
-    selectRecord: function (grid, record) {
-        var grid = grid || this.lookupReference('resultTable');
+    /**
+     * Selects a record instance by record instance or index.
+     * @param {Ext.grid.Panel/Ext.view.view} view An gridpanel or an dataview
+     * @param {Ext.data.Model/Number} record An record or an index
+     */
+    selectRecord: function (view, record) {
+        var selectionModel = view.getSelectionModel();
 
-        grid.getSelectionModel().select(record);
+        if (selectionModel.isSelected(record)) {
+            selectionModel.deselect(record);
+        }
 
-        //if (grid.isXType('dataview')) {
-        //    grid.focusNode(record);
-        //} else {
-        //    grid.getView().focusRow(record);
-        //}
+        selectionModel.select(record);
+    },
+
+    selectRecordDelay: function (grid, record, delay) {
+        var rec = record || 0,
+            taskDelay = delay || 1000,
+            selection,
+            task;
+
+        grid.getSelectionModel().select(rec);
+
+        selection = grid.getSelectionModel().getSelection();
+        if (Ext.isEmpty(selection)) {
+            task = new Ext.util.DelayedTask(function () {
+                grid.getSelectionModel().select(rec);
+            }).delay(taskDelay);
+        }
     },
 
     /**

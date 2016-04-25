@@ -394,5 +394,8 @@ Ext.define('ArqAdmin.view.documental.ResultTable', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        select: 'onGridResultTableSelect'
+    }
 });

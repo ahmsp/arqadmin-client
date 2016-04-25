@@ -12,15 +12,19 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerModel', {
         displayPanelReference: 'imageViewerDisplayPanel'
     },
 
-    // stores: {
-    //     desenhosTecnicos: {
-    //         model: 'ArqAdmin.model.desenho.DesenhoTecnico',
-    //         autoLoad: false,
-    //         pageSize: 100,
-    //         remoteFilter: true,
-    //         remoteSort: true
-    //     }
-    // },
+    stores: {
+        documentalImages: {
+            model: 'ArqAdmin.model.desenho.DesenhoTecnico',
+            autoLoad: true,
+            pageSize: 100,
+            remoteFilter: true,
+            remoteSort: true,
+            filters: [{
+                property: 'documento_id',
+                value: '{documentoId}'
+            }]
+        }
+    },
 
     formulas: {
 

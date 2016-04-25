@@ -123,18 +123,18 @@ Ext.define('ArqAdmin.view.image.ImageViewerImg', {
                         xtype: 'image',
                         mode: 'element',
                         id: 'img_view',
-                        //src: 'resources/img/loading.gif',
+                        // src: 'resources/img/loading.gif',
                         style: {
                             //display: 'block',
                             //margin: 'auto',
-                            //boxShadow: '0 0 1px 1px #C7C7C7'
+                            // boxShadow: '0 0 1px 1px #C7C7C7'
                         },
                         listeners: {
                             render: function (image) {
                                 image.el.dom.onload = function () {
                                     me.setRotation(0);
                                     me.rotateImage();
-                                    //todo: refatorar
+
                                     var img = new Image();
                                     img.src = image.src;
                                     img.onload = function () {
@@ -150,6 +150,9 @@ Ext.define('ArqAdmin.view.image.ImageViewerImg', {
                                         }
                                     };
                                 };
+                                image.el.dom.onerror = function () {
+                                    image.setSrc('');
+                                }
                             }
                         }
                     }

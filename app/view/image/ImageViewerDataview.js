@@ -13,9 +13,9 @@ Ext.define('ArqAdmin.view.image.ImageViewerDataview', {
             xtype: 'dataview',
             reference: 'imageViewerDataview',
 
-            //bind: '{images}',
+            bind: '{documentalImages}',
 
-            multiSelect: true,
+            multiSelect: false,
             scrollable: true,
             cls: 'images-view',
             emptyText: '<span class="empty-text">Nenhuma imagem para exibir</span>',
@@ -30,8 +30,12 @@ Ext.define('ArqAdmin.view.image.ImageViewerDataview', {
                 '</tpl>',
                 {
                     getImage: function (id) {
-                        var imgPath = ArqAdmin.config.Runtime.getImagesCartografico() + id + '/100';
-                        return '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">';
+                        if (!Ext.isEmpty(id)) {
+                            imgPath = ArqAdmin.config.Runtime.getImagesDocumental() + id + '/100';
+                            return '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">';
+                        } else {
+                            return '<img src="resources/ico/no-image.png" >';
+                        }
                     }
                 }
             ],

@@ -39,9 +39,10 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             });
         });
 
-        //grid.filters.clearFilters(true);
+        // grid.filters.clearFilters(true);
         store.clearFilter(true);
-        store.filter(filters);
+        store.setFilters(filters);
+        store.load();
     },
 
     onFilterFormButtonClearClick: function (button) {
@@ -66,7 +67,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                             record = grid.view.getRecord(tip.triggerElement.parentNode);
                             var dt = record.get('desenhos_tecnicos');
                             if (!Ext.isEmpty(dt)) {
-                                var imgPath = ArqAdmin.config.Runtime.getImagesCartografico() + dt[0].id + '/320';
+                                var imgPath = ArqAdmin.config.Runtime.getImagesDocumental() + dt[0].id + '/320';
                                 var ttip = [
                                     '<div class="tipcls">' +
                                     '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">' +
@@ -113,8 +114,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     },
 
     onGridSelect: function (rowmodel, record, index, eOpts) {
-        var me = this,
-            imagesList = record.getData().desenhos_tecnicos;
+        var me = this;
 
         // selects record in both grids
         var layoutItems = me.lookupReference('resultsPanel').getLayout().getLayoutItems();
@@ -125,12 +125,20 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             }
 
             if (record !== componentGrid.getSelectionModel().getSelection()[0]) {
+                // componentGrid.getSelectionModel().select(record);
                 me.selectRecord(componentGrid, record);
             }
         });
+    },
+
+    onGridResultTableSelect: function (rowmodel, record, index, eOpts) {
+        var me = this,
+            imagesList = record.getData().desenhos_tecnicos;
 
         me.getStore('desenhosTecnicos').loadRawData(imagesList);
+        // me.getStore('desenhosTecnicos').filter('documento_id', record.getId());
         me.getViewModel().set('record', record);
+        // me.editFormLoadRecord(record, false);
         me.detailsPanelLoadRecord(record, true);
     },
 
@@ -188,12 +196,9 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
     showImageViewerWindow: function () {
         var me = this,
-            dtStore = me.getStore('desenhosTecnicos'),
             win = Ext.widget('imageviewer-window');
 
         win.getViewModel().set('documentoId', me.getViewModel().get('record').getId());
-
-        win.down('dataview').setStore(dtStore);
         win.on('close', function () {
             me.getStore('documentos').reload();
         });
@@ -385,10 +390,11 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                     store.load({
                         scope: me,
                         callback: function (records, operation, success) {
-                            //me.forceResetForm(form);
+                            var record = store.findRecord('id', result.id),
+                                grid = me.lookupReference('resultTable');
+
                             form.reset();
-                            var record = store.findRecord('id', result.id);
-                            me.selectRecord(null, record)
+                            me.selectRecord(grid, record);
                         }
                     });
                     ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com êxito!');
@@ -419,13 +425,14 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                             store.load({
                                 scope: me,
                                 callback: function (records, operation, success) {
-                                    me.selectRecord(null, 0)
+                                    var grid = me.lookupReference('resultTable');
+                                    me.selectRecord(grid, 0)
                                 }
                             });
                             ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'Registro removido com sucesso!');
                         },
                         failure: function () {
-                            ArqAdmin.util.Util.showToast('danger', 'Erro!', 'Não foi possivel remover o registro!');
+                            Ext.Msg.alert('Erro!', 'Não foi possivel remover o registro!');
                         },
                         scope: me
                     });

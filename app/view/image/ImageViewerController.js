@@ -8,9 +8,10 @@ Ext.define('ArqAdmin.view.image.ImageViewerController', {
 
         if (record) {
             me.getViewModel().set('record', record);
+            me.editFormLoadRecord(record, false);
             me.detailsPanelLoadRecord(record, true);
 
-            var imgLink = ArqAdmin.config.Runtime.getImagesCartografico() + record.getId() + '/1024';
+            var imgLink = ArqAdmin.config.Runtime.getImagesDocumental() + record.getId() + '/1024';
             image.setSrc(imgLink);
         }
     },
@@ -25,8 +26,8 @@ Ext.define('ArqAdmin.view.image.ImageViewerController', {
         }
     },
 
-    onFileFieldChange: function (filefield, value, options) {
-        // if (value) {}
+    onFilefieldChange: function (filefield, value, options) {
+        this.lookupReference('arquivoOriginal').setValue(value.replace(/^.*(\\|\/|\:)/, ''));
     },
 
     onAdd: function () {
@@ -63,9 +64,12 @@ Ext.define('ArqAdmin.view.image.ImageViewerController', {
             form = me.lookupReference('imageViewerForm'),
             values = form.getValues(),
             newRecord = Ext.create('ArqAdmin.model.desenho.DesenhoTecnico');
-        
+
         newRecord.set(values);
-        newRecord.setId(null);
+        newRecord.set({
+            id: null,
+            arquivo_original: null
+        });
 
         me.editFormLoadRecord(newRecord, true);
         me.lookupReference('imageViewerDataview').getSelectionModel().deselectAll();
@@ -78,58 +82,102 @@ Ext.define('ArqAdmin.view.image.ImageViewerController', {
         me.editFormLoadRecord(record, true);
     },
 
-    onSave: function (button, e, options) {
+    onSave: function () {
         var me = this,
             form = me.lookupReference('imageViewerForm'),
-            token = localStorage.getItem('access-token'),
-            url = ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/desenhotecnico';
+            record = form.getRecord();
 
-        // verify if the web browser supports FormData (HTML5)
-        if (typeof FormData === 'undefined') {
-            Ext.Msg.alert('Warning', 'Seu navegador não suporta o envio de arquivos através deste sistema');
-            return;
-        }
-
-        if (!form.isDirty()) {
+        if (!record.phantom && !form.isDirty()) {
             return;
         }
 
         if (form.isValid()) {
-            var domFileItem = document.getElementById(form.down('filefield').fileInputEl.id);
-            if (domFileItem.files.length == 1) {
-                var uploadFile = domFileItem.files[0];
-                var formData = new FormData();
-                formData.append('file', uploadFile, uploadFile.name);
+            var values = form.getValues(),
+                dataView = me.lookupReference('imageViewerDataview'),
+                store = dataView.getStore(),
+                filename = form.getForm().findField('filename').getValue();
 
-                var values = form.getValues(false, true);
-                values.documento_id = values.documento_id || me.getViewModel().get('documentoId');
-                for (var key in values) {
-                    formData.append(key, values[key]);
-                }
-
-                //send formData with an Ajax-request
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', url, true);
-                xhr.setRequestHeader("Authorization", 'Bearer ' + token);
-                xhr.onload = function () {
-                    if (xhr.status === 200) {
-                        var newData = ArqAdmin.util.Util.decodeJSON(xhr.responseText),
-                            dataView = me.lookupReference('imageViewerDataview'),
-                            store = dataView.getStore();
-
-                        store.add(newData);
-                        var newRec = store.findRecord('id', newData.id);
-                        dataView.getSelectionModel().select(newRec);
-                        dataView.focusNode(newRec);
-
-                        ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com êxito!');
-                    } else {
-                        console.log('Upload Failure', ArqAdmin.util.Util.decodeJSON(xhr.responseText));
-                        Ext.Msg.alert('Erro!', 'Não foi possível salvar os dados e enviar o arquivo.');
-                    }
-                };
-                xhr.send(formData);
+            if (filename) {
+                values.arquivo_original = filename.replace(/^.*(\\|\/|\:)/, '');
             }
+
+            record.set(values);
+
+            if (record.phantom) {
+                record.set({
+                    id: null,
+                    documento_id: me.getViewModel().get('documentoId')
+                });
+                store.add(record);
+            }
+console.log(values);
+console.log(record);
+console.log(store);
+
+            store.sync({
+                scope: me,
+                success: function (batch, options) {
+                    var operations = batch.getOperations(),
+                        result = Ext.decode(operations[0].getResponse().responseText);
+console.log('success');
+
+                    var domFileItem = document.getElementById(form.down('filefield').fileInputEl.id);
+                    if (domFileItem.files.length == 1) {
+                        console.log(domFileItem.files.length);
+
+                        var uploadFile = domFileItem.files[0],
+                            formData = new FormData(),
+                            url = ArqAdmin.config.Runtime.getUploadDocumental() + result.id,
+                            token = localStorage.getItem('access-token');
+
+                        formData.append('file', uploadFile, uploadFile.name);
+
+                        //send formData with an Ajax-request
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST', url);
+                        xhr.setRequestHeader("Authorization", 'Bearer ' + token);
+                        xhr.onload = function () {
+                            if (xhr.status === 200) {
+                                // var resData = ArqAdmin.util.Util.decodeJSON(xhr.responseText);
+                                store.load({
+                                    scope: me,
+                                    callback: function (records, operation, success) {
+                                        var newRecord = store.findRecord('id', result.id);
+                                        this.selectRecord(dataView, newRecord);
+                                    }
+                                });
+                                ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com sucesso!');
+                            } else {
+                                // console.log(ArqAdmin.util.Util.decodeJSON(xhr.responseText));
+                                store.load({
+                                    scope: me,
+                                    callback: function (records, operation, success) {
+                                        var newRecord = store.findRecord('id', result.id);
+                                        form.reset(true);
+                                        form.loadRecord(newRecord);
+                                        Ext.Msg.alert('Erro!', 'Os dados foram salvos, mas não foi possível enviar a imagem.');
+                                    }
+                                });
+                            }
+                        };
+                        xhr.send(formData);
+                    } else {
+                        store.load({
+                            scope: me,
+                            callback: function (records, operation, success) {
+                                var newRecord = store.findRecord('id', result.id);
+                                this.selectRecord(dataView, newRecord);
+                            }
+                        });
+                    }
+                },
+                failure: function (batch, options) {
+                    console.log('failure');
+                    store.load();
+                }
+            });
+        } else {
+            Ext.Msg.alert('Erro!', 'O formulário contém dados inválidos!');
         }
     },
 
@@ -151,14 +199,18 @@ Ext.define('ArqAdmin.view.image.ImageViewerController', {
                     store.remove(record);
                     store.sync({
                         success: function () {
-                            dataView.getSelectionModel().select(0);
-
-                            // remove image
-
+                            var form = me.lookupReference('imageViewerForm');
+                            store.load({
+                                scope: me,
+                                callback: function (records, operation, success) {
+                                    this.forceResetForm(form);
+                                    this.selectRecord(dataView, 0);
+                                }
+                            });
                             ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'Registro removido com sucesso!');
                         },
                         failure: function () {
-                            ArqAdmin.util.Util.showToast('danger', 'Erro!', 'Não foi possivel remover o registro!');
+                            Ext.Msg.alert('Erro!', 'Não foi possivel remover o registro!');
                         },
                         scope: me
                     });
@@ -190,7 +242,7 @@ Ext.define('ArqAdmin.view.image.ImageViewerController', {
             values = form.getValues();
 
         Ext.Ajax.request({
-            url: ArqAdmin.config.Runtime.getDownloadCartografico() + values.id + '/' + values.img_size,
+            url: ArqAdmin.config.Runtime.getDownloadDocumental() + values.id + '/' + values.img_size,
             method: 'GET',
             scope: me,
             success: 'onDownloadSuccess',
@@ -206,6 +258,10 @@ Ext.define('ArqAdmin.view.image.ImageViewerController', {
     onDownloadFailure: function (response, opts) {
         var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
         ArqAdmin.util.Util.showErrorMsg(result.error_description);
+    },
+
+    onDataviewViewready: function (view) {
+        this.selectRecordDelay(view);
     }
 
 });

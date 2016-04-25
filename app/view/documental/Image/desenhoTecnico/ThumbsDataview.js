@@ -24,8 +24,12 @@ Ext.define('ArqAdmin.view.documental.image.desenhoTecnico.ThumbsDataview', {
         '</tpl>',
         {
             getImage: function (id) {
-                var imgPath = ArqAdmin.config.Runtime.getImagesCartografico() + id + '/100';
-                return '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">';
+                if (!Ext.isEmpty(id)) {
+                    var imgPath = ArqAdmin.config.Runtime.getImagesDocumental() + id + '/100';
+                    return '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">';
+                } else {
+                    return '<img src="resources/ico/no-image.png" >';
+                }
             }
         }
     ],
