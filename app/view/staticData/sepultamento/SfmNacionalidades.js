@@ -2,7 +2,7 @@ Ext.define('ArqAdmin.view.staticData.sepultamento.SfmNacionalidades', {
     extend: 'ArqAdmin.view.staticData.BaseGrid',
     xtype: 'nacionalidades-grid',
 
-    store: 'staticData.classificacao.SfmNacionalidades',
+    store: 'staticData.sepultamento.SfmNacionalidades',
 
     columns: [
         {

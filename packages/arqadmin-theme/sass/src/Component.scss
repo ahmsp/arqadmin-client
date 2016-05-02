@@ -1,0 +1,43 @@
+/* ui mixin: combo-plain for of type: extjs-text-field-ui */
+@if $include-ext-form-field-text != false {
+
+  $field-base-color: mix(white, $base-light-color, 20%);
+
+  @include extjs-text-field-ui(
+          $ui:"combo-plain",
+          $ui-height: $form-text-field-height,
+          $ui-font-size: $form-text-field-font-size,
+          $ui-font-family: $form-text-field-font-family,
+          $ui-font-weight: $form-text-field-font-weight,
+          $ui-color: $form-text-field-color,
+          //$ui-background-color: $base-light-color,
+          $ui-background-color: $field-base-color,
+          $ui-border-width: 0,
+          $ui-border-style: $form-text-field-border-style,
+          $ui-border-color: $form-text-field-border-color,
+          $ui-focus-border-color: $form-text-field-focus-border-color,
+          $ui-invalid-border-color: $form-text-field-invalid-border-color,
+          $ui-border-radius: $form-text-field-border-radius,
+          $ui-background-image: $form-text-field-background-image,
+          $ui-padding: $form-text-field-padding,
+          $ui-empty-color: $form-text-field-empty-color,
+          $ui-body-width: $form-text-field-body-width,
+          $ui-invalid-background-color: $form-field-invalid-background-color,
+          $ui-invalid-background-image: $form-field-invalid-background-image,
+          $ui-invalid-background-repeat: $form-field-invalid-background-repeat,
+          $ui-invalid-background-position: $form-field-invalid-background-position,
+          $ui-trigger-width: $form-trigger-width,
+          $ui-trigger-border-width: $form-trigger-border-width,
+          $ui-trigger-border-color: $form-trigger-border-color,
+          $ui-trigger-border-style: $form-trigger-border-style,
+          $ui-trigger-border-color-over: null,
+          $ui-trigger-border-color-focus: null,
+          $ui-trigger-border-color-pressed: null,
+          $ui-trigger-background-image: $form-trigger-background-image,
+          $ui-trigger-background-color: $field-base-color,
+          $ui-textarea-line-height: $form-textarea-line-height,
+          $ui-textarea-body-height: $form-textarea-body-height,
+          $ui-file-field-color: $form-file-field-color,
+          $ui-classic-border: false
+  );
+}

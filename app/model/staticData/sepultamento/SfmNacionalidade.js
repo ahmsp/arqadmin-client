@@ -4,6 +4,6 @@ Ext.define('ArqAdmin.model.staticData.sepultamento.SfmNacionalidade', {
     entityName: 'SfmNacionalidade',
 
     fields: [
-        {name: 'nacionalidade', sorttype: 'asUCString'}
+        {name: 'nacionalidade', sortType: 'asUCString'}
     ]
 });

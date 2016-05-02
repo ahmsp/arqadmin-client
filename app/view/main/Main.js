@@ -8,6 +8,7 @@ Ext.define('ArqAdmin.view.main.Main', {
         'ArqAdmin.view.main.MainModel',
         'ArqAdmin.view.dashboard.ModuleDashboard',
         'ArqAdmin.view.documental.ModuleDocumental',
+        'ArqAdmin.view.sepultamento.ModuleSepultamento',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button',
         'Ext.menu.Menu',
@@ -15,9 +16,13 @@ Ext.define('ArqAdmin.view.main.Main', {
         'Ext.toolbar.Fill',
         'Ext.toolbar.Separator',
         'Ext.form.Label',
+        'Ext.form.FieldSet',
+        'Ext.toolbar.Spacer',
         'Ext.layout.container.Border',
         'Ext.layout.container.Card',
-        'ArqAdmin.util.Glyphs'
+        'ArqAdmin.util.Glyphs',
+        'Ext.ux.IFrame',
+        'ArqAdmin.view.widget.IFrameWindow'
     ],
 
     controller: 'main',
@@ -72,7 +77,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                         {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('acervos'),
-                            text: 'Cadastro no Acervo',
+                            text: 'Acervos',
                             menu: {
                                 xtype: 'menu',
                                 minWidth: 200,
@@ -80,7 +85,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                                     {
                                         xtype: 'menuitem',
                                         itemId: 'menuitemDocumental',
-                                        text: 'Dcoumental / Cartográfico'
+                                        text: 'Textual e Cartográfico'
                                     },
                                     {
                                         xtype: 'menuitem',
@@ -95,6 +100,42 @@ Ext.define('ArqAdmin.view.main.Main', {
                                 ]
                             }
                         },
+                        // {
+                        //     xtype: 'tbseparator',
+                        //     height: 28,
+                        //     style: {
+                        //         'border-left-color': 'rgb(90, 112, 116)'
+                        //     }
+                        // },
+                        // {
+                        //     xtype: 'label',
+                        //     text: 'Acervos:',
+                        //     padding: '6 0 0',
+                        //     style: {
+                        //         color: '#fff',
+                        //         fontWeight: 'bold',
+                        //         fontSize: '12px'
+                        //     }
+                        // },
+                        // {
+                        //     xtype: 'button',
+                        //     text: 'Textual e Cartográfico'
+                        // },
+                        // {
+                        //     xtype: 'button',
+                        //     text: 'Fotográfico'
+                        // },
+                        // {
+                        //     xtype: 'button',
+                        //     text: 'Registros de Sepultamento'
+                        // },
+                        // {
+                        //     xtype: 'tbseparator',
+                        //     height: 28,
+                        //     style: {
+                        //         'border-left-color': 'rgb(90, 112, 116)'
+                        //     }
+                        // },
                         {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('report'),
@@ -103,12 +144,34 @@ Ext.define('ArqAdmin.view.main.Main', {
                         {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('chart'),
-                            text: 'Estatísticas',
-                            handler: function () {
-                                ArqAdmin.util.Util.showToast('danger', 'Sucesso!', 'Teste to toast para estatísticas! Teste to toast para estatísticas ');
-                            },
-                            scope: this
+                            text: 'Estatísticas'
                         },
+                        // {
+                        //     xtype: 'button',
+                        //     glyph: ArqAdmin.util.Glyphs.getGlyph('admin'),
+                        //     text: 'Recursos',
+                        //     menu: {
+                        //         xtype: 'menu',
+                        //         items: [
+                        //             {
+                        //                 xtype: 'menuitem',
+                        //                 itemId: 'documental',
+                        //                 glyph: ArqAdmin.util.Glyphs.getGlyph('users'),
+                        //                 text: 'Relatórios'
+                        //             },
+                        //             {
+                        //                 xtype: 'menuitem',
+                        //                 itemId: 'sepultamento',
+                        //                 text: 'Estatísticas'
+                        //             },
+                        //             {
+                        //                 xtype: 'menuitem',
+                        //                 itemId: 'fotografico',
+                        //                 text: 'Dados estáticos'
+                        //             }
+                        //         ]
+                        //     }
+                        // },
                         {
                             xtype: 'tbfill'
                         },
@@ -148,24 +211,25 @@ Ext.define('ArqAdmin.view.main.Main', {
                         {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('user'),
-                            text: 'Alexandre Cyro Pereira',
+                            text: 'Alexandre Cyro',
                             menu: {
                                 xtype: 'menu',
                                 items: [
                                     {
                                         xtype: 'menuitem',
                                         itemId: 'documental',
-                                        text: 'Documental / Cartográfico'
+                                        text: 'Perfil'
+                                    },
+                                    {
+                                        xtype: 'menuseparator'
                                     },
                                     {
                                         xtype: 'menuitem',
-                                        itemId: 'sepultamento',
-                                        text: 'Registro de Sepultamento'
-                                    },
-                                    {
-                                        xtype: 'menuitem',
-                                        itemId: 'fotografico',
-                                        text: 'Fotográfico'
+                                        glyph: ArqAdmin.util.Glyphs.getGlyph('exit'),
+                                        text: 'Sair',
+                                        listeners: {
+                                            click: 'onLogout'
+                                        }
                                     }
                                 ]
                             }
@@ -180,7 +244,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                         {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('exit'),
-                            text: 'Sair',
+                            // text: 'Sair',
                             listeners: {
                                 click: 'onLogout'
                             }

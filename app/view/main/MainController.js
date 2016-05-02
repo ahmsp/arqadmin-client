@@ -58,20 +58,28 @@ Ext.define('ArqAdmin.view.main.MainController', {
 
     showView: function (viewXtype) {
         var me = this,
-            card = me.lookupReference('modulesContainer');
+            card = me.lookupReference('modulesContainer'),
+            viewReference,
+            view,
+            task;
 
-        var viewReference = viewXtype.replace(/-([a-z])/gi, function ($0, $1) {
+        viewReference = viewXtype.replace(/-([a-z])/gi, function ($0, $1) {
             return $1.toUpperCase();
         });
 
-        var view = me.lookupReference(viewReference);
+        view = me.lookupReference(viewReference);
 
         if (!view) {
-            view = Ext.widget(viewXtype);
-            card.add(view);
+            me.getView().mask('Carregando...');
+            task = new Ext.util.DelayedTask(function () {
+                view = Ext.widget(viewXtype);
+                card.add(view);
+                card.getLayout().setActiveItem(view);
+                me.getView().unmask();
+            }).delay(200);
+        } else {
+            card.getLayout().setActiveItem(view);
         }
-
-        card.getLayout().setActiveItem(view);
     },
 
     maximizeModuleContainer: function (button, e, eOpts) {

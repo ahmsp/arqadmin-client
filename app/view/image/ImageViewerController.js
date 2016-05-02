@@ -110,21 +110,15 @@ Ext.define('ArqAdmin.view.image.ImageViewerController', {
                 });
                 store.add(record);
             }
-console.log(values);
-console.log(record);
-console.log(store);
 
             store.sync({
                 scope: me,
                 success: function (batch, options) {
                     var operations = batch.getOperations(),
                         result = Ext.decode(operations[0].getResponse().responseText);
-console.log('success');
 
                     var domFileItem = document.getElementById(form.down('filefield').fileInputEl.id);
                     if (domFileItem.files.length == 1) {
-                        console.log(domFileItem.files.length);
-
                         var uploadFile = domFileItem.files[0],
                             formData = new FormData(),
                             url = ArqAdmin.config.Runtime.getUploadDocumental() + result.id,
@@ -172,7 +166,6 @@ console.log('success');
                     }
                 },
                 failure: function (batch, options) {
-                    console.log('failure');
                     store.load();
                 }
             });

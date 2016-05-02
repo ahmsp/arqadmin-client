@@ -31,13 +31,15 @@ Ext.define('ArqAdmin.util.Glyphs', {
         image2: 'xe90f',
         images2: 'xe910',
         download: 'xe912',
+        reload: 'xe914',
 
         filter: 'xf0b0',
         table: 'xe602',
         list: 'xe601',
         gallery: 'xf00a',
         image: 'xe904',
-        close: 'xe610'
+        close: 'xe610',
+        info: 'xe913'
     },
 
     constructor: function(config) {

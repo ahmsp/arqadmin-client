@@ -2,7 +2,7 @@ Ext.define('ArqAdmin.view.staticData.sepultamento.SfmCausamortis', {
     extend: 'ArqAdmin.view.staticData.BaseGrid',
     xtype: 'causamortis-grid',
 
-    store: 'staticData.classificacao.SfmCausamortis',
+    store: 'staticData.sepultamento.SfmCausamortis',
 
     columns: [
         {

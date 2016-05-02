@@ -21,7 +21,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
     },
     scrollable: true,
     bodyPadding: 10,
-    title: 'Pesquisa no Acervo',
+    title: 'Pesquisa Detalhada',
     formBind: true,
     defaults: {
         triggers: {

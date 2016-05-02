@@ -3,7 +3,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
     alias: 'viewmodel.documental',
 
     data: {
-        moduleTitle: 'Acervo Documental / Cartográfico',
+        moduleTitle: 'Acervos Textual e Cartográfico',
         displayPanelTitle: 'Detalhes do registro',
         displayPanelActiveItem: '',
 

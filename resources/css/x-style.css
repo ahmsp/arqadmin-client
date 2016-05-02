@@ -307,6 +307,19 @@
     vertical-align: middle !important;
     position: relative;
 }
+
+.single-thumb-wrap-medium {
+    height: 340px;
+    width: 340px;
+    background: white;
+
+    display: table-cell !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    position: relative;
+
+}
+
 /*.x-quirks .images-view .thumb {*/
 /*padding-bottom: 3px;*/
 /*}*/
@@ -449,4 +462,8 @@
 .x-toast {
     border-style: none;
     background-color: transparent;
+}
+
+.button-info .x-btn-glyph {
+    margin-left: 0;
 }

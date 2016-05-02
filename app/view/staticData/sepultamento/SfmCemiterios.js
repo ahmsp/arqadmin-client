@@ -2,7 +2,7 @@ Ext.define('ArqAdmin.view.staticData.sepultamento.SfmCemiterios', {
     extend: 'ArqAdmin.view.staticData.BaseGrid',
     xtype: 'cemiterios-grid',
 
-    store: 'staticData.classificacao.SfmCemiterios',
+    store: 'staticData.sepultamento.SfmCemiterios',
 
     columns: [
         {

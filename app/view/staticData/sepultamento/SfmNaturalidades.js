@@ -2,7 +2,7 @@ Ext.define('ArqAdmin.view.staticData.sepultamento.SfmNaturalidades', {
     extend: 'ArqAdmin.view.staticData.BaseGrid',
     xtype: 'naturalidades-grid',
 
-    store: 'staticData.classificacao.SfmNaturalidades',
+    store: 'staticData.sepultamento.SfmNaturalidades',
 
     columns: [
         {

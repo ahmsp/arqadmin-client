@@ -2,7 +2,7 @@ Ext.define('ArqAdmin.view.staticData.sepultamento.SfmEstadocivis', {
     extend: 'ArqAdmin.view.staticData.BaseGrid',
     xtype: 'estadoscivis-grid',
 
-    store: 'staticData.classificacao.SfmEstadocivis',
+    store: 'staticData.sepultamento.SfmEstadocivis',
 
     columns: [
         {

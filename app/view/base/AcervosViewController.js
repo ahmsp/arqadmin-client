@@ -168,5 +168,15 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
             }
             componentGrid.getSelectionModel().deselectAll();
         });
+    },
+
+    onInfoButtonClick: function () {
+        var me = this,
+            win = Ext.widget('iframe-window'),
+            iFrame = win.down('uxiframe');
+
+        win.title = 'Informações sobre a pesquisa'
+        iFrame.src = 'resources/docs/pesquisa.html';
+        win.show();
     }
 });
