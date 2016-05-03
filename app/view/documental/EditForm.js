@@ -78,7 +78,7 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                     xtype: 'button',
                     glyph: ArqAdmin.util.Glyphs.getGlyph('images2'),
                     // text: 'Imagens',
-                    tooltip: 'Editar ou adicionar novas imagens',
+                    tooltip: 'Editar ou adicionar imagens',
                     bind: {
                         disabled: '{!resultTable.selection}'
                     },
@@ -699,9 +699,9 @@ Ext.define('ArqAdmin.view.documental.EditForm', {
                     xtype: 'button',
                     margin: '3 0',
                     ui: 'default-toolbar-small',
-                    text: 'Editar / Adicionar novas imagens',
+                    text: 'Editar ou adicionar imagens',
                     //glyph: 58895,
-                    tooltip: 'Editar ou adicionar novas imagens',
+                    tooltip: 'Editar ou adicionar imagens',
                     bind: {
                         disabled: '{!record.id}'
                     },

@@ -36,7 +36,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
             xtype: 'documental-filterform',
             region: 'west',
             split: true,
-            width: 320,
+            width: 400,
             collapsible: true,
             collapsed: true
         },
@@ -62,10 +62,41 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                                 'line-height': '16px',
                                 'font-weight': 'bold'
                             },
-                            text: 'Ítens do Acervo'
+                            text: 'Pesquisa ampla:'
+                        },
+                        {
+                            xtype: 'textfield',
+                            reference: 'searchAllField',
+                            width: 250,
+                            selectOnFocus: 'true',
+                            name: 'query',
+                            triggers: {
+                                search: {
+                                    cls: 'x-form-search-trigger',
+                                    handler: 'onSearchfieldTriggerClick'
+                                }
+                            },
+                            listeners: {
+                                specialkey: 'onSearchfieldSpecialkey'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            ui: 'default-small',
+                            cls: 'button-info',
+                            border: false,
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('info'),
+                            tooltip: 'Informações sobre a pesquisa',
+                            handler: 'onInfoButtonClick'
                         },
                         {
                             xtype: 'tbfill'
+                        },
+                        {
+                            xtype: 'button',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('reload'),
+                            tooltip: 'Limpar todos os filtros',
+                            handler: 'onClearAllFilters'
                         },
                         {
                             xtype: 'button',
@@ -127,7 +158,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('images2'),
                             // text: 'Imagens',
-                            tooltip: 'Editar ou adicionar novas imagens',
+                            tooltip: 'Editar ou adicionar imagens',
                             bind: {
                                 disabled: '{!resultTable.selection}'
                             },

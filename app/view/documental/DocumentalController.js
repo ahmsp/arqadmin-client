@@ -32,14 +32,21 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         }
 
         Ext.Object.each(params, function (key, value) {
-            filters.push({
-                'property': key,
-                'value': value,
-                'operator': form.getForm().findField(key).operator
-            });
+            var loProperty = 'lo_' + key;
+
+            if (key.substring(0,3) !== 'lo_') {
+                filters.push({
+                    'property': key,
+                    'value': value,
+                    'operator': form.getForm().findField(key).operator,
+                    'logical_operator': (params.hasOwnProperty(loProperty)) ? params[loProperty] : 'and'
+                });
+            }
         });
 
         // grid.filters.clearFilters(true);
+        delete store.getProxy().extraParams.search_all;
+        // delete store.getProxy().extraParams['search_all'];
         store.clearFilter(true);
         store.setFilters(filters);
         store.load();
@@ -47,6 +54,55 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
     onFilterFormButtonClearClick: function (button) {
         button.up('form').reset();
+    },
+
+    onSearchfieldTriggerClick: function () {
+        var me = this,
+            field = me.lookupReference('searchAllField'),
+            value = field.getValue();
+
+        if (!Ext.isEmpty(value)) {
+            me.searchAll(value);
+        }
+    },
+
+    onSearchfieldSpecialkey: function (field, e, eOpts) {
+        var value = field.getValue();
+
+        if (e.getKey() == e.ENTER && !Ext.isEmpty(value)) {
+            this.searchAll(value);
+        }
+    },
+
+    onClearAllFilters: function () {
+        var me = this,
+            grid = me.lookupReference('resultTable'),
+            searchField = me.lookupReference('searchAllField'),
+            filterForm = me.lookupReference('filterForm'),
+            store = grid.getStore();
+
+        searchField.setValue('');
+        filterForm.reset();
+        delete store.getProxy().extraParams.search_all;
+        grid.filters.clearFilters();
+        store.clearFilter(true);
+        store.load();
+    },
+
+    searchAll: function (term) {
+        var me = this,
+            store = me.getStore('documentos'),
+            searchParam;
+
+        if (Ext.isEmpty(term)) {
+            return;
+        }
+
+        searchParam = {'search_all': term};
+
+        store.clearFilter(true);
+        store.getProxy().extraParams = searchParam;
+        store.load();
     },
 
     onGridRender: function (grid) {

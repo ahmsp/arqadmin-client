@@ -45,6 +45,15 @@ Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
                     text: 'Pesquisar',
                     handler: 'onFilterFormButtonFilterClick',
                     reference: 'btnPesquisar'
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('info'),
+                    tooltip: 'Informações sobre a pesquisa',
+                    handler: 'onInfoButtonClick'
                 }
             ]
         }

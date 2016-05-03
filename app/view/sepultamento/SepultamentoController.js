@@ -236,27 +236,6 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
         win.show();
     },
 
-    findAcervoId: function (classificacaoData) {
-        var store = Ext.getStore('staticData.classificacao.Acervos');
-
-        var recordIndex = store.findBy(
-            function (rec, id) {
-                if ((classificacaoData.fundo_id || 0) === rec.get('fundo_id') &&
-                    (classificacaoData.subfundo_id || 0) === rec.get('subfundo_id') &&
-                    (classificacaoData.grupo_id || 0) === rec.get('grupo_id') &&
-                    (classificacaoData.subgrupo_id || 0) === rec.get('subgrupo_id') &&
-                    (classificacaoData.serie_id || 0) === rec.get('serie_id') &&
-                    (classificacaoData.subserie_id || 0) === rec.get('subserie_id') &&
-                    (classificacaoData.dossie_id || 0) === rec.get('dossie_id')) {
-                    return true;
-                }
-                return false;
-            }
-        );
-
-        return (recordIndex == -1) ? null : store.getAt(recordIndex).getId();
-    },
-
     onAdd: function () {
         var me = this,
             editForm = me.lookupReference('editForm'),

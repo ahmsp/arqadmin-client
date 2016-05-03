@@ -19,27 +19,6 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoModel', {
             pageSize: 100,
             remoteFilter: true,
             remoteSort: true
-        },
-        logicalOperators: {
-            autoLoad: true,
-            fields: [
-                {name: 'id'},
-                {name: 'text'}
-            ],
-            data: [
-                {
-                    "id": "and",
-                    "text": "Deve conter"
-                },
-                {
-                    "id": "or",
-                    "text": "Pode conter"
-                },
-                {
-                    "id": "not",
-                    "text": "Não conter"
-                }
-            ]
         }
     },
 

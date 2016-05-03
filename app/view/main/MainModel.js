@@ -19,6 +19,30 @@ Ext.define('ArqAdmin.view.main.MainModel', {
         moduleTitle: ''
     },
 
+    stores: {
+        logicalOperators: {
+            autoLoad: true,
+            fields: [
+                {name: 'id'},
+                {name: 'text'}
+            ],
+            data: [
+                {
+                    "id": "and",
+                    "text": "Deve conter"
+                },
+                {
+                    "id": "or",
+                    "text": "Pode conter"
+                },
+                {
+                    "id": "not",
+                    "text": "Não conter"
+                }
+            ]
+        }
+    },
+
     formulas: {
         apiBaseUrl: function () {
             //return ArqAdmin.config.Runtime.getApiBaseUrl();
