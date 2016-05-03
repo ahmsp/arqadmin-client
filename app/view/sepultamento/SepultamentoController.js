@@ -264,10 +264,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
 
     onEdit: function () {
         var me = this,
-            record = me.getViewModel().get('record'),
-            acervoId = me.findAcervoId(record.getData());
-
-        record.set('acervo_id', acervoId);
+            record = me.getViewModel().get('record');
 
         me.editFormLoadRecord(record, true);
     },

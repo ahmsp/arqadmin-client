@@ -393,6 +393,15 @@ Ext.define('ArqAdmin.view.sepultamento.EditForm', {
                 },
                 {
                     xtype: 'textfield',
+                    fieldLabel: 'Ano (Falecimento)',
+                    name: 'ano',
+                    enforceMaxLength: true,
+                    maxLength: 4,
+                    regex: /^(18|19)\d{2}|(20)([0-2])\d$/,
+                    regexText: 'O ano inserido não é válido'
+                },
+                {
+                    xtype: 'textfield',
                     fieldLabel: 'Data Falecimento',
                     name: 'sfm_data_morte'
                 },

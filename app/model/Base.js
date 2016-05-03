@@ -6,7 +6,7 @@ Ext.define('ArqAdmin.model.Base', {
         'Ext.data.proxy.Rest'
     ],
 
-    //idProperty: 'id',
+    // idProperty: 'id',
 
     fields: [
         {name: 'id', type: 'int', allowNull: true, persist: false}

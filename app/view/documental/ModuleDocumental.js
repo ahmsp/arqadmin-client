@@ -62,7 +62,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                                 'line-height': '16px',
                                 'font-weight': 'bold'
                             },
-                            text: 'Pesquisa ampla:'
+                            text: 'Pesquisa:'
                         },
                         {
                             xtype: 'textfield',

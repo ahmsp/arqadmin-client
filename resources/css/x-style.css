@@ -130,8 +130,7 @@
     /*border: 1px solid #ddd;*/
     width: 85px;
     height: 85px;
-    background: #eee urls('../img/loading.gif') no-repeat center;
-    /*background-color: #eee;*/
+    background: #eee url('../img/loading.gif') no-repeat center;
     text-align: center !important;
 
     display: table-cell !important;

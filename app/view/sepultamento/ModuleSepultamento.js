@@ -63,7 +63,7 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
                                 'line-height': '16px',
                                 'font-weight': 'bold'
                             },
-                            text: 'Pesquisa ampla:'
+                            text: 'Pesquisa:'
                         },
                         {
                             xtype: 'textfield',
