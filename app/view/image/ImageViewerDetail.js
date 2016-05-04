@@ -1,4 +1,4 @@
-Ext.define('ArqAdmin.view.documental.image.ImageViewerDetail', {
+Ext.define('ArqAdmin.view.image.ImageViewerDetail', {
     extend: 'Ext.form.Panel',
     xtype: 'imageviewer-detail',
 

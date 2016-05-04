@@ -1,4 +1,4 @@
-Ext.define('ArqAdmin.view.documental.image.desenhoTecnico.ThumbsDataview', {
+Ext.define('ArqAdmin.view.documental.ThumbsDataview', {
     extend: 'Ext.view.View',
     //alias: 'widget.thumbsdataview',
     xtype: 'documental-thumbsdataview',
