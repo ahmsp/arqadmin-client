@@ -1,14 +1,14 @@
-Ext.define('ArqAdmin.view.image.ImageViewerWindow', {
+Ext.define('ArqAdmin.view.documental.image.ImageViewerWindow', {
     extend: 'Ext.window.Window',
     xtype: 'imageviewer-window',
 
     requires: [
-        'ArqAdmin.view.image.ImageViewerModel',
+        'ArqAdmin.view.documental.image.ImageViewerModel',
         'ArqAdmin.view.widget.ImageViewerImg',
-        'ArqAdmin.view.image.ImageViewerDataview',
-        'ArqAdmin.view.image.ImageViewerController',
-        'ArqAdmin.view.image.ImageViewerDetail',
-        'ArqAdmin.view.image.ImageViewerForm',
+        'ArqAdmin.view.documental.image.ImageViewerDataview',
+        'ArqAdmin.view.documental.image.ImageViewerController',
+        'ArqAdmin.view.documental.image.ImageViewerDetail',
+        'ArqAdmin.view.documental.image.ImageViewerForm',
         'ArqAdmin.view.widget.DownloadImageWindow',
         'ArqAdmin.view.documental.ThumbsDataview'
     ],

@@ -1,4 +1,4 @@
-Ext.define('ArqAdmin.view.image.ImageViewerDataview', {
+Ext.define('ArqAdmin.view.documental.image.ImageViewerDataview', {
     extend: 'Ext.panel.Panel',
     xtype: 'imageviewer-dataview',
 

@@ -13,6 +13,8 @@ Ext.define('ArqAdmin.view.main.Main', {
         'Ext.button.Button',
         'Ext.menu.Menu',
         'Ext.menu.Item',
+        'Ext.form.RadioGroup',
+        'Ext.form.field.File',
         'Ext.toolbar.Fill',
         'Ext.toolbar.Separator',
         'Ext.form.Label',

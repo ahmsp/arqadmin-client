@@ -21,7 +21,7 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
         'Ext.toolbar.Fill',
         'Ext.toolbar.Separator',
         'Ext.toolbar.Toolbar',
-        'ArqAdmin.view.image.ImageViewerWindow',
+        'ArqAdmin.view.documental.image.ImageViewerWindow',
         'ArqAdmin.view.staticData.StaticDataWindow'
     ],
 

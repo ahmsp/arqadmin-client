@@ -1,4 +1,4 @@
-Ext.define('ArqAdmin.view.image.ImageViewerModel', {
+Ext.define('ArqAdmin.view.documental.image.ImageViewerModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.imageviewer',
 

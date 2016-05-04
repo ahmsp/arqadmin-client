@@ -3,16 +3,9 @@ Ext.define('ArqAdmin.view.widget.DownloadImageWindow', {
     xtype: 'download-window',
 
     requires: [
-        'ArqAdmin.view.image.ImageViewerController'
+        // 'ArqAdmin.view.documental.image.ImageViewerController'
     ],
     controller: 'imageviewer',
-
-    //viewModel: {
-    //    data: {
-    //        title: '',
-    //        currentImage: ''
-    //    }
-    //},
 
     height: 350,
     width: 500,
@@ -31,12 +24,9 @@ Ext.define('ArqAdmin.view.widget.DownloadImageWindow', {
         {
             xtype: 'form',
             reference: 'downloadImageForm',
-            //title: 'Download',
             layout: 'anchor',
             region: 'center',
             bodyPadding: '10 15 0',
-            //margin: '10 20 20',
-
             dockedItems: [
                 {
                     xtype: 'toolbar',

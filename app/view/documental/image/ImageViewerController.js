@@ -1,4 +1,4 @@
-Ext.define('ArqAdmin.view.image.ImageViewerController', {
+Ext.define('ArqAdmin.view.documental.image.ImageViewerController', {
     extend: 'ArqAdmin.view.base.AcervosViewController',
     alias: 'controller.imageviewer',
 
