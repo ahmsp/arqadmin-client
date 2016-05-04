@@ -4,12 +4,12 @@ Ext.define('ArqAdmin.view.image.ImageViewerWindow', {
 
     requires: [
         'ArqAdmin.view.image.ImageViewerModel',
-        'ArqAdmin.view.image.ImageViewerImg',
+        'ArqAdmin.view.widget.ImageViewerImg',
         'ArqAdmin.view.image.ImageViewerDataview',
         'ArqAdmin.view.image.ImageViewerController',
         'ArqAdmin.view.image.ImageViewerDetail',
         'ArqAdmin.view.image.ImageViewerForm',
-        'ArqAdmin.view.image.DownloadImageWindow',
+        'ArqAdmin.view.widget.DownloadImageWindow',
         'ArqAdmin.view.documental.ThumbsDataview'
     ],
 

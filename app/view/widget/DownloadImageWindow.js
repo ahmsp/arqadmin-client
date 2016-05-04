@@ -1,4 +1,4 @@
-Ext.define('ArqAdmin.view.image.DownloadImageWindow', {
+Ext.define('ArqAdmin.view.widget.DownloadImageWindow', {
     extend: 'Ext.window.Window',
     xtype: 'download-window',
 
