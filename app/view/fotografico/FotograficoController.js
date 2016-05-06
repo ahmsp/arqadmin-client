@@ -1,16 +1,8 @@
-Ext.define('ArqAdmin.view.documental.DocumentalController', {
+Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
     extend: 'ArqAdmin.view.base.AcervosViewController',
-    alias: 'controller.documental',
+    alias: 'controller.fotografico',
 
     control: {
-        "#editClassificFieldset combobox": {
-            change: 'onCascadingComboChange',
-            focus: 'onCascadingComboFocus'
-        },
-        "#filterClassificFieldset combobox": {
-            change: 'onCascadingComboChange',
-            focus: 'onCascadingComboFocus'
-        },
         "textfield": {
             specialkey: 'onTextfieldSpecialkey'
         }
@@ -26,10 +18,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             grid = me.lookupReference('resultTable'),
             store = grid.getStore(),
             filters = [];
-
-        if (form.getForm().findField('com_imagem').getValue()) {
-            params.com_imagem = 1;
-        }
 
         Ext.Object.each(params, function (key, value) {
             var loProperty = 'lo_' + key;
@@ -91,7 +79,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
     searchAll: function (term) {
         var me = this,
-            store = me.getStore('documentos'),
+            store = me.getStore('fotografias'),
             searchParam;
 
         if (Ext.isEmpty(term)) {
@@ -122,10 +110,10 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
                         if (column.dataIndex === 'id') {
                             var record = grid.view.getRecord(tip.triggerElement.parentNode),
-                                dt = record.get('desenhos_tecnicos');
+                                img = record.get('imagem');
 
-                            if (!Ext.isEmpty(dt)) {
-                                var imgPath = ArqAdmin.config.Runtime.getImagesDocumental() + dt[0].id + '/320';
+                            if (!Ext.isEmpty(img)) {
+                                var imgPath = ArqAdmin.config.Runtime.getImagesFotografico() + record.getId() + '/320';
                                 var ttip = [
                                     '<div class="tipcls">' +
                                     '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">' +
@@ -174,7 +162,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     onGridSelect: function (rowmodel, record, index, eOpts) {
         var me = this,
             layoutItems = me.lookupReference('resultsPanel').getLayout().getLayoutItems();
-        
+
         // selects record in both grids
         Ext.Object.each(layoutItems, function (key, componentGrid) {
 
@@ -184,18 +172,14 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
             var selection = componentGrid.getSelectionModel().getSelection()[0];
             if (record !== selection) {
-                // componentGrid.getSelectionModel().select(record);
                 me.selectRecord(componentGrid, record);
             }
         });
     },
 
     onGridResultTableSelect: function (rowmodel, record, index, eOpts) {
-        var me = this,
-            imagesList = record.getData().desenhos_tecnicos;
+        var me = this;
 
-        me.getStore('desenhosTecnicos').loadRawData(imagesList);
-        // me.getStore('desenhosTecnicos').filter('documento_id', record.getId());
         me.getViewModel().set('record', record);
         // me.editFormLoadRecord(record, false);
         me.detailsPanelLoadRecord(record, true);
@@ -209,7 +193,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     onGridCellClick: function (grid, td, cellIndex, record, tr, rowIndex, e, eOpts) {
         var me = this;
 
-        if (cellIndex === 0 && !Ext.isEmpty(record.data.desenhos_tecnicos)) {
+        if (cellIndex === 0 && !Ext.isEmpty(record.get('imagem_original'))) {
             me.showImageViewerWindow();
         }
     },
@@ -248,18 +232,13 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         layout.setActiveItem(item);
     },
 
-    //showViewDisplayPanel: function (view) {
-    //    var layout = this.lookupReference('displayPanel').getLayout();
-    //    layout.setActiveItem(view);
-    //},
-
     showImageViewerWindow: function () {
         var me = this,
-            win = Ext.widget('imageviewer-window');
+            win = Ext.widget('fotografico-imageviewer-window');
 
-        win.getViewModel().set('documentoId', me.getViewModel().get('record').getId());
+        win.getViewModel().set('fotograficoId', me.getViewModel().get('record').getId());
         win.on('close', function () {
-            me.getStore('documentos').reload();
+            me.getStore('fotografico').reload();
         });
         win.show();
     },
@@ -267,7 +246,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     onAdd: function () {
         var me = this,
             editForm = me.lookupReference('editForm'),
-            newRecord = Ext.create('ArqAdmin.model.documental.Documento');
+            newRecord = Ext.create('ArqAdmin.model.fotografico.Fotografia');
 
         newRecord.setId(null);
 
@@ -281,26 +260,20 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                 fn: function (btn, ev) {
                     if (btn == 'yes') {
                         me.editFormLoadRecord(newRecord, true);
-                        me.changeDisableCascadingCombos('editForm');
                     }
                 }
             });
         } else {
             me.editFormLoadRecord(newRecord, true);
-            me.changeDisableCascadingCombos('editForm');
             me.deselectAllGrids();
         }
     },
 
     onEdit: function () {
         var me = this,
-            record = me.getViewModel().get('record'),
-            acervoId = me.findAcervoId(record.getData());
-
-        record.set('acervo_id', acervoId);
+            record = me.getViewModel().get('record');
 
         me.editFormLoadRecord(record, true);
-        me.changeDisableCascadingCombos('editForm');
     },
 
     onSave: function () {
@@ -309,7 +282,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             formBasic = form.getForm(),
             record = form.getRecord(),
             values = form.getValues(),
-            store = me.getStore('documentos');
+            store = me.getStore('fotografias');
 
         if (!form.isDirty()) {
             return;
@@ -360,7 +333,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             fn: function (btn, ev) {
                 if (btn === 'yes') {
                     var record = me.getViewModel().get('record'),
-                        store = me.getStore('documentos');
+                        store = me.getStore('fotografias');
 
                     store.remove(record);
                     store.sync({
@@ -389,128 +362,13 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         if (e.getKey() == e.ENTER) {
             var form = field.up('form');
             if (form) {
-                if (form.xtype === 'documental-filterform') {
+                if (form.xtype === 'fotografico-filterform') {
                     this.lookupReference('btnPesquisar').fireHandler();
-                } else if (form.xtype === 'documental-editform') {
+                } else if (form.xtype === 'fotografico-editform') {
                     this.lookupReference('btnSave').fireHandler();
                 }
             }
         }
-    },
-    
-    onAcervoComboSelect: function (combo, records, eOpts) {
-        var me = this,
-            formPanel = combo.up('panel'),
-            formPanelRef = formPanel.reference,
-            form = formPanel.getForm(),
-            values = records.getData(),
-            fieldset = (formPanelRef === 'editForm') ? 'editClassificFieldset' : 'filterClassificFieldset',
-            combos = me.lookupReference(fieldset).getReferences();
-
-        delete values.id;
-        me.clearFilterCascadingCombos(combos);
-
-        form.setValues(values);
-
-        if (formPanelRef === 'editForm') {
-            me.lookupReference('especiedocumentalCombo').focus(true, 180);
-        }
-    },
-
-    onCascadingComboChange: function (combo, records, eOpts, conn) {
-        var me = this,
-            formPanel = combo.up('panel'),
-            formRef = formPanel.reference,
-            acervoComboRef = (formRef === 'editForm') ? 'editAcervoCombo' : 'filterAcervoCombo',
-            fieldset = (formRef === 'editForm') ? 'editClassificFieldset' : 'filterClassificFieldset',
-            combos = me.lookupReference(fieldset).getReferences();
-
-        // clear all next combos
-        var start = false;
-        Ext.Object.each(combos, function (key, cb, obj) {
-            // check if this is next combo
-            if (cb === combo.next()) {
-                start = true;
-            }
-
-            if (start === true) {
-                cb.clearValue();
-            }
-        });
-
-        me.changeDisableCascadingCombos(formRef);
-        me.lookupReference(acervoComboRef).setValue(me.findAcervoId(formPanel.getValues()));
-    },
-
-    onCascadingComboFocus: function (component, event, eOpts) {
-        var combo = component;
-
-        if (combo.reference == 'fundoCombo') {
-            return;
-        }
-
-        var prevCombo = combo.prev();
-        var filterProperty = prevCombo.name;
-        var comboStore = combo.getStore();
-
-        comboStore.clearFilter();
-
-        // filter the combo based in parent combo value (id)
-        comboStore.filterBy(function (record) {
-            return record.get(filterProperty) === prevCombo.value;
-        });
-    },
-
-    /* Clear the filters of cascading combos */
-    clearFilterCascadingCombos: function (combos) {
-        Ext.Object.each(combos, function (key, combo, obj) {
-            combo.getStore().clearFilter();
-        });
-    },
-
-    /*
-     * Change the disabled state of cascading combos,
-     * based on defined values
-     *
-     * @param {string} form reference ('filterForm'|'editForm')
-     */
-    changeDisableCascadingCombos: function (formRef) {
-        var me = this,
-            fieldset = (formRef === 'filterForm') ? 'filterClassificFieldset' : 'editClassificFieldset',
-            combos = me.lookupReference(fieldset).getReferences();
-
-        var lastSelectedCombo = null;
-        Ext.Object.each(combos, function (key, combo, obj) {
-            if (!Ext.isEmpty(combo.value)) {
-                combo.enable();
-                lastSelectedCombo = combo;
-            } else if (combo.reference !== 'fundoCombo') {
-                combo.disable();
-            }
-        });
-        if (lastSelectedCombo) {
-            lastSelectedCombo.next().enable();
-        }
-    },
-
-    findAcervoId: function (classificacaoData) {
-        var store = Ext.getStore('staticData.classificacao.Acervos');
-
-        var recordIndex = store.findBy(
-            function (rec, id) {
-                if ((classificacaoData.fundo_id || 0) === rec.get('fundo_id') &&
-                    (classificacaoData.subfundo_id || 0) === rec.get('subfundo_id') &&
-                    (classificacaoData.grupo_id || 0) === rec.get('grupo_id') &&
-                    (classificacaoData.subgrupo_id || 0) === rec.get('subgrupo_id') &&
-                    (classificacaoData.serie_id || 0) === rec.get('serie_id') &&
-                    (classificacaoData.subserie_id || 0) === rec.get('subserie_id') &&
-                    (classificacaoData.dossie_id || 0) === rec.get('dossie_id')) {
-                    return true;
-                }
-                return false;
-            }
-        );
-
-        return (recordIndex == -1) ? null : store.getAt(recordIndex).getId();
     }
+
 });

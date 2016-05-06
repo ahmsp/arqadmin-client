@@ -9,6 +9,7 @@ Ext.define('ArqAdmin.view.main.Main', {
         'ArqAdmin.view.dashboard.ModuleDashboard',
         'ArqAdmin.view.documental.ModuleDocumental',
         'ArqAdmin.view.sepultamento.ModuleSepultamento',
+        'ArqAdmin.view.fotografico.ModuleFotografico',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button',
         'Ext.menu.Menu',

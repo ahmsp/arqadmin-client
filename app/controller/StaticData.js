@@ -32,7 +32,15 @@ Ext.define('ArqAdmin.controller.StaticData', {
         'staticData.sepultamento.SfmCemiterios',
         'staticData.sepultamento.SfmEstadocivis',
         'staticData.sepultamento.SfmNacionalidades',
-        'staticData.sepultamento.SfmNaturalidades'
+        'staticData.sepultamento.SfmNaturalidades',
+        'staticData.fotografico.FtFundos',
+        'staticData.fotografico.FtGrupos',
+        'staticData.fotografico.FtSeries',
+        'staticData.fotografico.FtTipologias',
+        'staticData.fotografico.FtCromias',
+        'staticData.fotografico.FtCategorias',
+        'staticData.fotografico.FtCampos',
+        'staticData.fotografico.FtAmbientes'
     ],
 
     views: [
@@ -63,7 +71,15 @@ Ext.define('ArqAdmin.controller.StaticData', {
         'staticData.sepultamento.SfmCemiterios',
         'staticData.sepultamento.SfmEstadocivis',
         'staticData.sepultamento.SfmNacionalidades',
-        'staticData.sepultamento.SfmNaturalidades'
+        'staticData.sepultamento.SfmNaturalidades',
+        'staticData.fotografico.FtFundos',
+        'staticData.fotografico.FtGrupos',
+        'staticData.fotografico.FtSeries',
+        'staticData.fotografico.FtTipologias',
+        'staticData.fotografico.FtCromias',
+        'staticData.fotografico.FtCategorias',
+        'staticData.fotografico.FtCampos',
+        'staticData.fotografico.FtAmbientes'
     ],
 
     refs: [

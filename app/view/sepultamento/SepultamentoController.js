@@ -22,7 +22,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
         Ext.Object.each(params, function (key, value) {
             var loProperty = 'lo_' + key;
 
-            if (key.substring(0,3) !== 'lo_') {
+            if (key.substring(0, 3) !== 'lo_') {
                 filters.push({
                     'property': key,
                     'value': value,
@@ -109,8 +109,9 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
                             column = gridColums[tip.triggerElement.cellIndex];
 
                         if (column.dataIndex === 'id') {
-                            var record = grid.view.getRecord(tip.triggerElement.parentNode);
-                            var img = record.get('imagem');
+                            var record = grid.view.getRecord(tip.triggerElement.parentNode),
+                                img = record.get('imagem');
+                            
                             if (!Ext.isEmpty(img)) {
                                 var imgPath = ArqAdmin.config.Runtime.getImagesSepultamento() + record.getId() + '/320';
                                 var ttip = [
@@ -162,6 +163,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
         var me = this,
             layoutItems = me.lookupReference('resultsPanel').getLayout().getLayoutItems();
 
+        // selects record in both grids
         Ext.Object.each(layoutItems, function (key, componentGrid) {
             var selection = componentGrid.getSelectionModel().getSelection()[0];
             if (record !== selection) {
@@ -174,7 +176,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
         var me = this;
 
         me.getViewModel().set('record', record);
-        // // me.editFormLoadRecord(record, false);
+        // me.editFormLoadRecord(record, false);
         me.detailsPanelLoadRecord(record, true);
     },
 
@@ -363,6 +365,5 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
             }
         }
     }
-
-
+    
 });

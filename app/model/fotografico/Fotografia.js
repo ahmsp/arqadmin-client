@@ -5,23 +5,55 @@ Ext.define('ArqAdmin.model.fotografico.Fotografia', {
 
     fields: [
         {
+            name: 'ft_fundo_id',
+            type: 'int',
+            allowNull: true,
+            reference: 'staticData.fotografico.FtFundo'
+        },
+        {
             name: 'fundo',
-            sortType: 'asUCString'
+            mapping: 'ft_fundo.fundo',
+            sortType: 'asUCString',
+            persist: false
+        },
+        {
+            name: 'ft_grupo_id',
+            type: 'int',
+            allowNull: true,
+            reference: 'staticData.fotografico.FtGrupo'
         },
         {
             name: 'grupo',
-            sortType: 'asUCString'
+            mapping: 'ft_grupo.grupo',
+            sortType: 'asUCString',
+            persist: false
+        },
+        {
+            name: 'ft_serie_id',
+            type: 'int',
+            allowNull: true,
+            reference: 'staticData.fotografico.FtSerie'
         },
         {
             name: 'serie',
-            sortType: 'asUCString'
+            mapping: 'ft_serie.serie',
+            sortType: 'asUCString',
+            persist: false
+        },
+        {
+            name: 'ft_tipologia_id',
+            type: 'int',
+            allowNull: true,
+            reference: 'staticData.fotografico.FtTipologia'
         },
         {
             name: 'tipologia',
-            sortType: 'asUCString'
+            mapping: 'ft_tipologia.tipologia',
+            sortType: 'asUCString',
+            persist: false
         },
         {
-            name: 'data',
+            name: 'data_imagem',
             sortType: 'asUCString'
         },
         {
@@ -65,28 +97,60 @@ Ext.define('ArqAdmin.model.fotografico.Fotografia', {
             sortType: 'asUCString'
         },
         {
+            name: 'ft_cromia_id',
+            type: 'int',
+            allowNull: true,
+            reference: 'staticData.fotografico.FtCromia'
+        },
+        {
             name: 'cromia',
-            sortType: 'asUCString'
+            mapping: 'ft_cromia.cromia',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'formato',
             sortType: 'asUCString'
         },
         {
+            name: 'ft_categoria_id',
+            type: 'int',
+            allowNull: true,
+            reference: 'staticData.fotografico.FtCategoria'
+        },
+        {
             name: 'categoria',
-            sortType: 'asUCString'
+            mapping: 'ft_categoria.categoria',
+            sortType: 'asUCString',
+            persist: false
+        },
+        {
+            name: 'ft_campo_id',
+            type: 'int',
+            allowNull: true,
+            reference: 'staticData.fotografico.FtCampo'
         },
         {
             name: 'campo',
-            sortType: 'asUCString'
+            mapping: 'ft_campo.campo',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'tipo',
             sortType: 'asUCString'
         },
         {
+            name: 'ft_ambiente_id',
+            type: 'int',
+            allowNull: true,
+            reference: 'staticData.fotografico.FtAmbiente'
+        },
+        {
             name: 'ambiente',
-            sortType: 'asUCString'
+            mapping: 'ft_ambiente.ambiente',
+            sortType: 'asUCString',
+            persist: false
         },
         {
             name: 'enquadramento',

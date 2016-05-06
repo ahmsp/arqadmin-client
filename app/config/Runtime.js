@@ -9,6 +9,10 @@ Ext.define('ArqAdmin.config.Runtime', {
         downloadDocumental: 'http://arqadmin.dev/api/imagem/documental/',
         uploadDocumental: 'http://arqadmin.dev/api/upload/imagem/documental/',
 
+        imagesFotografico: 'http://arqadmin.dev/imagem/fotografico/',
+        downloadFotografico: 'http://arqadmin.dev/api/imagem/fotografico/',
+        uploadFotografico: 'http://arqadmin.dev/api/upload/imagem/fotografico/',
+
         imagesSepultamento: 'http://arqadmin.dev/imagem/sepultamento/',
         downloadSepultamento: 'http://arqadmin.dev/api/imagem/sepultamento/',
         uploadSepultamento: 'http://arqadmin.dev/api/upload/imagem/sepultamento/',
