@@ -84,27 +84,6 @@ Ext.define('ArqAdmin.view.widget.ImageViewerImg', {
                         text: 'Salvar imagem',
                         glyph: ArqAdmin.util.Glyphs.getGlyph('download'),
                         handler: 'showDownloadImagesWindow'
-                    },
-                    {
-                        xtype: 'tbseparator'
-                    },
-                    {
-                        xtype: 'button',
-                        itemId: 'btnAdd',
-                        glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
-                        text: 'Nova',
-                        tooltip: 'Adicionar nova imagem',
-                        handler: 'onAdd'
-                    },
-                    {
-                        xtype: 'button',
-                        glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
-                        text: 'Editar',
-                        tooltip: 'Editar a imagem selecionada',
-                        bind: {
-                            disabled: '{!resultTable.selection}'
-                        },
-                        handler: 'onEdit'
                     }
                 ]
             },
@@ -116,6 +95,7 @@ Ext.define('ArqAdmin.view.widget.ImageViewerImg', {
                 style: {
                     overflow: 'hidden',
                     backgroundColor: '#f2f1f0',
+                    padding: '10px',
                     cursor: 'move'
                 },
                 items: [
@@ -151,7 +131,7 @@ Ext.define('ArqAdmin.view.widget.ImageViewerImg', {
                                     };
                                 };
                                 image.el.dom.onerror = function () {
-                                    image.setSrc('');
+                                    image.setSrc('resources/ico/no-image-75.png');
                                 }
                             }
                         }
@@ -206,8 +186,8 @@ Ext.define('ArqAdmin.view.widget.ImageViewerImg', {
             imageContainerHeight = me.getImageContainer().getHeight();
 
         me.setImageSize({
-            width: me.getOriginalImageWidth() * (imageContainerHeight - 20) / me.getOriginalImageHeight(),
-            height: imageContainerHeight - 20
+            height: imageContainerHeight - 20,
+            width: me.getOriginalImageWidth() * (imageContainerHeight - 20) / me.getOriginalImageHeight()
         });
 
         me.centerImage();
@@ -469,7 +449,8 @@ Ext.define('ArqAdmin.view.widget.ImageViewerImg', {
     },
 
     getImageContainer: function () {
-        return this.query('#imagecontainer')[0];
+        // return this.query('#imagecontainer')[0];
+        return this.down('#imagecontainer');
     },
 
     windowClose: function () {

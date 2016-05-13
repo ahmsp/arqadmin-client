@@ -1,11 +1,8 @@
-Ext.define('ArqAdmin.view.widget.DownloadImageWindow', {
+Ext.define('ArqAdmin.view.fotografico.image.DownloadImageWindow', {
     extend: 'Ext.window.Window',
-    xtype: 'download-window',
+    xtype: 'fotografico-download-window',
 
-    requires: [
-        // 'ArqAdmin.view.documental.image.ImageViewerController'
-    ],
-    controller: 'imageviewer',
+    controller: 'fotografico-imageviewer',
 
     height: 350,
     width: 500,

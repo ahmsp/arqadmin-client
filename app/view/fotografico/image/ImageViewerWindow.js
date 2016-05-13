@@ -3,9 +3,17 @@ Ext.define('ArqAdmin.view.fotografico.image.ImageViewerWindow', {
     xtype: 'fotografico-imageviewer-window',
 
     requires: [
-        'ArqAdmin.view.widget.ImageViewerImg',
-        'ArqAdmin.view.widget.DownloadImageWindow'
+        'ArqAdmin.view.fotografico.image.DownloadImageWindow',
+        'ArqAdmin.view.fotografico.image.ImageViewerController'
     ],
+
+    controller: 'fotografico-imageviewer',
+
+    viewModel: {
+        data: {
+            currentImage: {}
+        }
+    },
 
     height: 500,
     width: 500,

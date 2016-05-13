@@ -6,7 +6,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
         moduleTitle: 'Acervos Textual e Cartográfico',
         displayPanelTitle: 'Detalhes do registro',
         displayPanelActiveItem: '',
-
+        
         detailPanelReference: 'detailsPanel',
         editFormReference: 'editForm',
         displayPanelReference: 'displayPanel'

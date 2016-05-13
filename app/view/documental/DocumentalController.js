@@ -117,8 +117,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                 renderTo: Ext.getBody(),
                 listeners: {
                     beforeshow: function updateTipBody(tip) {
-                        var gridColums = grid.view.getGridColumns(),
-                            column = gridColums[tip.triggerElement.cellIndex];
+                        var gridColumns = grid.view.getGridColumns(),
+                            column = gridColumns[tip.triggerElement.cellIndex];
 
                         if (column.dataIndex === 'id') {
                             var record = grid.view.getRecord(tip.triggerElement.parentNode),
@@ -128,7 +128,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                                 var imgPath = ArqAdmin.config.Runtime.getImagesDocumental() + dt[0].id + '/320';
                                 var ttip = [
                                     '<div class="tipcls">' +
-                                    '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">' +
+                                    '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image-75.png\';">' +
                                     '</div>'
                                 ];
                                 tip.update(ttip);
@@ -256,6 +256,26 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     showImageViewerWindow: function () {
         var me = this,
             win = Ext.widget('imageviewer-window');
+
+        win.down('imageviewer-img').down('toolbar').add(
+            {xtype: 'tbseparator'},
+            {
+                text: 'Nova imagem',
+                // itemId: 'btnAdd',
+                glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
+                tooltip: 'Adicionar nova imagem',
+                handler: 'onAdd'
+            },
+            {
+                text: 'Editar imagem',
+                glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
+                tooltip: 'Editar a imagem selecionada',
+                bind: {
+                    disabled: '{!resultTable.selection}'
+                },
+                handler: 'onEdit'
+            }
+        );
 
         win.getViewModel().set('documentoId', me.getViewModel().get('record').getId());
         win.on('close', function () {

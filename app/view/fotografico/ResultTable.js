@@ -4,7 +4,7 @@ Ext.define('ArqAdmin.view.fotografico.ResultTable', {
 
     reference: 'resultTable',
     //allowDeselect: true,
-    multiColumnSort: true,
+    // multiColumnSort: true,
 
     columns: [
         {
@@ -78,18 +78,18 @@ Ext.define('ArqAdmin.view.fotografico.ResultTable', {
             columns: [
                 {
                     xtype: 'gridcolumn',
-                    width: 250,
+                    width: 120,
                     dataIndex: 'imagem_identificacao',
-                    text: 'Código da Imagem',
+                    text: 'Cód. Imagem',
                     filter: {
                         type: 'string'
                     }
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 250,
+                    width: 120,
                     dataIndex: 'data_imagem',
-                    text: 'Data da imagem',
+                    text: 'Imagem data',
                     filter: {
                         type: 'string'
                     }
@@ -105,7 +105,7 @@ Ext.define('ArqAdmin.view.fotografico.ResultTable', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 250,
+                    width: 150,
                     dataIndex: 'bairro',
                     text: 'Bairro',
                     filter: {
@@ -175,6 +175,7 @@ Ext.define('ArqAdmin.view.fotografico.ResultTable', {
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'cromia',
+                    width: 120,
                     text: 'Cromia',
                     filter: {
                         type: 'list',
@@ -186,7 +187,7 @@ Ext.define('ArqAdmin.view.fotografico.ResultTable', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 250,
+                    width: 80,
                     dataIndex: 'formato',
                     text: 'Formato',
                     filter: {
@@ -258,7 +259,7 @@ Ext.define('ArqAdmin.view.fotografico.ResultTable', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 250,
+                    width: 120,
                     dataIndex: 'texto_inscricao',
                     text: 'Texto Inscrição',
                     filter: {
@@ -282,7 +283,7 @@ Ext.define('ArqAdmin.view.fotografico.ResultTable', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 250,
+                    width: 120,
                     dataIndex: 'conservacao',
                     text: 'Conservação',
                     filter: {
@@ -309,7 +310,7 @@ Ext.define('ArqAdmin.view.fotografico.ResultTable', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 250,
+                    width: 120,
                     dataIndex: 'registro',
                     text: 'Registro',
                     filter: {
@@ -318,7 +319,7 @@ Ext.define('ArqAdmin.view.fotografico.ResultTable', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 250,
+                    width: 120,
                     dataIndex: 'revisao',
                     text: 'Revisão',
                     filter: {

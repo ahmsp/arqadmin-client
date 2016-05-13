@@ -265,7 +265,7 @@ Ext.define('ArqAdmin.view.sepultamento.DetailsPanel', {
                     // width: 300,
                     bind: {
                         // src: '{currentItem.picture}'
-                        src: 'resources/ico/no-image.png'
+                        src: 'resources/ico/no-image-75.png'
                     }
                 }
             ]

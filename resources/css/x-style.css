@@ -119,6 +119,9 @@
     vertical-align: middle !important;
     line-height: 16px;
 }
+.x-custom-td-list span {
+    font-weight: bold;
+}
 
 .x-custom-td-thumbnail {
     height: 100px;

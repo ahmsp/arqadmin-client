@@ -2,6 +2,12 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerController', {
     extend: 'ArqAdmin.view.base.AcervosViewController',
     alias: 'controller.imageviewer',
 
+    control: {
+        "textfield": {
+            specialkey: 'onTextfieldSpecialkey'
+        }
+    },
+
     onDataviewSelect: function (viewmodel, record, index) {
         var me = this,
             image = me.lookupReference('imageViewerImg').getImage();
@@ -222,7 +228,7 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerController', {
     showDownloadImagesWindow: function () {
         var me = this,
             dataview = me.lookupReference('imageViewerDataview'),
-            downloadWin = Ext.widget('download-window');
+            downloadWin = Ext.widget('documental-download-window');
 
         var selection = dataview.getSelection()[0];
         downloadWin.down('form').loadRecord(selection);
@@ -255,6 +261,15 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerController', {
 
     onDataviewViewready: function (view) {
         this.selectRecordDelay(view);
-    }
+    },
 
+    onTextfieldSpecialkey: function (field, e, eOpts) {
+
+        if (e.getKey() == e.ENTER) {
+            var form = field.up('form');
+            if (form) {
+                this.lookupReference('btnSave').fireHandler();
+            }
+        }
+    }
 });

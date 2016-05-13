@@ -16,7 +16,7 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerDetail', {
         align: 'stretch'
     },
     bodyPadding: '4 8 0',
-
+    
     items: [
         {
             xtype: 'displayfield',

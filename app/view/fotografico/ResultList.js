@@ -15,9 +15,9 @@ Ext.define('ArqAdmin.view.fotografico.ResultList', {
                 var fotografiaId = record.getId();
                 if (!Ext.isEmpty(fotografiaId)) {
                     var imgPath = ArqAdmin.config.Runtime.getImagesFotografico() + fotografiaId + '/75';
-                    return '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">';
+                    return '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image-75.png\';">';
                 } else {
-                    return '<img src="resources/ico/no-image.png" >';
+                    return '<img src="resources/ico/no-image-75.png" >';
                 }
             },
             dataIndex: 'id',

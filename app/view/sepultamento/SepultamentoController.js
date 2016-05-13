@@ -105,8 +105,8 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
                 renderTo: Ext.getBody(),
                 listeners: {
                     beforeshow: function updateTipBody(tip) {
-                        var gridColums = grid.view.getGridColumns(),
-                            column = gridColums[tip.triggerElement.cellIndex];
+                        var gridColumns = grid.view.getGridColumns(),
+                            column = gridColumns[tip.triggerElement.cellIndex];
 
                         if (column.dataIndex === 'id') {
                             var record = grid.view.getRecord(tip.triggerElement.parentNode),
@@ -116,7 +116,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
                                 var imgPath = ArqAdmin.config.Runtime.getImagesSepultamento() + record.getId() + '/320';
                                 var ttip = [
                                     '<div class="tipcls">' +
-                                    '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">' +
+                                    '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image-75.png\';">' +
                                     '</div>'
                                 ];
                                 tip.update(ttip);

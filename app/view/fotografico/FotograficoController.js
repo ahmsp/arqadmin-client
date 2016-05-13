@@ -8,9 +8,6 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
         }
     },
 
-    /*
-     * Filter Form
-     */
     onFilterFormButtonFilterClick: function (button) {
         var me = this,
             form = button.up('form'),
@@ -105,18 +102,18 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
                 renderTo: Ext.getBody(),
                 listeners: {
                     beforeshow: function updateTipBody(tip) {
-                        var gridColums = grid.view.getGridColumns(),
-                            column = gridColums[tip.triggerElement.cellIndex];
+                        var gridColumns = grid.view.getGridColumns(),
+                            column = gridColumns[tip.triggerElement.cellIndex];
 
                         if (column.dataIndex === 'id') {
                             var record = grid.view.getRecord(tip.triggerElement.parentNode),
-                                img = record.get('imagem');
+                                img = record.get('imagem_original');
 
                             if (!Ext.isEmpty(img)) {
                                 var imgPath = ArqAdmin.config.Runtime.getImagesFotografico() + record.getId() + '/320';
                                 var ttip = [
                                     '<div class="tipcls">' +
-                                    '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image.png\';">' +
+                                    '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image-75.png\';">' +
                                     '</div>'
                                 ];
                                 tip.update(ttip);
@@ -230,17 +227,6 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
             item = me.lookupReference(itemReference);
 
         layout.setActiveItem(item);
-    },
-
-    showImageViewerWindow: function () {
-        var me = this,
-            win = Ext.widget('fotografico-imageviewer-window');
-
-        win.getViewModel().set('fotograficoId', me.getViewModel().get('record').getId());
-        win.on('close', function () {
-            me.getStore('fotografico').reload();
-        });
-        win.show();
     },
 
     onAdd: function () {
@@ -369,6 +355,20 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
                 }
             }
         }
-    }
+    },
 
+    showImageViewerWindow: function () {
+        var me = this,
+            win = Ext.widget('fotografico-imageviewer-window'),
+            image = win.down('imageviewer-img').getImage(),
+            record = me.getViewModel().get('record');
+
+        if (record) {
+            var imgLink = ArqAdmin.config.Runtime.getImagesFotografico() + record.getId() + '/1024';
+            image.setSrc(imgLink);
+        }
+
+        win.getViewModel().set('currentImage', record);
+        win.show();
+    }
 });

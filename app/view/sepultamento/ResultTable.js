@@ -4,7 +4,7 @@ Ext.define('ArqAdmin.view.sepultamento.ResultTable', {
 
     reference: 'resultTable',
     //allowDeselect: true,
-    multiColumnSort: true,
+    // multiColumnSort: true,
 
     columns: [
         {

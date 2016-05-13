@@ -25,7 +25,8 @@ Ext.define('ArqAdmin.view.main.Main', {
         'Ext.layout.container.Card',
         'ArqAdmin.util.Glyphs',
         'Ext.ux.IFrame',
-        'ArqAdmin.view.widget.IFrameWindow'
+        'ArqAdmin.view.widget.IFrameWindow',
+        'ArqAdmin.view.widget.ImageViewerImg'
     ],
 
     controller: 'main',
