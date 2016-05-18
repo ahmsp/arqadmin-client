@@ -145,6 +145,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                             glyph: 58895,
                             tooltip: 'Editar fundos',
                             action: 'ftfundos-grid',
+                            tabIndex: -1,
                             handler: 'onButtonStaticDataClick'
                         }
                     ]
@@ -186,6 +187,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                             glyph: 58895,
                             tooltip: 'Editar grupos',
                             action: 'ftgrupos-grid',
+                            tabIndex: -1,
                             handler: 'onButtonStaticDataClick'
                         }
                     ]
@@ -227,6 +229,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                             glyph: 58895,
                             tooltip: 'Editar series',
                             action: 'ftseries-grid',
+                            tabIndex: -1,
                             handler: 'onButtonStaticDataClick'
                         }
                     ]
@@ -268,6 +271,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                             glyph: 58895,
                             tooltip: 'Editar tipologias',
                             action: 'fttipologias-grid',
+                            tabIndex: -1,
                             handler: 'onButtonStaticDataClick'
                         }
                     ]
@@ -323,7 +327,8 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                     name: 'identificacao',
                     allowBlank: false,
                     allowOnlyWhitespace: false,
-                    minLength: 3
+                    minLength: 3,
+                    afterLabelTextTpl: ArqAdmin.util.Util.required
                 },
                 {
                     xtype: 'textareafield',
@@ -392,6 +397,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                             glyph: 58895,
                             tooltip: 'Editar cromias',
                             action: 'ftcromias-grid',
+                            tabIndex: -1,
                             handler: 'onButtonStaticDataClick'
                         }
                     ]
@@ -438,6 +444,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                             glyph: 58895,
                             tooltip: 'Editar categorias',
                             action: 'ftcategorias-grid',
+                            tabIndex: -1,
                             handler: 'onButtonStaticDataClick'
                         }
                     ]
@@ -479,6 +486,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                             glyph: 58895,
                             tooltip: 'Editar campos',
                             action: 'ftcampos-grid',
+                            tabIndex: -1,
                             handler: 'onButtonStaticDataClick'
                         }
                     ]
@@ -525,6 +533,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                             glyph: 58895,
                             tooltip: 'Editar ambientes',
                             action: 'ftambientes-grid',
+                            tabIndex: -1,
                             handler: 'onButtonStaticDataClick'
                         }
                     ]
@@ -609,7 +618,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                     emptyText: 'Carregar imagem...',
                     buttonText: 'Selecione...',
                     bind: {
-                        hidden: '{record.imagem_original}'
+                        hidden: '{hideFilefield}'
                     },
                     listeners: {
                         change: 'onFilefieldChange'

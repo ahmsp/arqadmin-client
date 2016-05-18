@@ -373,7 +373,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
             id = form.getRecord().getId(),
             store = me.getStore('revisions');
 
-        store.getProxy().url = ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/registrosepultamento/' + id + '/revisao';
+        store.getProxy().url = ArqAdmin.config.Runtime.getApiBaseUrl() + '/api//' + id + '/revisao';
         store.load();
 
         me.dialog = view.add({

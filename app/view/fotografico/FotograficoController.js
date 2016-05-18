@@ -265,16 +265,22 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
     onSave: function () {
         var me = this,
             form = me.lookupReference('editForm'),
-            formBasic = form.getForm(),
             record = form.getRecord(),
-            values = form.getValues(),
-            store = me.getStore('fotografias');
+            grid = me.lookupReference('resultTable');
+console.log(record);
 
-        if (!form.isDirty()) {
+        if (!record.phantom && !form.isDirty()) {
             return;
         }
 
-        if (formBasic.isValid()) {
+        if (form.isValid()) {
+            var values = form.getValues(),
+                store = me.getStore('fotografias'),
+                filename = form.getForm().findField('filename').getValue();
+
+            if (filename) {
+                values.imagem_original = filename.replace(/^.*(\\|\/|\:)/, '');
+            }
 
             record.set(values);
 
@@ -289,17 +295,58 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
                     var operations = batch.getOperations(),
                         result = Ext.decode(operations[0].getResponse().responseText);
 
-                    store.load({
-                        scope: me,
-                        callback: function (records, operation, success) {
-                            var record = store.findRecord('id', result.id),
-                                grid = me.lookupReference('resultTable');
+                    var domFileItem = document.getElementById(form.down('filefield').fileInputEl.id);
+                    if (domFileItem.files.length == 1) {
+                        var uploadFile = domFileItem.files[0],
+                            formData = new FormData(),
+                            url = ArqAdmin.config.Runtime.getUploadFotografico() + result.id,
+                            token = localStorage.getItem('access-token');
 
-                            form.reset();
-                            me.selectRecord(grid, record);
-                        }
-                    });
-                    ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com êxito!');
+                        formData.append('file', uploadFile, uploadFile.name);
+
+                        //send formData with an Ajax-request
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST', url);
+                        xhr.setRequestHeader("Authorization", 'Bearer ' + token);
+                        xhr.onload = function () {
+                            if (xhr.status === 200) {
+                                // var resData = ArqAdmin.util.Util.decodeJSON(xhr.responseText);
+                                store.load({
+                                    scope: me,
+                                    callback: function (records, operation, success) {
+                                        var newRecord = store.findRecord('id', result.id);
+                                        form.reset();
+                                        me.selectRecord(grid, newRecord);
+                                    }
+                                });
+                                ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com sucesso!');
+                            } else {
+                                // console.log(ArqAdmin.util.Util.decodeJSON(xhr.responseText));
+                                store.load({
+                                    scope: me,
+                                    callback: function (records, operation, success) {
+                                        var newRecord = store.findRecord('id', result.id);
+                                        form.reset(true);
+                                        form.loadRecord(newRecord);
+                                        Ext.Msg.alert('Erro!', 'Os dados foram salvos, mas não foi possível enviar a imagem.');
+                                    }
+                                });
+                            }
+                        };
+                        xhr.send(formData);
+                    } else {
+                        store.load({
+                            scope: me,
+                            callback: function (records, operation, success) {
+                                var newRecord = store.findRecord('id', result.id);
+                                form.reset(true);
+                                me.selectRecord(grid, newRecord);
+                            }
+                        });
+                    }
+                },
+                failure: function (batch, options) {
+                    // store.load();
                 }
             });
         } else {
@@ -355,6 +402,10 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
                 }
             }
         }
+    },
+
+    onFilefieldChange: function (filefield, value, options) {
+        this.lookupReference('arquivoOriginal').setValue(value.replace(/^.*(\\|\/|\:)/, ''));
     },
 
     showImageViewerWindow: function () {

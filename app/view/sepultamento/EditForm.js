@@ -114,7 +114,8 @@ Ext.define('ArqAdmin.view.sepultamento.EditForm', {
                     name: 'sfm_nome',
                     allowBlank: false,
                     allowOnlyWhitespace: false,
-                    minLength: 3
+                    minLength: 3,
+                    afterLabelTextTpl: ArqAdmin.util.Util.required
                 },
                 {
                     xtype: 'textfield',
@@ -599,7 +600,8 @@ Ext.define('ArqAdmin.view.sepultamento.EditForm', {
                                     type: 'clear',
                                     clearOnEscape: true
                                 }
-                            }
+                            },
+                            afterLabelTextTpl: ArqAdmin.util.Util.required
                         },
                         {
                             xtype: 'tbspacer',
@@ -622,14 +624,16 @@ Ext.define('ArqAdmin.view.sepultamento.EditForm', {
                     fieldLabel: 'Acondicionamento nº',
                     name: 'lc_acondicionamento_num',
                     allowBlank: false,
-                    allowOnlyWhitespace: false
+                    allowOnlyWhitespace: false,
+                    afterLabelTextTpl: ArqAdmin.util.Util.required
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Página',
                     name: 'lc_pagina',
                     allowBlank: false,
-                    allowOnlyWhitespace: false
+                    allowOnlyWhitespace: false,
+                    afterLabelTextTpl: ArqAdmin.util.Util.required
                 }
             ]
         },

@@ -541,7 +541,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             id = form.getRecord().getId(),
             store = me.getStore('revisions');
 
-        store.getProxy().url = ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/documento/' + id + '/revisao';
+        store.getProxy().url = ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/fotografia/' + id + '/revisao';
         store.load();
 
         me.dialog = view.add({

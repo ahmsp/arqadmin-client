@@ -276,11 +276,11 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerController', {
     showHistoryWindow: function () {
         var me = this,
             view = me.getView(),
-            form = me.lookupReference('imageViewerForm'),
+            form = me.lookupReference('editForm'),
             id = form.getRecord().getId(),
             store = me.getStore('revisions');
 
-        store.getProxy().url = ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/desenhotecnico/' + id + '/revisao';
+        store.getProxy().url = ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/registrosepultamento/' + id + '/revisao';
         store.load();
 
         me.dialog = view.add({

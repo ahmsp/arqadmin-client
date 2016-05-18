@@ -60,6 +60,11 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
             }
 
             return 'resources/ico/no-image-75.png';
+        },
+
+        hideFilefield: function (get) {
+            var rec = get('record');
+            return (!rec.phantom && !Ext.isEmpty(rec.get('imagem_original')));
         }
 
     }

@@ -123,6 +123,7 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                     name: 'acervo_tipo',
                     reference: 'acervoTipo',
                     allowBlank: false,
+                    afterLabelTextTpl: ArqAdmin.util.Util.required,
                     store: [
                         ['cartografico', 'Cartográfico'],
                         ['textual', 'Textual']
@@ -159,7 +160,8 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                     fieldLabel: 'Descrição',
                     name: 'descricao',
                     allowBlank: false,
-                    minLength: 3
+                    minLength: 3,
+                    afterLabelTextTpl: ArqAdmin.util.Util.required
                 },
                 {
                     xtype: 'textfield',
@@ -177,8 +179,8 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                     columns: 2,
                     margin: '0 0 12',
                     items: [
-                        { boxLabel: 'Sim', name: 'original', inputValue: '1' },
-                        { boxLabel: 'Não', name: 'original', inputValue: '0', checked: true}
+                        {boxLabel: 'Sim', name: 'original', inputValue: '1'},
+                        {boxLabel: 'Não', name: 'original', inputValue: '0', checked: true}
                     ]
                 },
                 {
@@ -187,8 +189,8 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                     columns: 2,
                     margin: '0 0 10',
                     items: [
-                        { boxLabel: 'Sim', name: 'copia', inputValue: '1' },
-                        { boxLabel: 'Não', name: 'copia', inputValue: '0', checked: true}
+                        {boxLabel: 'Sim', name: 'copia', inputValue: '1'},
+                        {boxLabel: 'Não', name: 'copia', inputValue: '0', checked: true}
                     ]
                 },
                 {
