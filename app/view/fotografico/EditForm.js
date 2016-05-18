@@ -22,7 +22,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
     },
     fieldDefaults: {
         msgTarget: 'side',
-        labelWidth: 150
+        labelWidth: 105
     },
     dockedItems: [
         {
@@ -67,6 +67,18 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                     listeners: {
                         click: 'onCancelEdit'
                     }
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('checklist'),
+                    tooltip: 'Histórico de alterações',
+                    bind: {
+                        disabled: '{!resultTable.selection}'
+                    },
+                    handler: 'showHistoryWindow'
                 }
             ]
         }
@@ -277,7 +289,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
             items: [
                 {
                     xtype: 'textfield',
-                    fieldLabel: 'Registro Fotográfico',
+                    fieldLabel: 'Reg. Fotográfico',
                     name: 'imagem_identificacao'
                 },
                 {
@@ -286,7 +298,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                     name: 'data_imagem'
                 },
                 {
-                    xtype: 'textfield',
+                    xtype: 'textareafield',
                     fieldLabel: 'Autoria',
                     name: 'autoria'
                 },
@@ -296,7 +308,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                     name: 'bairro'
                 },
                 {
-                    xtype: 'textfield',
+                    xtype: 'textareafield',
                     fieldLabel: 'Assunto Geral',
                     name: 'assunto_geral'
                 },
@@ -306,7 +318,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                     name: 'titulo'
                 },
                 {
-                    xtype: 'textfield',
+                    xtype: 'textareafield',
                     fieldLabel: 'Identificação',
                     name: 'identificacao',
                     allowBlank: false,
@@ -314,17 +326,17 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                     minLength: 3
                 },
                 {
-                    xtype: 'textfield',
+                    xtype: 'textareafield',
                     fieldLabel: 'Assunto 1',
                     name: 'assunto_1'
                 },
                 {
-                    xtype: 'textfield',
+                    xtype: 'textareafield',
                     fieldLabel: 'Assunto 2',
                     name: 'assunto_2'
                 },
                 {
-                    xtype: 'textfield',
+                    xtype: 'textareafield',
                     fieldLabel: 'Assunto 3',
                     name: 'assunto_3'
                 }
@@ -523,14 +535,14 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                     name: 'enquadramento'
                 },
                 {
-                    xtype: 'textfield',
+                    xtype: 'textareafield',
                     fieldLabel: 'Inscrição',
                     name: 'inscricao'
                 },
                 {
-                    xtype: 'textfield',
+                    xtype: 'textareafield',
                     fieldLabel: 'Inscrição Texto',
-                    name: 'inscricao'
+                    name: 'texto_inscricao'
                 }
             ]
         },
@@ -545,7 +557,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                     }
                 }
             },
-            title: 'Dados Administrativos',
+            title: 'Dados Internos',
             items: [
                 {
                     xtype: 'textfield',
@@ -576,26 +588,18 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                     xtype: 'textfield',
                     fieldLabel: 'Revisão',
                     name: 'revisao'
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Imagem Original',
-                    name: 'imagem_original'
                 }
             ]
         },
         {
             xtype: 'fieldset',
-            title: 'Imagem (Arquivo)',
-            bind: {
-                disabled: '{!acervoTipo.selection}'
-            },
+            title: 'Imagem digitalizada',
             items: [
                 {
                     xtype: 'displayfield',
                     reference: 'arquivoOriginal',
-                    fieldLabel: 'Nome do arquivo (original)',
-                    name: 'arquivo_original'
+                    fieldLabel: 'Nome do arquivo',
+                    name: 'imagem_original'
                 },
                 {
                     xtype: 'filefield',
@@ -610,23 +614,13 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                     listeners: {
                         change: 'onFilefieldChange'
                     }
-                }
-            ]
-        },
-        {
-            xtype: 'fieldset',
-            title: 'Imagem do Registro',
-            items: [
+                },
                 {
-                    xtype: 'image',
-                    // reference: 'userPicture',
+                    xtype: 'app-img',
                     autoEl: 'div',
-                    // cls: 'single-thumb-wrap-medium',
-                    // height: 300,
-                    // width: 300,
+                    cls: 'single-thumb-wrap-medium',
                     bind: {
-                        // src: '{currentItem.picture}'
-                        src: 'resources/ico/no-image-75.png'
+                        src: '{imageUrl}'
                     }
                 }
             ]

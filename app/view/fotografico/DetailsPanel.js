@@ -249,7 +249,7 @@ Ext.define('ArqAdmin.view.fotografico.DetailsPanel', {
                 labelWidth: 150
             },
             collapsible: true,
-            title: 'Dados Administrativos',
+            title: 'Dados Internos',
             layout: {
                 type: 'vbox',
                 align: 'stretch'
@@ -306,30 +306,30 @@ Ext.define('ArqAdmin.view.fotografico.DetailsPanel', {
             ]
         },
         {
-            xtype: 'displayfield',
-            fieldLabel: 'Imagem original',
-            name: 'imagem_original',
-            bind: {
-                hidden: '{!record.imagem_original}'
-            }
-        },
-        {
             xtype: 'panel',
             ui: 'light',
             collapsible: true,
             title: 'Imagem digitalizada',
-            bodyPadding: 10,
+            layout: {
+                type: 'vbox',
+                align: 'stretch'
+            },
             items: [
                 {
-                    xtype: 'image',
-                    // reference: 'userPicture',
+                    xtype: 'displayfield',
+                    fieldLabel: 'Imagem original',
+                    name: 'imagem_original',
+                    labelWidth: 150,
+                    bind: {
+                        hidden: '{!record.imagem_original}'
+                    }
+                },
+                {
+                    xtype: 'app-img',
                     autoEl: 'div',
                     cls: 'single-thumb-wrap-medium',
-                    // height: 300,
-                    // width: 300,
                     bind: {
-                        // src: '{currentItem.picture}'
-                        src: 'resources/ico/no-image-75.png'
+                        src: '{imageUrl}'
                     }
                 }
             ]

@@ -3,7 +3,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoModel', {
     alias: 'viewmodel.sepultamento',
 
     data: {
-        moduleTitle: 'Acervo Registros de Sepultamento',
+        moduleTitle: 'Acervo Termos de Sepultamento',
         displayPanelTitle: 'Detalhes do registro',
         displayPanelActiveItem: '',
 
@@ -19,6 +19,24 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoModel', {
             pageSize: 100,
             remoteFilter: true,
             remoteSort: true
+        },
+        revisions: {
+            model: 'ArqAdmin.model.RevisionHistory',
+            autoLoad: false,
+            remoteFilter: false,
+            remoteSort: false,
+            proxy: {
+                type: 'ajax',
+                // url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/registrosepultamento/' + '{record.id}' + '/revisao',
+                reader: {
+                    type: 'json',
+                    rootProperty: ''
+                }
+            },
+            sorters: {
+                property: 'action_date',
+                direction: 'DESC'
+            }
         }
     },
 

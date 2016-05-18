@@ -54,47 +54,69 @@ Ext.define('ArqAdmin.model.fotografico.Fotografia', {
         },
         {
             name: 'data_imagem',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
+
         },
         {
             name: 'autoria',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
+
         },
         {
             name: 'imagem_identificacao',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
+
         },
         {
             name: 'bairro',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
+
         },
         {
             name: 'assunto_geral',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
+
         },
         {
             name: 'titulo',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
+
         },
         {
             name: 'identificacao',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
+
         },
         {
             name: 'assunto_1',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
+
         },
         {
             name: 'assunto_2',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
+
         },
         {
             name: 'assunto_3',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
+
         },
         {
             name: 'registro',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
+
         },
         {
             name: 'ft_cromia_id',
@@ -110,7 +132,8 @@ Ext.define('ArqAdmin.model.fotografico.Fotografia', {
         },
         {
             name: 'formato',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'ft_categoria_id',
@@ -138,7 +161,8 @@ Ext.define('ArqAdmin.model.fotografico.Fotografia', {
         },
         {
             name: 'tipo',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'ft_ambiente_id',
@@ -158,39 +182,48 @@ Ext.define('ArqAdmin.model.fotografico.Fotografia', {
         },
         {
             name: 'inscricao',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'texto_inscricao',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'localizacao',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'conservacao',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'procedencia',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'origem',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'revisao',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'imagem_publica',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'imagem_original',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         }
     ]
 });

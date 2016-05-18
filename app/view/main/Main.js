@@ -26,7 +26,9 @@ Ext.define('ArqAdmin.view.main.Main', {
         'ArqAdmin.util.Glyphs',
         'Ext.ux.IFrame',
         'ArqAdmin.view.widget.IFrameWindow',
-        'ArqAdmin.view.widget.ImageViewerImg'
+        'ArqAdmin.view.widget.ImageViewerImg',
+        'ArqAdmin.view.widget.CustomImage',
+        'ArqAdmin.view.revisions.HistoryWindow'
     ],
 
     controller: 'main',
@@ -79,6 +81,13 @@ Ext.define('ArqAdmin.view.main.Main', {
                             text: 'Painel'
                         },
                         {
+                            xtype: 'tbseparator',
+                            height: 28,
+                            style: {
+                                'border-left-color': 'rgb(90, 112, 116)'
+                            }
+                        },
+                        {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('acervos'),
                             text: 'Acervos',
@@ -104,78 +113,64 @@ Ext.define('ArqAdmin.view.main.Main', {
                                 ]
                             }
                         },
-                        // {
-                        //     xtype: 'tbseparator',
-                        //     height: 28,
-                        //     style: {
-                        //         'border-left-color': 'rgb(90, 112, 116)'
-                        //     }
-                        // },
-                        // {
-                        //     xtype: 'label',
-                        //     text: 'Acervos:',
-                        //     padding: '6 0 0',
-                        //     style: {
-                        //         color: '#fff',
-                        //         fontWeight: 'bold',
-                        //         fontSize: '12px'
-                        //     }
-                        // },
-                        // {
-                        //     xtype: 'button',
-                        //     text: 'Textual e Cartográfico'
-                        // },
-                        // {
-                        //     xtype: 'button',
-                        //     text: 'Fotográfico'
-                        // },
-                        // {
-                        //     xtype: 'button',
-                        //     text: 'Registros de Sepultamento'
-                        // },
-                        // {
-                        //     xtype: 'tbseparator',
-                        //     height: 28,
-                        //     style: {
-                        //         'border-left-color': 'rgb(90, 112, 116)'
-                        //     }
-                        // },
                         {
                             xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('report'),
-                            text: 'Relatórios'
+                            itemId: 'menuitemDocumental',
+                            text: 'Textual e Cartográfico'
                         },
                         {
                             xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('chart'),
-                            text: 'Estatísticas'
+                            itemId: 'menuitemFotografico',
+                            text: 'Fotográfico'
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'menuitemSepultamento',
+                            text: 'Termos de Sepultamento'
+                        },
+                        {
+                            xtype: 'tbseparator',
+                            height: 28,
+                            style: {
+                                'border-left-color': 'rgb(90, 112, 116)'
+                            }
                         },
                         // {
                         //     xtype: 'button',
-                        //     glyph: ArqAdmin.util.Glyphs.getGlyph('admin'),
-                        //     text: 'Recursos',
-                        //     menu: {
-                        //         xtype: 'menu',
-                        //         items: [
-                        //             {
-                        //                 xtype: 'menuitem',
-                        //                 itemId: 'documental',
-                        //                 glyph: ArqAdmin.util.Glyphs.getGlyph('users'),
-                        //                 text: 'Relatórios'
-                        //             },
-                        //             {
-                        //                 xtype: 'menuitem',
-                        //                 itemId: 'sepultamento',
-                        //                 text: 'Estatísticas'
-                        //             },
-                        //             {
-                        //                 xtype: 'menuitem',
-                        //                 itemId: 'fotografico',
-                        //                 text: 'Dados estáticos'
-                        //             }
-                        //         ]
-                        //     }
+                        //     glyph: ArqAdmin.util.Glyphs.getGlyph('report'),
+                        //     text: 'Relatórios'
                         // },
+                        // {
+                        //     xtype: 'button',
+                        //     glyph: ArqAdmin.util.Glyphs.getGlyph('chart'),
+                        //     text: 'Estatísticas'
+                        // },
+                        {
+                            xtype: 'button',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('admin'),
+                            text: 'Recursos',
+                            menu: {
+                                xtype: 'menu',
+                                items: [
+                                    {
+                                        xtype: 'menuitem',
+                                        itemId: 'documental',
+                                        glyph: ArqAdmin.util.Glyphs.getGlyph('users'),
+                                        text: 'Relatórios'
+                                    },
+                                    {
+                                        xtype: 'menuitem',
+                                        itemId: 'sepultamento',
+                                        text: 'Estatísticas'
+                                    },
+                                    {
+                                        xtype: 'menuitem',
+                                        itemId: 'fotografico',
+                                        text: 'Dados estáticos'
+                                    }
+                                ]
+                            }
+                        },
                         {
                             xtype: 'tbfill'
                         },

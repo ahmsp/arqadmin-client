@@ -50,7 +50,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardModel', {
                 },
                 {
                     "acervo": "sepult",
-                    "title": "REGISTROS DE SEPULTAMENTO",
+                    "title": "TERMOS DE SEPULTAMENTO",
                     "desc": "Nono n ononononon ono ononononononononon",
                     "qtd": "51.938",
                     "thumb": "resources/img/acervo_cemit_1.jpg",

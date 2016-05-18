@@ -271,5 +271,22 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerController', {
                 this.lookupReference('btnSave').fireHandler();
             }
         }
+    },
+
+    showHistoryWindow: function () {
+        var me = this,
+            view = me.getView(),
+            form = me.lookupReference('imageViewerForm'),
+            id = form.getRecord().getId(),
+            store = me.getStore('revisions');
+
+        store.getProxy().url = ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/desenhotecnico/' + id + '/revisao';
+        store.load();
+
+        me.dialog = view.add({
+            xtype: 'history-window'
+        });
+
+        me.dialog.show();
     }
 });

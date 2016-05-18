@@ -364,6 +364,23 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
                 }
             }
         }
+    },
+
+    showHistoryWindow: function () {
+        var me = this,
+            view = me.getView(),
+            form = me.lookupReference('editForm'),
+            id = form.getRecord().getId(),
+            store = me.getStore('revisions');
+
+        store.getProxy().url = ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/registrosepultamento/' + id + '/revisao';
+        store.load();
+
+        me.dialog = view.add({
+            xtype: 'history-window'
+        });
+
+        me.dialog.show();
     }
     
 });

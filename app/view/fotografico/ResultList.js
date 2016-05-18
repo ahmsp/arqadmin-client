@@ -31,7 +31,7 @@ Ext.define('ArqAdmin.view.fotografico.ResultList', {
                 '<span>Assunto:</span> {assunto_geral}; {assunto_1}; {assunto_2}; {assunto_3}<br>',
                 '<span>Bairro:</span> {bairro}<br>',
                 '<span>Data:</span> {data_imagem}<br>',
-                '<span>Autoria:</span> {autoria}<br>',
+                '<span>Autoria:</span> {autoria}<br>'
             ],
             tdCls: 'x-custom-td-list',
             text: 'Dados da Imagem',

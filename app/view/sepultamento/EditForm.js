@@ -67,6 +67,18 @@ Ext.define('ArqAdmin.view.sepultamento.EditForm', {
                     listeners: {
                         click: 'onCancelEdit'
                     }
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('checklist'),
+                    tooltip: 'Histórico de alterações',
+                    bind: {
+                        disabled: '{!resultTable.selection}'
+                    },
+                    handler: 'showHistoryWindow'
                 }
             ]
         }

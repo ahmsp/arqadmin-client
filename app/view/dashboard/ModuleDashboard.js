@@ -298,7 +298,7 @@ Ext.define('ArqAdmin.view.dashboard.ModuleDashboard', {
                             },
                             {
                                 status: 'orange',
-                                description: 'REGISTROS DE SEPULTAMENTO',
+                                description: 'TERMOS DE SEPULTAMENTO',
                                 ratio: 51938
                             },
                             {

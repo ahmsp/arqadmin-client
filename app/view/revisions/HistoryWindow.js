@@ -1,59 +1,61 @@
 Ext.define('ArqAdmin.view.revisions.HistoryWindow', {
     extend: 'Ext.window.Window',
-    xtype: 'revisions-window',
+    xtype: 'history-window',
 
     requires: [
         'Ext.grid.column.Column',
         'Ext.grid.filters.Filters'
     ],
 
-    height: 800,
-    width: 700,
-    layout: 'border',
+    layout: 'fit',
+    height: 600,
+    width: 1000,
     glyph: ArqAdmin.util.Glyphs.getGlyph('list'),
     title: 'Histórico de Atualizações',
-    draggable: false,
     autoScroll: true,
+    maximizable: true,
     modal: true,
     closable: true,
     bodyStyle: {
         background: '#ececec'
     },
-
     items: [
         {
             xtype: 'gridpanel',
             bind: '{revisions}',
             reference: 'revisionGrid',
-            //allowDeselect: true,
-            // multiColumnSort: true,
+            emptyText: '<span class="empty-text">Sem registros para exibir</span>',
+            // viewConfig: {
+            //     emptyText: 'Sem registros para exibir'
+            // },
             plugins: [
                 {
                     ptype: 'gridfilters',
                     menuFilterText: 'Filtros'
+                },
+                {
+                    ptype: 'rowexpander',
+                    rowBodyTpl: [
+                        '<p><b>De:</b> {old_value}</p>',
+                        '<p><b>Para:</b> {new_value}</p>'
+                    ]
                 }
             ],
             columns: [
                 {
-                    xtype: 'gridcolumn',
+                    xtype: 'datecolumn',
+                    width: 150,
                     dataIndex: 'action_date',
+                    format: 'j/m/Y H:i:s',
                     text: 'Data',
                     filter: {
-                        type: 'string'
+                        type: 'date',
+                        fields: {lt: {text: 'Antes de'}, gt: {text: 'Depois de'}, eq: {text: 'Em'}}
                     }
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 80,
-                    align: 'right',
-                    dataIndex: 'id',
-                    text: 'ID',
-                    filter: {
-                        type: 'number'
-                    }
-                },
-                {
-                    xtype: 'gridcolumn',
+                    width: 90,
                     dataIndex: 'action',
                     text: 'Ação',
                     filter: {
@@ -62,14 +64,16 @@ Ext.define('ArqAdmin.view.revisions.HistoryWindow', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    width: 120,
                     dataIndex: 'user_name',
-                    text: 'Nome',
+                    text: 'Por',
                     filter: {
                         type: 'string'
                     }
                 },
                 {
                     xtype: 'gridcolumn',
+                    width: 120,
                     dataIndex: 'key',
                     text: 'Campo',
                     filter: {
@@ -78,6 +82,7 @@ Ext.define('ArqAdmin.view.revisions.HistoryWindow', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    flex: 1,
                     dataIndex: 'old_value',
                     text: 'De',
                     filter: {
@@ -86,6 +91,7 @@ Ext.define('ArqAdmin.view.revisions.HistoryWindow', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    flex: 1,
                     dataIndex: 'new_value',
                     text: 'Para',
                     filter: {
@@ -95,14 +101,4 @@ Ext.define('ArqAdmin.view.revisions.HistoryWindow', {
             ]
         }
     ]
-});
-
-
-
-Ext.define('ArqAdmin.view.revisions.HistoryGrid', {
-    extend: 'Ext.grid.Panel',
-    xtype: 'revision-grid',
-
-
-
 });

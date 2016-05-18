@@ -311,16 +311,16 @@
 }
 
 .single-thumb-wrap-medium {
-    height: 340px;
-    width: 340px;
+    height: 360px;
+    margin-bottom: 5px;
     background: white;
 
     display: table-cell !important;
     text-align: center !important;
     vertical-align: middle !important;
-    position: relative;
-
+    position: relative !important;
 }
+
 
 /*.x-quirks .images-view .thumb {*/
 /*padding-bottom: 3px;*/
@@ -377,7 +377,8 @@
 .x-editable {
     color: #000;
 }
-.images-view .empty-text {
+/*.images-view .empty-text {*/
+.empty-text {
     margin-top: 5px;
     display: block;
     text-align: center;

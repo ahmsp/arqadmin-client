@@ -23,6 +23,24 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerModel', {
                 property: 'documento_id',
                 value: '{documentoId}'
             }]
+        },
+        revisions: {
+            model: 'ArqAdmin.model.RevisionHistory',
+            autoLoad: false,
+            remoteFilter: false,
+            remoteSort: false,
+            proxy: {
+                type: 'ajax',
+                // url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/registrosepultamento/' + '{record.id}' + '/revisao',
+                reader: {
+                    type: 'json',
+                    rootProperty: ''
+                }
+            },
+            sorters: {
+                property: 'action_date',
+                direction: 'DESC'
+            }
         }
     },
 

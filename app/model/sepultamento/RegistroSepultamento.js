@@ -108,11 +108,13 @@ Ext.define('ArqAdmin.model.sepultamento.RegistroSepultamento', {
         },
         {
             name: 'ano',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'notas',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'lc_sala_id',
@@ -139,7 +141,8 @@ Ext.define('ArqAdmin.model.sepultamento.RegistroSepultamento', {
             persist: false
         },
         {
-            name: 'lc_movel_num'
+            name: 'lc_movel_num',
+            allowNull: true
         },
         {
             name: 'lc_compartimento_id',
@@ -154,7 +157,8 @@ Ext.define('ArqAdmin.model.sepultamento.RegistroSepultamento', {
             persist: false
         },
         {
-            name: 'lc_compartimento_num'
+            name: 'lc_compartimento_num',
+            allowNull: true
         },
         {
             name: 'lc_acondicionamento_id',
@@ -169,10 +173,12 @@ Ext.define('ArqAdmin.model.sepultamento.RegistroSepultamento', {
             persist: false
         },
         {
-            name: 'lc_acondicionamento_num'
+            name: 'lc_acondicionamento_num',
+            allowNull: true
         },
         {
-            name: 'lc_pagina'
+            name: 'lc_pagina',
+            allowNull: true
         },
         {
             name: 'sfm_cartorio_id',
@@ -200,7 +206,8 @@ Ext.define('ArqAdmin.model.sepultamento.RegistroSepultamento', {
         },
         {
             name: 'sfm_nome',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'sfm_nacionalidade_id',
@@ -227,7 +234,8 @@ Ext.define('ArqAdmin.model.sepultamento.RegistroSepultamento', {
             persist: false
         },
         {
-            name: 'sfm_idade'
+            name: 'sfm_idade',
+            allowNull: true
         },
         {
             name: 'sfm_estadocivil_id',
@@ -243,18 +251,22 @@ Ext.define('ArqAdmin.model.sepultamento.RegistroSepultamento', {
         },
         {
             name: 'sfm_conjuge',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'sfm_pai',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'sfm_mae',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
-            name: 'sfm_data_morte'
+            name: 'sfm_data_morte',
+            allowNull: true
         },
         {
             name: 'sfm_causamortis_id',
@@ -276,11 +288,13 @@ Ext.define('ArqAdmin.model.sepultamento.RegistroSepultamento', {
         },
         {
             name: 'sfm_sepult_localizacao',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         },
         {
             name: 'imagem',
-            sortType: 'asUCString'
+            sortType: 'asUCString',
+            allowNull: true
         }
     ]
 });

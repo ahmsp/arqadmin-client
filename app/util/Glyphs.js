@@ -8,6 +8,7 @@ Ext.define('ArqAdmin.util.Glyphs', {
         remove: 'xe045',
         save: 'xe046',
         cancel: 'xe047',
+        copy: 'xe915',
 
         dashboard: 'xf029',
         acervos: 'xe603',
@@ -39,7 +40,8 @@ Ext.define('ArqAdmin.util.Glyphs', {
         gallery: 'xf00a',
         image: 'xe904',
         close: 'xe610',
-        info: 'xe913'
+        info: 'xe913',
+        checklist: 'xf076'
     },
 
     constructor: function(config) {

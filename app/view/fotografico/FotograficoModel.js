@@ -19,6 +19,24 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
             pageSize: 100,
             remoteFilter: true,
             remoteSort: true
+        },
+        revisions: {
+            model: 'ArqAdmin.model.RevisionHistory',
+            autoLoad: false,
+            remoteFilter: false,
+            remoteSort: false,
+            proxy: {
+                type: 'ajax',
+                // url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/fotografia/' + '{record.id}' + '/revisao',
+                reader: {
+                    type: 'json',
+                    rootProperty: ''
+                }
+            },
+            sorters: {
+                property: 'action_date',
+                direction: 'DESC'
+            }
         }
     },
 
@@ -32,8 +50,18 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
             }
 
             return title;
+        },
+
+        imageUrl: function (get) {
+            var rec = get('record');
+
+            if (!Ext.isEmpty(rec.get('imagem_original'))) {
+                return ArqAdmin.config.Runtime.getImagesFotografico() + rec.id + '/320';
+            }
+
+            return 'resources/ico/no-image-75.png';
         }
 
     }
-    
+
 });

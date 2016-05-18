@@ -9,7 +9,7 @@ Ext.define("ArqAdmin.view.widget.CustomImage", {
     },
 
     onImageLoadError: function () {
-        alert("Error loading image")
+        this.src = 'resources/ico/no-image-75.png';
     },
 
     onDestroy: function () {

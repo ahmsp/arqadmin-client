@@ -35,19 +35,22 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
             items: [
                 {
                     xtype: 'button',
-                    glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
-                    text: 'Novo',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('copy'),
+                    // text: 'Clonar',
+                    tooltip: 'Clonar os dados para um novo registro',
+                    bind: {
+                        disabled: '{!imageViewerDataview.selection}'
+                    },
                     listeners: {
-                        click: 'onAdd'
+                        click: 'onClone'
                     }
                 },
                 {
                     xtype: 'button',
                     glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
-                    text: 'Clonar',
-                    tooltip: 'Clonar os dados para um novo registro',
+                    text: 'Novo',
                     listeners: {
-                        click: 'onClone'
+                        click: 'onAdd'
                     }
                 },
                 {
@@ -79,6 +82,18 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                     listeners: {
                         click: 'onCancelEdit'
                     }
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('checklist'),
+                    tooltip: 'Histórico de alterações',
+                    bind: {
+                        disabled: '{!imageViewerDataview.selection}'
+                    },
+                    handler: 'showHistoryWindow'
                 }
             ]
         }

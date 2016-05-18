@@ -39,6 +39,15 @@ Ext.define('ArqAdmin.view.main.MainController', {
             case 'btnDashboard':
                 this.showView('module-dashboard');
                 break;
+            case 'menuitemDocumental':
+                this.showView('module-documental');
+                break;
+            case 'menuitemFotografico':
+                this.showView('module-fotografico');
+                break;
+            case 'menuitemSepultamento':
+                this.showView('module-sepultamento');
+                break;
         }
     },
 
