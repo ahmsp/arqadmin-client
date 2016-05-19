@@ -163,7 +163,7 @@ Ext.define('ArqAdmin.view.sepultamento.ResultTable', {
                     xtype: 'gridcolumn',
                     width: 110,
                     dataIndex: 'sfm_data_morte',
-                    text: 'Data de Falecimento',
+                    text: 'Data Falecimento',
                     filter: {
                         type: 'string'
                     }

@@ -254,17 +254,16 @@ Ext.define('ArqAdmin.view.sepultamento.DetailsPanel', {
             ui: 'light',
             collapsible: true,
             title: 'Imagem digitalizada',
-            bodyPadding: 10,
+            layout: {
+                type: 'vbox',
+                align: 'stretch'
+            },
             items: [
                 {
-                    xtype: 'image',
-                    reference: 'userPicture',
+                    xtype: 'app-img',
                     autoEl: 'div',
                     cls: 'single-thumb-wrap-medium',
-                    // height: 300,
-                    // width: 300,
                     bind: {
-                        // src: '{currentItem.picture}'
                         src: 'resources/ico/no-image-75.png'
                     }
                 }

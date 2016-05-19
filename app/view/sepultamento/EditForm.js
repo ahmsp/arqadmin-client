@@ -658,17 +658,13 @@ Ext.define('ArqAdmin.view.sepultamento.EditForm', {
         },
         {
             xtype: 'fieldset',
-            title: 'Imagem do Registro',
+            title: 'Imagem digitalizada',
             items: [
                 {
-                    xtype: 'image',
-                    // reference: 'userPicture',
+                    xtype: 'app-img',
                     autoEl: 'div',
-                    // cls: 'single-thumb-wrap-medium',
-                    // height: 300,
-                    // width: 300,
+                    cls: 'single-thumb-wrap-medium',
                     bind: {
-                        // src: '{currentItem.picture}'
                         src: 'resources/ico/no-image-75.png'
                     }
                 }
