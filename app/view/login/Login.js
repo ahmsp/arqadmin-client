@@ -29,7 +29,7 @@ Ext.define('ArqAdmin.view.login.Login', {
     closable: false,
     closeAction: 'hide',
     header: false,
-    title: 'Login',
+    title: 'Identifique-se',
     //plain: true,
 
     layout: {
@@ -63,7 +63,7 @@ Ext.define('ArqAdmin.view.login.Login', {
                 background: '#bccccf'
             },
             glyph: 58891,
-            title: 'Autenticação*',
+            title: 'Identifique-se',
 
             items: [
                 {
@@ -77,18 +77,18 @@ Ext.define('ArqAdmin.view.login.Login', {
                 {
                     xtype: 'textfield',
                     reference: 'fieldUsername',
-                    fieldLabel: 'Usuário (Ex: d123456)**',
+                    fieldLabel: 'Usuário (Ex: d123456)',
                     name: 'username',
                     enforceMaxLength: true,
                     maxLength: 7,
-                    regex: /^[dx]\d{6}$/i,
+                    regex: /^[dcx]\d{6}$/i,
                     regexText: 'O valor do campo Usuário não é válido.',
                     selectOnFocus: true
                 },
                 {
                     xtype: 'textfield',
                     reference: 'fieldPassword',
-                    fieldLabel: 'Senha**',
+                    fieldLabel: 'Senha',
                     name: 'password',
                     inputId: 'fieldPassword',
                     inputType: 'password',
@@ -102,8 +102,9 @@ Ext.define('ArqAdmin.view.login.Login', {
                 {
                     xtype: 'component',
                     html: [
-                        '* Acesso restrito a funcionários cadastrados.<br />',
-                        'Utilize o "Usuário" e "Senha" da rede da Prefeitura.'
+                        'Utilize o "Usuário" e "Senha" da rede da Prefeitura<br />',
+                        'ou solicite acesso enviando um e-mail para o Arquivo Histórico de São Paulo, ',
+                        'através do endereço abaixo.'
                     ],
                     margin: '20 0 0',
                     padding: '15 0 0',

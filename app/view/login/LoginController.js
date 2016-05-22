@@ -105,9 +105,16 @@ Ext.define('ArqAdmin.view.login.LoginController', {
 
         if (result.access_token) {
             ArqAdmin.app.getController('OAuth').saveToken(result.access_token, result.refresh_token);
-            view.unmask();
-            view.close();
-            Ext.widget('app-main');
+            ArqAdmin.user.Profile.setAppUser(function () {
+                view.unmask();
+                view.close();
+                Ext.widget('app-main');
+            });
+            // task = new Ext.util.DelayedTask(function () {
+            //     view.unmask();
+            //     view.close();
+            //     Ext.widget('app-main');
+            // }).delay(1000);
         }
     },
 
@@ -115,9 +122,18 @@ Ext.define('ArqAdmin.view.login.LoginController', {
         var me = this,
             result = ArqAdmin.util.Util.decodeJSON(response.responseText);
 
+        ArqAdmin.user.Profile.resetUser();
         ArqAdmin.app.getController('OAuth').clearToken();
         me.getView().unmask();
-        ArqAdmin.util.Util.showErrorMsg(result.error_description);
-    }
+        ArqAdmin.util.Util.showErrorMsg(result.user_message);
+    },
 
+    gotoAppMain: function (result) {
+        var view = this.getView();
+console.log('callback');
+
+        view.unmask();
+        view.close();
+        Ext.widget('app-main');
+    }
 });

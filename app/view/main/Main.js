@@ -178,6 +178,10 @@ Ext.define('ArqAdmin.view.main.Main', {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('admin'),
                             text: 'Administração',
+                            hidden: true,
+                            bind: {
+                                hidden: '{!isAdmin}'
+                            },
                             menu: {
                                 xtype: 'menu',
                                 items: [
@@ -205,41 +209,52 @@ Ext.define('ArqAdmin.view.main.Main', {
                             height: 28,
                             style: {
                                 'border-left-color': 'rgb(90, 112, 116)'
+                            },
+                            hidden: true,
+                            bind: {
+                                hidden: '{!isAdmin}'
                             }
                         },
                         {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('user'),
-                            text: 'Alexandre Cyro',
-                            menu: {
-                                xtype: 'menu',
-                                items: [
-                                    {
-                                        xtype: 'menuitem',
-                                        itemId: 'documental',
-                                        text: 'Perfil'
-                                    },
-                                    {
-                                        xtype: 'menuseparator'
-                                    },
-                                    {
-                                        xtype: 'menuitem',
-                                        glyph: ArqAdmin.util.Glyphs.getGlyph('exit'),
-                                        text: 'Sair',
-                                        listeners: {
-                                            click: 'onLogout'
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            xtype: 'tbseparator',
-                            height: 28,
+                            disabled: true,
+                            // border: false,
                             style: {
-                                'border-left-color': 'rgb(90, 112, 116)'
+                                color: '#fff'
+                            },
+                            bind: {
+                                text: '{userProfile.shortName}'
                             }
+                            // menu: {
+                            //     xtype: 'menu',
+                            //     items: [
+                            //         {
+                            //             xtype: 'menuitem',
+                            //             itemId: 'btPerfil',
+                            //             text: 'Perfil'
+                            //         },
+                            //         {
+                            //             xtype: 'menuseparator'
+                            //         },
+                            //         {
+                            //             xtype: 'menuitem',
+                            //             glyph: ArqAdmin.util.Glyphs.getGlyph('exit'),
+                            //             text: 'Sair',
+                            //             listeners: {
+                            //                 click: 'onLogout'
+                            //             }
+                            //         }
+                            //     ]
+                            // }
                         },
+                        // {
+                        //     xtype: 'tbseparator',
+                        //     height: 28,
+                        //     style: {
+                        //         'border-left-color': 'rgb(90, 112, 116)'
+                        //     }
+                        // },
                         {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('exit'),
@@ -291,10 +306,10 @@ Ext.define('ArqAdmin.view.main.Main', {
             padding: '8 8 0',
             layout: 'card',
             items: [
-                {
-                    xtype: 'module-dashboard'
-                }
-                //{xtype: 'module-documental'}, // dynamically loaded
+                // {
+                //     xtype: 'module-dashboard'
+                // }
+                {xtype: 'module-documental'}, // dynamically loaded
                 //{xtype: 'module-fotografico'}, // dynamically loaded
                 //{xtype: 'module-sepultamento'} // dynamically loaded
             ],

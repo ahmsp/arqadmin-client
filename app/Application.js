@@ -15,6 +15,7 @@ Ext.define('ArqAdmin.Application', {
 
     requires: [
         'ArqAdmin.config.Runtime',
+        'ArqAdmin.user.Profile',
         'ArqAdmin.view.login.Login',
         'ArqAdmin.view.main.Main',
         'ArqAdmin.util.Glyphs'
@@ -24,10 +25,6 @@ Ext.define('ArqAdmin.Application', {
 
     controllers: [
         'OAuth'
-    ],
-
-    stores: [
-        //'documental.Documentos'
     ],
 
     glyphFontFamily: 'icomoon',
@@ -86,6 +83,7 @@ Ext.define('ArqAdmin.Application', {
                     var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
                     if (result.access_token) {
                         oAuthController.saveToken(result.access_token, result.refresh_token);
+                        ArqAdmin.user.Profile.setAppUser();
                         allowedAccess = true;
                     }
                 }
@@ -131,6 +129,8 @@ Ext.define('ArqAdmin.Application', {
             //status: 400 //{"error":"invalid_request","error_description":"The refresh token is invalid."} ????
             //status: 401 //{"error":"access_denied", "The resource owner or authorization server denied the request."} // ver as mensagens
 
+            ArqAdmin.user.Profile.resetUser();
+
             Ext.Msg.show({
                 title: 'Problema de autorização!',
                 message: 'Sessão expirada. A aplicação será reiniciada',
@@ -143,7 +143,7 @@ Ext.define('ArqAdmin.Application', {
                 }
             });
         } else {
-            var errorDescription = ArqAdmin.util.Util.decodeJSON(error.error_description)
+            var errorDescription = ArqAdmin.util.Util.decodeJSON(error.error_description);
 
             if (Ext.isObject(errorDescription)) {
                 var message = '';
@@ -157,15 +157,12 @@ Ext.define('ArqAdmin.Application', {
                 ArqAdmin.util.Util.showErrorMsg(errorDescription);
                 // ArqAdmin.util.Util.showErrorMsg(error.user_message);
             }
-
-
         }
     },
 
     onRequestComplete: function (conn, response, options) {
 
         if (response.status === 200 && options.url.split('/').pop() === 'authenticate') {
-
             ArqAdmin.util.OAuthMonitor.start();
 
             console.log('NEW TOKEN - (onRequestComplete)' + Ext.Date.format(new Date(), 'H:i:s'));

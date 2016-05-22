@@ -35,6 +35,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
     },
 
     onNavigationButtonClick: function (btn, e, eOpts) {
+
         switch (btn.itemId) {
             case 'btnDashboard':
                 this.showView('module-dashboard');
@@ -52,6 +53,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
     },
 
     onNavigationMenuitemClick: function (item, e, eOpts) {
+
         switch (item.itemId) {
             case 'menuitemDocumental':
                 this.showView('module-documental');

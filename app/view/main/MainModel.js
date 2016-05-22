@@ -14,8 +14,6 @@ Ext.define('ArqAdmin.view.main.MainModel', {
         appHeaderIcon: '<span class="fa fa-desktop fa-lg app-header-logo">',
         footer: 'Alexandre Cyro Pereira ...',
 
-        //token: '',
-
         moduleTitle: ''
     },
 
@@ -46,10 +44,14 @@ Ext.define('ArqAdmin.view.main.MainModel', {
     formulas: {
         apiBaseUrl: function () {
             //return ArqAdmin.config.Runtime.getApiBaseUrl();
+        },
+
+        userProfile: function () {
+            return ArqAdmin.user.Profile.getUserProfile();
+        },
+
+        isAdmin: function () {
+            return ArqAdmin.user.Profile.hasRole('ROLE_ADMIN');
         }
-
     }
-
-
-    //TODO - add data, formulas and/or methods to support your view
 });
