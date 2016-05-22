@@ -306,10 +306,10 @@ Ext.define('ArqAdmin.view.main.Main', {
             padding: '8 8 0',
             layout: 'card',
             items: [
-                // {
-                //     xtype: 'module-dashboard'
-                // }
-                {xtype: 'module-documental'}, // dynamically loaded
+                {
+                    xtype: 'module-dashboard'
+                }
+                // {xtype: 'module-documental'} // dynamically loaded
                 //{xtype: 'module-fotografico'}, // dynamically loaded
                 //{xtype: 'module-sepultamento'} // dynamically loaded
             ],
