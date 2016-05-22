@@ -309,7 +309,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                 {
                     xtype: 'module-dashboard'
                 }
-                // {xtype: 'module-documental'} // dynamically loaded
+                //{xtype: 'module-documental'}, // dynamically loaded
                 //{xtype: 'module-fotografico'}, // dynamically loaded
                 //{xtype: 'module-sepultamento'} // dynamically loaded
             ],

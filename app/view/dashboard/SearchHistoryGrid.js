@@ -23,7 +23,7 @@ Ext.define('ArqAdmin.view.dashboard.SearchHistoryGrid', {
             width: 180,
             text: 'ACERVOS',
             filter: {
-                type: 'list'
+                // type: 'list'
             }
         },
         {

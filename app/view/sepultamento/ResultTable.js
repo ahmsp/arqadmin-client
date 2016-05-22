@@ -67,7 +67,7 @@ Ext.define('ArqAdmin.view.sepultamento.ResultTable', {
                         idField: 'estadocivil',
                         labelField: 'estadocivil',
                         updateBuffer: 1500,
-                        store: 'staticData.sepultamento.SfmEstadocivil'
+                        store: 'staticData.sepultamento.SfmEstadocivis'
                     }
                 },
                 {
@@ -163,7 +163,7 @@ Ext.define('ArqAdmin.view.sepultamento.ResultTable', {
                     xtype: 'gridcolumn',
                     width: 110,
                     dataIndex: 'sfm_data_morte',
-                    text: 'Data Falecimento',
+                    text: 'Data de Falecimento',
                     filter: {
                         type: 'string'
                     }
