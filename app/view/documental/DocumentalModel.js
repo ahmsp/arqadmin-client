@@ -9,7 +9,9 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
         
         detailPanelReference: 'detailsPanel',
         editFormReference: 'editForm',
-        displayPanelReference: 'displayPanel'
+        displayPanelReference: 'displayPanel',
+
+        role: 'ROLE_DOCUMENTAL'
     },
 
     stores: {
@@ -65,6 +67,12 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
             }
 
             return title;
+        },
+
+        hasRole: function (get) {
+            var role = get('role') || '';
+            
+            return  ArqAdmin.user.Profile.hasRole('ROLE_ADMIN') || ArqAdmin.user.Profile.hasRole(role);
         }
 
     }

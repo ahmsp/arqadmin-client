@@ -14,6 +14,7 @@ Ext.define('ArqAdmin.view.main.MainModel', {
         appHeaderIcon: '<span class="fa fa-desktop fa-lg app-header-logo">',
         footer: 'Alexandre Cyro Pereira ...',
 
+        // role: '',
         moduleTitle: ''
     },
 
@@ -52,6 +53,11 @@ Ext.define('ArqAdmin.view.main.MainModel', {
 
         isAdmin: function () {
             return ArqAdmin.user.Profile.hasRole('ROLE_ADMIN');
+        },
+
+        hasRole: function (get) {
+            var role = get('role') || '';
+            return  ArqAdmin.user.Profile.hasRole('ROLE_ADMIN') || ArqAdmin.user.Profile.hasRole(role);
         }
     }
 });

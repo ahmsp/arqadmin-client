@@ -76,7 +76,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                     items: [
                         {
                             xtype: 'button',
-                            itemId: 'btnDashboard',
+                            action: 'painel',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('dashboard'),
                             text: 'Painel'
                         },
@@ -97,35 +97,35 @@ Ext.define('ArqAdmin.view.main.Main', {
                                 items: [
                                     {
                                         xtype: 'menuitem',
-                                        itemId: 'menuitemDocumental',
+                                        action: 'documental',
                                         text: 'Textual e Cartográfico'
                                     },
                                     {
                                         xtype: 'menuitem',
-                                        itemId: 'menuitemFotografico',
+                                        action: 'fotografico',
                                         text: 'Fotográfico'
                                     },
                                     {
                                         xtype: 'menuitem',
-                                        itemId: 'menuitemSepultamento',
-                                        text: 'Registro de Sepultamento'
+                                        action: 'sepultamento',
+                                        text: 'Termos de Sepultamento'
                                     }
                                 ]
                             }
                         },
                         {
                             xtype: 'button',
-                            itemId: 'menuitemDocumental',
+                            action: 'documental',
                             text: 'Textual e Cartográfico'
                         },
                         {
                             xtype: 'button',
-                            itemId: 'menuitemFotografico',
+                            action: 'fotografico',
                             text: 'Fotográfico'
                         },
                         {
                             xtype: 'button',
-                            itemId: 'menuitemSepultamento',
+                            action: 'sepultamento',
                             text: 'Termos de Sepultamento'
                         },
                         {
@@ -133,6 +133,10 @@ Ext.define('ArqAdmin.view.main.Main', {
                             height: 28,
                             style: {
                                 'border-left-color': 'rgb(90, 112, 116)'
+                            },
+                            hidden: true,
+                            bind: {
+                                hidden: '{!isAdmin}'
                             }
                         },
                         // {
@@ -149,23 +153,27 @@ Ext.define('ArqAdmin.view.main.Main', {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('admin'),
                             text: 'Recursos',
+                            hidden: true,
+                            bind: {
+                                hidden: '{!isAdmin}'
+                            },
                             menu: {
                                 xtype: 'menu',
                                 items: [
                                     {
                                         xtype: 'menuitem',
-                                        itemId: 'documental',
+                                        action: 'documental',
                                         glyph: ArqAdmin.util.Glyphs.getGlyph('users'),
                                         text: 'Relatórios'
                                     },
                                     {
                                         xtype: 'menuitem',
-                                        itemId: 'sepultamento',
+                                        action: 'sepultamento',
                                         text: 'Estatísticas'
                                     },
                                     {
                                         xtype: 'menuitem',
-                                        itemId: 'fotografico',
+                                        action: 'fotografico',
                                         text: 'Dados estáticos'
                                     }
                                 ]
@@ -187,18 +195,18 @@ Ext.define('ArqAdmin.view.main.Main', {
                                 items: [
                                     {
                                         xtype: 'menuitem',
-                                        itemId: 'documental',
+                                        action: 'documental',
                                         glyph: ArqAdmin.util.Glyphs.getGlyph('users'),
                                         text: 'Usuários'
                                     },
                                     {
                                         xtype: 'menuitem',
-                                        itemId: 'sepultamento',
-                                        text: 'Registro de Sepultamento'
+                                        action: 'sepultamento',
+                                        text: 'Termos de Sepultamento'
                                     },
                                     {
                                         xtype: 'menuitem',
-                                        itemId: 'fotografico',
+                                        action: 'fotografico',
                                         text: 'Fotográfico'
                                     }
                                 ]
@@ -219,12 +227,12 @@ Ext.define('ArqAdmin.view.main.Main', {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('user'),
                             disabled: true,
-                            // border: false,
+                            border: false,
                             style: {
                                 color: '#fff'
                             },
                             bind: {
-                                text: '{userProfile.shortName}'
+                                text: '{userProfile.name}'
                             }
                             // menu: {
                             //     xtype: 'menu',
@@ -301,17 +309,16 @@ Ext.define('ArqAdmin.view.main.Main', {
         },
         {
             xtype: 'container',
-            region: 'center',
             reference: 'modulesContainer',
+            itemId: 'modulesContainer',
+            region: 'center',
             padding: '8 8 0',
             layout: 'card',
             items: [
-                {
-                    xtype: 'module-dashboard'
-                }
-                //{xtype: 'module-documental'}, // dynamically loaded
-                //{xtype: 'module-fotografico'}, // dynamically loaded
-                //{xtype: 'module-sepultamento'} // dynamically loaded
+                {xtype: 'module-dashboard'}
+                // {xtype: 'module-documental'}, // dynamically loaded
+                // {xtype: 'module-fotografico'}, // dynamically loaded
+                // {xtype: 'module-sepultamento'} // dynamically loaded
             ],
             listeners: {
                 afterlayout: 'onContainerAfterLayout'

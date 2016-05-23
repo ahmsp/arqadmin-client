@@ -29,6 +29,8 @@ Ext.define('ArqAdmin.Application', {
 
     glyphFontFamily: 'icomoon',
 
+    defaultToken : 'painel',
+
     init: function () {
         var me = this;
 

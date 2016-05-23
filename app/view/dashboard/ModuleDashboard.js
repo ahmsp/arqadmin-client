@@ -48,7 +48,7 @@ Ext.define('ArqAdmin.view.dashboard.ModuleDashboard', {
             tpl: [
                 '<tpl for=".">',
                     '<div class="thumb-wrap">',
-                        '<a class="thumb" href="#">',
+                        '<a class="thumb" href="#{acervo}">',
                             '<div class="thumb-icon"><img src="{thumb}" alt="{title}" height="57" width="57"></div>',
                                 '<div class="thumb-title-container">',
                                 '<div class="thumb-title">Acervo<br />{title}</div>',
@@ -58,10 +58,7 @@ Ext.define('ArqAdmin.view.dashboard.ModuleDashboard', {
                         '</a>',
                     '</div>',
                 '</tpl>'
-            ],
-            listeners: {
-                itemclick: 'onDataviewItemClick'
-            }
+            ]
         },
         {
             xtype: 'component',

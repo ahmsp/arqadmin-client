@@ -33,7 +33,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardModel', {
             ],
             data: [
                 {
-                    "acervo": "doc",
+                    "acervo": "documental",
                     "title": "TEXTUAL E CARTOGRÁFICO",
                     "desc": "Nono n ononononon ono ononononononononon",
                     "qtd": "59.111",
@@ -41,7 +41,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardModel', {
                     "url": "resources/reports/Q42013Report.pdf"
                 },
                 {
-                    "acervo": "foto",
+                    "acervo": "fotografico",
                     "title": "FOTOGRÁFICO",
                     "desc": "Nono n ononononon ono ononononononononon",
                     "qtd": "9.068",
@@ -49,7 +49,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardModel', {
                     "url": "resources/reports/Q42013Report.pdf"
                 },
                 {
-                    "acervo": "sepult",
+                    "acervo": "sepultamento",
                     "title": "TERMOS DE SEPULTAMENTO",
                     "desc": "Nono n ononononon ono ononononononononon",
                     "qtd": "51.938",

@@ -3,7 +3,8 @@ Ext.define('ArqAdmin.view.main.MainController', {
 
     requires: [
         'ArqAdmin.util.Util',
-        'ArqAdmin.controller.StaticData'
+        'ArqAdmin.controller.StaticData',
+        'ArqAdmin.controller.Root'
     ],
 
     alias: 'controller.main',
@@ -13,7 +14,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
             click: 'onNavigationButtonClick'
         },
         "#navigation toolbar menuitem": {
-            click: 'onNavigationMenuitemClick'
+            click: 'onNavigationButtonClick'
         },
         "button#btnMaximize": {
             click: 'maximizeModuleContainer'
@@ -31,68 +32,17 @@ Ext.define('ArqAdmin.view.main.MainController', {
     },
 
     initiateControllers: function () {
+        ArqAdmin.app.createController('Root');
         ArqAdmin.app.createController('StaticData');
+        this.redirectTo(Ext.util.History.getToken(), true);
     },
 
     onNavigationButtonClick: function (btn, e, eOpts) {
-
-        switch (btn.itemId) {
-            case 'btnDashboard':
-                this.showView('module-dashboard');
-                break;
-            case 'menuitemDocumental':
-                this.showView('module-documental');
-                break;
-            case 'menuitemFotografico':
-                this.showView('module-fotografico');
-                break;
-            case 'menuitemSepultamento':
-                this.showView('module-sepultamento');
-                break;
+        if (btn.action) {
+            this.redirectTo(btn.action, true);
         }
     },
-
-    onNavigationMenuitemClick: function (item, e, eOpts) {
-
-        switch (item.itemId) {
-            case 'menuitemDocumental':
-                this.showView('module-documental');
-                break;
-            case 'menuitemFotografico':
-                this.showView('module-fotografico');
-                break;
-            case 'menuitemSepultamento':
-                this.showView('module-sepultamento');
-                break;
-        }
-    },
-
-    showView: function (viewXtype) {
-        var me = this,
-            card = me.lookupReference('modulesContainer'),
-            viewReference,
-            view,
-            task;
-
-        viewReference = viewXtype.replace(/-([a-z])/gi, function ($0, $1) {
-            return $1.toUpperCase();
-        });
-
-        view = me.lookupReference(viewReference);
-
-        if (!view) {
-            me.getView().mask('Carregando...');
-            task = new Ext.util.DelayedTask(function () {
-                view = Ext.widget(viewXtype);
-                card.add(view);
-                card.getLayout().setActiveItem(view);
-                me.getView().unmask();
-            }).delay(200);
-        } else {
-            card.getLayout().setActiveItem(view);
-        }
-    },
-
+    
     maximizeModuleContainer: function (button, e, eOpts) {
         var header = this.lookupReference('headerTitle');
         var nav = this.lookupReference('navigation');

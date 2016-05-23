@@ -132,7 +132,11 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                             handler: 'setResultsPanelActiveItem'
                         },
                         {
-                            xtype: 'tbseparator'
+                            xtype: 'tbseparator',
+                            hidden: true,
+                            bind: {
+                                hidden: '{!hasRole}'
+                            }
                         },
                         {
                             xtype: 'button',
@@ -140,6 +144,10 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                             glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
                             // text: 'Novo',
                             tooltip: 'Adicionar novo item',
+                            hidden: true,
+                            bind: {
+                                hidden: '{!hasRole}'
+                            },
                             listeners: {
                                 click: 'onAdd'
                             }
@@ -149,8 +157,10 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                             glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
                             // text: 'Editar',
                             tooltip: 'Editar o item selecionado',
+                            hidden: true,
                             bind: {
-                                disabled: '{!resultTable.selection}'
+                                disabled: '{!resultTable.selection}',
+                                hidden: '{!hasRole}'
                             },
                             handler: 'onEdit'
                         },
@@ -159,8 +169,10 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                             glyph: ArqAdmin.util.Glyphs.getGlyph('images2'),
                             // text: 'Imagens',
                             tooltip: 'Editar ou adicionar imagens',
+                            hidden: true,
                             bind: {
-                                disabled: '{!resultTable.selection}'
+                                disabled: '{!resultTable.selection}',
+                                hidden: '{!hasRole}'
                             },
                             handler: 'showImageViewerWindow'
                         }
