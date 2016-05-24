@@ -9,7 +9,9 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerModel', {
 
         detailPanelReference: 'imageViewerDetailsPanel',
         editFormReference: 'imageViewerForm',
-        displayPanelReference: 'imageViewerDisplayPanel'
+        displayPanelReference: 'imageViewerDisplayPanel',
+
+        role: 'ROLE_DOCUMENTAL'
     },
 
     stores: {
@@ -72,6 +74,11 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerModel', {
 
         displayCartografico: function (get) {
             return get('currentImage').acervo_tipo === 'cartografico';
+        },
+
+        hasRole: function (get) {
+            var role = get('role') || '';
+            return  ArqAdmin.user.Profile.hasRole(role);
         }
     }
 

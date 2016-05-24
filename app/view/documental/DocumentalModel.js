@@ -71,8 +71,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
 
         hasRole: function (get) {
             var role = get('role') || '';
-            
-            return  ArqAdmin.user.Profile.hasRole('ROLE_ADMIN') || ArqAdmin.user.Profile.hasRole(role);
+            return  ArqAdmin.user.Profile.hasRole(role);
         }
 
     }

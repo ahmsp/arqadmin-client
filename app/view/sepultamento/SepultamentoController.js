@@ -141,7 +141,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
         var me = this,
             editForm = me.lookupReference('editForm');
 
-        if (editForm.isDirty()) {
+        if (editForm && editForm.isDirty()) {
             Ext.Msg.show({
                 title: 'Formulário editado!',
                 msg: 'Os dados do formulário foram alterados. <br />Você deseja descartar as alterações?',
@@ -190,12 +190,6 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
 
         if (cellIndex === 0 && !Ext.isEmpty(record.get('imagem'))) {
             me.showImageViewerWindow();
-        }
-    },
-
-    onGridCelldblclick: function (grid, td, cellIndex) {
-        if (cellIndex !== 0) {
-            this.onEdit();
         }
     },
 

@@ -131,7 +131,11 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
                         //     handler: 'setResultsPanelActiveItem'
                         // },
                         {
-                            xtype: 'tbseparator'
+                            xtype: 'tbseparator',
+                            hidden: true,
+                            bind: {
+                                hidden: '{!hasRole}'
+                            }
                         },
                         {
                             xtype: 'button',
@@ -139,6 +143,10 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
                             glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
                             // text: 'Novo',
                             tooltip: 'Adicionar novo item',
+                            hidden: true,
+                            bind: {
+                                hidden: '{!hasRole}'
+                            },
                             listeners: {
                                 click: 'onAdd'
                             }
@@ -148,8 +156,10 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
                             glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
                             // text: 'Editar',
                             tooltip: 'Editar o item selecionado',
+                            hidden: true,
                             bind: {
-                                disabled: '{!resultTable.selection}'
+                                disabled: '{!resultTable.selection}',
+                                hidden: '{!hasRole}'
                             },
                             handler: 'onEdit'
                         }

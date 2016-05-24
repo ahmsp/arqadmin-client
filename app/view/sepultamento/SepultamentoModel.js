@@ -9,7 +9,9 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoModel', {
 
         detailPanelReference: 'detailsPanel',
         editFormReference: 'editForm',
-        displayPanelReference: 'displayPanel'
+        displayPanelReference: 'displayPanel',
+
+        role: 'ROLE_SEPULTAMENTO'
     },
 
     stores: {
@@ -50,6 +52,11 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoModel', {
             }
 
             return title;
+        },
+
+        hasRole: function (get) {
+            var role = get('role') || '';
+            return  ArqAdmin.user.Profile.hasRole(role);
         }
     }
 });

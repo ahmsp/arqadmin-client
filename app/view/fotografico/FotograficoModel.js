@@ -9,7 +9,9 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
 
         detailPanelReference: 'detailsPanel',
         editFormReference: 'editForm',
-        displayPanelReference: 'displayPanel'
+        displayPanelReference: 'displayPanel',
+
+        role: 'ROLE_FOTOGRAFICO'
     },
 
     stores: {
@@ -65,6 +67,11 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
         hideFilefield: function (get) {
             var rec = get('record');
             return (!rec.phantom && !Ext.isEmpty(rec.get('imagem_original')));
+        },
+
+        hasRole: function (get) {
+            var role = get('role') || '';
+            return  ArqAdmin.user.Profile.hasRole(role);
         }
 
     }

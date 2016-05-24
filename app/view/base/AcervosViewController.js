@@ -54,9 +54,9 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
 
     showViewDisplayPanel: function (view) {
         var me = this,
-            layout = me.lookupReference(me.getViewModel().get('displayPanelReference')).getLayout();
+            card = me.lookupReference(me.getViewModel().get('displayPanelReference'));
 
-        layout.setActiveItem(view);
+        card.getLayout().setActiveItem(view);
     },
 
     onCancelEdit: function (button, e, eOpts) {
@@ -157,6 +157,16 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
         }
     },
 
+    onGridCelldblclick: function (grid, td, cellIndex) {
+        if (!this.hasRole()) {
+            return;
+        }
+
+        if (cellIndex !== 0) {
+            this.onEdit();
+        }
+    },
+
     /**
      * deselect all in both grids
      */
@@ -178,5 +188,9 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
         win.title = 'Informações sobre a pesquisa'
         iFrame.src = 'resources/docs/pesquisa.html';
         win.show();
+    },
+
+    hasRole: function () {
+        return this.getViewModel().get('hasRole');
     }
 });

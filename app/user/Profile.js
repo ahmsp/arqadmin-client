@@ -64,7 +64,8 @@ Ext.define('ArqAdmin.user.Profile', {
     },
 
     hasRole : function(role) {
-        return Ext.Array.contains(this.getRoles(), role);
+        return Ext.Array.contains(this.getRoles(), role)
+            || Ext.Array.contains(this.getRoles(), 'ROLE_ADMIN');
     },
 
     constructor: function (config) {

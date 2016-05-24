@@ -83,6 +83,10 @@ Ext.define('ArqAdmin.view.widget.ImageViewerImg', {
                         xtype: 'button',
                         text: 'Salvar imagem',
                         glyph: ArqAdmin.util.Glyphs.getGlyph('download'),
+                        hidden: true,
+                        bind: {
+                            hidden: '{!hasRole}'
+                        },
                         handler: 'showDownloadImagesWindow'
                     }
                 ]

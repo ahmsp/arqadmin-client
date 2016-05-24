@@ -26,12 +26,6 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerController', {
         this.lookupReference('imageViewerImg').getImage().setSrc('');
     },
 
-    onGridCelldblclick: function (grid, td, cellIndex) {
-        if (cellIndex !== 0) {
-            this.onEdit();
-        }
-    },
-
     onFilefieldChange: function (filefield, value, options) {
         this.lookupReference('arquivoOriginal').setValue(value.replace(/^.*(\\|\/|\:)/, ''));
     },

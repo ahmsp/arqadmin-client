@@ -195,12 +195,6 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
         }
     },
 
-    onGridCelldblclick: function (grid, td, cellIndex) {
-        if (cellIndex !== 0) {
-            this.onEdit();
-        }
-    },
-
     onGridClearFilters: function () {
         this.lookupReference('resultTable').filters.clearFilters(true);
     },

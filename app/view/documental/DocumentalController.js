@@ -174,7 +174,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     onGridSelect: function (rowmodel, record, index, eOpts) {
         var me = this,
             layoutItems = me.lookupReference('resultsPanel').getLayout().getLayoutItems();
-        
+
         // selects record in both grids
         Ext.Object.each(layoutItems, function (key, componentGrid) {
 
@@ -211,12 +211,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
         if (cellIndex === 0 && !Ext.isEmpty(record.data.desenhos_tecnicos)) {
             me.showImageViewerWindow();
-        }
-    },
-
-    onGridCelldblclick: function (grid, td, cellIndex) {
-        if (cellIndex !== 0) {
-            this.onEdit();
         }
     },
 
@@ -257,25 +251,27 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         var me = this,
             win = Ext.widget('imageviewer-window');
 
-        win.down('imageviewer-img').down('toolbar').add(
-            {xtype: 'tbseparator'},
-            {
-                text: 'Nova imagem',
-                // itemId: 'btnAdd',
-                glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
-                tooltip: 'Adicionar nova imagem',
-                handler: 'onAdd'
-            },
-            {
-                text: 'Editar imagem',
-                glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
-                tooltip: 'Editar a imagem selecionada',
-                bind: {
-                    disabled: '{!resultTable.selection}'
+        if (me.hasRole()) {
+            win.down('imageviewer-img').down('toolbar').add(
+                {xtype: 'tbseparator'},
+                {
+                    text: 'Nova imagem',
+                    // itemId: 'btnAdd',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
+                    tooltip: 'Adicionar nova imagem',
+                    handler: 'onAdd'
                 },
-                handler: 'onEdit'
-            }
-        );
+                {
+                    text: 'Editar imagem',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
+                    tooltip: 'Editar a imagem selecionada',
+                    bind: {
+                        disabled: '{!resultTable.selection}'
+                    },
+                    handler: 'onEdit'
+                }
+            );
+        }
 
         win.getViewModel().set('documentoId', me.getViewModel().get('record').getId());
         win.on('close', function () {
@@ -417,7 +413,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             }
         }
     },
-    
+
     onAcervoComboSelect: function (combo, records, eOpts) {
         var me = this,
             formPanel = combo.up('panel'),
