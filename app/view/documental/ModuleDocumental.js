@@ -217,9 +217,9 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                                 {
                                     xtype: 'container',
                                     html: [
-                                        '<p>Selecione um registro na lista para exibir os detalhes. ',
-                                        'Para editar o registro clique no botão "Editar" com o registro selecionado.<br>',
-                                        'Para adicionar um registro clique no botão "Novo".</p>'
+                                        '<p>Selecione um registro na listagem para exibir os detalhes.<br>',
+                                        'Se preferir, você pode recolher ou expandir este painel<br>',
+                                        'clicando na seta do lado direito do título do painel.</p>'
                                     ],
                                     padding: '25px 35px',
                                     style: {

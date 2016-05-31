@@ -55,9 +55,18 @@ Ext.define('ArqAdmin.view.main.MainModel', {
             return ArqAdmin.user.Profile.hasRole('ROLE_ADMIN');
         },
 
+        hasRoleRegisterUser: function () {
+            return ArqAdmin.user.Profile.hasRole('ROLE_ADMIN')
+                || ArqAdmin.user.Profile.hasRole('ROLE_DOCUMENTAL')
+                || ArqAdmin.user.Profile.hasRole('ROLE_FOTOGRAFICO')
+                || ArqAdmin.user.Profile.hasRole('ROLE_SEPULTAMENTO')
+                || ArqAdmin.user.Profile.hasRole('ROLE_ATENDIMENTO');
+        },
+
         hasRole: function (get) {
             var role = get('role') || '';
-            return  ArqAdmin.user.Profile.hasRole('ROLE_ADMIN') || ArqAdmin.user.Profile.hasRole(role);
+            return ArqAdmin.user.Profile.hasRole('ROLE_ADMIN')
+                || ArqAdmin.user.Profile.hasRole(role);
         }
     }
 });

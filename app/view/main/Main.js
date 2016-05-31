@@ -69,16 +69,20 @@ Ext.define('ArqAdmin.view.main.Main', {
                     xtype: 'toolbar',
                     flex: 1,
                     ui: 'toolbar-plain',
+                    cls: 'toolbar-plain-main',
                     defaults: {
                         height: 30
                     },
+                    enableOverflow: true,
                     defaultButtonUI: 'default',
                     items: [
                         {
                             xtype: 'button',
                             action: 'painel',
+                            cls: 'button-glyph-center',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('dashboard'),
-                            text: 'Painel'
+                            // text: 'Painel',
+                            tooltip: 'Painel'
                         },
                         {
                             xtype: 'tbseparator',
@@ -89,92 +93,116 @@ Ext.define('ArqAdmin.view.main.Main', {
                         },
                         {
                             xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('acervos'),
-                            text: 'Acervos',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('folder'),
+                            action: 'documental',
+                            text: 'Acervos Textual e Cartográfico'
+                        },
+                        {
+                            xtype: 'button',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('folder'),
+                            action: 'fotografico',
+                            text: 'Acervo Fotográfico'
+                        },
+                        {
+                            xtype: 'button',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('folder'),
+                            action: 'sepultamento',
+                            text: 'Acervo Termos de Sepultamento'
+                        },
+                        {
+                            xtype: 'tbseparator',
+                            height: 28,
+                            style: {
+                                'border-left-color': 'rgb(90, 112, 116)'
+                            },
+                            hidden: true,
+                            bind: {
+                                hidden: '{!isAdmin}'
+                            }
+                        },
+                        // {
+                        //     xtype: 'button',
+                        //     glyph: ArqAdmin.util.Glyphs.getGlyph('plus'),
+                        //     text: 'Recursos',
+                        //     hidden: true,
+                        //     bind: {
+                        //         hidden: '{!isAdmin}'
+                        //     },
+                        //     menu: {
+                        //         xtype: 'menu',
+                        //         items: [
+                        //             {
+                        //                 xtype: 'menuitem',
+                        //                 action: 'documental',
+                        //                 glyph: ArqAdmin.util.Glyphs.getGlyph('users'),
+                        //                 text: 'Relatórios'
+                        //             },
+                        //             {
+                        //                 xtype: 'menuitem',
+                        //                 action: 'sepultamento',
+                        //                 text: 'Estatísticas'
+                        //             },
+                        //             {
+                        //                 xtype: 'menuitem',
+                        //                 action: 'fotografico',
+                        //                 text: 'Dados estáticos'
+                        //             }
+                        //         ]
+                        //     }
+                        // },
+                        {
+                            xtype: 'button',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('admin'),
+                            text: 'Administração',
+                            hidden: true,
+                            bind: {
+                                hidden: '{!hasRoleRegisterUser}'
+                            },
                             menu: {
                                 xtype: 'menu',
-                                minWidth: 200,
                                 items: [
                                     {
                                         xtype: 'menuitem',
-                                        action: 'documental',
-                                        text: 'Textual e Cartográfico'
-                                    },
-                                    {
-                                        xtype: 'menuitem',
-                                        action: 'fotografico',
-                                        text: 'Fotográfico'
-                                    },
-                                    {
-                                        xtype: 'menuitem',
                                         action: 'sepultamento',
-                                        text: 'Termos de Sepultamento'
+                                        glyph: ArqAdmin.util.Glyphs.getGlyph('user'),
+                                        text: 'Cadastrar usuário'
+                                    },
+                                    {
+                                        xtype: 'menuitem',
+                                        // action: 'documental',
+                                        glyph: ArqAdmin.util.Glyphs.getGlyph('users'),
+                                        text: 'Gerenciar perfil de usuários',
+                                        hidden: true,
+                                        bind: {
+                                            hidden: '{!isAdmin}'
+                                        }
                                     }
                                 ]
                             }
                         },
                         {
                             xtype: 'button',
-                            action: 'documental',
-                            text: 'Textual e Cartográfico'
-                        },
-                        {
-                            xtype: 'button',
-                            action: 'fotografico',
-                            text: 'Fotográfico'
-                        },
-                        {
-                            xtype: 'button',
-                            action: 'sepultamento',
-                            text: 'Termos de Sepultamento'
-                        },
-                        {
-                            xtype: 'tbseparator',
-                            height: 28,
-                            style: {
-                                'border-left-color': 'rgb(90, 112, 116)'
-                            },
-                            hidden: true,
-                            bind: {
-                                hidden: '{!isAdmin}'
-                            }
-                        },
-                        // {
-                        //     xtype: 'button',
-                        //     glyph: ArqAdmin.util.Glyphs.getGlyph('report'),
-                        //     text: 'Relatórios'
-                        // },
-                        // {
-                        //     xtype: 'button',
-                        //     glyph: ArqAdmin.util.Glyphs.getGlyph('chart'),
-                        //     text: 'Estatísticas'
-                        // },
-                        {
-                            xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('admin'),
-                            text: 'Recursos',
-                            hidden: true,
-                            bind: {
-                                hidden: '{!isAdmin}'
-                            },
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('info'),
+                            cls: 'button-glyph-center',
+                            // text: 'Informações',
+                            overflowText: 'Informações',
+                            tooltip: 'Informações',
+                            arrowVisible: false,
+                            width: 30,
                             menu: {
                                 xtype: 'menu',
                                 items: [
                                     {
                                         xtype: 'menuitem',
-                                        action: 'documental',
-                                        glyph: ArqAdmin.util.Glyphs.getGlyph('users'),
-                                        text: 'Relatórios'
+                                        glyph: ArqAdmin.util.Glyphs.getGlyph('help'),
+                                        text: 'Ajuda',
+                                        handler: 'showHelpDialog'
                                     },
                                     {
                                         xtype: 'menuitem',
-                                        action: 'sepultamento',
-                                        text: 'Estatísticas'
-                                    },
-                                    {
-                                        xtype: 'menuitem',
-                                        action: 'fotografico',
-                                        text: 'Dados estáticos'
+                                        glyph: ArqAdmin.util.Glyphs.getGlyph('about'),
+                                        text: 'Sobre',
+                                        handler: 'showAboutDialog'
                                     }
                                 ]
                             }
@@ -182,47 +210,13 @@ Ext.define('ArqAdmin.view.main.Main', {
                         {
                             xtype: 'tbfill'
                         },
-                        {
-                            xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('admin'),
-                            text: 'Administração',
-                            hidden: true,
-                            bind: {
-                                hidden: '{!isAdmin}'
-                            },
-                            menu: {
-                                xtype: 'menu',
-                                items: [
-                                    {
-                                        xtype: 'menuitem',
-                                        action: 'documental',
-                                        glyph: ArqAdmin.util.Glyphs.getGlyph('users'),
-                                        text: 'Usuários'
-                                    },
-                                    {
-                                        xtype: 'menuitem',
-                                        action: 'sepultamento',
-                                        text: 'Termos de Sepultamento'
-                                    },
-                                    {
-                                        xtype: 'menuitem',
-                                        action: 'fotografico',
-                                        text: 'Fotográfico'
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            xtype: 'tbseparator',
-                            height: 28,
-                            style: {
-                                'border-left-color': 'rgb(90, 112, 116)'
-                            },
-                            hidden: true,
-                            bind: {
-                                hidden: '{!isAdmin}'
-                            }
-                        },
+                        // {
+                        //     xtype: 'tbseparator',
+                        //     height: 28,
+                        //     style: {
+                        //         'border-left-color': 'rgb(90, 112, 116)'
+                        //     }
+                        // },
                         {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('user'),
@@ -266,7 +260,9 @@ Ext.define('ArqAdmin.view.main.Main', {
                         {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('exit'),
+                            overflowText: 'Sair',
                             // text: 'Sair',
+                            tooltip: 'Sair',
                             listeners: {
                                 click: 'onLogout'
                             }

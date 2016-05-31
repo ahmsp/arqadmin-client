@@ -185,7 +185,7 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
             win = Ext.widget('iframe-window'),
             iFrame = win.down('uxiframe');
 
-        win.title = 'Informações sobre a pesquisa'
+        win.title = 'Informações sobre a pesquisa';
         iFrame.src = 'resources/docs/pesquisa.html';
         win.show();
     },

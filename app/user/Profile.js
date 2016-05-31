@@ -38,7 +38,7 @@ Ext.define('ArqAdmin.user.Profile', {
 
         if (!Ext.isEmpty(userProfile)) {
             name = userProfile.name || name;
-            shortName =  name.replace(/(\w+\s\w+).+/, "$1");
+            shortName = name.replace(/(\w+\s\w+).+/, "$1");
             username = userProfile.username || '';
             roles = userProfile.roles || [];
         }
@@ -63,9 +63,27 @@ Ext.define('ArqAdmin.user.Profile', {
         this.setUserProfile('');
     },
 
-    hasRole : function(role) {
+    hasRole: function (role) {
         return Ext.Array.contains(this.getRoles(), role)
             || Ext.Array.contains(this.getRoles(), 'ROLE_ADMIN');
+    },
+
+    setUserPreference: function (key, value) {
+        var me = this,
+            userKey = 'preferences-' + me.getUsername(),
+            options = me.getUserPreferences(userKey);
+
+        options[key] = value;
+        localStorage.setItem(userKey, Ext.JSON.encode(options));
+    },
+
+    getUserPreference: function (key) {
+        return this.getUserPreferences()[key] || '';
+    },
+
+    getUserPreferences: function () {
+        var userKey = 'preferences-' + this.getUsername();
+        return Ext.JSON.decode(localStorage.getItem(userKey)) || {};
     },
 
     constructor: function (config) {

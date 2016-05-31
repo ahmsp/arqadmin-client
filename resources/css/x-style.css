@@ -2,6 +2,7 @@
 .header-title {
     height: 80px;
     background-color: rgb(0, 0, 0);
+    overflow: hidden;
 }
 
 .image-acervo {
@@ -68,6 +69,18 @@
 .x-btn-default-small .x-btn-glyph {
     /*line-height: 18px;*/
     margin-left: 5px;
+}
+
+.button-glyph-center {
+    min-width: 30px;
+}
+
+.button-glyph-center .x-btn-glyph {
+    margin: 0;
+}
+
+.button-info .x-btn-glyph {
+    margin-left: 0;
 }
 
 /* button default inner border width focus over */
@@ -467,6 +480,12 @@
     background-color: transparent;
 }
 
-.button-info .x-btn-glyph {
-    margin-left: 0;
+.toolbar-plain-main  a.x-box-menu-after {
+    height: 30px;
+    width: 30px;
+    top: 2px !important;
+}
+
+.bt-plain-over .x-btn-inner {
+    color: #999;
 }

@@ -41,7 +41,12 @@ Ext.define('ArqAdmin.util.Glyphs', {
         image: 'xe904',
         close: 'xe610',
         info: 'xe913',
-        checklist: 'xf076'
+        checklist: 'xf076',
+        help: 'xf128',
+        contact: 'xe916',
+        about: 'xe917',
+        plus: 'xe609',
+        folder: 'xe918'
     },
 
     constructor: function(config) {

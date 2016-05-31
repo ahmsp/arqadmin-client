@@ -26,15 +26,56 @@ Ext.define('ArqAdmin.view.main.MainController', {
 
         me.control({
             "app-main": {
-                afterrender: this.initiateControllers
+                afterrender: this.onAfterrender
             }
         });
     },
 
-    initiateControllers: function () {
+    onAfterrender: function () {
+        var me = this;
+
         ArqAdmin.app.createController('Root');
         ArqAdmin.app.createController('StaticData');
-        this.redirectTo(Ext.util.History.getToken(), true);
+        me.redirectTo(Ext.util.History.getToken(), true);
+        me.showWelcomeDialog();
+    },
+
+    showWelcomeDialog: function () {
+        var showWelcome = ArqAdmin.user.Profile.getUserPreference('not-show-welcome');
+
+        if (showWelcome === true) {
+            return;
+        }
+
+        var win = Ext.widget('iframe-window');
+        win.title = 'Bem-vindo';
+        win.height = 500;
+        win.down('uxiframe').src = 'resources/docs/bem-vindo.html';
+
+        task = new Ext.util.DelayedTask(function () {
+            win.show();
+        }).delay(2000);
+
+        ArqAdmin.user.Profile.setUserPreference('not-show-welcome', true);
+    },
+
+    showAboutDialog: function () {
+        var win = Ext.widget('iframe-window');
+
+        win.title = 'Sobre';
+        win.down('uxiframe').src = 'resources/docs/sobre.html';
+
+        win.show();
+    },
+
+    showHelpDialog: function () {
+        var win = Ext.widget('iframe-window');
+
+        win.title = 'Dicas';
+        win.width = 700;
+        win.down('uxiframe').src = 'resources/docs/ajuda.html';
+
+        win.show();
     },
 
     onNavigationButtonClick: function (btn, e, eOpts) {
@@ -42,7 +83,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
             this.redirectTo(btn.action, true);
         }
     },
-    
+
     maximizeModuleContainer: function (button, e, eOpts) {
         var header = this.lookupReference('headerTitle');
         var nav = this.lookupReference('navigation');
