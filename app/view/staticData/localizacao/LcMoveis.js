@@ -13,8 +13,7 @@ Ext.define('ArqAdmin.view.staticData.localizacao.LcMoveis', {
             dataIndex: 'id',
             resizable: false,
             filter: {
-                type: 'numeric',
-                emptyText: 'Insira o número...'
+                type: 'numeric'
             }
         },
         {
@@ -28,9 +27,7 @@ Ext.define('ArqAdmin.view.staticData.localizacao.LcMoveis', {
                 maxLength: 45
             },
             filter: {
-                type: 'string',
-                menuFilterText: 'Filtros',
-                emptyText: 'Insira o termo para filtar...'
+                type: 'string'
             }
         }
     ]

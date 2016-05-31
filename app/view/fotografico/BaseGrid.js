@@ -25,8 +25,7 @@ Ext.define('ArqAdmin.view.fotografico.BaseGrid', {
     ],
     plugins: [
         {
-            ptype: 'gridfilters',
-            menuFilterText: 'Filtros'
+            ptype: 'gridfilters'
         }
     ],
     listeners: {

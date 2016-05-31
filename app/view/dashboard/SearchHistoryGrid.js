@@ -10,8 +10,7 @@ Ext.define('ArqAdmin.view.dashboard.SearchHistoryGrid', {
     //rowLines: false,
 
     plugins: [{
-        ptype: 'gridfilters',
-        menuFilterText: 'Filtros'
+        ptype: 'gridfilters'
     }],
 
     viewConfig: {
@@ -31,8 +30,7 @@ Ext.define('ArqAdmin.view.dashboard.SearchHistoryGrid', {
             text: 'TERMOS PESQUISADOS',
             flex: 1,
             filter: {
-                type: 'string',
-                emptyText: 'Digite o termo para filtrar...'
+                type: 'string'
             }
         },
         {

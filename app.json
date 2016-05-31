@@ -22,7 +22,7 @@
      */
     "classpath": "${app.dir}/app",
 
-    "overrides": "${app.dir}/overrides",
+    "overrides": "${app.dir}/overrides,${app.dir}/locale/${app.locale}",
 
     /**
      * The Sencha Framework for this application: "ext" or "touch".

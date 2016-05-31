@@ -148,7 +148,7 @@ Ext.define('ArqAdmin.view.documental.ResultTable', {
         },
         {
             xtype: 'gridcolumn',
-            align: 'center',
+            // align: 'center',
             dataIndex: 'data_doc',
             text: 'Data',
             filter: {

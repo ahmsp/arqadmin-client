@@ -13,8 +13,7 @@ Ext.define('ArqAdmin.view.staticData.sepultamento.SfmEstadocivis', {
             dataIndex: 'id',
             resizable: false,
             filter: {
-                type: 'numeric',
-                emptyText: 'Insira o número...'
+                type: 'numeric'
             }
         },
         {
@@ -28,9 +27,7 @@ Ext.define('ArqAdmin.view.staticData.sepultamento.SfmEstadocivis', {
                 maxLength: 145
             },
             filter: {
-                type: 'string',
-                menuFilterText: 'Filtros',
-                emptyText: 'Insira o termo para filtar...'
+                type: 'string'
             }
         }
     ]

@@ -17,8 +17,7 @@ Ext.define('ArqAdmin.view.staticData.BaseGrid', {
 
         me.plugins = [
             {
-                ptype: 'gridfilters',
-                menuFilterText: 'Filtros'
+                ptype: 'gridfilters'
             },
             {
                 ptype: 'rowediting',

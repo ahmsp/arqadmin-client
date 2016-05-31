@@ -26,8 +26,7 @@ Ext.define('ArqAdmin.view.sepultamento.BaseGrid', {
     ],
     plugins: [
         {
-            ptype: 'gridfilters',
-            menuFilterText: 'Filtros'
+            ptype: 'gridfilters'
         }
     ],
     listeners: {

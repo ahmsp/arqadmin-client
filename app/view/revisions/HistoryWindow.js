@@ -30,8 +30,7 @@ Ext.define('ArqAdmin.view.revisions.HistoryWindow', {
             // },
             plugins: [
                 {
-                    ptype: 'gridfilters',
-                    menuFilterText: 'Filtros'
+                    ptype: 'gridfilters'
                 },
                 {
                     ptype: 'rowexpander',
