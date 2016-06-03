@@ -76,6 +76,7 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
 
     searchAll: function (term) {
         var me = this,
+            grid = me.lookupReference('resultTable'),
             store = me.getStore('fotografias'),
             searchParam;
 
@@ -85,6 +86,7 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
 
         searchParam = {'search_all': term};
 
+        grid.filters.clearFilters(true);
         store.clearFilter(true);
         store.getProxy().extraParams = searchParam;
         store.load();

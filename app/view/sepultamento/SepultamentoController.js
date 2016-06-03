@@ -79,6 +79,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
 
     searchAll: function (term) {
         var me = this,
+            grid = me.lookupReference('resultTable'),
             store = me.getStore('sepultamentos'),
             searchParam;
 
@@ -88,6 +89,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
 
         searchParam = {'search_all': term};
 
+        grid.filters.clearFilters(true);
         store.clearFilter(true);
         store.getProxy().extraParams = searchParam;
         store.load();

@@ -91,6 +91,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
     searchAll: function (term) {
         var me = this,
+            grid = me.lookupReference('resultTable'),
             store = me.getStore('documentos'),
             searchParam;
 
@@ -100,6 +101,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
         searchParam = {'search_all': term};
 
+        grid.filters.clearFilters();
         store.clearFilter(true);
         store.getProxy().extraParams = searchParam;
         store.load();
