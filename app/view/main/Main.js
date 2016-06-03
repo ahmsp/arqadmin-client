@@ -40,6 +40,8 @@ Ext.define('ArqAdmin.view.main.Main', {
         type: 'border'
     },
 
+    minWidth: 1024,
+
     items: [
         {
             xtype: 'component',
@@ -93,21 +95,27 @@ Ext.define('ArqAdmin.view.main.Main', {
                         },
                         {
                             xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('folder'),
+                            // glyph: ArqAdmin.util.Glyphs.getGlyph('folder'),
+                            icon: 'resources/ico/acervo-documental-16x16.png',
                             action: 'documental',
-                            text: 'Acervos Textual e Cartográfico'
+                            text: 'Acervos Textual e Cartográfico',
+                            padding: '0 5'
                         },
                         {
                             xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('folder'),
+                            // glyph: ArqAdmin.util.Glyphs.getGlyph('folder'),
+                            icon: 'resources/ico/acervo-fotografico-16x16.png',
                             action: 'fotografico',
-                            text: 'Acervo Fotográfico'
+                            text: 'Acervo Fotográfico',
+                            padding: '0 5'
                         },
                         {
                             xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('folder'),
+                            // glyph: ArqAdmin.util.Glyphs.getGlyph('folder'),
+                            icon: 'resources/ico/acervo-sepult-16x16.png',
                             action: 'sepultamento',
-                            text: 'Acervo Termos de Sepultamento'
+                            text: 'Acervo Termos de Sepultamento',
+                            padding: '0 5'
                         },
                         {
                             xtype: 'tbseparator',

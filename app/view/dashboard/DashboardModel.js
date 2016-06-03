@@ -37,7 +37,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardModel', {
                     "title": "TEXTUAL E CARTOGRÁFICO",
                     "desc": "Nono n ononononon ono ononononononononon",
                     "qtd": "59.111",
-                    "thumb": "resources/img/acervo_docs_2.png",
+                    "thumb": "resources/ico/acervo-documental.png",
                     "url": "resources/reports/Q42013Report.pdf"
                 },
                 {
@@ -45,7 +45,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardModel', {
                     "title": "FOTOGRÁFICO",
                     "desc": "Nono n ononononon ono ononononononononon",
                     "qtd": "9.068",
-                    "thumb": "resources/img/acervo_foto_1.png",
+                    "thumb": "resources/ico/acervo-fotografico.png",
                     "url": "resources/reports/Q42013Report.pdf"
                 },
                 {
@@ -53,7 +53,7 @@ Ext.define('ArqAdmin.view.dashboard.DashboardModel', {
                     "title": "TERMOS DE SEPULTAMENTO",
                     "desc": "Nono n ononononon ono ononononononononon",
                     "qtd": "51.938",
-                    "thumb": "resources/img/acervo_cemit_1.jpg",
+                    "thumb": "resources/ico/acervo-sepult.png",
                     "url": "resources/reports/Q42013Report.pdf"
                 }
             ]
@@ -77,7 +77,24 @@ Ext.define('ArqAdmin.view.dashboard.DashboardModel', {
                 property: 'data',
                 direction: 'DESC'
             }
+        },
+        researchResources: {
+            fields: [
+                {name: 'title'},
+                {name: 'text'},
+                {name: 'url'}
+            ],
+            autoLoad: true,
+            proxy: {
+                type: 'ajax',
+                url: 'resources/data/research-resources.json',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'data'
+                }
+            }
         }
+
     }
 
 });

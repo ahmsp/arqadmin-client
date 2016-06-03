@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "title": "Interface",
+      "text": "Com interface rica e intuitiva, recursos gráficos avançados e a possibilidade de personalização do modo de exibição, o sistema proporciona uma excelente experiência do usuário.",
+      "src": "resources/img/help/interface.png"
+    },
+    {
+      "title": "Pesquisa",
+      "text": "Recursos avançados de pesquisa,  simples, que busca as informações mais relevantes ou pesquisa detalhada em campos específicos, combinado com operadores booleanas que aumenta o nivel de filtragem dos resultados.",
+      "src": "resources/img/help/pesquisa-3.png"
+    },
+    {
+      "title": "Modos de exibição",
+      "text": "Através dos menus de exibição é possível alternar entre os modos de apresentação dos resultados, como o de listagem com imagens, galeria ou tabela, clicando nos ícones correspondentes.",
+      "src": "resources/img/help/menu-exibicao.png"
+    },
+    {
+      "title": "Modo lista",
+      "text": "Os resultados podem ser apresentados no modo lista, onde é possível visualizar as informações do item e as miniaturas das imagens, como também a exibição da imagem em tela cheia.",
+      "src": "resources/img/help/lista.png"
+    },
+    {
+      "title": "Modo galeria de imagens",
+      "text": "Ao acessar o sistema é exibido um painel com atalhos para os módulos dos acervos ",
+      "src": "resources/img/help/galeria.png"
+    },
+    {
+      "title": "Modo tabela",
+      "text": "Ao acessar o sistema é exibido um painel com atalhos para os módulos dos acervos e outras informações ",
+      "src": "resources/img/help/tabela.png"
+    },
+    {
+      "title": "Filtros, ordenação e colunas",
+      "text": "Através do menu suspenso acessado ao passar o ponteiro do mouse sobre o título das colunas é possível ordenar, ocultar ou exibir colunas e filtrar nos resultados retornados mesmo da pesquisa detalhada.",
+      "src": "resources/img/help/filtros.png"
+    },
+    {
+      "title": "Detalhes do item",
+      "text": "O painel lateral de Detalhes do Registro, pode ser recolhido e expandido clicando na seta superior do painel, proporcionando uma área maior para visualização das informações do item selecionado.",
+      "src": "resources/img/help/detalhes.png"
+    }
+  ]
+}

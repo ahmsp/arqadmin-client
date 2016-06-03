@@ -1,4 +1,4 @@
-Ext.define("Ext.locale.pt_BR.grid.locking.Locale", {
+Ext.define("Ext.locale.pt_BR.grid.locking.Lockable", {
     override: "Ext.grid.locking.Lockable",
     lockText: "Travar",
     unlockText: "Destravar"
