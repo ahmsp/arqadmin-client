@@ -3,33 +3,40 @@ Ext.define('ArqAdmin.view.dashboard.widgets.VolumeAcervos', {
 
     xtype: 'widgets-volume-acervos',
 
+    reference: 'VolumeAcervos',
     bodyCls: 'statistics-totals-body',
     width: 280,
     margin: '0 20px 0 0',
     title: 'REGISTROS CADASTRADOS',
     tpl: [
+        '<tpl>',
         '<div class="statistic-totals-header-total">Total de registros <span>{total:this.numberFormat}</span></div>',
         '<div class="statistic-totals-header">ACERVOS</div>',
-        '<tpl for="acervos">',
-        '<div class="statistic-totals-description">{description} <span>{ratio:this.numberFormat}</span></div>',
-        '<div class="sparkline-totals">',
-        '<div class="sparkline-totals-inner sparkline-totals-inner-{status}" style="width: {[(values.ratio / parent.total) * 100]}%;"></div>',
-        '</div>',
-        '</tpl>',
+
+        '<div class="statistic-totals-wrap"><div class="statistic-totals-description">TEXTUAL E CARTOGRÁFICO</div><div class="statistic-totals-total">{documental:this.numberFormat}</div></div>',
+        '<div class="sparkline-totals"><div class="sparkline-totals-inner sparkline-totals-inner-green" style="width: {[(values.documental / values.total) * 100]}%;"></div></div>',
+
+        '<div class="statistic-totals-wrap"><div class="statistic-totals-description">TERMOS DE SEPULTAMENTO</div><div class="statistic-totals-total">{sepultamento:this.numberFormat}</div></div>',
+        '<div class="sparkline-totals"><div class="sparkline-totals-inner sparkline-totals-inner-yellowpastel" style="width: {[(values.sepultamento / values.total) * 100]}%;"></div></div>',
+
+        '<div class="statistic-totals-wrap"><div class="statistic-totals-description">FOTOGRÁFICO</div><div class="statistic-totals-total">{fotografico:this.numberFormat}</div></div>',
+        '<div class="sparkline-totals"><div class="sparkline-totals-inner sparkline-totals-inner-violet" style="width: {[(values.fotografico / values.total) * 100]}%;"></div></div>',
+
         '<div class="statistic-totals-header">FUNDOS</div>',
         '<tpl for="fundos">',
-        '<div class="statistic-totals-description">{description} <span>{ratio:this.numberFormat}</span></div>',
-        '<div class="sparkline-totals">',
-        '<div class="sparkline-totals-inner sparkline-totals-inner-{status}" style="width: {[(values.ratio / parent.total) * 100]}%;"></div>',
-        '</div>',
+        '<div class="statistic-totals-wrap"><div class="statistic-totals-description">{item}</div><div class="statistic-totals-total">{total:this.numberFormat}</div></div>',
+        '<div class="sparkline-totals"><div class="sparkline-totals-inner sparkline-totals-inner-arsenic" style="width: {[(values.total / parent.total) * 100]}%;"></div></div>',
         '</tpl>',
-        '<div class="statistic-totals-header">FUNDO PMSP</div>',
-        '<tpl for="pmsp">',
-        '<div class="statistic-totals-description">{description} <span>{ratio:this.numberFormat}</span></div>',
-        '<div class="sparkline-totals">',
-        '<div class="sparkline-totals-inner sparkline-totals-inner-{status}" style="width: {[(values.ratio / parent.total) * 100]}%;"></div>',
-        '</div>',
+
+        '<div class="statistic-totals-header">SUB-FUNDOS PMSP</div>',
+        '<tpl for="subfundos">',
+        '<div class="statistic-totals-wrap"><div class="statistic-totals-description">{item}</div><div class="statistic-totals-total">{total:this.numberFormat}</div></div>',
+        '<div class="sparkline-totals"><div class="sparkline-totals-inner sparkline-totals-inner-beige" style="width: {[(values.total / parent.total) * 100]}%;"></div></div>',
         '</tpl>',
+
+        '<div class="statistic-totals-header">IMAGENS DIGITALIZADAS</div>',
+        '<div class="statistic-totals-wrap"><div class="statistic-totals-description">CARTOGRÁFICO E FOTOGRÁFICO</div><div class="statistic-totals-total">{images_total:this.numberFormat}</div></div>',
+        '<div class="sparkline-totals"><div class="sparkline-totals-inner sparkline-totals-inner-darkgray" style="width: {[(values.images_total / values.total) * 100]}%;"></div></div>',
         {
             numberFormat: function (value) {
                 Ext.util.Format.decimalSeparator = ",";
@@ -37,58 +44,26 @@ Ext.define('ArqAdmin.view.dashboard.widgets.VolumeAcervos', {
             }
         }
     ],
-    data: {
-        total: 120117,
-        acervos: [
-            {
-                status: 'darkblue',
-                description: 'Textual/Cartográfico',
-                ratio: 59111
-            },
-            {
-                status: 'orange',
-                description: 'TERMOS DE SEPULTAMENTO',
-                ratio: 51938
-            },
-            {
-                status: 'darkgreen',
-                description: 'FOTOGRÁFICO',
-                ratio: 9068
-            }
-        ],
-        fundos: [
-            {
-                status: 'purple',
-                description: 'Prefeitura Municipal <br>de São Paulo',
-                ratio: 102634
-            },
-            {
-                status: 'high',
-                description: 'Comissão do IV Centenário <br>da Cidade de São Paulo',
-                ratio: 7379
-            },
-            {
-                status: 'red',
-                description: 'Severo & Villares <br>(Desenhos Técnicos)',
-                ratio: 679
-            }
-        ],
-        pmsp: [
-            {
-                status: 'green',
-                description: 'Serviço Funerário Municipal <br>(Termos de Sepultamento)',
-                ratio: 51938
-            },
-            {
-                status: 'yellow',
-                description: 'Diretoria de Obras e Viação <br>(Obras Particulares)',
-                ratio: 39427
-            },
-            {
-                status: 'violet',
-                description: 'Diretoria de Polícia e Higiene <br>(Alvarás e Licenças)',
-                ratio: 7864
-            }
-        ]
+    // data: '',
+    listeners: {
+        beforerender: function (panel, eOpts) {
+            Ext.Ajax.request({
+                url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/estatisticas/totais',
+                method: 'GET',
+                scope: this,
+                success: function (response, opts) {
+                    var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
+                    panel.setData(result);
+
+                    var acervosTotais = {
+                        documental: result.documental,
+                        fotografico: result.fotografico,
+                        sepultamento: result.sepultamento
+                    };
+
+                    panel.up('module-dashboard').getViewModel().set('acervosTotais', acervosTotais);
+                }
+            });
+        }
     }
 });

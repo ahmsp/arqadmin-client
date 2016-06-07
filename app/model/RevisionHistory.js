@@ -12,6 +12,6 @@ Ext.define('ArqAdmin.model.RevisionHistory', {
         {name: 'key'},
         {name: 'old_value'},
         {name: 'new_value'},
-        {name: 'action_date', type: 'date', dateFormat: 'Y-m-j H:i:s'}
+        {name: 'action_date', type: 'date', dateFormat: 'Y-m-d H:i:s'}
     ]
 });

@@ -251,7 +251,7 @@ $ended: #F1485B;
       text-transform: uppercase;
       color: #585858;
       width: 100%;
-      margin: 22px 0 12px;
+      margin: 23px 0 12px;
       padding: 0 0 0 5px;
       //border-radius: 2px;
       //background-color: #cfcfc4;
@@ -313,7 +313,7 @@ $ended: #F1485B;
         background-color: $ended;
       }
     }
-    .statistic-description, .statistic-totals-description {
+    .statistic-description, .statistic-totals-description, .statistic-totals-total {
       line-height: 27px;
       font-size: $exec-font-size-small-content;
       font-weight: $exec-font-bold;
@@ -327,15 +327,28 @@ $ended: #F1485B;
     }
 
     .statistic-totals-description {
-      float: none;
+      float: left;
       line-height: 119%;
       margin-left: 0;
       white-space: normal;
+      width: 75%;
+
     }
 
     .statistic-totals-description span {
       font-size: 13px;
       float: right;
+    }
+
+    .statistic-totals-wrap {
+      display: table;
+      width: 100%;
+    }
+
+    .statistic-totals-total {
+      font-size: 13px;
+      float: right;
+      line-height: 100%;
     }
 
     .sparkline-totals {
@@ -355,7 +368,7 @@ $ended: #F1485B;
         background-color: #AEC6CF;
       }
       .sparkline-totals-inner-green {
-        background-color: #77DD77;
+        background-color: #6D9070;
       }
       .sparkline-totals-inner-darkgreen {
         background-color: #12C897;
@@ -366,6 +379,9 @@ $ended: #F1485B;
       .sparkline-totals-inner-gray {
         background-color: #cfcfc4;
       }
+      .sparkline-totals-inner-darkgray {
+        background-color: #5A5A5A;
+      }
       .sparkline-totals-inner-red {
         background-color: #ff6961;
       }
@@ -373,13 +389,15 @@ $ended: #F1485B;
         background-color: #b39eb5;
       }
       .sparkline-totals-inner-darkblue {
-        background-color: #779ecb;
+        //background-color: #779ecb;
+        background-color: #81c0c5;
       }
       .sparkline-totals-inner-orange {
         background-color: #ffb347;
       }
       .sparkline-totals-inner-violet {
-        background-color: #cb99c9;
+        //background-color: #cb99c9;
+        background-color: #CA6D6C;
       }
 
       .sparkline-totals-inner-high {
@@ -390,6 +408,15 @@ $ended: #F1485B;
       }
       .sparkline-totals-inner-low {
         background-color: $ended;
+      }
+      .sparkline-totals-inner-arsenic {
+        background-color: #549C9C;
+      }
+      .sparkline-totals-inner-beige {
+        background-color: #C3A074;
+      }
+      .sparkline-totals-inner-yellowpastel {
+        background-color: #d5b045;
       }
     }
 

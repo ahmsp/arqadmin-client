@@ -43,13 +43,12 @@ Ext.define('ArqAdmin.view.revisions.HistoryWindow', {
             columns: [
                 {
                     xtype: 'datecolumn',
-                    width: 150,
+                    width: 160,
                     dataIndex: 'action_date',
-                    format: 'j/m/Y H:i:s',
+                    format: 'd/m/Y H:i:s',
                     text: 'Data',
                     filter: {
-                        type: 'date',
-                        fields: {lt: {text: 'Antes de'}, gt: {text: 'Depois de'}, eq: {text: 'Em'}}
+                        type: 'date'
                     }
                 },
                 {

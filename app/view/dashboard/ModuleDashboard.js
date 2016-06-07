@@ -51,8 +51,8 @@ Ext.define('ArqAdmin.view.dashboard.ModuleDashboard', {
                 '<a class="thumb" href="#{acervo}">',
                 '<div class="thumb-icon"><img src="{thumb}" alt="{title}" height="58" width="58"></div>',
                 '<div class="thumb-title-container">',
-                '<div class="thumb-title">{[this.getTitle(values.acervo)]}<br />{title}</div>',
-                '<div class="thumb-title-small">{qtd} registros cadastrados</div>',
+                '<div class="thumb-title">{acervo:this.getTitle}<br />{title}</div>',
+                '<div class="thumb-title-small">{qtd:this.numberFormat}</div>',
                 '</div>',
                 '<div class="thumb-download"></div>',
                 '</a>',
@@ -61,6 +61,10 @@ Ext.define('ArqAdmin.view.dashboard.ModuleDashboard', {
                 {
                     getTitle: function (acervo) {
                         return acervo == 'documental' ? 'Acervos' : 'Acervo';
+                    },
+                    numberFormat: function (value) {
+                        Ext.util.Format.decimalSeparator = ",";
+                        return Ext.util.Format.number(value, '000,000') + " registros cadastrados";
                     }
                 }
             ]
@@ -89,7 +93,8 @@ Ext.define('ArqAdmin.view.dashboard.ModuleDashboard', {
                     margin: '0 20px 0 20px'
                 },
                 {
-                    xtype: 'widgets-volume-acervos'
+                    xtype: 'widgets-volume-acervos',
+                    height: 714
                 }
             ]
         }
