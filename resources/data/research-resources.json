@@ -2,17 +2,17 @@
   "data": [
     {
       "title": "Interface",
-      "text": "Com interface rica e intuitiva, recursos gráficos avançados e a possibilidade de personalização do modo de exibição, o sistema proporciona uma excelente experiência do usuário.",
+      "text": "Com uma interface rica e intuitiva, recursos avançados de navegação, apresentação e gerenciamento dos dados, o sistema proporciona uma excelente experiência de uso para o usuário.",
       "src": "resources/img/help/interface.png"
     },
     {
       "title": "Pesquisa",
-      "text": "Recursos avançados de pesquisa,  simples, que busca as informações mais relevantes ou pesquisa detalhada em campos específicos, combinado com operadores booleanas que aumenta o nivel de filtragem dos resultados.",
+      "text": "Pesquisa direta em conteúdo relevante ou detalhada em campos específicos, com a combinação de operadores booleanos e filtro nos resultados, facilitam a consulta das informações dos acervos.",
       "src": "resources/img/help/pesquisa-3.png"
     },
     {
       "title": "Modos de exibição",
-      "text": "Através dos menus de exibição é possível alternar entre os modos de apresentação dos resultados, como o de listagem com imagens, galeria ou tabela, clicando nos ícones correspondentes.",
+      "text": "Através dos modos de exibição dos resultados é possível visualizar o conteúdo em listagem simples com imagens, galeria de imagens ou tabela, conforme a finalidade da pesquisa.",
       "src": "resources/img/help/menu-exibicao.png"
     },
     {
@@ -22,22 +22,22 @@
     },
     {
       "title": "Modo galeria de imagens",
-      "text": "Ao acessar o sistema é exibido um painel com atalhos para os módulos dos acervos ",
+      "text": "Neste modo de exibição as imagens são apresentadas lado a lado em tamanho maior, facilitando a visualização. A descrição é exibida no painel lateral ao selecionar a imagem.",
       "src": "resources/img/help/galeria.png"
     },
     {
       "title": "Modo tabela",
-      "text": "Ao acessar o sistema é exibido um painel com atalhos para os módulos dos acervos e outras informações ",
+      "text": "O modo tabela ou planilha é uma excelente opção para análise mais apurada de grandes quantidades de dados. Oferece recursos como classificação, filtragem e manuseio de colunas.",
       "src": "resources/img/help/tabela.png"
     },
     {
       "title": "Filtros, ordenação e colunas",
-      "text": "Através do menu suspenso acessado ao passar o ponteiro do mouse sobre o título das colunas é possível ordenar, ocultar ou exibir colunas e filtrar nos resultados retornados mesmo da pesquisa detalhada.",
+      "text": "Os recursos de classificação, filtragem e manuseio de colunas, disponíveis no modo tabela, podem ser acessados através dos menus suspensos, movendo o ponteiro mouse sobre os títulos das colunas.",
       "src": "resources/img/help/filtros.png"
     },
     {
       "title": "Detalhes do item",
-      "text": "O painel lateral de Detalhes do Registro, pode ser recolhido e expandido clicando na seta superior do painel, proporcionando uma área maior para visualização das informações do item selecionado.",
+      "text": "O painel de detalhes do registro, assim como outros painéis, pode ser recolhido ou expandido clicando na seta ao lado do título, adequando a necessidade de visualização.",
       "src": "resources/img/help/detalhes.png"
     }
   ]
