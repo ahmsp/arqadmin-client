@@ -29,7 +29,7 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
             remoteSort: false,
             proxy: {
                 type: 'ajax',
-                // url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/fotografia/' + '{record.id}' + '/revisao',
+                // url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/fotografia/' + '{record.id}' + '/revision',
                 reader: {
                     type: 'json',
                     rootProperty: ''

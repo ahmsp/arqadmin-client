@@ -274,7 +274,7 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerController', {
             id = form.getRecord().getId(),
             store = me.getStore('revisions');
 
-        store.getProxy().url = ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/registrosepultamento/' + id + '/revisao';
+        store.getProxy().url = ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/registrosepultamento/' + id + '/revision';
         store.load();
 
         me.dialog = view.add({

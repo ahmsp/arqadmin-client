@@ -36,7 +36,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
             remoteSort: false,
             proxy: {
                 type: 'ajax',
-                // url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/documento/' + '{record.id}' + '/revisao',
+                // url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/documento/' + '{record.id}' + '/revision',
                 reader: {
                     type: 'json',
                     rootProperty: ''

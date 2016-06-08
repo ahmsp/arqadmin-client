@@ -12,7 +12,7 @@ Ext.define('ArqAdmin.user.Profile', {
         var me = this;
 
         Ext.Ajax.request({
-            url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/user/profile',
+            url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/user/owner-profile',
             method: 'POST',
             scope: me,
             success: function (response, opts) {

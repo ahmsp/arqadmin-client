@@ -55,7 +55,7 @@ Ext.define('ArqAdmin.view.main.MainModel', {
             return ArqAdmin.user.Profile.hasRole('ROLE_ADMIN');
         },
 
-        hasRoleRegisterUser: function () {
+        canEditGuest: function () {
             return ArqAdmin.user.Profile.hasRole('ROLE_ADMIN')
                 || ArqAdmin.user.Profile.hasRole('ROLE_DOCUMENTAL')
                 || ArqAdmin.user.Profile.hasRole('ROLE_FOTOGRAFICO')

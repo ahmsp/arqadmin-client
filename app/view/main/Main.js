@@ -28,7 +28,8 @@ Ext.define('ArqAdmin.view.main.Main', {
         'ArqAdmin.view.widget.IFrameWindow',
         'ArqAdmin.view.widget.ImageViewerImg',
         'ArqAdmin.view.widget.CustomImage',
-        'ArqAdmin.view.revisions.HistoryWindow'
+        'ArqAdmin.view.revisions.HistoryWindow',
+        'Ext.ux.TextMaskPlugin'
     ],
 
     controller: 'main',
@@ -164,22 +165,22 @@ Ext.define('ArqAdmin.view.main.Main', {
                             text: 'Administração',
                             hidden: true,
                             bind: {
-                                hidden: '{!hasRoleRegisterUser}'
+                                hidden: '{!canEditGuest}'
                             },
                             menu: {
                                 xtype: 'menu',
                                 items: [
                                     {
                                         xtype: 'menuitem',
-                                        action: 'sepultamento',
+                                        action: 'guest-manager',
                                         glyph: ArqAdmin.util.Glyphs.getGlyph('user'),
-                                        text: 'Cadastrar usuário'
+                                        text: 'Cadastrar/editar consulente'
                                     },
                                     {
                                         xtype: 'menuitem',
-                                        // action: 'documental',
+                                        action: 'user-manager',
                                         glyph: ArqAdmin.util.Glyphs.getGlyph('users'),
-                                        text: 'Gerenciar perfil de usuários',
+                                        text: 'Gerenciar usuários',
                                         hidden: true,
                                         bind: {
                                             hidden: '{!isAdmin}'
@@ -270,7 +271,7 @@ Ext.define('ArqAdmin.view.main.Main', {
                             glyph: ArqAdmin.util.Glyphs.getGlyph('exit'),
                             overflowText: 'Sair',
                             // text: 'Sair',
-                            tooltip: 'Sair',
+                            tooltip: 'Sair / Logout',
                             listeners: {
                                 click: 'onLogout'
                             }
@@ -300,9 +301,6 @@ Ext.define('ArqAdmin.view.main.Main', {
                     xtype: 'tbfill'
                 },
                 {
-                    xtype: 'tbseparator'
-                },
-                {
                     xtype: 'button',
                     itemId: 'btnMaximize',
                     glyph: ArqAdmin.util.Glyphs.getGlyph('expand'),
@@ -316,7 +314,7 @@ Ext.define('ArqAdmin.view.main.Main', {
             reference: 'modulesContainer',
             itemId: 'modulesContainer',
             region: 'center',
-            padding: '8 8 0',
+            padding: '8 8 8',
             layout: 'card',
             items: [
                 {xtype: 'module-dashboard'}
@@ -327,19 +325,19 @@ Ext.define('ArqAdmin.view.main.Main', {
             listeners: {
                 afterlayout: 'onContainerAfterLayout'
             }
-        },
-        {
-            xtype: 'panel',
-            collapsed: true,
-            collapsible: true,
-            region: 'south',
-            split: true,
-            reference: 'footer',
-            height: 250,
-            //width: 400,
-            glyph: 61457,
-            title: 'Histórico de iteração'
-
         }
+        // {
+        //     xtype: 'panel',
+        //     collapsed: true,
+        //     collapsible: true,
+        //     region: 'south',
+        //     split: true,
+        //     reference: 'footer',
+        //     height: 250,
+        //     //width: 400,
+        //     glyph: 61457,
+        //     title: 'Histórico de iteração'
+        //
+        // }
     ]
 });

@@ -33,7 +33,7 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerModel', {
             remoteSort: false,
             proxy: {
                 type: 'ajax',
-                // url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/registrosepultamento/' + '{record.id}' + '/revisao',
+                // url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/registrosepultamento/' + '{record.id}' + '/revision',
                 reader: {
                     type: 'json',
                     rootProperty: ''

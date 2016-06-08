@@ -29,7 +29,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoModel', {
             remoteSort: false,
             proxy: {
                 type: 'ajax',
-                // url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/registrosepultamento/' + '{record.id}' + '/revisao',
+                // url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/registrosepultamento/' + '{record.id}' + '/revision',
                 reader: {
                     type: 'json',
                     rootProperty: ''

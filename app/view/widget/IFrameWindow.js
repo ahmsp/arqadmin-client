@@ -41,6 +41,7 @@ Ext.define('ArqAdmin.view.widget.IFrameWindow', {
     items: [
         {
             xtype: 'uxiframe',
+            region: 'center',
             src: '',
             padding: 10
         },
