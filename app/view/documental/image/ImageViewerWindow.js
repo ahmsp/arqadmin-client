@@ -27,7 +27,6 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerWindow', {
     title: 'Visualização de imagens',
     maximized: true,
 
-    autoScroll: true,
     modal: true,
     closable: true,
 

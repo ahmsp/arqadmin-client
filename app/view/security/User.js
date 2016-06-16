@@ -26,7 +26,6 @@ Ext.define('ArqAdmin.view.security.User', {
     border: false,
     bodyPadding: 10,
     maximized: true,
-    // maximizable: true,
     style: {
         border: 'none'
     },

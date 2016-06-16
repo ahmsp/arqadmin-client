@@ -12,7 +12,6 @@ Ext.define('ArqAdmin.view.revisions.HistoryWindow', {
     width: 1000,
     glyph: ArqAdmin.util.Glyphs.getGlyph('list'),
     title: 'Histórico de Atualizações',
-    autoScroll: true,
     maximizable: true,
     modal: true,
     closable: true,

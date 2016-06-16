@@ -24,7 +24,6 @@ Ext.define('ArqAdmin.view.fotografico.image.ImageViewerWindow', {
     title: 'Visualização dae imagem',
     maximized: true,
 
-    autoScroll: true,
     modal: true,
     closable: true,
 

@@ -8,7 +8,6 @@ Ext.define('ArqAdmin.view.staticData.StaticDataWindow', {
     glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
     title: 'Edição de dados auxiliares',
     draggable: false,
-    autoScroll: true,
     modal: true,
     closable: true,
     bodyStyle: {

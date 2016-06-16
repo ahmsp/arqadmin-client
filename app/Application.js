@@ -156,7 +156,7 @@ Ext.define('ArqAdmin.Application', {
                 }
             });
         } else {
-            var errorDescription = ArqAdmin.util.Util.decodeJSON(error.error_description);
+            var errorDescription = ArqAdmin.util.Util.decodeJSON(error.user_message);
 
             if (Ext.isObject(errorDescription)) {
                 var message = '';

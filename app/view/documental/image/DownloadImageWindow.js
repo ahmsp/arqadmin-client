@@ -10,7 +10,6 @@ Ext.define('ArqAdmin.view.documental.image.DownloadImageWindow', {
     glyph: ArqAdmin.util.Glyphs.getGlyph('download'),
     title: 'Download da imagem',
     draggable: false,
-    autoScroll: true,
     modal: true,
     closable: true,
     bodyStyle: {
