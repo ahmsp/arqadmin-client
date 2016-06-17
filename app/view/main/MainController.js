@@ -87,7 +87,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
 
         win.title = 'Dicas';
         win.width = 700;
-        win.down('uxiframe').src = 'resources/docs/ajuda.html';
+        win.down('uxiframe').src = 'resources/docs/pesquisa.html';
 
         win.show();
     },
