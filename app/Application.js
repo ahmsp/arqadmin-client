@@ -74,7 +74,8 @@ Ext.define('ArqAdmin.Application', {
     launch: function () {
         var me = this,
             refreshToken = localStorage.getItem('refresh-token'),
-            allowedAccess = false;
+            allowedAccess = false,
+            browserSupports = this.checkBrowseSupport();
 
         if (refreshToken) {
             var oAuthController = ArqAdmin.app.getController('OAuth'),
@@ -103,19 +104,21 @@ Ext.define('ArqAdmin.Application', {
             });
         }
 
-        var task = new Ext.util.DelayedTask(function () {
-            //Fade out the body mask
-            me.splashscreen.fadeOut({
-                duration: 1000,
-                remove: true,
-                listeners: {
-                    afteranimate: function (el, startTime, eOpts) {
-                        Ext.widget(allowedAccess ? 'app-main' : 'login-dialog');
+        if (browserSupports) {
+            var task = new Ext.util.DelayedTask(function () {
+                //Fade out the body mask
+                me.splashscreen.fadeOut({
+                    duration: 1000,
+                    remove: true,
+                    listeners: {
+                        afteranimate: function (el, startTime, eOpts) {
+                            Ext.widget(allowedAccess ? 'app-main' : 'login-dialog');
+                        }
                     }
-                }
+                });
             });
-        });
-        task.delay(3000);
+            task.delay(3000);
+        }
     },
 
     onBeforeRequest: function (conn, options, eOpts) {
@@ -180,5 +183,19 @@ Ext.define('ArqAdmin.Application', {
 
             console.log('NEW TOKEN - (onRequestComplete)' + Ext.Date.format(new Date(), 'H:i:s'));
         }
+    },
+
+    checkBrowseSupport: function () {
+
+        if (!Ext.supports.LocalStorage) {
+            Ext.Msg.alert(
+                'Navegador não suportado!',
+                'O ArqAdmin utiliza recursos que não são suportados pelo seu navegador. <br>' +
+                'Atualize seu navegador ou utilize um navegador mais recente para acessar o sistema.'
+            );
+            return false;
+        }
+
+        return true;
     }
 });
