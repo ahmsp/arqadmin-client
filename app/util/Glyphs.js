@@ -46,7 +46,15 @@ Ext.define('ArqAdmin.util.Glyphs', {
         contact: 'xe916',
         about: 'xe917',
         plus: 'xe609',
-        folder: 'xe918'
+
+        folder: 'xe918',
+        back: 'xe91a',
+        excel: 'xe919',
+        trash: 'xf014',
+        fileSymlinkFile: 'xf0b1',
+        fileExcelO: 'xf1c3',
+        filePdfO: 'xf1c1',
+        fileTextO: 'xf0f6'
     },
 
     constructor: function(config) {

@@ -8,6 +8,9 @@ Ext.define('ArqAdmin.view.documental.ResultTable', {
 
     columns: [
         {
+            xtype: 'LikeWidgetcolumn'
+        },
+        {
             xtype: 'gridcolumn',
             width: 80,
             align: 'right',

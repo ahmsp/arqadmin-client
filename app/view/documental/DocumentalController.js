@@ -46,6 +46,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
 
         // grid.filters.clearFilters(true);
         delete store.getProxy().extraParams.search_all;
+        delete store.getProxy().extraParams.likes;
         // delete store.getProxy().extraParams['search_all'];
         store.clearFilter(true);
         store.setFilters(filters);
@@ -84,6 +85,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
         searchField.setValue('');
         filterForm.reset();
         delete store.getProxy().extraParams.search_all;
+        delete store.getProxy().extraParams.likes;
         grid.filters.clearFilters();
         store.clearFilter(true);
         store.load();
@@ -92,18 +94,16 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     searchAll: function (term) {
         var me = this,
             grid = me.lookupReference('resultTable'),
-            store = me.getStore('documentos'),
-            searchParam;
+            store = me.getStore('documentos');
 
         if (Ext.isEmpty(term)) {
             return;
         }
 
-        searchParam = {'search_all': term};
-
         grid.filters.clearFilters();
         store.clearFilter(true);
-        store.getProxy().extraParams = searchParam;
+        store.getProxy().extraParams['search_all'] = term;
+        delete store.getProxy().extraParams.likes;
         store.load();
     },
 

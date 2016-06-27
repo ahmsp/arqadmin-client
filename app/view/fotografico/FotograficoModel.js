@@ -11,6 +11,8 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
         editFormReference: 'editForm',
         displayPanelReference: 'displayPanel',
 
+        acervoRoute: 'fotografia',
+
         role: 'ROLE_FOTOGRAFICO'
     },
 
@@ -20,7 +22,11 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
             autoLoad: true,
             pageSize: 100,
             remoteFilter: true,
-            remoteSort: true
+            remoteSort: true,
+            listeners: {
+                beforeload: 'onAcervoStoreBeforeload',
+                load: 'onAcervoStoreLoad'
+            }
         },
         revisions: {
             model: 'ArqAdmin.model.RevisionHistory',
@@ -72,6 +78,10 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
         hasRole: function (get) {
             var role = get('role') || '';
             return  ArqAdmin.user.Profile.hasRole(role);
+        },
+
+        hasRecords: function(get) {
+            return get('totalRecords') > 0;
         }
 
     }

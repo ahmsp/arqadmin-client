@@ -36,6 +36,9 @@ Ext.define('ArqAdmin.view.fotografico.ResultList', {
             tdCls: 'x-custom-td-list',
             text: 'Dados da Imagem',
             flex: 1
+        },
+        {
+            xtype: 'LikeWidgetcolumn'
         }
     ],
     listeners: {

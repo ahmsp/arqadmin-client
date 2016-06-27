@@ -11,6 +11,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
         editFormReference: 'editForm',
         displayPanelReference: 'displayPanel',
 
+        acervoRoute: 'documento',
+
         role: 'ROLE_DOCUMENTAL'
     },
 
@@ -20,7 +22,11 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
             autoLoad: true,
             pageSize: 100,
             remoteFilter: true,
-            remoteSort: true
+            remoteSort: true,
+            listeners: {
+                beforeload: 'onAcervoStoreBeforeload',
+                load: 'onAcervoStoreLoad'
+            }
         },
         desenhosTecnicos: {
             model: 'ArqAdmin.model.desenho.DesenhoTecnico',
@@ -47,17 +53,9 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
                 direction: 'DESC'
             }
         }
-
-        // Static data
-        //fundos: {source: 'staticData.classificacao.Fundos'},
-        //...
     },
 
     formulas: {
-
-        //test: function (get) {
-        //    console.log(get('record'));
-        //},
 
         displayPanelTitle: function (get) {
             var title = 'Detalhes do registro';
@@ -72,6 +70,10 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
         hasRole: function (get) {
             var role = get('role') || '';
             return  ArqAdmin.user.Profile.hasRole(role);
+        },
+
+        hasRecords: function(get) {
+            return get('totalRecords') > 0;
         }
 
     }

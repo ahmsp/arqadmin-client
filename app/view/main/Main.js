@@ -29,7 +29,9 @@ Ext.define('ArqAdmin.view.main.Main', {
         'ArqAdmin.view.widget.ImageViewerImg',
         'ArqAdmin.view.widget.CustomImage',
         'ArqAdmin.view.revisions.HistoryWindow',
-        'Ext.ux.TextMaskPlugin'
+        'Ext.ux.TextMaskPlugin',
+        'AppSamples.view.widget.LikesToolbar',
+        'ArqAdmin.view.widget.LikeWidgetcolumn'
     ],
 
     controller: 'main',

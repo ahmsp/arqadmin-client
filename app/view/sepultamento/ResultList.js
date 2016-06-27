@@ -36,6 +36,9 @@ Ext.define('ArqAdmin.view.sepultamento.ResultList', {
             tdCls: 'x-custom-td-list',
             text: 'Dados do Item',
             flex: 1
+        },
+        {
+            xtype: 'LikeWidgetcolumn'
         }
     ],
     listeners: {

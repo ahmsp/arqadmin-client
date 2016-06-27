@@ -21,7 +21,7 @@ Ext.define('ArqAdmin.view.documental.ResultGallery', {
             bind: '{documentos}',
 
             cls: 'images-view',
-            emptyText: '<span class="empty-text">Nenhuma imagem para exibir</span>',
+            // emptyText: '<span class="empty-text">Nenhuma imagem para exibir</span>',
             itemSelector: 'div.thumb-wrap',
             trackOver: true,
             overItemCls: 'x-item-over',

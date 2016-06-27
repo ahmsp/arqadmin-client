@@ -127,6 +127,31 @@
     white-space: normal;
 }
 
+/* Like Grid Widget column */
+.td-column-like {
+    vertical-align: middle;
+}
+.td-column-like .x-grid-cell-inner {
+    padding: 0;
+}
+/*.btn-column-like .x-btn-over{*/
+.btn-column-like {
+    background: none !important;
+    border: none !important;
+}
+.btn-column-like .x-btn-glyph {
+    opacity: 0.3;
+}
+.btn-column-like.x-btn-pressed .x-btn-glyph {
+    opacity: 1;
+    color: #587f86;
+}
+
+.btn-favourites.x-btn-pressed .x-btn-glyph {
+    /*opacity: 1;*/
+    color: #ff300b;
+}
+
 /* thumbs grid */
 .x-custom-td-list {
     vertical-align: middle !important;

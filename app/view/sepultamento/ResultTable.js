@@ -8,6 +8,9 @@ Ext.define('ArqAdmin.view.sepultamento.ResultTable', {
 
     columns: [
         {
+            xtype: 'LikeWidgetcolumn'
+        },
+        {
             xtype: 'gridcolumn',
             width: 90,
             align: 'right',

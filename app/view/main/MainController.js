@@ -86,7 +86,7 @@ Ext.define('ArqAdmin.view.main.MainController', {
         var win = Ext.widget('iframe-window');
 
         win.title = 'Dicas';
-        win.width = 700;
+        win.width = 800;
         win.down('uxiframe').src = 'resources/docs/pesquisa.html';
 
         win.show();

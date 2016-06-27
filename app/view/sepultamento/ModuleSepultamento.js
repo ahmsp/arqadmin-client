@@ -110,6 +110,18 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
                         },
                         {
                             xtype: 'button',
+                            reference: 'btnFavourites',
+                            enableToggle: true,
+                            cls: 'btn-favourites',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('star'),
+                            tooltip: 'Mostrar meus favoritos',
+                            handler: 'onFilterLikes'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
                             itemId: 'btnShowTable',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('table'),
                             tooltip: 'Visualizar resultado em tabela',
@@ -164,6 +176,9 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
                             handler: 'onEdit'
                         }
                     ]
+                },
+                {
+                    xtype: 'LikesToolbar'
                 }
             ],
             items: [

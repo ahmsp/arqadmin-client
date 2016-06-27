@@ -66,18 +66,18 @@ Ext.define('ArqAdmin.view.login.Login', {
             title: 'Identifique-se',
 
             items: [
-                {
-                    xtype: 'textfield',
-                    reference: 'fieldDomain',
-                    fieldLabel: 'Domínio (Padrão: rede)',
-                    name: 'domain',
-                    value: 'rede',
-                    readOnly: true
-                },
+                // {
+                //     xtype: 'textfield',
+                //     reference: 'fieldDomain',
+                //     fieldLabel: 'Domínio (Padrão: rede)',
+                //     name: 'domain',
+                //     value: 'rede',
+                //     readOnly: true
+                // },
                 {
                     xtype: 'textfield',
                     reference: 'fieldUsername',
-                    fieldLabel: 'Usuário (Ex: d123456)',
+                    fieldLabel: 'Usuário da rede (Ex: d123456) *',
                     name: 'username',
                     enforceMaxLength: true,
                     maxLength: 7,
@@ -102,12 +102,13 @@ Ext.define('ArqAdmin.view.login.Login', {
                 {
                     xtype: 'component',
                     html: [
-                        'Utilize o "Usuário" e "Senha" da rede da Prefeitura<br />',
-                        'ou solicite acesso enviando um e-mail para o Arquivo Histórico de São Paulo, ',
-                        'através do endereço abaixo.'
+                        '<p>* Utilize o "Usuário" e "Senha" da rede da Prefeitura.</p>',
+                        '<p>O ArqAdmin é o sistema de gestão dos acervos do Arquivo Histórico de São Paulo.<br>',
+                        'Visitantes podem acessar o sistema dentro da rede da Prefeitura, mas devem se identificar.<br>',
+                        'Caso não queira se identificar pode usar o ArqWeb que é a versão pública de pesquisa nos Acervos.</p>'
                     ],
                     margin: '20 0 0',
-                    padding: '15 0 0',
+                    padding: '7 0 0',
                     style: {
                         'border-top': '1px solid rgb(206, 223, 226)',
                         color: 'rgb(105, 105, 105)'

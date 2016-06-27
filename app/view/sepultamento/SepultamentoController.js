@@ -34,6 +34,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
 
         // grid.filters.clearFilters(true);
         delete store.getProxy().extraParams.search_all;
+        delete store.getProxy().extraParams.likes;
         // delete store.getProxy().extraParams['search_all'];
         store.clearFilter(true);
         store.setFilters(filters);
@@ -72,6 +73,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
         searchField.setValue('');
         filterForm.reset();
         delete store.getProxy().extraParams.search_all;
+        delete store.getProxy().extraParams.likes;
         grid.filters.clearFilters();
         store.clearFilter(true);
         store.load();
@@ -80,18 +82,16 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
     searchAll: function (term) {
         var me = this,
             grid = me.lookupReference('resultTable'),
-            store = me.getStore('sepultamentos'),
-            searchParam;
+            store = me.getStore('sepultamentos');
 
         if (Ext.isEmpty(term)) {
             return;
         }
 
-        searchParam = {'search_all': term};
-
         grid.filters.clearFilters(true);
         store.clearFilter(true);
-        store.getProxy().extraParams = searchParam;
+        store.getProxy().extraParams['search_all'] = term;
+        delete store.getProxy().extraParams.likes;
         store.load();
     },
 

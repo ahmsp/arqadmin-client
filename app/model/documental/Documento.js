@@ -250,5 +250,14 @@ Ext.define('ArqAdmin.model.documental.Documento', {
             name: 'dt_notas',
             sortType: 'asUCString'
         }
+
+        
+        // {
+        //     name: 'liked',
+        //     persist: false,
+        //     convert:function(v, rec){
+        //         return !Ext.isEmpty(rec.data.likable);
+        //     }
+        // }
     ]
 });

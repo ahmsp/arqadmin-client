@@ -100,11 +100,23 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                         },
                         {
                             xtype: 'button',
-                            itemId: 'btnClearFilters',
+                            // itemId: 'btnClearFilters',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('filter'),
-                            //text: 'Limpar filtros',
-                            tooltip: 'Limpar filtros',
+                            //text: 'Limpar filtros dos resultados',
+                            tooltip: 'Limpar filtros dos resultados',
                             handler: 'onGridClearFilters'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
+                            reference: 'btnFavourites',
+                            enableToggle: true,
+                            cls: 'btn-favourites',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('star'),
+                            tooltip: 'Mostrar meus favoritos',
+                            handler: 'onFilterLikes'
                         },
                         {
                             xtype: 'tbseparator'
@@ -175,6 +187,9 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                             handler: 'showImageViewerWindow'
                         }
                     ]
+                },
+                {
+                    xtype: 'LikesToolbar'
                 }
             ],
             items: [

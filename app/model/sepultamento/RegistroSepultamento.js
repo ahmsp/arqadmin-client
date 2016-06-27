@@ -275,12 +275,6 @@ Ext.define('ArqAdmin.model.sepultamento.RegistroSepultamento', {
             reference: 'staticData.sepultamento.SfmCausamortis'
         },
         {
-            name: 'sfm_naturalidade_naturalidade',
-            mapping: 'sfm_naturalidade.naturalidade',
-            sortType: 'asUCString',
-            persist: false
-        },
-        {
             name: 'sfm_causamortis_causamortis',
             mapping: 'sfm_causamortis.causamortis',
             sortType: 'asUCString',

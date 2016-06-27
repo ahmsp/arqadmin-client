@@ -185,7 +185,7 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
             win = Ext.widget('iframe-window'),
             iFrame = win.down('uxiframe');
 
-        win.width = 700;
+        win.width = 800;
         win.title = 'Informações sobre a pesquisa';
         iFrame.src = 'resources/docs/pesquisa.html';
         win.show();
@@ -193,5 +193,100 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
 
     hasRole: function () {
         return this.getViewModel().get('hasRole');
+    },
+
+    onLikeWidgetClick: function (button, e, opts) {
+        var me = this,
+            record = button.getWidgetRecord(),
+            grid = me.lookupReference('resultTable'),
+            acervoRoute = me.getViewModel().get('acervoRoute');
+
+        me.selectRecord(grid, record);
+        me.like(acervoRoute, record.getId());
+    },
+
+    like: function (acervo, acervoId) {
+        var me = this;
+
+        Ext.Ajax.request({
+            url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/' + acervo + '/' + acervoId + '/like',
+            scope: me,
+            success: function () {
+                if (me.isFilteredByLike()) {
+                    me.lookupReference('resultTable').getStore().load();
+                }
+            }
+        });
+    },
+
+    onFilterLikes: function (button) {
+        var me = this,
+            store = me.lookupReference('resultTable').getStore();
+
+        if (button.pressed) {
+            store.getProxy().extraParams['likes'] = true;
+        } else {
+            delete store.getProxy().extraParams.likes;
+        }
+        store.load();
+    },
+
+    onClearFilterLikes: function () {
+        var store = this.lookupReference('resultTable').getStore();
+        delete store.getProxy().extraParams.likes;
+        store.load();
+    },
+
+    onRemoveLikes: function () {
+        var me = this,
+            acervoRoute = me.getViewModel().get('acervoRoute'),
+            store = me.lookupReference('resultTable').getStore();
+
+        if (store.getTotalCount() > 0) {
+            Ext.Ajax.request({
+                url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/' + acervoRoute + '/unlike-all',
+                success: function () {
+                    store.load();
+                }
+            });
+        }
+    },
+
+    isFilteredByLike: function () {
+        var store = this.lookupReference('resultTable').getStore();
+        return !!store.getProxy().extraParams.likes;
+    },
+
+    onAcervoStoreBeforeload: function (store) {
+        var filterLikes = !!store.getProxy().extraParams.likes;
+        this.getViewModel().set('filterLikes', filterLikes);
+        this.lookupReference('btnFavourites').toggle(filterLikes);
+    },
+
+    onAcervoStoreLoad: function (store) {
+        this.getViewModel().set('totalRecords', store.getTotalCount());
+    },
+
+    onExportLikesToFile: function (button) {
+        var me = this,
+            acervoRoute = me.getViewModel().get('acervoRoute'),
+            fileType = button.action;
+
+        Ext.Ajax.request({
+            url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/' + acervoRoute + '/favorites/download/' + fileType,
+            scope: me,
+            success: 'onDownloadSuccess',
+            failure: 'onDownloadFailure'
+        });
+    },
+
+    onDownloadSuccess: function (response, opts) {
+        var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
+        window.open(result.url_download, '_self');
+    },
+
+    onDownloadFailure: function (response, opts) {
+        var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
+        ArqAdmin.util.Util.showErrorMsg(result.error_description);
     }
 });
