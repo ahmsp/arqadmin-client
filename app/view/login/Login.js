@@ -66,6 +66,20 @@ Ext.define('ArqAdmin.view.login.Login', {
             title: 'Identifique-se',
 
             items: [
+                {
+                    xtype: 'component',
+                    html: [
+                        '<p style="margin: 0">Para acessar o sistema, utilize o seu<br>"Usuário" e "Senha" da rede da Prefeitura.</p>'
+                    ],
+                    padding: '0 0 15',
+                    style: {
+                        // color: 'rgb(105, 105, 105)',
+                        color: 'rgb(171, 65, 11)',
+                        fontSize: '14px',
+                        lineHeight: '135%',
+                        textAlign: 'center'
+                    }
+                },
                 // {
                 //     xtype: 'textfield',
                 //     reference: 'fieldDomain',
@@ -77,7 +91,7 @@ Ext.define('ArqAdmin.view.login.Login', {
                 {
                     xtype: 'textfield',
                     reference: 'fieldUsername',
-                    fieldLabel: 'Usuário da rede (Ex: d123456) *',
+                    fieldLabel: 'Usuário (Ex: d123456)',
                     name: 'username',
                     enforceMaxLength: true,
                     maxLength: 7,
@@ -102,16 +116,14 @@ Ext.define('ArqAdmin.view.login.Login', {
                 {
                     xtype: 'component',
                     html: [
-                        '<p>* Utilize o "Usuário" e "Senha" da rede da Prefeitura.</p>',
-                        '<p>O ArqAdmin é o sistema de gestão dos acervos do Arquivo Histórico de São Paulo.<br>',
-                        'Visitantes podem acessar o sistema dentro da rede da Prefeitura, mas devem se identificar.<br>',
-                        'Caso não queira se identificar pode usar o ArqWeb que é a versão pública de pesquisa nos Acervos.</p>'
+                        'O acesso para pesquisa nos acervos através do ArqAdmin é liberado para usuários da rede da Prefeitura e consulentes presenciais do AHSP.'
                     ],
                     margin: '20 0 0',
-                    padding: '7 0 0',
+                    padding: '14 0 0',
                     style: {
                         'border-top': '1px solid rgb(206, 223, 226)',
-                        color: 'rgb(105, 105, 105)'
+                        color: 'rgb(105, 105, 105)',
+                        textAlign: 'center'
                     }
                 }
             ],
