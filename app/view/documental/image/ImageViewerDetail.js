@@ -153,7 +153,7 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerDetail', {
             fieldLabel: 'Técnica',
             bind: {
                 value: '{currentImage.dt_tecnica.tecnica}',
-                hidden: '{displayCartografico}'
+                hidden: '{!displayCartografico}'
             }
         },
 

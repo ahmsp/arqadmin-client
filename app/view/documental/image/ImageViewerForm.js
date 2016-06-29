@@ -269,7 +269,6 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerForm', {
                     fieldLabel: 'Desenhista',
                     name: 'desenhista'
                 },
-
                 {
                     xtype: 'container',
                     margin: '0 0 5',
