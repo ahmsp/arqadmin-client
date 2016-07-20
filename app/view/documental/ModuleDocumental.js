@@ -123,18 +123,18 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                         },
                         {
                             xtype: 'button',
+                            itemId: 'btnShowList',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('list'),
+                            tooltip: 'Visualizar resultado em lista',
+                            handler: 'setResultsPanelActiveItem'
+                        },
+                        {
+                            xtype: 'button',
                             itemId: 'btnShowTable',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('table'),
                             tooltip: 'Visualizar resultado em tabela',
                             handler: 'setResultsPanelActiveItem'
 
-                        },
-                        {
-                            xtype: 'button',
-                            itemId: 'btnShowList',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('list'),
-                            tooltip: 'Visualizar resultado em lista',
-                            handler: 'setResultsPanelActiveItem'
                         },
                         {
                             xtype: 'button',
@@ -194,10 +194,10 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
             ],
             items: [
                 {
-                    xtype: 'result-table'
+                    xtype: 'result-list'
                 },
                 {
-                    xtype: 'result-list'
+                    xtype: 'result-table'
                 },
                 {
                     xtype: 'result-gallery'

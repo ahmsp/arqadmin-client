@@ -123,18 +123,18 @@ Ext.define('ArqAdmin.view.fotografico.ModuleFotografico', {
                         },
                         {
                             xtype: 'button',
+                            itemId: 'btnShowList',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('list'),
+                            tooltip: 'Visualizar resultado em lista',
+                            handler: 'setResultsPanelActiveItem'
+                        },
+                        {
+                            xtype: 'button',
                             itemId: 'btnShowTable',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('table'),
                             tooltip: 'Visualizar resultado em tabela',
                             handler: 'setResultsPanelActiveItem'
 
-                        },
-                        {
-                            xtype: 'button',
-                            itemId: 'btnShowList',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('list'),
-                            tooltip: 'Visualizar resultado em lista',
-                            handler: 'setResultsPanelActiveItem'
                         },
                         {
                             xtype: 'button',
@@ -190,10 +190,10 @@ Ext.define('ArqAdmin.view.fotografico.ModuleFotografico', {
             ],
             items: [
                 {
-                    xtype: 'fotografico-result-table'
+                    xtype: 'fotografico-result-list'
                 },
                 {
-                    xtype: 'fotografico-result-list'
+                    xtype: 'fotografico-result-table'
                 },
                 {
                     xtype: 'fotografico-result-gallery'
