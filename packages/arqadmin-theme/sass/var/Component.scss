@@ -76,6 +76,15 @@ $panel-body-background-color: $exec-light-background;
   //color: #b37532;
 }
 
+// COMBO
+.combo-bool {
+  input {
+    text-align: center;
+    //color: $base-color;
+  }
+}
+
+
 $active: #12C897;
 $paused: #C8C8C8;
 $ended: #F1485B;

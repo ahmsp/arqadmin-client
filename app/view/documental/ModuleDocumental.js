@@ -36,7 +36,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
             xtype: 'documental-filterform',
             region: 'west',
             split: true,
-            width: 400,
+            width: 350,
             collapsible: true,
             collapsed: true
         },

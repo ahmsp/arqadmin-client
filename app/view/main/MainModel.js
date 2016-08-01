@@ -23,20 +23,24 @@ Ext.define('ArqAdmin.view.main.MainModel', {
             autoLoad: true,
             fields: [
                 {name: 'id'},
-                {name: 'text'}
+                {name: 'description'},
+                {name: 'symbol'}
             ],
             data: [
                 {
                     "id": "and",
-                    "text": "Deve conter"
+                    "description": "Deve conter o termo",
+                    "symbol": ""
                 },
                 {
                     "id": "or",
-                    "text": "Pode conter"
+                    "description": "Pode conter o termo",
+                    "symbol": ""
                 },
                 {
                     "id": "not",
-                    "text": "Não conter"
+                    "description": "Não deve conter o termo",
+                    "symbol": ""
                 }
             ]
         }

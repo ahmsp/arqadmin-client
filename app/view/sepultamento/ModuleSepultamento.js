@@ -10,8 +10,6 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
         'ArqAdmin.view.sepultamento.EditForm',
         'ArqAdmin.view.sepultamento.ResultTable',
         'ArqAdmin.view.sepultamento.ResultList',
-        // 'ArqAdmin.view.sepultamento.ThumbsDataview',
-        // 'ArqAdmin.view.sepultamento.ResultGallery',
         'Ext.button.Button',
         'Ext.container.Container',
         'Ext.form.Label',
@@ -37,7 +35,7 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
             xtype: 'sepultamento-filterform',
             region: 'west',
             split: true,
-            width: 400,
+            width: 350,
             collapsible: true,
             collapsed: true
         },

@@ -1,81 +1,17 @@
 Ext.define('ArqAdmin.view.fotografico.FilterForm', {
-    extend: 'Ext.form.Panel',
+    extend: 'ArqAdmin.view.widget.BaseFilterForm',
     xtype: 'fotografico-filterform',
 
-    reference: 'filterForm',
-
-    requires: [
-        'Ext.button.Button',
-        'Ext.container.Container',
-        'Ext.form.field.Checkbox',
-        'Ext.form.field.ComboBox',
-        'Ext.form.field.Text',
-        'Ext.layout.container.HBox',
-        'Ext.layout.container.VBox',
-        'Ext.form.Label'
-    ],
-
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
-    },
-    scrollable: true,
-    bodyPadding: 10,
-    title: 'Pesquisa Detalhada',
-    formBind: true,
-    defaults: {
-        // labelWidth: 110,
-        margin: '5 0',
-        triggers: {
-            clear: {
-                type: 'clear',
-                clearOnEscape: true
-            }
-        }
-    },
-    dockedItems: [
-        {
-            xtype: 'toolbar',
-            dock: 'top',
-            ui: 'toolbar-light',
-            items: [
-                {
-                    xtype: 'button',
-                    flex: 1,
-                    text: 'Limpar formulário',
-                    handler: 'onFilterFormButtonClearClick'
-                },
-                {
-                    xtype: 'button',
-                    flex: 1,
-                    text: 'Pesquisar',
-                    handler: 'onFilterFormButtonFilterClick',
-                    reference: 'btnPesquisar'
-                },
-                {
-                    xtype: 'tbseparator'
-                },
-                {
-                    xtype: 'button',
-                    glyph: ArqAdmin.util.Glyphs.getGlyph('info'),
-                    tooltip: 'Informações sobre a pesquisa',
-                    handler: 'onInfoButtonClick'
-                }
-            ]
-        }
-    ],
     items: [
         {
             xtype: 'fieldset',
             border: '1 0 0 0',
-            // margin: '0 0 20',
             padding: '10 0 0',
             defaults: {
                 margin: '5 0'
             },
             referenceHolder: true,
             collapsible: true,
-            // collapsed: true,
             title: 'Classificação',
             layout: {
                 type: 'vbox',
@@ -106,20 +42,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_ft_fundo_id',
-                            queryMode: 'local',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_ft_fundo_id'
                         }
                     ]
                 },
@@ -147,20 +71,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_ft_grupo_id',
-                            queryMode: 'local',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_ft_grupo_id'
                         }
                     ]
                 },
@@ -188,20 +100,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_ft_serie_id',
-                            queryMode: 'local',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_ft_serie_id'
                         }
                     ]
                 },
@@ -229,20 +129,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_ft_tipologia_id',
-                            queryMode: 'local',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_ft_tipologia_id'
                         }
                     ]
                 }
@@ -282,19 +170,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_imagem_identificacao',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_imagem_identificacao'
                         }
                     ]
                 },
@@ -316,19 +193,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_data_imagem',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_data_imagem'
                         }
                     ]
                 },
@@ -350,19 +216,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_autoria',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_autoria'
                         }
                     ]
                 },
@@ -384,19 +239,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_bairro',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_bairro'
                         }
                     ]
                 },
@@ -418,19 +262,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_assunto',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_assunto'
                         }
                     ]
                 },
@@ -452,19 +285,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_titulo',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_titulo'
                         }
                     ]
                 }
@@ -510,20 +332,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_ft_cromia_id',
-                            queryMode: 'local',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_ft_cromia_id'
                         }
                     ]
                 },
@@ -551,20 +361,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_ft_categoria_id',
-                            queryMode: 'local',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_ft_categoria_id'
                         }
                     ]
                 },
@@ -592,20 +390,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_ft_campo_id',
-                            queryMode: 'local',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_ft_campo_id'
                         }
                     ]
                 },
@@ -627,19 +413,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_tipo',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_tipo'
                         }
                     ]
                 },
@@ -667,20 +442,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_ft_ambiente_id',
-                            queryMode: 'local',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_ft_ambiente_id'
                         }
                     ]
                 },
@@ -702,19 +465,8 @@ Ext.define('ArqAdmin.view.fotografico.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_enquadramento',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_enquadramento'
                         }
                     ]
                 }

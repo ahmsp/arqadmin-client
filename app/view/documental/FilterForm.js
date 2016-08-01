@@ -1,69 +1,7 @@
 Ext.define('ArqAdmin.view.documental.FilterForm', {
-    extend: 'Ext.form.Panel',
+    extend: 'ArqAdmin.view.widget.BaseFilterForm',
     xtype: 'documental-filterform',
 
-    reference: 'filterForm',
-
-    requires: [
-        'Ext.button.Button',
-        'Ext.container.Container',
-        'Ext.form.field.Checkbox',
-        'Ext.form.field.ComboBox',
-        'Ext.form.field.Text',
-        'Ext.layout.container.HBox',
-        'Ext.layout.container.VBox',
-        'Ext.form.Label'
-    ],
-
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
-    },
-    scrollable: true,
-    bodyPadding: 10,
-    title: 'Pesquisa Detalhada',
-    formBind: true,
-    defaults: {
-        // labelWidth: 110,
-        margin: '5 0',
-        triggers: {
-            clear: {
-                type: 'clear',
-                clearOnEscape: true
-            }
-        }
-    },
-    dockedItems: [
-        {
-            xtype: 'toolbar',
-            dock: 'top',
-            ui: 'toolbar-light',
-            items: [
-                {
-                    xtype: 'button',
-                    flex: 1,
-                    text: 'Limpar formulário',
-                    handler: 'onFilterFormButtonClearClick'
-                },
-                {
-                    xtype: 'button',
-                    flex: 1,
-                    text: 'Pesquisar',
-                    handler: 'onFilterFormButtonFilterClick',
-                    reference: 'btnPesquisar'
-                },
-                {
-                    xtype: 'tbseparator'
-                },
-                {
-                    xtype: 'button',
-                    glyph: ArqAdmin.util.Glyphs.getGlyph('info'),
-                    tooltip: 'Informações sobre a pesquisa',
-                    handler: 'onInfoButtonClick'
-                }
-            ]
-        }
-    ],
     items: [
         {
             xtype: 'combobox',
@@ -237,19 +175,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_id',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_id'
                         }
                     ]
                 },
@@ -271,19 +198,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_assunto',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_assunto'
                         }
                     ]
                 },
@@ -305,19 +221,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_interessado',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_interessado'
                         }
                     ]
                 },
@@ -339,19 +244,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_dt_endereco',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_dt_endereco'
                         }
                     ]
                 },
@@ -373,19 +267,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_dt_autor',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_dt_autor'
                         }
                     ]
                 },
@@ -407,25 +290,15 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_dt_construtor',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_dt_construtor'
                         }
                     ]
                 },
                 {
                     xtype: 'fieldcontainer',
                     layout: 'hbox',
+                    margin: '5 30 5 0',
                     fieldLabel: 'Ano (faixa)',
                     defaults: {
                         triggers: {
@@ -485,19 +358,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_data_doc',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_data_doc'
                         }
                     ]
                 },
@@ -519,19 +381,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_processo',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_processo'
                         }
                     ]
                 },
@@ -553,19 +404,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_cod_imagem',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_cod_imagem'
                         }
                     ]
                 },
@@ -587,19 +427,8 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                             }
                         },
                         {
-                            xtype: 'combobox',
-                            name: 'lo_desenho_tecnico_descricao',
-                            editable: false,
-                            tabIndex: -1,
-                            margin: '0 0 0 5',
-                            ui: 'combo-plain',
-                            width: 106,
-                            valueField: 'id',
-                            displayField: 'text',
-                            value: 'and',
-                            bind: {
-                                store: '{logicalOperators}'
-                            }
+                            xtype: 'combo-bool',
+                            name: 'lo_desenho_tecnico_descricao'
                         }
                     ]
                 }

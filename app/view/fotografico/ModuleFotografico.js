@@ -36,7 +36,7 @@ Ext.define('ArqAdmin.view.fotografico.ModuleFotografico', {
             xtype: 'fotografico-filterform',
             region: 'west',
             split: true,
-            width: 400,
+            width: 350,
             collapsible: true,
             collapsed: true
         },

@@ -1,63 +1,7 @@
 Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
-    extend: 'Ext.form.Panel',
+    extend: 'ArqAdmin.view.widget.BaseFilterForm',
     xtype: 'sepultamento-filterform',
 
-    reference: 'filterForm',
-
-    requires: [
-        'Ext.button.Button',
-        'Ext.container.Container',
-        'Ext.form.field.Checkbox',
-        'Ext.form.field.ComboBox',
-        'Ext.form.field.Text',
-        'Ext.layout.container.HBox',
-        'Ext.layout.container.VBox',
-        'Ext.form.Label'
-    ],
-
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
-    },
-    scrollable: true,
-    bodyPadding: 10,
-    title: 'Pesquisa Detalhada',
-    formBind: true,
-    defaults: {
-        labelWidth: 110,
-        margin: '5 0'
-    },
-    dockedItems: [
-        {
-            xtype: 'toolbar',
-            dock: 'top',
-            ui: 'toolbar-light',
-            items: [
-                {
-                    xtype: 'button',
-                    flex: 1,
-                    text: 'Limpar formulário',
-                    handler: 'onFilterFormButtonClearClick'
-                },
-                {
-                    xtype: 'button',
-                    flex: 1,
-                    text: 'Pesquisar',
-                    handler: 'onFilterFormButtonFilterClick',
-                    reference: 'btnPesquisar'
-                },
-                {
-                    xtype: 'tbseparator'
-                },
-                {
-                    xtype: 'button',
-                    glyph: ArqAdmin.util.Glyphs.getGlyph('info'),
-                    tooltip: 'Informações sobre a pesquisa',
-                    handler: 'onInfoButtonClick'
-                }
-            ]
-        }
-    ],
     items: [
         {
             xtype: 'fieldcontainer',
@@ -77,20 +21,8 @@ Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
                     }
                 },
                 {
-                    xtype: 'combobox',
-                    name: 'lo_id',
-                    queryMode: 'local',
-                    editable: false,
-                    tabIndex: -1,
-                    margin: '0 0 0 5',
-                    ui: 'combo-plain',
-                    width: 106,
-                    valueField: 'id',
-                    displayField: 'text',
-                    value: 'and',
-                    bind: {
-                        store: '{logicalOperators}'
-                    }
+                    xtype: 'combo-bool',
+                    name: 'lo_id'
                 }
             ]
         },
@@ -112,20 +44,8 @@ Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
                     }
                 },
                 {
-                    xtype: 'combobox',
-                    name: 'lo_sfm_nome',
-                    queryMode: 'local',
-                    editable: false,
-                    tabIndex: -1,
-                    margin: '0 0 0 5',
-                    ui: 'combo-plain',
-                    width: 106,
-                    valueField: 'id',
-                    displayField: 'text',
-                    value: 'and',
-                    bind: {
-                        store: '{logicalOperators}'
-                    }
+                    xtype: 'combo-bool',
+                    name: 'lo_sfm_nome'
                 }
             ]
         },
@@ -147,20 +67,8 @@ Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
                     }
                 },
                 {
-                    xtype: 'combobox',
-                    name: 'lo_sfm_pai',
-                    queryMode: 'local',
-                    editable: false,
-                    tabIndex: -1,
-                    margin: '0 0 0 5',
-                    ui: 'combo-plain',
-                    width: 106,
-                    valueField: 'id',
-                    displayField: 'text',
-                    value: 'and',
-                    bind: {
-                        store: '{logicalOperators}'
-                    }
+                    xtype: 'combo-bool',
+                    name: 'lo_sfm_pai'
                 }
             ]
         },
@@ -182,20 +90,8 @@ Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
                     }
                 },
                 {
-                    xtype: 'combobox',
-                    name: 'lo_sfm_mae',
-                    queryMode: 'local',
-                    editable: false,
-                    tabIndex: -1,
-                    margin: '0 0 0 5',
-                    ui: 'combo-plain',
-                    width: 106,
-                    valueField: 'id',
-                    displayField: 'text',
-                    value: 'and',
-                    bind: {
-                        store: '{logicalOperators}'
-                    }
+                    xtype: 'combo-bool',
+                    name: 'lo_sfm_mae'
                 }
             ]
         },
@@ -217,20 +113,8 @@ Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
                     }
                 },
                 {
-                    xtype: 'combobox',
-                    name: 'lo_sfm_conjuge',
-                    queryMode: 'local',
-                    editable: false,
-                    tabIndex: -1,
-                    margin: '0 0 0 5',
-                    ui: 'combo-plain',
-                    width: 106,
-                    valueField: 'id',
-                    displayField: 'text',
-                    value: 'and',
-                    bind: {
-                        store: '{logicalOperators}'
-                    }
+                    xtype: 'combo-bool',
+                    name: 'lo_sfm_conjuge'
                 }
             ]
         },
@@ -252,26 +136,15 @@ Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
                     }
                 },
                 {
-                    xtype: 'combobox',
-                    name: 'lo_sfm_data_morte',
-                    queryMode: 'local',
-                    editable: false,
-                    tabIndex: -1,
-                    margin: '0 0 0 5',
-                    ui: 'combo-plain',
-                    width: 106,
-                    valueField: 'id',
-                    displayField: 'text',
-                    value: 'and',
-                    bind: {
-                        store: '{logicalOperators}'
-                    }
+                    xtype: 'combo-bool',
+                    name: 'lo_sfm_data_morte'
                 }
             ]
         },
         {
             xtype: 'fieldcontainer',
             layout: 'hbox',
+            margin: '5 30 5 0',
             fieldLabel: 'Ano (faixa)',
             defaults: {
                 triggers: {
@@ -337,20 +210,8 @@ Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
                     }
                 },
                 {
-                    xtype: 'combobox',
-                    name: 'lo_sfm_nacionalidade_id',
-                    queryMode: 'local',
-                    editable: false,
-                    tabIndex: -1,
-                    margin: '0 0 0 5',
-                    ui: 'combo-plain',
-                    width: 106,
-                    valueField: 'id',
-                    displayField: 'text',
-                    value: 'and',
-                    bind: {
-                        store: '{logicalOperators}'
-                    }
+                    xtype: 'combo-bool',
+                    name: 'lo_sfm_nacionalidade_id'
                 }
             ]
         },
@@ -378,20 +239,8 @@ Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
                     }
                 },
                 {
-                    xtype: 'combobox',
-                    name: 'lo_sfm_naturalidade_id',
-                    queryMode: 'local',
-                    editable: false,
-                    tabIndex: -1,
-                    margin: '0 0 0 5',
-                    ui: 'combo-plain',
-                    width: 106,
-                    valueField: 'id',
-                    displayField: 'text',
-                    value: 'and',
-                    bind: {
-                        store: '{logicalOperators}'
-                    }
+                    xtype: 'combo-bool',
+                    name: 'lo_sfm_naturalidade_id'
                 }
             ]
         },
@@ -419,20 +268,8 @@ Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
                     }
                 },
                 {
-                    xtype: 'combobox',
-                    name: 'lo_sfm_cartorio_id',
-                    queryMode: 'local',
-                    editable: false,
-                    tabIndex: -1,
-                    margin: '0 0 0 5',
-                    ui: 'combo-plain',
-                    width: 106,
-                    valueField: 'id',
-                    displayField: 'text',
-                    value: 'and',
-                    bind: {
-                        store: '{logicalOperators}'
-                    }
+                    xtype: 'combo-bool',
+                    name: 'lo_sfm_cartorio_id'
                 }
             ]
         },
@@ -460,20 +297,8 @@ Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
                     }
                 },
                 {
-                    xtype: 'combobox',
-                    name: 'lo_sfm_cemiterio_id',
-                    queryMode: 'local',
-                    editable: false,
-                    tabIndex: -1,
-                    margin: '0 0 0 5',
-                    ui: 'combo-plain',
-                    width: 106,
-                    valueField: 'id',
-                    displayField: 'text',
-                    value: 'and',
-                    bind: {
-                        store: '{logicalOperators}'
-                    }
+                    xtype: 'combo-bool',
+                    name: 'lo_sfm_cemiterio_id'
                 }
             ]
         },
@@ -495,20 +320,8 @@ Ext.define('ArqAdmin.view.sepultamento.FilterForm', {
                     }
                 },
                 {
-                    xtype: 'combobox',
-                    name: 'lo_sfm_causamortis_causamortis',
-                    queryMode: 'local',
-                    editable: false,
-                    tabIndex: -1,
-                    margin: '0 0 0 5',
-                    ui: 'combo-plain',
-                    width: 106,
-                    valueField: 'id',
-                    displayField: 'text',
-                    value: 'and',
-                    bind: {
-                        store: '{logicalOperators}'
-                    }
+                    xtype: 'combo-bool',
+                    name: 'lo_sfm_causamortis_causamortis'
                 }
             ]
         }

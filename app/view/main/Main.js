@@ -31,7 +31,8 @@ Ext.define('ArqAdmin.view.main.Main', {
         'ArqAdmin.view.revisions.HistoryWindow',
         'Ext.ux.TextMaskPlugin',
         'AppSamples.view.widget.LikesToolbar',
-        'ArqAdmin.view.widget.LikeWidgetcolumn'
+        'ArqAdmin.view.widget.LikeWidgetcolumn',
+        'ArqAdmin.view.widget.BaseFilterForm'
     ],
 
     controller: 'main',
