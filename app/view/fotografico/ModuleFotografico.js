@@ -111,18 +111,6 @@ Ext.define('ArqAdmin.view.fotografico.ModuleFotografico', {
                         },
                         {
                             xtype: 'button',
-                            reference: 'btnFavourites',
-                            enableToggle: true,
-                            cls: 'btn-favourites',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('star'),
-                            tooltip: 'Mostrar meus favoritos',
-                            handler: 'onFilterLikes'
-                        },
-                        {
-                            xtype: 'tbseparator'
-                        },
-                        {
-                            xtype: 'button',
                             itemId: 'btnShowList',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('list'),
                             tooltip: 'Visualizar resultado em lista',
@@ -148,39 +136,25 @@ Ext.define('ArqAdmin.view.fotografico.ModuleFotografico', {
                         },
                         {
                             xtype: 'button',
-                            itemId: 'btnAdd',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
-                            // text: 'Novo',
-                            tooltip: 'Adicionar novo item',
-                            hidden: true,
-                            bind: {
-                                hidden: '{!hasRole}'
-                            },
-                            listeners: {
-                                click: 'onAdd'
-                            }
-                        },
-                        {
-                            xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
-                            // text: 'Editar',
-                            tooltip: 'Editar o item selecionado',
-                            hidden: true,
-                            bind: {
-                                disabled: '{!resultTable.selection}',
-                                hidden: '{!hasRole}'
-                            },
-                            handler: 'onEdit'
-                        },
-                        {
-                            xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('images2'),
                             // text: 'Imagens',
-                            tooltip: 'Visualizar a imagem',
+                            tooltip: 'Visualizar imagens',
                             bind: {
                                 disabled: '{!resultTable.selection}'
                             },
                             handler: 'showImageViewerWindow'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
+                            reference: 'btnFavourites',
+                            enableToggle: true,
+                            cls: 'btn-favourites',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('star'),
+                            tooltip: 'Mostrar meus favoritos',
+                            handler: 'onFilterLikes'
                         }
                     ]
                 },

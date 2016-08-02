@@ -12,6 +12,59 @@ Ext.define('ArqAdmin.view.sepultamento.DetailsPanel', {
     layout: 'anchor',
     bodyPadding: '4 8 0',
 
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            ui: 'toolbar-light',
+            hidden: true,
+            bind: {
+                hidden: '{!hasRole}'
+            },
+            items: [
+                {
+                    xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('add'),
+                    text: 'Novo',
+                    listeners: {
+                        click: 'onAdd'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('edit'),
+                    text: 'Editar',
+                    bind: {
+                        disabled: '{!resultTable.selection}'
+                    },
+                    handler: 'onEdit'
+                },
+                {
+                    xtype: 'tbfill'
+                },
+                {
+                    xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('images2'),
+                    text: 'Imagem',
+                    tooltip: 'Visualizar imagem',
+                    disabled: true,
+                    handler: 'showImageViewerWindow'
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('checklist'),
+                    tooltip: 'Histórico de alterações',
+                    bind: {
+                        disabled: '{!resultTable.selection}'
+                    },
+                    handler: 'showHistoryWindow'
+                }
+            ]
+        }
+    ],
     items: [
         {
             xtype: 'panel',

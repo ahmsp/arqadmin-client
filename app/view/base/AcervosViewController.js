@@ -288,5 +288,23 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
     onDownloadFailure: function (response, opts) {
         var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
         ArqAdmin.util.Util.showErrorMsg(result.error_description);
+    },
+
+    showHistoryWindow: function () {
+        var me = this,
+            view = me.getView(),
+            viewModel = me.getViewModel(),
+            id = viewModel.get('record').getId(),
+            acervoRoute = viewModel.get('acervoRoute'),
+            store = me.getStore('revisions');
+
+        store.getProxy().url = ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/' + acervoRoute + '/' + id + '/revision';
+        store.load();
+
+        me.dialog = view.add({
+            xtype: 'history-window'
+        });
+
+        me.dialog.show();
     }
 });

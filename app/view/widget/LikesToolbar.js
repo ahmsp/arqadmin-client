@@ -1,4 +1,4 @@
-Ext.define('AppSamples.view.widget.LikesToolbar', {
+Ext.define('ArqAdmin.view.widget.LikesToolbar', {
     extend: 'Ext.toolbar.Toolbar',
     alias: 'widget.LikesToolbar',
 
