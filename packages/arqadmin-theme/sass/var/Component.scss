@@ -37,7 +37,10 @@ $exec-font-color: #878ea2;
 $exec-font-dark-color: $exec-dark-background;
 
 //Proxima Nova is preferred font, but it is not a free font.
-$exec-font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+//$exec-font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+//$exec-font-family: helvetica, arial, verdana, sans-serif;
+$exec-font-family: 'Open Sans', sans-serif;
+
 
 $exec-font-size-small-content: 11px;
 $exec-font-size-content: 12px;

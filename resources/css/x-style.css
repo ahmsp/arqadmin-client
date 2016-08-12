@@ -1,3 +1,9 @@
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+
+
 /* header */
 .header-title {
     height: 80px;
@@ -129,7 +135,7 @@
 
 /* Like Grid Widget column */
 .td-column-like {
-    vertical-align: middle;
+    vertical-align: middle !important;
 }
 .td-column-like .x-grid-cell-inner {
     padding: 0;
@@ -253,7 +259,7 @@
 }
 
 .x-mask {
-    background-color: rgba(235,235,235,0.8);
+    background-color: rgba(235,235,235,0.8) !important;
 }
 .x-mask-msg.splashscreen .x-mask-msg-inner {
     float: left;
@@ -265,6 +271,7 @@
     height: 24px;
     margin: 18px 0 0 12px;
     padding: 5px 0 0 34px;
+    background-color: rgba(235,235,235,0.8) !important;
     background-image: url('../img/loading-4.gif');
     background-position: left 0;
     background-size: 24px;
@@ -275,7 +282,7 @@
     background-color: transparent !important;
 }
 .x-logindialog-header {
-    background: transparent url('../img/logo-login.png') no-repeat center;
+    background: transparent url('../img/logo-login.png') no-repeat center !important;
 }
 .x-logindialog-icon {
     background: #e6eaeb url('../img/arq-admin-logo-2.png') no-repeat center;

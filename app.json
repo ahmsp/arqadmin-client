@@ -3,7 +3,7 @@
      * The application's namespace.
      */
     "name": "ArqAdmin",
-    
+
     /**
      * The version of the application.
      */
@@ -32,9 +32,9 @@
     /**
      * The name of the theme for this application.
      */
-    
+
     "theme": "arqadmin-theme",
-    
+
     /**
      * The list of required packages (with optional versions; default is "latest").
      *
@@ -179,16 +179,19 @@
 
 
     /**
-     * override objects for setting build environment specific 
+     * override objects for setting build environment specific
      * settings.
      */
     "production": {
+      "apiBaseUrl" : "http://smcahspc110:8087"
     },
-    
+
     "testing": {
+      "apiBaseUrl" : "http://arqadmin.dev"
     },
-    
+
     "development": {
+      "apiBaseUrl" : "http://arqadmin.dev"
     },
 
     /**

@@ -2,20 +2,19 @@ Ext.define('ArqAdmin.config.Runtime', {
     singleton: true,
 
     config: {
-        apiBaseUrl: 'http://arqadmin.dev',
-        //apiBaseUrl: 'http://localhost:8000'
+        apiBaseUrl: Ext.manifest.apiBaseUrl,
 
-        imagesDocumental: 'http://arqadmin.dev/imagem/documental/',
-        downloadDocumental: 'http://arqadmin.dev/api/imagem/documental/',
-        uploadDocumental: 'http://arqadmin.dev/api/upload/imagem/documental/',
+        imagesDocumental: Ext.manifest.apiBaseUrl + '/imagem/documental/',
+        downloadDocumental: Ext.manifest.apiBaseUrl + '/api/imagem/documental/',
+        uploadDocumental: Ext.manifest.apiBaseUrl + '/api/upload/imagem/documental/',
 
-        imagesFotografico: 'http://arqadmin.dev/imagem/fotografico/',
-        downloadFotografico: 'http://arqadmin.dev/api/imagem/fotografico/',
-        uploadFotografico: 'http://arqadmin.dev/api/imagem/upload/fotografico/',
+        imagesFotografico: Ext.manifest.apiBaseUrl + '/imagem/fotografico/',
+        downloadFotografico: Ext.manifest.apiBaseUrl + '/api/imagem/fotografico/',
+        uploadFotografico: Ext.manifest.apiBaseUrl + '/api/imagem/upload/fotografico/',
 
-        imagesSepultamento: 'http://arqadmin.dev/imagem/sepultamento/',
-        downloadSepultamento: 'http://arqadmin.dev/api/imagem/sepultamento/',
-        uploadSepultamento: 'http://arqadmin.dev/api/imagem/upload/sepultamento/',
+        imagesSepultamento: Ext.manifest.apiBaseUrl + '/imagem/sepultamento/',
+        downloadSepultamento: Ext.manifest.apiBaseUrl + '/api/imagem/sepultamento/',
+        uploadSepultamento: Ext.manifest.apiBaseUrl + '/api/imagem/upload/sepultamento/',
 
         client_id: 'LNCMz1G9iV6vpMH8b4BIlt33FmUmycEcn6iM1lZm',
         client_secret: 'LV3OIv9pzSVqMLGkxgGVx9meKK9qIe5r8kGbN7V1',
