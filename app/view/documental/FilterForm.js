@@ -150,14 +150,6 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
             },
             items: [
                 {
-                    xtype: 'checkboxfield',
-                    fieldLabel: 'Com imagem',
-                    name: 'com_imagem',
-                    checked: true,
-                    inputValue: '1',
-                    operator: '='
-                },
-                {
                     xtype: 'fieldcontainer',
                     layout: 'hbox',
                     fieldLabel: 'Registro nº (ID)',

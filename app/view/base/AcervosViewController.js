@@ -191,6 +191,15 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
         win.show();
     },
 
+    onCheckboxWithImageChange: function (checkbox, checked) {
+        var me = this,
+            viewModel = me.getViewModel(),
+            store = me.getStore(viewModel.get('acervoStore'));
+
+        viewModel.set('withImage', checked);
+        store.load();
+    },
+
     hasRole: function () {
         return this.getViewModel().get('hasRole');
     },
@@ -258,9 +267,19 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
     },
 
     onAcervoStoreBeforeload: function (store) {
-        var filterLikes = !!store.getProxy().extraParams.likes;
-        this.getViewModel().set('filterLikes', filterLikes);
-        this.lookupReference('btnFavourites').toggle(filterLikes);
+        var me = this,
+            filterLikes = !!store.getProxy().extraParams.likes,
+            viewModel = me.getViewModel(),
+            withImage = viewModel.get('withImage');
+
+        viewModel.set('filterLikes', filterLikes);
+        me.lookupReference('btnFavourites').toggle(filterLikes);
+
+        if (withImage === false) {
+            delete store.getProxy().extraParams.com_imagem;
+        } else {
+            store.getProxy().extraParams['com_imagem'] = withImage;
+        }
     },
 
     onAcervoStoreLoad: function (store) {

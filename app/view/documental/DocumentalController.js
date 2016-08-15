@@ -27,10 +27,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             store = grid.getStore(),
             filters = [];
 
-        if (form.getForm().findField('com_imagem').getValue()) {
-            params.com_imagem = 1;
-        }
-
         Ext.Object.each(params, function (key, value) {
             var loProperty = 'lo_' + key;
 

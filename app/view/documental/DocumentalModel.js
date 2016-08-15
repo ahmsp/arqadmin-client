@@ -12,6 +12,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
         displayPanelReference: 'displayPanel',
 
         acervoRoute: 'documento',
+        acervoStore: 'documentos',
+        withImage: true,
 
         role: 'ROLE_DOCUMENTAL'
     },

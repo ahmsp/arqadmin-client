@@ -90,6 +90,21 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                             handler: 'onInfoButtonClick'
                         },
                         {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'checkboxfield',
+                            boxLabel: 'Com imagem',
+                            checked: true,
+                            inputValue: '1',
+                            tooltip: 'Exibir itens somente com imagem',
+                            style: {
+                                color: '#fff',
+                                fontWeight: 'bold'
+                            },
+                            handler: 'onCheckboxWithImageChange'
+                        },
+                        {
                             xtype: 'tbfill'
                         },
                         {

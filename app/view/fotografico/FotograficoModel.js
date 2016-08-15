@@ -12,6 +12,8 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
         displayPanelReference: 'displayPanel',
 
         acervoRoute: 'fotografia',
+        acervoStore: 'fotografias',
+        withImage: true,
 
         role: 'ROLE_FOTOGRAFICO'
     },

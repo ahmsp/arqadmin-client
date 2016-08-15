@@ -12,6 +12,8 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoModel', {
         displayPanelReference: 'displayPanel',
 
         acervoRoute: 'registrosepultamento',
+        acervoStore: 'sepultamentos',
+        withImage: false,
 
         role: 'ROLE_SEPULTAMENTO'
     },
