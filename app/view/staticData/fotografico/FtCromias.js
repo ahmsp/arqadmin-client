@@ -2,7 +2,7 @@ Ext.define('ArqAdmin.view.staticData.fotografico.FtCromias', {
     extend: 'ArqAdmin.view.staticData.BaseGrid',
     xtype: 'ftcromias-grid',
 
-    store: 'staticData.classificacao.FtCromias',
+    store: 'staticData.fotografico.FtCromias',
 
     columns: [
         {

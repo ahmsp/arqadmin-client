@@ -2,7 +2,7 @@ Ext.define('ArqAdmin.view.staticData.fotografico.FtCampos', {
     extend: 'ArqAdmin.view.staticData.BaseGrid',
     xtype: 'ftcampos-grid',
 
-    store: 'staticData.classificacao.FtCampos',
+    store: 'staticData.fotografico.FtCampos',
 
     columns: [
         {
