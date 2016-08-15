@@ -81,7 +81,7 @@ Ext.define('ArqAdmin.view.security.UsersGrid', {
                 type: 'string'
             },
             renderer: function (value, metaData, record) {
-                return value.toString().replace(/ROLE_/g, ' ');
+                return (!Ext.isEmpty(value)) ? value.toString().replace(/ROLE_/g, ' ') : [];
             },
             hidden: true,
             bind: {

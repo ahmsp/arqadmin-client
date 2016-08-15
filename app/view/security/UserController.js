@@ -98,7 +98,6 @@ Ext.define('ArqAdmin.view.security.UserController', {
                 record.setId(null);
                 record.set('username', "c" + values.rg.slice(0, 6));
                 store.add(record);
-                console.log(record);
             } else {
                 var roles = form.down('checkboxgroup').getValue().roles;
                 if (Ext.isEmpty(roles)) {

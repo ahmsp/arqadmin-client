@@ -26,11 +26,13 @@ Ext.define('ArqAdmin.model.security.User', {
         },
         {
             name: 'adldap_group',
+            type: 'string',
             sortType: 'asUCString',
             persist: false
         },
         {
             name: 'adldap_type',
+            type: 'string',
             sortType: 'asUCString',
             persist: false
         },
