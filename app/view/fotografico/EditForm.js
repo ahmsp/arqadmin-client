@@ -294,7 +294,12 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Reg. Fotográfico',
-                    name: 'imagem_identificacao'
+                    reference: 'imagemIdentificacao',
+                    name: 'imagem_identificacao',
+                    enforceMaxLength: true,
+                    maxLength: 6,
+                    regex: /^\d{6}$/,
+                    regexText: 'O valor inserido não é válido. O padrão são 6 dígitos. (ex: 012345)'
                 },
                 {
                     xtype: 'textfield',
@@ -605,10 +610,14 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
             title: 'Imagem digitalizada',
             items: [
                 {
-                    xtype: 'displayfield',
+                    xtype: 'textfield',
                     reference: 'arquivoOriginal',
                     fieldLabel: 'Nome do arquivo',
-                    name: 'imagem_original'
+                    name: 'imagem_original',
+                    enforceMaxLength: true,
+                    maxLength: 10,
+                    regex: /^RF_\d{6}\.(a-zA-Z)$/,
+                    regexText: 'O valor inserido não é válido. Exemplo de padrão: RF_012345.tif'
                 },
                 {
                     xtype: 'filefield',

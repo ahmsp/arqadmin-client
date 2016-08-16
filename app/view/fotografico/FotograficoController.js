@@ -271,10 +271,14 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
         if (form.isValid()) {
             var values = form.getValues(),
                 store = me.getStore('fotografias'),
-                filename = form.getForm().findField('filename').getValue();
+                filename = form.getForm().findField('filename').getValue(),
+                registroFotografico = form.getForm().findField('imagem_identificacao').getValue();
 
             if (filename) {
-                values.imagem_original = filename.replace(/^.*(\\|\/|\:)/, '');
+                // values.imagem_original = filename.replace(/^.*(\\|\/|\:)/, '');
+                // var originalName = filename.replace(/^.*(\\|\/|\:)/, '');
+                var fileExtension = filename.replace(/^.*(\\|\/|\:)/, '').split('.')[1];
+                values.imagem_original = 'RF_' + registroFotografico + '.' + fileExtension;
             }
 
             record.set(values);
@@ -400,7 +404,19 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
     },
 
     onFilefieldChange: function (filefield, value, options) {
-        this.lookupReference('arquivoOriginal').setValue(value.replace(/^.*(\\|\/|\:)/, ''));
+        var me = this,
+            regFotografico = me.lookupReference('imagemIdentificacao').getValue(),
+            fileName = value.replace(/^.*(\\|\/|\:)/, ''),
+            fileExtension = value ? value.replace(/^.*(\\|\/|\:)/, '').split('.')[1].toLowerCase() : '',
+            newName;
+
+        if (regFotografico.length === 6 && fileExtension.length === 3) {
+            newName = 'RF_' + regFotografico + '.' + fileExtension;
+        } else {
+            newName = fileName || '';
+        }
+
+        me.lookupReference('arquivoOriginal').setValue(newName);
     },
 
     showImageViewerWindow: function () {
