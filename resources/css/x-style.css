@@ -356,7 +356,7 @@ body {
 }
 
 .single-thumb-wrap-medium {
-    height: 360px;
+    height: 360px !important;
     margin-bottom: 5px;
     background: white;
 
@@ -366,8 +366,11 @@ body {
     position: relative !important;
 }
 
+.x-img .single-thumb-wrap-medium .x-box-item {
+    position: relative !important;
+}
 
-/*.x-quirks .images-view .thumb {*/
+    /*.x-quirks .images-view .thumb {*/
 /*padding-bottom: 3px;*/
 /*}*/
 /*.images-view .thumb-wrap span {*/

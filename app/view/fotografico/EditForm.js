@@ -615,8 +615,8 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
                     fieldLabel: 'Nome do arquivo',
                     name: 'imagem_original',
                     enforceMaxLength: true,
-                    maxLength: 10,
-                    regex: /^RF_\d{6}\.(a-zA-Z)$/,
+                    maxLength: 13,
+                    regex: /^RF_\d{6}\.(jpg|JPG|tif|TIF)$/,
                     regexText: 'O valor inserido não é válido. Exemplo de padrão: RF_012345.tif'
                 },
                 {
