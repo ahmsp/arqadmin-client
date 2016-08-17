@@ -301,7 +301,8 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
                             url = ArqAdmin.config.Runtime.getUploadFotografico() + result.id,
                             token = localStorage.getItem('access-token');
 
-                        formData.append('file', uploadFile, uploadFile.name);
+                        // formData.append('file', uploadFile, uploadFile.name);
+                        formData.append('file', uploadFile, values.imagem_original);
 
                         //send formData with an Ajax-request
                         var xhr = new XMLHttpRequest();

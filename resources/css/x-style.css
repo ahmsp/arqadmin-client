@@ -366,7 +366,7 @@ body {
     position: relative !important;
 }
 
-.x-img .single-thumb-wrap-medium .x-box-item {
+.single-thumb-wrap-medium.x-box-item {
     position: relative !important;
 }
 
