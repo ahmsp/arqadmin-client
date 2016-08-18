@@ -22,7 +22,7 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
     },
     fieldDefaults: {
         msgTarget: 'side',
-        labelWidth: 105
+        labelWidth: 110
     },
     dockedItems: [
         {
@@ -610,17 +610,41 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
             title: 'Imagem digitalizada',
             items: [
                 {
-                    xtype: 'textfield',
-                    reference: 'arquivoOriginal',
-                    fieldLabel: 'Nome do arquivo',
-                    name: 'imagem_original',
-                    enforceMaxLength: true,
-                    maxLength: 13,
-                    regex: /^RF_\d{6}\.(jpg|JPG|tif|TIF)$/,
-                    regexText: 'O valor inserido não é válido. Exemplo de padrão: RF_012345.tif',
-                    bind: {
-                        disabled: '{record.imagem_original}'
-                    }
+                    xtype: 'container',
+                    margin: '0 0 5',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            reference: 'arquivoOriginal',
+                            fieldLabel: 'Nome do arquivo',
+                            name: 'imagem_original',
+                            flex: 1,
+                            enforceMaxLength: true,
+                            maxLength: 13,
+                            regex: /^RF_\d{6}\.(jpg|JPG|tif|TIF)$/,
+                            regexText: 'O valor inserido não é válido. Exemplo de padrão: RF_012345.tif',
+                            bind: {
+                                disabled: '{record.imagem_original}'
+                            }
+                        },
+                        {
+                            xtype: 'tbspacer',
+                            width: 3
+                        },
+                        {
+                            xtype: 'button',
+                            margin: '3 0',
+                            ui: 'default-toolbar-small',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('remove'),
+                            tooltip: 'Remover a imagem',
+                            tabIndex: -1,
+                            handler: 'onButtonRemoveImageClick'
+                        }
+                    ]
                 },
                 {
                     xtype: 'filefield',

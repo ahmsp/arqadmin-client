@@ -390,6 +390,48 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
         });
     },
 
+    onButtonRemoveImageClick: function (button) {
+        var me = this;
+
+        Ext.Msg.show({
+            title: 'Confirmação de exclusão!',
+            msg: 'Você tem certeza que deseja excluir esta imagem?',
+            buttons: Ext.Msg.YESNO,
+            animateTarget: 'button',
+            icon: Ext.Msg.QUESTION,
+            fn: function (btn, ev) {
+                if (btn === 'yes') {
+                    var record = me.getViewModel().get('record'),
+                        store = me.getStore('fotografias');
+
+                    Ext.Ajax.request({
+                        url: ArqAdmin.config.Runtime.getRemoveImageFotografico() + record.id,
+                        method: 'POST',
+                        scope: me,
+                        success: function (response) {
+                            var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
+                            store.load({
+                                scope: me,
+                                callback: function (records, operation, success) {
+                                    var record = store.findRecord('id', result.id) || 0,
+                                        form = me.lookupReference('editForm'),
+                                        grid = me.lookupReference('resultTable');
+                                    console.log(record);
+                                    form.reset();
+                                    me.selectRecord(grid, record);
+                                }
+                            });
+                            ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'Imagem removida com sucesso!');
+                        },
+                        failure: function () {
+                            Ext.Msg.alert('Erro!', 'Não foi possivel remover a imagem!');
+                        }
+                    });
+                }
+            }
+        });
+    },
+
     onTextfieldSpecialkey: function (field, e, eOpts) {
 
         if (e.getKey() == e.ENTER) {

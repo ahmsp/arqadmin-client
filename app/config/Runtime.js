@@ -11,6 +11,7 @@ Ext.define('ArqAdmin.config.Runtime', {
         imagesFotografico: Ext.manifest.apiBaseUrl + '/imagem/fotografico/',
         downloadFotografico: Ext.manifest.apiBaseUrl + '/api/imagem/fotografico/',
         uploadFotografico: Ext.manifest.apiBaseUrl + '/api/imagem/upload/fotografico/',
+        removeImageFotografico: Ext.manifest.apiBaseUrl + '/api/imagem/remove/fotografico/',
 
         imagesSepultamento: Ext.manifest.apiBaseUrl + '/imagem/sepultamento/',
         downloadSepultamento: Ext.manifest.apiBaseUrl + '/api/imagem/sepultamento/',
