@@ -511,8 +511,8 @@ body {
 }
 
 .x-toast {
-    border-style: none;
-    background-color: transparent;
+    border-style: none !important;
+    background-color: transparent !important;
 }
 
 .toolbar-plain-main  a.x-box-menu-after {

@@ -89,7 +89,10 @@ Ext.define('ArqAdmin.view.main.Main', {
                             cls: 'button-glyph-center',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('dashboard'),
                             // text: 'Painel',
-                            tooltip: 'Painel'
+                            tooltip: 'Painel',
+                            handler: function () {
+                                ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com êxito!');
+                            }
                         },
                         {
                             xtype: 'tbseparator',
