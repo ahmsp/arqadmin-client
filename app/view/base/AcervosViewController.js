@@ -230,7 +230,24 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
 
     onFilterLikes: function (button) {
         var me = this,
-            store = me.lookupReference('resultTable').getStore();
+            grid = me.lookupReference('resultTable'),
+            store = grid.getStore(),
+            searchField = me.lookupReference('searchAllField'),
+            withImageField = me.lookupReference('checkboxWithImage');
+
+        // var oldParams = {
+        //     'withImageField': withImageField.getValue(),
+        //     'searchField': searchField.getValue(),
+        //     'extraParams': store.getProxy().extraParams,
+        //     'gridFilters': grid.filters
+        // };
+
+        // searchField.setValue('');
+        // withImageField.setValue(false);
+        // delete store.getProxy().extraParams.search_all;
+        // delete store.getProxy().extraParams.likes;
+        // grid.filters.clearFilters();
+        // store.clearFilter(true);
 
         if (button.pressed) {
             store.getProxy().extraParams['likes'] = true;

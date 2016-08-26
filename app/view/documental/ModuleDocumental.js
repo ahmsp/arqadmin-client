@@ -94,6 +94,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                         },
                         {
                             xtype: 'checkboxfield',
+                            reference: 'checkboxWithImage',
                             boxLabel: 'Com imagem',
                             checked: true,
                             inputValue: '1',
