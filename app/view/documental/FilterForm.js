@@ -381,12 +381,12 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                 {
                     xtype: 'fieldcontainer',
                     layout: 'hbox',
-                    fieldLabel: 'Cod. Imagem',
+                    fieldLabel: 'Nome Imagem',
                     items: [
                         {
                             xtype: 'textfield',
                             flex: 1,
-                            name: 'cod_imagem',
+                            name: 'desenho_tecnico_arquivo_original',
                             operator: 'like',
                             triggers: {
                                 clear: {
@@ -397,7 +397,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
                         },
                         {
                             xtype: 'combo-bool',
-                            name: 'lo_cod_imagem'
+                            name: 'lo_desenho_tecnico_arquivo_original'
                         }
                     ]
                 },
