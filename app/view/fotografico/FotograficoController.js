@@ -335,18 +335,20 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
                         };
                         xhr.send(formData);
                     } else {
+                        me.checkboxWithImageSetValue(false);
                         store.load({
                             scope: me,
                             callback: function (records, operation, success) {
-                                var newRecord = store.findRecord('id', result.id);
+                                var newRecord = store.findRecord('id', result.id) || 0;
                                 form.reset(true);
                                 me.selectRecord(grid, newRecord);
                             }
                         });
+                        ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com sucesso!');
                     }
                 },
                 failure: function (batch, options) {
-                    // store.load();
+                    Ext.Msg.alert('Erro!', 'Não foi possível salvar o registro!');
                 }
             });
         } else {

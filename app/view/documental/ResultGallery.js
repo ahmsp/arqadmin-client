@@ -29,7 +29,7 @@ Ext.define('ArqAdmin.view.documental.ResultGallery', {
                 '<tpl if="this.count(values)" >',
                     '<tpl for=".">',
                         '<tpl if="!Ext.isEmpty(values.desenhos_tecnicos)">',
-                            '<div class="thumb-wrap thumb-wrap-medium"">',
+                            '<div class="thumb-wrap thumb-wrap-medium">',
                                 '<div class="thumb">{[this.getImage(values.desenhos_tecnicos)]}',
                                     '<div class="expand-img">',
                                         '<a href="#" id="img-{[values.desenhos_tecnicos[0].id]}"><span class="icon-expand" style="font-family:icomoon;"> Visualizar</span></a>',

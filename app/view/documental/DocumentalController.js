@@ -344,10 +344,11 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                     var operations = batch.getOperations(),
                         result = Ext.decode(operations[0].getResponse().responseText);
 
+                    me.checkboxWithImageSetValue(false);
                     store.load({
                         scope: me,
                         callback: function (records, operation, success) {
-                            var record = store.findRecord('id', result.id),
+                            var record = store.findRecord('id', result.id) || 0,
                                 grid = me.lookupReference('resultTable');
 
                             form.reset();

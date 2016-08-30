@@ -26,7 +26,7 @@ Ext.define('ArqAdmin.view.fotografico.ResultGallery', {
             overItemCls: 'x-item-over',
             tpl: [
                 '<tpl for=".">',
-                    '<div class="thumb-wrap thumb-wrap-medium"">',
+                    '<div class="thumb-wrap thumb-wrap-medium">',
                         '<div class="thumb">{[this.getImage(values)]}',
                             '<div class="expand-img">',
                                 '<a href="#" id="img-{[values.id]}"><span class="icon-expand" style="font-family:icomoon;"> Visualizar</span></a>',

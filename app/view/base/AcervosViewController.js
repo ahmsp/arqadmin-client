@@ -191,13 +191,25 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
         win.show();
     },
 
-    onCheckboxWithImageChange: function (checkbox, checked) {
+    onCheckboxWithImageChange: function (checkbox, newValue, oldValue, eOpts) {
         var me = this,
             viewModel = me.getViewModel(),
             store = me.getStore(viewModel.get('acervoStore'));
 
-        viewModel.set('withImage', checked);
+        viewModel.set('withImage', newValue);
         store.load();
+    },
+
+    checkboxWithImageSetValue: function (value) {
+        var me = this,
+            checkboxWithImage = me.lookupReference('checkboxWithImage');
+
+        if (checkboxWithImage.getValue() != value) {
+            checkboxWithImage.suspendEvent('change');
+            checkboxWithImage.setValue(false);
+            checkboxWithImage.resumeEvent('change');
+            me.getViewModel().set('withImage', false);
+        }
     },
 
     hasRole: function () {
@@ -300,7 +312,14 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
     },
 
     onAcervoStoreLoad: function (store) {
-        this.getViewModel().set('totalRecords', store.getTotalCount());
+        var me = this,
+            resultGallery = me.lookupReference('resultGallery');
+
+        if (resultGallery) {
+            resultGallery.down('dataview').refresh();
+        }
+
+        me.getViewModel().set('totalRecords', store.getTotalCount());
     },
 
     onExportLikesToFile: function (button) {
