@@ -11,7 +11,14 @@ Ext.define('ArqAdmin.view.fotografico.image.ImageViewerWindow', {
 
     viewModel: {
         data: {
-            currentImage: {}
+            currentImage: {},
+            role: 'ROLE_FOTOGRAFICO'
+        },
+        formulas: {
+            hasRole: function (get) {
+                var role = get('role') || '';
+                return  ArqAdmin.user.Profile.hasRole(role);
+            }
         }
     },
 
