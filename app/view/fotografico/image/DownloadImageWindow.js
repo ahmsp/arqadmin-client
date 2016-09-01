@@ -57,7 +57,7 @@ Ext.define('ArqAdmin.view.fotografico.image.DownloadImageWindow', {
                     xtype: 'displayfield',
                     //fieldLabel: 'Imagem',
                     //labelAlign: 'top',
-                    name: 'descricao',
+                    name: 'identificacao',
                     value: '',
                     fieldStyle: {
                         'font-size': '18px  !important',
