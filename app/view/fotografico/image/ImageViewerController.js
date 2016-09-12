@@ -27,7 +27,6 @@ Ext.define('ArqAdmin.view.fotografico.image.ImageViewerController', {
 
     onDownloadSuccess: function (response, opts) {
         var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
-        console.log(result);
 
         window.open(result.url_download, '_self');
     },

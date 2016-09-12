@@ -346,9 +346,6 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
                         });
                         ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'O registro foi salvo com sucesso!');
                     }
-                },
-                failure: function (batch, options) {
-                    Ext.Msg.alert('Erro!', 'Não foi possível salvar o registro!');
                 }
             });
         } else {
@@ -381,9 +378,6 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
                                 }
                             });
                             ArqAdmin.util.Util.showToast('success', 'Sucesso!', 'Registro removido com sucesso!');
-                        },
-                        failure: function () {
-                            Ext.Msg.alert('Erro!', 'Não foi possivel remover o registro!');
                         },
                         scope: me
                     });
@@ -418,7 +412,7 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
                                     var record = store.findRecord('id', result.id) || 0,
                                         form = me.lookupReference('editForm'),
                                         grid = me.lookupReference('resultTable');
-                                    console.log(record);
+
                                     form.reset();
                                     me.selectRecord(grid, record);
                                 }

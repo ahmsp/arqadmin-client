@@ -243,23 +243,7 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
     onFilterLikes: function (button) {
         var me = this,
             grid = me.lookupReference('resultTable'),
-            store = grid.getStore(),
-            searchField = me.lookupReference('searchAllField'),
-            withImageField = me.lookupReference('checkboxWithImage');
-
-        // var oldParams = {
-        //     'withImageField': withImageField.getValue(),
-        //     'searchField': searchField.getValue(),
-        //     'extraParams': store.getProxy().extraParams,
-        //     'gridFilters': grid.filters
-        // };
-
-        // searchField.setValue('');
-        // withImageField.setValue(false);
-        // delete store.getProxy().extraParams.search_all;
-        // delete store.getProxy().extraParams.likes;
-        // grid.filters.clearFilters();
-        // store.clearFilter(true);
+            store = grid.getStore();
 
         if (button.pressed) {
             store.getProxy().extraParams['likes'] = true;
@@ -267,6 +251,16 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
             delete store.getProxy().extraParams.likes;
         }
         store.load();
+
+        // store.load({
+        //     success: function () {
+        //         filterForm.reset();
+        //         delete store.getProxy().extraParams.search_all;
+        //         delete store.getProxy().extraParams.likes;
+        //         grid.filters.clearFilters();
+        //         store.clearFilter(true);
+        //         store.load();            }
+        // });
     },
 
     onClearFilterLikes: function () {
