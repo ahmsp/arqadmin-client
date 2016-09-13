@@ -40,7 +40,7 @@ Ext.define('ArqAdmin.Application', {
 
     glyphFontFamily: 'icomoon',
 
-    defaultToken : 'painel',
+    defaultToken: 'painel',
 
     init: function () {
         var me = this;
@@ -138,6 +138,15 @@ Ext.define('ArqAdmin.Application', {
             return true;
         }
 
+        if (response.status === 0) {
+            var msg = "Não foi possivel estabelecer comunicação com o servidor. <br>" +
+                "Por favor, tente novamente em alguns instantes.";
+
+            ArqAdmin.util.Util.showErrorMsg(msg);
+
+            return false;
+        }
+
         if (options.url.split('/').pop() === 'authenticate') {
 
             //errors OAuth
@@ -164,7 +173,7 @@ Ext.define('ArqAdmin.Application', {
             if (Ext.isObject(errorDescription)) {
                 var message = '';
 
-                Ext.Object.each(errorDescription, function(key, value, myself) {
+                Ext.Object.each(errorDescription, function (key, value, myself) {
                     message = message + value + "<br>";
                 });
 
@@ -174,10 +183,11 @@ Ext.define('ArqAdmin.Application', {
                 // ArqAdmin.util.Util.showErrorMsg(error.user_message);
             }
         }
+        console.log(response);
+
     },
 
     onRequestComplete: function (conn, response, options) {
-
         if (response.status === 200 && options.url.split('/').pop() === 'authenticate') {
             ArqAdmin.util.OAuthMonitor.start();
 

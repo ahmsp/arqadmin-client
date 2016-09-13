@@ -119,13 +119,13 @@ Ext.define('ArqAdmin.view.login.LoginController', {
     },
 
     onLoginFailure: function (response, opts) {
-        var me = this,
-            result = ArqAdmin.util.Util.decodeJSON(response.responseText);
-
         ArqAdmin.user.Profile.resetUser();
         ArqAdmin.app.getController('OAuth').clearToken();
-        me.getView().unmask();
-        ArqAdmin.util.Util.showErrorMsg(result.user_message);
+        this.getView().unmask();
+
+        // Message in onRequestException method
+        // var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
+        // ArqAdmin.util.Util.showErrorMsg(result.user_message);
     },
 
     gotoAppMain: function (result) {
