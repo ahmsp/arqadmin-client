@@ -89,9 +89,14 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
             // title: 'Dados Gerais',
             items: [
                 {
-                    xtype: 'displayfield',
-                    fieldLabel: 'Registro nº',
-                    name: 'id'
+                    xtype: 'textfield',
+                    fieldLabel: 'Reg. Fotográfico',
+                    reference: 'imagemIdentificacao',
+                    name: 'imagem_identificacao',
+                    enforceMaxLength: true,
+                    maxLength: 6,
+                    regex: /^\d{6}$/,
+                    regexText: 'O valor inserido não é válido. O padrão são 6 dígitos. (ex: 012345)'
                 }
             ]
         },
@@ -291,16 +296,6 @@ Ext.define('ArqAdmin.view.fotografico.EditForm', {
             },
             title: 'Dados Gerais',
             items: [
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Reg. Fotográfico',
-                    reference: 'imagemIdentificacao',
-                    name: 'imagem_identificacao',
-                    enforceMaxLength: true,
-                    maxLength: 6,
-                    regex: /^\d{6}$/,
-                    regexText: 'O valor inserido não é válido. O padrão são 6 dígitos. (ex: 012345)'
-                },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'Data da Imagem',
