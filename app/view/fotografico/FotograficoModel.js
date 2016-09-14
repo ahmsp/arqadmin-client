@@ -25,6 +25,10 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
             pageSize: 100,
             remoteFilter: true,
             remoteSort: true,
+            sorters: {
+                property: 'imagem_identificacao',
+                direction: 'DESC'
+            },
             listeners: {
                 beforeload: 'onAcervoStoreBeforeload',
                 load: 'onAcervoStoreLoad'

@@ -12,12 +12,23 @@ Ext.define('ArqAdmin.view.fotografico.ResultTable', {
         },
         {
             xtype: 'gridcolumn',
-            width: 80,
+            width: 70,
+            hidden: true,
             align: 'right',
             dataIndex: 'id',
             text: 'ID',
             filter: {
                 type: 'number'
+            }
+        },
+        {
+            xtype: 'gridcolumn',
+            width: 110,
+            align: 'center',
+            dataIndex: 'imagem_identificacao',
+            text: 'Registro Fotográfico',
+            filter: {
+                type: 'string'
             }
         },
         {
@@ -79,15 +90,6 @@ Ext.define('ArqAdmin.view.fotografico.ResultTable', {
             xtype: 'gridcolumn',
             text: 'Dados de Endereço',
             columns: [
-                {
-                    xtype: 'gridcolumn',
-                    width: 120,
-                    dataIndex: 'imagem_identificacao',
-                    text: 'Cód. Imagem',
-                    filter: {
-                        type: 'string'
-                    }
-                },
                 {
                     xtype: 'gridcolumn',
                     width: 120,
