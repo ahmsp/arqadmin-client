@@ -46,13 +46,16 @@ Ext.define('ArqAdmin.view.dashboard.widgets.VolumeAcervos', {
     ],
     // data: '',
     listeners: {
-        beforerender: function (panel, eOpts) {
+        render: function (panel, eOpts) {
+            panel.mask('Carregando indicadores...', 'mask-plain');
+
             Ext.Ajax.request({
                 url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/api/estatisticas/totais',
                 method: 'GET',
                 scope: this,
                 success: function (response, opts) {
                     var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
+                    panel.unmask();
                     panel.setData(result);
 
                     var acervosTotais = {
