@@ -183,7 +183,7 @@ Ext.define('ArqAdmin.Application', {
                 // ArqAdmin.util.Util.showErrorMsg(error.user_message);
             }
         }
-        console.log(response);
+        // console.log(response);
 
     },
 

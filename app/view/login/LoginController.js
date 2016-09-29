@@ -119,13 +119,16 @@ Ext.define('ArqAdmin.view.login.LoginController', {
     },
 
     onLoginFailure: function (response, opts) {
+        var me = this,
+            result = ArqAdmin.util.Util.decodeJSON(response.responseText);
+
         ArqAdmin.user.Profile.resetUser();
         ArqAdmin.app.getController('OAuth').clearToken();
-        this.getView().unmask();
+        me.getView().unmask();
 
-        // Message in onRequestException method
-        // var result = ArqAdmin.util.Util.decodeJSON(response.responseText);
-        // ArqAdmin.util.Util.showErrorMsg(result.user_message);
+        if (result.error_type == 'invalid_credentials' || result.error_type == 'access_denied') {
+            ArqAdmin.util.Util.showErrorMsg(result.user_message);
+        }
     },
 
     gotoAppMain: function (result) {

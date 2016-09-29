@@ -187,11 +187,11 @@
     },
 
     "testing": {
-      "apiBaseUrl" : "http://arqadmin.dev"
+      "apiBaseUrl" : "http://localhost:8990"
     },
 
     "development": {
-      "apiBaseUrl" : "http://arqadmin.dev"
+      "apiBaseUrl" : "http://localhost:8990"
     },
 
     /**
