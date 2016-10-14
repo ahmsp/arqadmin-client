@@ -142,12 +142,39 @@ Ext.define('ArqAdmin.Application', {
             var msg = "Não foi possivel estabelecer comunicação com o servidor. <br>" +
                 "Por favor, tente novamente em alguns instantes.";
 
-            ArqAdmin.util.Util.showErrorMsg(msg);
+            options.retryRequest = options.retryRequest || 5;
+
+            if (options.retryRequest > 1) {
+                Ext.Msg.show({
+                    title: 'Servidor ocupado!',
+                    message: msg,
+                    buttons: Ext.Msg.OK,
+                    icon: Ext.Msg.ERROR,
+                    fn: function (btn) {
+                        if (btn === 'ok') {
+                            options.retryRequest--;
+                            Ext.Ajax.request(options);
+                        }
+                    }
+                });
+            } else {
+                Ext.Msg.show({
+                    title: 'Problema de autorização!',
+                    message: 'Sessão expirada. A aplicação será reiniciada',
+                    buttons: Ext.Msg.OK,
+                    icon: Ext.Msg.ERROR,
+                    fn: function (btn) {
+                        if (btn === 'ok') {
+                            ArqAdmin.app.getController('OAuth').logout();
+                        }
+                    }
+                });
+            }
 
             return false;
         }
 
-        if (options.url.split('/').pop() === 'authenticate') {
+        if (options.url.split('/').pop() === 'authenticate' || error.error_type == 'access_denied') {
 
             //errors OAuth
             //status: 401 //{"error": "invalid_credentials","error_description": "The user credentials were incorrect."}
@@ -167,6 +194,7 @@ Ext.define('ArqAdmin.Application', {
                     }
                 }
             });
+
         } else {
             var errorDescription = ArqAdmin.util.Util.decodeJSON(error.user_message);
 
@@ -178,13 +206,13 @@ Ext.define('ArqAdmin.Application', {
                 });
 
                 ArqAdmin.util.Util.showErrorMsg(message);
+
             } else {
                 ArqAdmin.util.Util.showErrorMsg(errorDescription);
                 // ArqAdmin.util.Util.showErrorMsg(error.user_message);
             }
         }
         // console.log(response);
-
     },
 
     onRequestComplete: function (conn, response, options) {

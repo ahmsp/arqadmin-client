@@ -126,6 +126,13 @@ Ext.define('ArqAdmin.view.login.LoginController', {
         ArqAdmin.app.getController('OAuth').clearToken();
         me.getView().unmask();
 
+        if (response.status === 0) {
+            var msg = "Não foi possivel estabelecer comunicação com o servidor. <br>" +
+                "Por favor, tente novamente em alguns instantes.";
+
+            ArqAdmin.util.Util.showErrorMsg(msg);
+        }
+
         if (result.error_type == 'invalid_credentials' || result.error_type == 'access_denied') {
             ArqAdmin.util.Util.showErrorMsg(result.user_message);
         }
@@ -133,7 +140,7 @@ Ext.define('ArqAdmin.view.login.LoginController', {
 
     gotoAppMain: function (result) {
         var view = this.getView();
-console.log('callback');
+        console.log('callback');
 
         view.unmask();
         view.close();

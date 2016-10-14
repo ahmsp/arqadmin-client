@@ -26,6 +26,7 @@ Ext.define('ArqAdmin.controller.OAuth', {
             params.client_secret = configs.client_secret;
             params.grant_type = 'refresh_token';
             params.refresh_token = refreshToken;
+console.log('doRefreshToken');
 
             Ext.Ajax.request({
                 url: ArqAdmin.config.Runtime.getApiBaseUrl() + '/authenticate',
