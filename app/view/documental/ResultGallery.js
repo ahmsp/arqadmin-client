@@ -68,7 +68,7 @@ Ext.define('ArqAdmin.view.documental.ResultGallery', {
                         return '';
                     },
                     getImage: function (dt) {
-                        if (!Ext.isEmpty(dt)) {
+                        if (!Ext.isEmpty(dt) && !Ext.isEmpty(dt[0].arquivo_nome)) {
                             var imgPath = ArqAdmin.config.Runtime.getImagesDocumental() + dt[0].id + '/320';
                             return '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image-75.png\';">';
                         } else {

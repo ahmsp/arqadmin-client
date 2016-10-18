@@ -13,7 +13,9 @@ Ext.define('ArqAdmin.view.documental.ResultList', {
             xtype: 'gridcolumn',
             renderer: function (value, metaData, record) {
                 var dt = record.get('desenhos_tecnicos');
-                if (!Ext.isEmpty(dt)) {
+
+                if (!Ext.isEmpty(dt) && !Ext.isEmpty(dt[0].arquivo_nome)) {
+                    console.log(!Ext.isEmpty(dt[0].arquivo_nome));
                     var imgPath = ArqAdmin.config.Runtime.getImagesDocumental() + dt[0].id + '/75';
                     return '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image-75.png\';">';
                 } else {

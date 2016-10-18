@@ -122,7 +122,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                             var record = grid.view.getRecord(tip.triggerElement.parentNode),
                                 dt = record.get('desenhos_tecnicos');
 
-                            if (!Ext.isEmpty(dt)) {
+                            if (!Ext.isEmpty(dt) && !Ext.isEmpty(dt[0].arquivo_nome)) {
                                 var imgPath = ArqAdmin.config.Runtime.getImagesDocumental() + dt[0].id + '/320';
                                 var ttip = [
                                     '<div class="tipcls">' +
