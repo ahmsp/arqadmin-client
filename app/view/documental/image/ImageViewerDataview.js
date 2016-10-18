@@ -6,7 +6,7 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerDataview', {
     split: true,
     collapsible: true,
     autoScroll: true,
-    height: 170,
+    height: 150,
 
     items: [
         {
@@ -25,13 +25,13 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerDataview', {
             tpl: [
                 '<tpl for=".">',
                     '<div class="thumb-wrap thumb-wrap-small"">',
-                        '<div class="thumb">{[this.getImage(values.id)]}</div>',
+                        '<div class="thumb">{[this.getImage(values.id, values.arquivo_nome)]}</div>',
                     '</div>',
                 '</tpl>',
                 {
-                    getImage: function (id) {
-                        if (!Ext.isEmpty(id)) {
-                            imgPath = ArqAdmin.config.Runtime.getImagesDocumental() + id + '/100';
+                    getImage: function (id, arquivoNome) {
+                        if (!Ext.isEmpty(arquivoNome)) {
+                            imgPath = ArqAdmin.config.Runtime.getImagesDocumental() + id + '/75';
                             return '<img src="' + imgPath + '" onerror="this.src=\'resources/ico/no-image-75.png\';">';
                         } else {
                             return '<img src="resources/ico/no-image-75.png" >';

@@ -173,9 +173,9 @@ body {
     vertical-align: middle !important;
 }
 
-.x-custom-td-thumbnail div {
+.x-custom-td-thumbnail > div {
     /*border: 1px solid #ddd;*/
-    width: 85px;
+    width: 95px;
     height: 85px;
     background: #eee url('../img/loading.gif') no-repeat center;
     text-align: center !important;
@@ -341,8 +341,8 @@ body {
     width: 340px;
 }
 .images-view .thumb-wrap-small {
-    height: 105px;
-    width: 105px;
+    width: 95px;
+    height: 85px;
 }
 .images-view .thumb {
     background: #fff url('../img/loading.gif') no-repeat center;

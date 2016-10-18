@@ -10,14 +10,17 @@ Ext.define('ArqAdmin.view.documental.image.ImageViewerController', {
 
     onDataviewSelect: function (viewmodel, record, index) {
         var me = this,
-            image = me.lookupReference('imageViewerImg').getImage();
+            image = me.lookupReference('imageViewerImg').getImage(),
+            imgLink = 'resources/ico/no-image-75.png';
 
         if (record) {
             me.getViewModel().set('record', record);
             me.editFormLoadRecord(record, false);
             me.detailsPanelLoadRecord(record, true);
 
-            var imgLink = ArqAdmin.config.Runtime.getImagesDocumental() + record.getId() + '/1024';
+            if (!Ext.isEmpty(record.get('arquivo_nome'))) {
+                imgLink = ArqAdmin.config.Runtime.getImagesDocumental() + record.getId() + '/1024';
+            }
             image.setSrc(imgLink);
         }
     },
