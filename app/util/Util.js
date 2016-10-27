@@ -95,6 +95,31 @@ Ext.define('ArqAdmin.util.Util', {
                     'border-radius': '4px'
                 }
             });
+        },
+
+        showTooltipHint: function (element, anchor, message, delay) {
+
+            if (tip) {
+                console.log(tip);
+            }
+            
+            var tip = Ext.create('Ext.tip.ToolTip', {
+                ui: 'tooltip-dark',
+                target: element,
+                anchor: anchor,
+                // autoHide: false,
+                html: message,
+
+                listeners: {
+                    hide: function () {
+                        this.destroy();
+                    }
+                }
+            });
+
+            var task = new Ext.util.DelayedTask(function () {
+                tip.show();
+            }).delay(delay || 0);
         }
     }
 });

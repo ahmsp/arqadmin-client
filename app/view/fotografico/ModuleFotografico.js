@@ -98,30 +98,43 @@ Ext.define('ArqAdmin.view.fotografico.ModuleFotografico', {
                             boxLabel: 'Com imagem',
                             checked: true,
                             inputValue: '1',
-                            tooltip: 'Exibir itens somente com imagem',
                             style: {
                                 color: '#fff',
                                 fontWeight: 'bold'
                             },
-                            handler: 'onCheckboxWithImageChange'
+                            autoEl: {
+                                el: 'div',
+                                'data-qtip': 'Filtra por itens que contenham imagens digitalizadas.<br>Para exibir todos os itens, desative o filtro.'
+                            },
+                            handler: 'onCheckboxWithImageChange',
+                            listeners: {
+                                afterRender: function (checkbox) {
+                                    var el = checkbox.getEl(),
+                                        anchor = 'top',
+                                        delay = 3000,
+                                        msg = 'Para exibir todos os itens,<br>desative o filtro de imagens.';
+
+                                    ArqAdmin.util.Util.showTooltipHint(el, anchor, msg, delay);
+                                }
+                            }
                         },
                         {
                             xtype: 'tbfill'
                         },
                         {
                             xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('reload'),
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('filter'),
                             tooltip: 'Limpar todos os filtros',
                             handler: 'onClearAllFilters'
                         },
-                        {
-                            xtype: 'button',
-                            itemId: 'btnClearFilters',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('filter'),
-                            //text: 'Limpar filtros dos resultados',
-                            tooltip: 'Limpar filtros dos resultados',
-                            handler: 'onGridClearFilters'
-                        },
+                        // {
+                        //     xtype: 'button',
+                        //     itemId: 'btnClearFilters',
+                        //     glyph: ArqAdmin.util.Glyphs.getGlyph('filter'),
+                        //     //text: 'Limpar filtros dos resultados',
+                        //     tooltip: 'Limpar filtros dos resultados',
+                        //     handler: 'onGridClearFilters'
+                        // },
                         {
                             xtype: 'tbseparator'
                         },
