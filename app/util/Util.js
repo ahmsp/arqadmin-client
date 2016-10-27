@@ -98,11 +98,6 @@ Ext.define('ArqAdmin.util.Util', {
         },
 
         showTooltipHint: function (element, anchor, message, delay) {
-
-            if (tip) {
-                console.log(tip);
-            }
-            
             var tip = Ext.create('Ext.tip.ToolTip', {
                 ui: 'tooltip-dark',
                 target: element,
