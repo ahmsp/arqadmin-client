@@ -32,22 +32,25 @@ Ext.define('ArqAdmin.view.main.MainController', {
     },
 
     onAfterrender: function () {
-        var me = this;
+        var me = this,
+            notShowWelcome = ArqAdmin.user.Profile.getUserPreference('not-show-welcome') === true || false;
+
+        if (notShowWelcome !== true) {
+            Ext.util.History.add('painel');
+        }
 
         ArqAdmin.app.createController('Root');
         ArqAdmin.app.createController('StaticData');
         me.redirectTo(Ext.util.History.getToken(), true);
-        me.showWelcomeDialog();
+
+        if (notShowWelcome !== true) {
+            me.showWelcomeDialog();
+        }
     },
 
     showWelcomeDialog: function () {
-        var showWelcome = ArqAdmin.user.Profile.getUserPreference('not-show-welcome');
-
-        if (showWelcome === true) {
-            return;
-        }
-
         var win = Ext.widget('iframe-window');
+
         win.title = 'Bem-vindo';
         win.height = 500;
         win.down('uxiframe').src = 'resources/docs/bem-vindo.html';
