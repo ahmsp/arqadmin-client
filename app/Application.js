@@ -24,13 +24,15 @@ Ext.require("Ext.locale.pt_BR.grid.RowEditor");
 Ext.define('ArqAdmin.Application', {
     extend: 'Ext.app.Application',
 
-    requires: [
-        'ArqAdmin.config.Runtime',
-        'ArqAdmin.user.Profile',
-        'ArqAdmin.view.login.Login',
-        'ArqAdmin.view.main.Main',
-        'ArqAdmin.util.Glyphs'
-    ],
+    requires: 'ArqAdmin.*',
+
+    // requires: [
+    //     'ArqAdmin.config.Runtime',
+    //     'ArqAdmin.user.Profile',
+    //     'ArqAdmin.view.login.Login',
+    //     'ArqAdmin.view.main.Main',
+    //     'ArqAdmin.util.Glyphs'
+    // ],
 
     name: 'ArqAdmin',
 
