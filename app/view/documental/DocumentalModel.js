@@ -21,7 +21,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
     stores: {
         documentos: {
             model: 'ArqAdmin.model.documental.Documento',
-            autoLoad: true,
+            autoLoad: false,
             pageSize: 100,
             remoteFilter: true,
             remoteSort: true,
