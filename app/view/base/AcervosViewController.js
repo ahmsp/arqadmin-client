@@ -6,6 +6,117 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
         'ArqAdmin.util.Glyphs'
     ],
 
+    onFilterFormSearchButtonClick: function (button) {
+        var me = this,
+            form = button.up('form'),
+            params = form.getValues(false, true),
+            grid = me.lookupReference('resultTable'),
+            store = grid.getStore(),
+            filters = [];
+
+        Ext.Object.each(params, function (key, value) {
+            var loProperty = 'lo_' + key;
+
+            if (key.substring(0, 3) !== 'lo_') {
+                filters.push({
+                    'property': key,
+                    'value': value,
+                    'operator': form.getForm().findField(key).operator,
+                    'logical_operator': (params.hasOwnProperty(loProperty)) ? params[loProperty] : 'and'
+                });
+            }
+        });
+
+        me.lookupReference('searchAllField').setValue('');
+        delete store.getProxy().extraParams.search_all;
+        delete store.getProxy().extraParams.likes;
+        me.clearGridStoreFilters(grid);
+        store.setFilters(filters); // autoload store
+    },
+
+    clearSearchForm: function () {
+        this.lookupReference('filterForm').reset();
+    },
+
+    onSearchfieldTriggerClick: function () {
+        var me = this,
+            field = me.lookupReference('searchAllField'),
+            value = field.getValue();
+
+        if (!Ext.isEmpty(value)) {
+            me.clearSearchForm();
+            me.searchAll(value);
+        }
+    },
+
+    onSearchfieldSpecialkey: function (field, e, eOpts) {
+        var value = field.getValue();
+
+        if (e.getKey() == e.ENTER && !Ext.isEmpty(value)) {
+            this.clearSearchForm();
+            this.searchAll(value);
+        }
+    },
+
+    onClearAllFilters: function () {
+        var me = this,
+            grid = me.lookupReference('resultTable'),
+            searchField = me.lookupReference('searchAllField'),
+            filterForm = me.lookupReference('filterForm'),
+            store = grid.getStore();
+
+        searchField.setValue('');
+        filterForm.reset();
+        delete store.getProxy().extraParams.search_all;
+        delete store.getProxy().extraParams.likes;
+        me.clearGridStoreFilters(grid);
+        store.load();
+    },
+
+    clearGridStoreFilters: function (grid) {
+        var store = grid.getStore();
+
+        store.setRemoteFilter(false);
+        this.checkboxWithImageSetValue(false);
+        grid.filters.clearFilters();
+        store.clearFilter();
+        store.setRemoteFilter(true);
+    },
+
+    setEmptySearch: function () {
+        var me = this,
+            grid = me.lookupReference('resultTable'),
+            searchField = me.lookupReference('searchAllField'),
+            filterForm = me.lookupReference('filterForm'),
+            store = grid.getStore();
+
+        searchField.setValue('');
+        filterForm.reset();
+        delete store.getProxy().extraParams.search_all;
+        delete store.getProxy().extraParams.likes;
+        me.clearGridStoreFilters(grid);
+        // workaround to clear grid store
+        store.load({
+            url: 'resources/data/empty-data.json'
+        });
+    },
+
+    searchAll: function (term) {
+        var me = this,
+            grid = me.lookupReference('resultTable'),
+            store = me.getStore(me.getViewModel().get('acervoStore'));
+
+        if (Ext.isEmpty(term)) {
+            return;
+        }
+
+        me.clearGridStoreFilters(grid);
+        delete store.getProxy().extraParams.likes;
+        store.getProxy().extraParams['search_all'] = term;
+
+        store.load();
+    },
+
     forceResetForm: function (form) {
         form.getForm().getFields().each(function (field) {
             field.originalValue = field.getInitialConfig('value');
@@ -75,6 +186,7 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
     },
 
     onButtonStaticDataClick: function (button) {
+        var me = this;
 
         var win = Ext.widget('staticdata-window', {
             title: button.tooltip.toUpperCase(),
@@ -82,7 +194,7 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
             listeners: {
                 close: function () {
                     var grid = this.down('gridpanel');
-                    grid.filters.clearFilters();
+                    me.clearGridStoreFilters(grid);
                     grid.getStore().reload();
                 }
             }
@@ -171,13 +283,17 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
      * deselect all in both grids
      */
     deselectAllGrids: function () {
-        var layoutItems = this.lookupReference('resultsPanel').getLayout().getLayoutItems();
+        var me = this,
+            layoutItems = me.lookupReference('resultsPanel').getLayout().getLayoutItems();
+
         Ext.Object.each(layoutItems, function (key, componentGrid) {
             if (componentGrid.reference == 'resultGallery') {
                 componentGrid = componentGrid.down('dataview');
             }
             componentGrid.getSelectionModel().deselectAll();
         });
+
+        me.showViewDisplayPanel(0)
     },
 
     onInfoButtonClick: function () {
@@ -204,11 +320,11 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
         var me = this,
             checkboxWithImage = me.lookupReference('checkboxWithImage');
 
-        if (checkboxWithImage.getValue() != value) {
+        if (checkboxWithImage && checkboxWithImage.getValue() != value) {
             checkboxWithImage.suspendEvent('change');
             checkboxWithImage.setValue(false);
-            checkboxWithImage.resumeEvent('change');
             me.getViewModel().set('withImage', false);
+            checkboxWithImage.resumeEvent('change');
         }
     },
 
@@ -313,6 +429,7 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
             resultGallery.down('dataview').refresh();
         }
 
+        me.deselectAllGrids();
         me.getViewModel().set('totalRecords', store.getTotalCount());
     },
 

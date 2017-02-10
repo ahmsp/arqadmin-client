@@ -13,6 +13,18 @@ Ext.define('ArqAdmin.view.fotografico.BaseGrid', {
     bind: '{fotografias}',
 
     // allowDeselect: true,
+    emptyText: [
+        '<div class="empty-text">' +
+        '<p>Sem registros para exibir.</p>' +
+        '<p>Faça sua pesquisa utilizando o campo de busca acima, ' +
+        'para procurar em todo conteúdo do acervo ' +
+        'ou utilize os campos específicos da Pesquisa Detalhada no painel ao lado, ' +
+        'para obter resultados mais objetivos.</p>' +
+        '</div>'
+    ],
+    viewConfig: {
+        deferEmptyText: false
+    },
 
     dockedItems: [
         {
@@ -20,7 +32,7 @@ Ext.define('ArqAdmin.view.fotografico.BaseGrid', {
             dock: 'bottom',
             width: 360,
             displayInfo: true,
-            bind : '{fotografias}'
+            bind: '{fotografias}'
         }
     ],
     plugins: [

@@ -8,6 +8,7 @@ Ext.define('ArqAdmin.util.Glyphs', {
         remove: 'xe045',
         save: 'xe046',
         cancel: 'xe047',
+        cancel2: 'xe608',
         copy: 'xe915',
 
         dashboard: 'xf029',

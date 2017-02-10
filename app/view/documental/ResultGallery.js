@@ -40,7 +40,13 @@ Ext.define('ArqAdmin.view.documental.ResultGallery', {
                         '</tpl>',
                     '</tpl>',
                 '<tpl else>',
-                    '<span class="empty-text" >Nenhuma imagem para exibir</span>',
+                    '<div class="empty-text">',
+                        '<p>Nenhuma imagem para exibir.</p>',
+                        '<p>Faça sua pesquisa utilizando o campo de busca acima, ',
+                        'para procurar em todo conteúdo do acervo ',
+                        'ou utilize os campos específicos da Pesquisa Detalhada no painel ao lado, ',
+                        'para obter resultados mais objetivos.</p>',
+                    '</div>',
                 '</tpl>',
                 {
                     count: function (values) {
