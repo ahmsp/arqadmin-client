@@ -61,7 +61,7 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
                                 'line-height': '16px',
                                 'font-weight': 'bold'
                             },
-                            text: 'Pesquisa:'
+                            text: 'Buscar:'
                         },
                         {
                             xtype: 'textfield',
@@ -94,14 +94,8 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
                         {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('reload'),
-                            tooltip: 'Limpar todos os filtros',
+                            tooltip: 'Limpa os filtros e recarrega todos os itens do acervo',
                             handler: 'onClearAllFilters'
-                        },
-                        {
-                            xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('filter'),
-                            tooltip: 'Limpar filtros da tabela',
-                            handler: 'onGridClearFilters'
                         },
                         {
                             xtype: 'tbseparator'

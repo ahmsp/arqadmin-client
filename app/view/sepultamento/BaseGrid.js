@@ -15,6 +15,19 @@ Ext.define('ArqAdmin.view.sepultamento.BaseGrid', {
 
     bind: '{sepultamentos}',
 
+    emptyText: [
+        '<div class="empty-text">' +
+        '<p>Sem registros para exibir.</p>' +
+        '<p>Faça sua pesquisa utilizando o campo de busca acima, ' +
+        'para procurar em todo conteúdo do acervo ' +
+        'ou utilize os campos específicos da Pesquisa Detalhada no painel ao lado, ' +
+        'para obter resultados mais objetivos.</p>' +
+        '</div>'
+    ],
+    viewConfig: {
+        deferEmptyText: false
+    },
+
     dockedItems: [
         {
             xtype: 'pagingtoolbar',

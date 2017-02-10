@@ -43,19 +43,26 @@ Ext.define('ArqAdmin.view.widget.BaseFilterForm', {
                 {
                     xtype: 'button',
                     flex: 1,
-                    text: 'Limpar formulário',
-                    handler: 'onFilterFormButtonClearClick'
+                    text: 'Nova pesquisa',
+                    tooltip: 'Limpa a pesquisa atual',
+                    handler: 'setEmptySearch'
                 },
                 {
                     xtype: 'button',
                     flex: 1,
                     text: 'Pesquisar',
-                    handler: 'onFilterFormButtonFilterClick',
+                    handler: 'onFilterFormSearchButtonClick',
                     reference: 'btnPesquisar'
                 },
                 {
-                    xtype: 'tbseparator'
+                    xtype: 'button',
+                    glyph: ArqAdmin.util.Glyphs.getGlyph('cancel2'),
+                    tooltip: 'Limpar somente os campos de pesquisa',
+                    handler: 'clearSearchForm'
                 },
+                // {
+                //     xtype: 'tbseparator'
+                // },
                 {
                     xtype: 'button',
                     glyph: ArqAdmin.util.Glyphs.getGlyph('info'),

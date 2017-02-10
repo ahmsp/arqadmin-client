@@ -62,7 +62,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                                 'line-height': '16px',
                                 'font-weight': 'bold'
                             },
-                            text: 'Pesquisa:'
+                            text: 'Buscar:'
                         },
                         {
                             xtype: 'textfield',
@@ -106,8 +106,8 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                                 el: 'div',
                                 'data-qtip': 'Filtra por itens que contenham imagens digitalizadas.<br>Para exibir todos os itens, desative o filtro.'
                             },
-                            handler: 'onCheckboxWithImageChange',
                             listeners: {
+                                change: 'onCheckboxWithImageChange',
                                 afterRender: function (checkbox) {
                                     var el = checkbox.getEl(),
                                         anchor = 'top',
@@ -123,18 +123,10 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                         },
                         {
                             xtype: 'button',
-                            glyph: ArqAdmin.util.Glyphs.getGlyph('filter'),
-                            tooltip: 'Limpar todos os filtros',
+                            glyph: ArqAdmin.util.Glyphs.getGlyph('reload'),
+                            tooltip: 'Limpa os filtros e recarrega todos os itens do acervo',
                             handler: 'onClearAllFilters'
                         },
-                        // {
-                        //     xtype: 'button',
-                        //     // itemId: 'btnClearFilters',
-                        //     glyph: ArqAdmin.util.Glyphs.getGlyph('filter'),
-                        //     //text: 'Limpar filtros dos resultados',
-                        //     tooltip: 'Limpar filtros dos resultados',
-                        //     handler: 'onGridClearFilters'
-                        // },
                         {
                             xtype: 'tbseparator'
                         },

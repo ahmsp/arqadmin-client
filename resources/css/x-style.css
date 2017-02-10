@@ -427,7 +427,8 @@ body {
 }
 /*.images-view .empty-text {*/
 .empty-text {
-    margin-top: 5px;
+    margin: 5px 30px;
+    /*margin-top: 5px;*/
     display: block;
     text-align: center;
     color: #3e4752;
