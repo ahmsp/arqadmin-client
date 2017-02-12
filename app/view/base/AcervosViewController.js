@@ -77,7 +77,7 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
         var store = grid.getStore();
 
         store.setRemoteFilter(false);
-        this.checkboxWithImageSetValue(false);
+        this.checkboxWithImageSetChecked(false);
         grid.filters.clearFilters();
         store.clearFilter();
         store.setRemoteFilter(true);
@@ -238,6 +238,25 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
         }
     },
 
+    onGridViewLinkClick: function (e, target) {
+        var me = this,
+            action = target.href.split('/').pop();
+
+        switch (action) {
+            case 'all':
+                me.onClearAllFilters();
+                break;
+            case 'all-images':
+                var checkbox = me.lookupReference('checkboxWithImage');
+                if (checkbox) {
+                    checkbox.setValue(true);
+                }
+                break;
+            case 'info':
+                me.onInfoButtonClick();
+                break;
+        }
+    },
     /**
      * Selects a record instance by record instance or index.
      * @param {Ext.grid.Panel/Ext.view.view} view An gridpanel or an dataview
@@ -316,7 +335,7 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
         store.load();
     },
 
-    checkboxWithImageSetValue: function (value) {
+    checkboxWithImageSetChecked: function (value) {
         var me = this,
             checkboxWithImage = me.lookupReference('checkboxWithImage');
 

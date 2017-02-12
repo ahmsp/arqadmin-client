@@ -33,7 +33,8 @@ Ext.define('ArqAdmin.view.main.Main', {
         'ArqAdmin.view.widget.LikesToolbar',
         'ArqAdmin.view.widget.LikeWidgetcolumn',
         'ArqAdmin.view.widget.BaseFilterForm',
-        'Ext.window.Toast'
+        'Ext.window.Toast',
+        'ArqAdmin.view.widget.InfoDetailPanel'
     ],
 
     controller: 'main',

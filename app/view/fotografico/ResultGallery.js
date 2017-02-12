@@ -21,14 +21,13 @@ Ext.define('ArqAdmin.view.fotografico.ResultGallery', {
 
             cls: 'images-view',
             emptyText: [
-                '<div class="empty-text">' +
-                '<p>Nenhuma imagem para exibir.</p>' +
-                '<p>Faça sua pesquisa utilizando o campo de busca acima, ' +
-                'para procurar em todo conteúdo do acervo ' +
-                'ou utilize os campos específicos da Pesquisa Detalhada no painel ao lado, ' +
-                'para obter resultados mais objetivos.</p>' +
+                '<div class="empty-grid">' +
+                '<p>Sem itens para exibir. Comece ou refaça sua pesquisa.</p>' +
+                '<p>Para pesquisar em todo o conteúdo do acervo, utilize o campo de busca simples acima.<br>' +
+                'Para resultados mais objetivos, utilize a Pesquisa Detalhada no painel esquerdo.</p>' +
                 '</div>'
             ],
+            deferEmptyText: false,
             itemSelector: 'div.thumb-wrap',
             trackOver: true,
             overItemCls: 'x-item-over',

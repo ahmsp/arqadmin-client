@@ -217,6 +217,8 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
             me.changeDisableCascadingCombos('editForm');
             me.deselectAllGrids();
         }
+
+        me.showViewDisplayPanel(editForm);
     },
 
     onEdit: function () {
@@ -257,7 +259,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                     var operations = batch.getOperations(),
                         result = Ext.decode(operations[0].getResponse().responseText);
 
-                    me.checkboxWithImageSetValue(false);
+                    me.checkboxWithImageSetChecked(false);
                     store.load({
                         scope: me,
                         callback: function (records, operation, success) {

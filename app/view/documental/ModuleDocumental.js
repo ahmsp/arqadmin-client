@@ -38,7 +38,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
             split: true,
             width: 350,
             collapsible: true,
-            collapsed: true
+            collapsed: false
         },
         {
             xtype: 'panel',
@@ -96,7 +96,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                             xtype: 'checkboxfield',
                             reference: 'checkboxWithImage',
                             boxLabel: 'Com imagem',
-                            checked: true,
+                            checked: false,
                             inputValue: '1',
                             style: {
                                 color: '#fff',
@@ -107,15 +107,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                                 'data-qtip': 'Filtra por itens que contenham imagens digitalizadas.<br>Para exibir todos os itens, desative o filtro.'
                             },
                             listeners: {
-                                change: 'onCheckboxWithImageChange',
-                                afterRender: function (checkbox) {
-                                    var el = checkbox.getEl(),
-                                        anchor = 'top',
-                                        delay = 3000,
-                                        msg = 'Para exibir todos os itens,<br>desative o filtro de imagens.';
-
-                                    ArqAdmin.util.Util.showTooltipHint(el, anchor, msg, delay);
-                                }
+                                change: 'onCheckboxWithImageChange'
                             }
                         },
                         {
@@ -124,7 +116,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                         {
                             xtype: 'button',
                             glyph: ArqAdmin.util.Glyphs.getGlyph('reload'),
-                            tooltip: 'Limpa os filtros e recarrega todos os itens do acervo',
+                            tooltip: 'Exibe todos os itens do acervo',
                             handler: 'onClearAllFilters'
                         },
                         {
@@ -193,7 +185,18 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
                 {
                     xtype: 'result-gallery'
                 }
-            ]
+            ],
+            listeners: {
+                containerclick: {
+                    // delegate: 'a',
+                    preventDefault: true,
+                    fn: function (container, e) {
+                        console.log('asdad')
+                    }
+                    // element: 'el'
+                    // scope: this
+                }
+            }
         },
         {
             xtype: 'panel',
@@ -214,27 +217,7 @@ Ext.define('ArqAdmin.view.documental.ModuleDocumental', {
             },
             items: [
                 {
-                    xtype: 'panel',
-                    reference: 'documentalMessageContainer',
-                    items: [
-                        {
-                            xtype: 'container',
-                            items: [
-                                {
-                                    xtype: 'container',
-                                    html: [
-                                        '<p>Selecione um registro na listagem para exibir os detalhes.<br>',
-                                        'Se preferir, você pode recolher ou expandir este painel<br>',
-                                        'clicando na seta do lado direito do título do painel.</p>'
-                                    ],
-                                    padding: '25px 35px',
-                                    style: {
-                                        'text-align': 'center'
-                                    }
-                                }
-                            ]
-                        }
-                    ]
+                    xtype: 'info-panel'
                 },
                 {
                     xtype: 'documental-detailspanel'

@@ -13,7 +13,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
 
         acervoRoute: 'documento',
         acervoStore: 'documentos',
-        withImage: true,
+        withImage: false,
 
         role: 'ROLE_DOCUMENTAL'
     },
@@ -21,7 +21,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
     stores: {
         documentos: {
             model: 'ArqAdmin.model.documental.Documento',
-            autoLoad: true,
+            autoLoad: false,
             pageSize: 100,
             remoteFilter: true,
             remoteSort: true,
@@ -77,7 +77,6 @@ Ext.define('ArqAdmin.view.documental.DocumentalModel', {
         hasRecords: function(get) {
             return get('totalRecords') > 0;
         }
-
     }
 
 

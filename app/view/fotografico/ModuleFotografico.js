@@ -96,7 +96,7 @@ Ext.define('ArqAdmin.view.fotografico.ModuleFotografico', {
                             xtype: 'checkboxfield',
                             reference: 'checkboxWithImage',
                             boxLabel: 'Com imagem',
-                            checked: true,
+                            checked: false,
                             inputValue: '1',
                             style: {
                                 color: '#fff',
@@ -107,15 +107,7 @@ Ext.define('ArqAdmin.view.fotografico.ModuleFotografico', {
                                 'data-qtip': 'Filtra por itens que contenham imagens digitalizadas.<br>Para exibir todos os itens, desative o filtro.'
                             },
                             listeners: {
-                                change: 'onCheckboxWithImageChange',
-                                afterRender: function (checkbox) {
-                                    var el = checkbox.getEl(),
-                                        anchor = 'top',
-                                        delay = 3000,
-                                        msg = 'Para exibir todos os itens,<br>desative o filtro de imagens.';
-
-                                    ArqAdmin.util.Util.showTooltipHint(el, anchor, msg, delay);
-                                }
+                                change: 'onCheckboxWithImageChange'
                             }
                         },
                         {
@@ -214,27 +206,7 @@ Ext.define('ArqAdmin.view.fotografico.ModuleFotografico', {
             },
             items: [
                 {
-                    xtype: 'panel',
-                    reference: 'fotograficoMessageContainer',
-                    items: [
-                        {
-                            xtype: 'container',
-                            items: [
-                                {
-                                    xtype: 'container',
-                                    html: [
-                                        '<p>Selecione um registro na listagem para exibir os detalhes.<br>',
-                                        'Se preferir, você pode recolher ou expandir este painel<br>',
-                                        'clicando na seta do lado direito do título do painel.</p>'
-                                    ],
-                                    padding: '25px 35px',
-                                    style: {
-                                        'text-align': 'center'
-                                    }
-                                }
-                            ]
-                        }
-                    ]
+                    xtype: 'info-panel'
                 },
                 {
                     xtype: 'fotografico-detailspanel'

@@ -148,6 +148,8 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
             editForm = me.lookupReference('editForm'),
             newRecord = Ext.create('ArqAdmin.model.sepultamento.RegistroSepultamento');
 
+        me.showViewDisplayPanel(editForm);
+
         newRecord.setId(null);
 
         if (editForm.isDirty()) {
@@ -167,6 +169,8 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoController', {
             me.editFormLoadRecord(newRecord, true);
             me.deselectAllGrids();
         }
+
+        me.showViewDisplayPanel(editForm);
     },
 
     onEdit: function () {
