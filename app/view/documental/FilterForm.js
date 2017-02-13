@@ -42,7 +42,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
             referenceHolder: true,
             collapsible: true,
             collapsed: true,
-            title: 'Classificação',
+            title: 'Classificação Documental',
             layout: {
                 type: 'vbox',
                 align: 'stretch'
