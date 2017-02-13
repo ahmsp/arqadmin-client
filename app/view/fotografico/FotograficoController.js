@@ -161,6 +161,8 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
             me.editFormLoadRecord(newRecord, true);
             me.deselectAllGrids();
         }
+
+        me.showViewDisplayPanel(editForm);
     },
 
     onEdit: function () {
@@ -247,7 +249,7 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoController', {
                         };
                         xhr.send(formData);
                     } else {
-                        me.checkboxWithImageSetValue(false);
+                        me.checkboxWithImageSetChecked(false);
                         store.load({
                             scope: me,
                             callback: function (records, operation, success) {

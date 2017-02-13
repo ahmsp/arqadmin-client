@@ -13,7 +13,7 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
 
         acervoRoute: 'fotografia',
         acervoStore: 'fotografias',
-        withImage: true,
+        withImage: false,
 
         role: 'ROLE_FOTOGRAFICO'
     },
@@ -21,7 +21,7 @@ Ext.define('ArqAdmin.view.fotografico.FotograficoModel', {
     stores: {
         fotografias: {
             model: 'ArqAdmin.model.fotografico.Fotografia',
-            autoLoad: true,
+            autoLoad: false,
             pageSize: 100,
             remoteFilter: true,
             remoteSort: true,

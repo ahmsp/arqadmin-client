@@ -66,7 +66,7 @@ Ext.define("Ext.locale.pt_BR.grid.RowEditor", {
     saveBtnText: 'Ok',
     cancelBtnText: 'Cancelar',
     errorsText: 'Erro',
-    dirtyText: 'Sem registros para exibir'
+    dirtyText: 'Sem itens para exibir'
 });
 
 // This is needed until we can refactor all of the locales into individual files

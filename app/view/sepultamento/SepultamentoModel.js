@@ -21,7 +21,7 @@ Ext.define('ArqAdmin.view.sepultamento.SepultamentoModel', {
     stores: {
         sepultamentos: {
             model: 'ArqAdmin.model.sepultamento.RegistroSepultamento',
-            autoLoad: true,
+            autoLoad: false,
             pageSize: 100,
             remoteFilter: true,
             remoteSort: true,

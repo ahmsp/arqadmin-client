@@ -175,27 +175,7 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
             },
             items: [
                 {
-                    xtype: 'panel',
-                    reference: 'sepultamentoMessageContainer',
-                    items: [
-                        {
-                            xtype: 'container',
-                            items: [
-                                {
-                                    xtype: 'container',
-                                    html: [
-                                        '<p>Selecione um registro na listagem para exibir os detalhes.<br>',
-                                        'Se preferir, você pode recolher ou expandir este painel<br>',
-                                        'clicando na seta do lado direito do título do painel.</p>'
-                                    ],
-                                    padding: '25px 35px',
-                                    style: {
-                                        'text-align': 'center'
-                                    }
-                                }
-                            ]
-                        }
-                    ]
+                    xtype: 'info-panel'
                 },
                 {
                     xtype: 'sepultamento-detailspanel'

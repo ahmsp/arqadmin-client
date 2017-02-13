@@ -71,5 +71,13 @@ Ext.define('ArqAdmin.view.widget.BaseFilterForm', {
                 }
             ]
         }
-    ]
+    ],
+    
+    listeners: {
+        beforerender: function (panel) {
+            if (panel.up('viewport').getWidth() < 1440) {
+                panel.setCollapsed(true);
+            }
+        }
+    }
 });
