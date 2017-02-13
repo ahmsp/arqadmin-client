@@ -15,8 +15,8 @@ Ext.define('ArqAdmin.view.base.BaseGrid', {
     emptyText: [
         '<div class="empty-grid">' +
         '<p>Sem itens para exibir. Comece ou refaça sua pesquisa.</p>' +
-        '<p>Para pesquisar em todo o conteúdo do acervo, utilize o campo de busca simples acima.<br>' +
-        'Para resultados mais objetivos, utilize a Pesquisa Detalhada no painel esquerdo.</p>' +
+        '<p>Para pesquisar em todo o conteúdo do acervo, utilize o campo Buscar acima.<br>' +
+        'Para resultados mais específicos, utilize a Pesquisa Detalhada no painel esquerdo.</p>' +
         '<p><a href="all">Exibir todos os itens do acervo</a><br>' +
         '<a href="all-images">Exibir somente itens com imagem</a><br>' +
         '<a href="info">Dicas para pesquisa</a></p>' +

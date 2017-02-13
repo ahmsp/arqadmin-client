@@ -7,7 +7,7 @@ Ext.define('ArqAdmin.view.documental.FilterForm', {
             xtype: 'combobox',
             submitValue: false,
             reference: 'filterAcervoCombo',
-            fieldLabel: 'Séries relevantes',
+            fieldLabel: 'Séries disponíveis',
             name: 'acervo_id',
             //emptyText: 'Selecione uma classificação...',
             displayField: 'acervo_nome',
