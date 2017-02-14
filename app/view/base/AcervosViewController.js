@@ -257,6 +257,7 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
                 break;
         }
     },
+
     /**
      * Selects a record instance by record instance or index.
      * @param {Ext.grid.Panel/Ext.view.view} view An gridpanel or an dataview
