@@ -80,6 +80,7 @@ Ext.define('ArqAdmin.view.base.AcervosViewController', {
         this.checkboxWithImageSetChecked(false);
         grid.filters.clearFilters();
         store.clearFilter();
+        store.currentPage = 1;
         store.setRemoteFilter(true);
     },
 
