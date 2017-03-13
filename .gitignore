@@ -9,3 +9,4 @@ ext/
 touch/
 temp/
 build/
+app.json

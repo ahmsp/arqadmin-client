@@ -183,15 +183,21 @@
      * settings.
      */
     "production": {
-      "apiBaseUrl" : "http://servername"
+      "apiBaseUrl" : "http://servername",
+      "clientId": "",
+      "clientSecret": ""
     },
 
     "testing": {
-      "apiBaseUrl" : "http://arqadmin.dev"
+      "apiBaseUrl" : "http://localhost:8081",
+      "clientId": "",
+      "clientSecret": ""
     },
 
     "development": {
-      "apiBaseUrl" : "http://arqadmin.dev"
+      "apiBaseUrl" : "http://localhost:8080",
+      "clientId": "",
+      "clientSecret": ""
     },
 
     /**
