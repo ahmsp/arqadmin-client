@@ -447,13 +447,17 @@ body {
 .empty-grid p {
     margin-bottom: 21px;
 }
-.empty-grid a {
+.empty-grid .quick-links {
     font-size: 13px;
+}
+
+.empty-grid a {
+    /*font-size: 13px;*/
     color: #086188;
     text-decoration: none;
 }
 .empty-grid a:hover {
-    font-size: 13px;
+    /*font-size: 13px;*/
     color: #084b6a;
     text-decoration: underline;
 }

@@ -27,7 +27,7 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
                 bodyStyle: 'background-color:#eee;padding:0;',
                 renderTo: Ext.getBody(),
                 listeners: {
-                    beforeshow: function updateTipBody(tip) {
+                    beforeshow: function updateTipBody (tip) {
                         var gridColumns = grid.view.getGridColumns(),
                             column = gridColumns[tip.triggerElement.cellIndex];
 
@@ -115,6 +115,48 @@ Ext.define('ArqAdmin.view.documental.DocumentalController', {
     onButtonShowImageClick: function (event, target) {
         //var imgId = target.id.split('-').pop();
         this.showImageViewerWindow();
+    },
+
+    /**
+     * Override AcervosViewController method
+     */
+    onGridViewLinkClick: function (e, target) {
+        var me = this,
+            action = target.href.split('/').pop();
+
+        switch (action) {
+            case 'all':
+                me.onClearAllFilters();
+                break;
+            case 'all-images':
+                var checkbox = me.lookupReference('checkboxWithImage');
+                if (checkbox) {
+                    checkbox.setValue(true);
+                }
+                break;
+            case 'info':
+                me.onInfoButtonClick();
+                break;
+            case 'obras-particulares':
+                me.lookupReference('resultTable').getStore().setFilters([
+                    {'property': 'fundo_id', 'value': 3},
+                    {'property': 'subfundo_id', 'value': 9},
+                    {'property': 'grupo_id', 'value': 68},
+                    {'property': 'subgrupo_id', 'value': 8},
+                    {'property': 'serie_id', 'value': 192}
+                ]);
+                break;
+            case 'severo-villares':
+                me.lookupReference('resultTable').getStore().setFilters([
+                    {'property': 'fundo_id', 'value': 22}
+                ]);
+                break;
+            case 'iv-centenario':
+                me.lookupReference('resultTable').getStore().setFilters([
+                    {'property': 'fundo_id', 'value': 4}
+                ]);
+                break;
+        }
     },
 
     onGridCellClick: function (grid, td, cellIndex, record, tr, rowIndex, e, eOpts) {

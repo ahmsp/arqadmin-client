@@ -17,8 +17,8 @@ Ext.define('ArqAdmin.config.Runtime', {
         downloadSepultamento: Ext.manifest.apiBaseUrl + '/api/imagem/sepultamento/',
         uploadSepultamento: Ext.manifest.apiBaseUrl + '/api/imagem/upload/sepultamento/',
 
-        client_id: 'LNCMz1G9iV6vpMH8b4BIlt33FmUmycEcn6iM1lZm',
-        client_secret: 'LV3OIv9pzSVqMLGkxgGVx9meKK9qIe5r8kGbN7V1',
+        client_id: Ext.manifest.clientId,
+        client_secret: Ext.manifest.clientSecret,
         grant_type: 'password',
 
         refreshTokenInterval: 1000 * 60 * 55 // 55 minutes

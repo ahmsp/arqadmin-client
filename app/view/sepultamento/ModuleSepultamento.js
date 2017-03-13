@@ -37,7 +37,7 @@ Ext.define('ArqAdmin.view.sepultamento.ModuleSepultamento', {
             split: true,
             width: 350,
             collapsible: true,
-            collapsed: true
+            collapsed: false
         },
         {
             xtype: 'panel',
