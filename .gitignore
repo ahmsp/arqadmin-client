@@ -5,7 +5,6 @@
 .project
 .sencha/
 .sass-cache/
-ext/
 touch/
 temp/
 build/
