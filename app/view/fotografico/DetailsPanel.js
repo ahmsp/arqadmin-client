@@ -134,7 +134,8 @@ Ext.define('ArqAdmin.view.fotografico.DetailsPanel', {
                     name: 'imagem_identificacao',
                     bind: {
                         hidden: '{!record.imagem_identificacao}'
-                    }
+                    },
+                    cls: 'displayfield-highlight'
                 },
                 {
                     xtype: 'displayfield',
