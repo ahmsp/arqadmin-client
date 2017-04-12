@@ -163,9 +163,7 @@ Ext.define('ArqAdmin.view.documental.DetailsPanel', {
                     xtype: 'displayfield',
                     fieldLabel: 'Registro nº',
                     name: 'id',
-                    bind: {
-                        //value: '{record.id}'
-                    }
+                    cls: 'displayfield-highlight'
                 },
                 {
                     xtype: 'displayfield',

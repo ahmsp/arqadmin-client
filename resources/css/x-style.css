@@ -232,6 +232,10 @@ body {
     padding: 5px 5px 0;
 }
 
+.displayfield-highlight label, .displayfield-highlight .x-form-display-field {
+    color: red;
+}
+
 /** loading screen */
 
 .x-mask.x-mask-fixed.splashscreen {
