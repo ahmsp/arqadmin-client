@@ -56,7 +56,7 @@ Ext.define('ArqAdmin.view.login.Login', {
                 blankText: 'Este campo é obrigatório',
                 validateBlank: true,
                 msgTarget: 'side',
-                fieldStyle: 'font-size: 21px'
+                fieldStyle: 'font-size: 21px; height: 38px'
             },
             bodyPadding: 15,
             bodyStyle: {
@@ -80,14 +80,6 @@ Ext.define('ArqAdmin.view.login.Login', {
                         textAlign: 'center'
                     }
                 },
-                // {
-                //     xtype: 'textfield',
-                //     reference: 'fieldDomain',
-                //     fieldLabel: 'Domínio (Padrão: rede)',
-                //     name: 'domain',
-                //     value: 'rede',
-                //     readOnly: true
-                // },
                 {
                     xtype: 'textfield',
                     reference: 'fieldUsername',
@@ -105,7 +97,8 @@ Ext.define('ArqAdmin.view.login.Login', {
                     fieldLabel: 'Senha',
                     name: 'password',
                     inputId: 'fieldPassword',
-                    inputType: 'password',
+                    // inputType: 'password',
+                    fieldStyle: 'font-size: 28px; height: 38px; -webkit-text-security: disc; font-family: text-security-disc;',
                     enableKeyEvents: true,
                     minLength: 6,
                     selectOnFocus: true,
